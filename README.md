@@ -1,6 +1,6 @@
 # **Trainee 2026.1**
 
-# **Nome do seu blog**
+# **DexStroll**
 
 ## **Projeto Trainee, Code Jr, 2026.1**
 
@@ -17,16 +17,16 @@
 ## Equipe
 
 #### Desenvolvedores:
-* [Trainee 1](coloque o link do github)
-* [Trainee 2](coloque o link do github)
-* [Trainee 3](coloque o link do github)
-* [Trainee 4](coloque o link do github)
+* Ana Clara (coloque o link do github)
+* Guilherme Sander (coloque o link do github)
+* Isadora de Souza (coloque o link do github)
+* Pedro Quintino (coloque o link do github)
 
 #### Scrum Master:
-* [Nome do Scrum](coloque o link do github).
+* Marcos Vinícius https://github.com/marcosmvf22.
 
 #### Links Úteis:
-* [Trello do Projeto]()
+* [Trello do Projeto](https://trello.com/b/riZGvMM9/dexstroll)
 
 ---
 
