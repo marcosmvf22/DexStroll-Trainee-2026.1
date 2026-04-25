@@ -1,8 +1,8 @@
-# **Trainee 2025.1**
+# **Trainee 2026.1**
 
 # **Nome do seu blog**
 
-## **Projeto Trainee, Code Jr, 2025.1**
+## **Projeto Trainee, Code Jr, 2026.1**
 
 | **Sumário** |
 |-------------|
@@ -13,15 +13,15 @@
 
 #### Desenvolvedores:
 
-* [Trainee 1](coloque o link do github)
-* [Trainee 2](coloque o link do github)
-* [Trainee 3](coloque o link do github)
-* [Trainee 4](coloque o link do github)
+* [Ana Clara](anaclara.leles@estudante.ufjf.br)
+* [Guilherme Sander](guilhermesander.morais@estudante.ufjf.br)
+* [Isadora de  Souza](souzad.isadora@gmail.com)
+* [Pedro Quintino](p.a.qgamer@gmail.com)
 
 
 #### Scrum Master:
 
-* [Nome do Scrum](coloque o link do github).
+* [Marcos Vinícius](https://github.com/marcosmvf22).
 
 #### Links Úteis:
 
