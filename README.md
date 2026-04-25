@@ -13,10 +13,10 @@
 
 #### Desenvolvedores:
 
-* [Ana Clara](anaclara.leles@estudante.ufjf.br)
-* [Guilherme Sander](guilhermesander.morais@estudante.ufjf.br)
-* [Isadora de  Souza](souzad.isadora@gmail.com)
-* [Pedro Quintino](p.a.qgamer@gmail.com)
+* [Ana Clara](https://github.com/Anaclaraleles)
+* [Guilherme Sander](https://github.com/Guilherme-Sander)
+* [Isadora de  Souza](https://github.com/izzyadora)
+* [Pedro Quintino](https://github.com/paqgamer)
 
 
 #### Scrum Master:
