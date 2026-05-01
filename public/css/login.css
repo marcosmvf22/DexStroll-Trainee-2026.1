@@ -3,9 +3,24 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
-    background-color: aqua;
 }
-body{
-    background-color: aqua;
+.container-login{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    /* height: 50%; */
+    padding: 30px;
+
+}
+.box1-login{
+    background-color: bisque;
+}
+.box2-login{
+    display: flex;
+    background: linear-gradient(red, blue);
+    align-items: center;
+    justify-content: center;
+}
+.img-login{
+    width: 80%;
 }
