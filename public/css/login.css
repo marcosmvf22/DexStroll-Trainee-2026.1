@@ -1,6 +1,10 @@
 body{
     background-color: #bcccdb;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
 }
+
 .main-login{
     display: flex;
     flex-direction: row;
@@ -10,33 +14,83 @@ body{
 .container-login{
     display: flex;
     flex-direction: row;
-    width: 50%; 
+    width: 60%; 
     height: 60vh;
-    padding: 30px;
     margin-top: 15vh;
+
+    border: 1px solid #0d2a4d;
+    border-radius: 20px;
+    box-shadow: 10px 50px 80px #0d2a4d;
 }
 .box1-login{
-    background-color: #f5f7fa;
+    display: flex;
+    flex-direction:column;
     padding: 10px;
     width: 50%;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f5f7fa;
+    border-radius: 20px 0px 0px 20px;
 }
-#titulo-login{
+.titulo-login{
     color: #0d2a4d;
+    margin: 0%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 5vh;
 }
-#subtitulo-login{
+.subtitulo-login{
     color: #0d2a4d;
+    margin-bottom: 2vh;
+    margin-top: 0%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3vh;
 }
 .descricao-login{
     color: #0d2a4d;
+    margin-bottom: 0%;
+}
+
+.campos-login{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    font-size: 2vh;
+}
+.input-login{
+    width: 50vh;
+    height: 4vh;
+    padding: 5px;
+
+    background-color:#bcccdb;
+    border: 1px solid  #0d2a4d;
+    border-radius: 5px;
+    margin-top: 0vh;
 }
 .box2-login{
     display: flex;
     padding: 10px;
-    background: linear-gradient(#1f5fa8, #0d2a4d);
     align-items: center;
     justify-content: center;
     width: 50%;
+
+    background: linear-gradient(#1f5fa8, #0d2a4d);
+    border-radius: 0px 20px 20px 0px;
 }
 .img-login{
-    width: 80%;
+    width: 100%;
+}
+.botao-login{
+    margin-top: 4vh;
+    width: 20vh;
+    height: 7vh;
+
+    border: 1px solid #0d2a4d;
+    border-radius: 20px;
+    background-color: #0d2a4d;
+    color: #bcccdb;
 }
