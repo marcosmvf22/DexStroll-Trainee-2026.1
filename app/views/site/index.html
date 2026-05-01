@@ -5,25 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="/public/css/login.css">
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="main-login">
         <div class="container-login">
 
             <div class="box1-login">
-                <h1 id="titulo-login">LOGIN</h1>
+                <h1 class="titulo-login">LOGIN</h1>
 
-                <h2 id="subtitulo-login">Bem-vindo de volta!</h2>
+                <h2 class="subtitulo-login">Bem-vindo de volta!</h2>
 
-                <p class="descricao-login">Email</p>
-                <label class="input-login">
-                    <input id="email" name="email" type="email">
-                </label>
+                <div class="campos-login">
+                    <p class="descricao-login">Email</p>
+                    <label class="label-login">
+                    <input id="email" name="email" type="email" class="input-login">
+                    </label>
 
-                <p class="descricao-login">Senha</p>
-                <label class="input-login">
-                    <input id="senha" name="senha" type="senha">
-                </label>
+                    <p class="descricao-login">Senha</p>
+                    <label class="label-login">
+                    <input id="senha" name="senha" type="senha" class="input-login">
+                    </label>
+                </div>
 
                 <button class="botao-login">Login</button> 
             </div>
