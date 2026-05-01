@@ -1,7 +1,7 @@
 body{
     background-color: #bcccdb;
     font-family: "Poppins", sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -22,16 +22,19 @@ body{
     border-radius: 20px;
     box-shadow: 10px 50px 80px #0d2a4d;
 }
-.box1-login{
+.topo-login{
     display: flex;
-    flex-direction:column;
-    padding: 10px;
-    width: 50%;
-    align-items: center;
+    position: relative;
+    flex-direction: row;
     justify-content: center;
-
-    background-color: #f5f7fa;
-    border-radius: 20px 0px 0px 20px;
+    width: 100%;
+}
+#icone-voltar-login{
+    margin-left: 0%;
+    position: absolute;
+    font-size: 25px;
+    color: #0d2a4d;
+    left: 0px;
 }
 .titulo-login{
     color: #0d2a4d;
@@ -50,6 +53,17 @@ body{
     font-style: normal;
     font-size: 3vh;
 }
+.box1-login{
+    display: flex;
+    flex-direction:column;
+    padding: 10px;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f5f7fa;
+    border-radius: 20px 0px 0px 20px;
+}
 .descricao-login{
     color: #0d2a4d;
     margin-bottom: 0%;
@@ -57,19 +71,46 @@ body{
 
 .campos-login{
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content:space-between;
     font-size: 2vh;
 }
 .input-login{
-    width: 50vh;
+    width: 40vh;
     height: 4vh;
     padding: 5px;
+    padding-left: 33px;
 
     background-color:#bcccdb;
     border: 1px solid  #0d2a4d;
     border-radius: 5px;
     margin-top: 0vh;
+    
+}
+#icone-envelope{
+    color: #0e2e54;
+    font-size: 15px;
+    margin-top: 2vh;
+}
+#icone-senha{
+    color: #0e2e54;
+    margin-top: 2vh;
+    font-size: 15px; /* tamanho do icone*/
+}
+.elementos-input{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    margin-left: 1vh;
+}
+.line-login{
+    border-left: 1.5px solid #0e2e54;
+    margin-left: 5px;
+    height: 4vh;
+    margin-top: 1vh;
+    margin-bottom: 40px;
+
 }
 .box2-login{
     display: flex;
@@ -85,7 +126,7 @@ body{
     width: 100%;
 }
 .botao-login{
-    margin-top: 4vh;
+    margin-top: 3vh;
     width: 20vh;
     height: 7vh;
 
@@ -93,4 +134,8 @@ body{
     border-radius: 20px;
     background-color: #0d2a4d;
     color: #bcccdb;
+}
+.texto-login{
+    color: #0d2a4d;
+    font-size: 2vh;
 }
