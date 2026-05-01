@@ -32,7 +32,7 @@ body{
 #icone-voltar-login{
     margin-left: 0%;
     position: absolute;
-    font-size: 25px;
+    font-size: 2.5vw;
     color: #0d2a4d;
     left: 0px;
 }
@@ -42,7 +42,7 @@ body{
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 5vh;
+    font-size: 2.5vw;
 }
 .subtitulo-login{
     color: #0d2a4d;
@@ -51,7 +51,7 @@ body{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 3vh;
+    font-size: 1.5vw;
 }
 .box1-login{
     display: flex;
@@ -73,11 +73,10 @@ body{
     display: flex;
     position: relative;
     flex-direction: column;
-    justify-content:space-between;
-    font-size: 2vh;
+    font-size: 1vw;
 }
 .input-login{
-    width: 40vh;
+    width: 20vw;
     height: 4vh;
     padding: 5px;
     padding-left: 33px;
@@ -89,19 +88,22 @@ body{
     
 }
 #icone-envelope{
-    color: #0e2e54;
-    font-size: 15px;
-    margin-top: 2vh;
+    color: #0d2c4f;
+    opacity: 0.7;
+    font-size: 1.5vw;
+    margin-top: 1.5vh;
 }
 #icone-senha{
     color: #0e2e54;
-    margin-top: 2vh;
-    font-size: 15px; /* tamanho do icone*/
+    opacity: 0.7;
+    font-size: 1.5vw;
+    margin-top: 1.5vh;
 }
 .elementos-input{
     position: absolute;
     display: flex;
     flex-direction: row;
+    height: 50%;
     margin-left: 1vh;
 }
 .line-login{
@@ -110,6 +112,7 @@ body{
     height: 4vh;
     margin-top: 1vh;
     margin-bottom: 40px;
+    opacity: 0.7;
 
 }
 .box2-login{
@@ -127,7 +130,7 @@ body{
 }
 .botao-login{
     margin-top: 3vh;
-    width: 20vh;
+    width: 10vw;
     height: 7vh;
 
     border: 1px solid #0d2a4d;
@@ -137,5 +140,82 @@ body{
 }
 .texto-login{
     color: #0d2a4d;
-    font-size: 2vh;
+    font-size: 1vw;
+}
+
+/* responsivo */
+@media (max-width: 950px){
+    .container-login{
+        height: 55vh;
+    }
+
+}
+@media (max-width: 800px){
+    .container-login{
+        height: 45vh;
+    }
+}
+@media (max-width: 500px){
+    .container-login{
+       flex-direction: column-reverse;
+       width: 40%;
+       align-items: center;
+       justify-content: center;
+       height: 100%;
+    }
+    .box1-login{
+        width: 100%;
+        padding: 5px;
+        border-radius: 0px 0px 20px 20px;
+    }
+    #icone-voltar-login{
+        font-size: 4vw;
+    }
+    .titulo-login{
+        font-size: 3vw;
+    }
+    .subtitulo-login{
+        font-size: 2vw;
+        margin-bottom: 0%;
+    }
+    .campos-login{
+        font-size: 2vw;
+    }
+    .box2-login{
+        width: 100%;
+        height: 5vh;
+        padding: 5px;
+        border-radius: 20px 20px 0px 0px;
+    }
+    .img-login{
+         width: 50%;
+    }
+    .input-login{
+         width: 20vw;
+         height: 1.5vh;
+    
+    }
+    .line-login{
+    margin-left: 5px;
+    height: 2vh;
+    margin-top: 0.75vh;
+    }
+    #icone-envelope{
+        font-size: 3vw;
+        margin-top: 1vh;
+    }
+    #icone-senha{
+        font-size: 3vw;
+        margin-top: 1vh;
+    }
+    .botao-login{
+    margin-top: 3vh;
+    width: 15vw;
+    height: 4vh;
+    font-size: 3vw;
+}
+    .texto-login{
+        font-size: 2vw;
+    }
+    
 }
