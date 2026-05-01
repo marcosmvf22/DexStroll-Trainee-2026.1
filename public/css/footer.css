@@ -1,0 +1,65 @@
+footer{
+    background: linear-gradient(98deg,#4b0c14,#ad1c2e);
+    color: white;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+.redes_sociais, .contato{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.assinatura{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2{
+    font-size: 24px;
+    margin: 0;
+}
+
+p{
+    font-size: 20px;
+    margin: 0;
+}
+
+.icones{
+    display: flex;
+    gap: 20px;
+    padding: 10px 10px;
+}
+
+.icones a{
+    color: white;   
+}
+
+.icones i{
+    font-size: 40px;
+    transition: color 0.3s;
+}
+
+
+.logo_dexstroll_footer{
+    width: 226px;
+}
+
+.logo_code_footer{
+    width: 118px;
+
+}
+
