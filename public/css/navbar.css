@@ -2,8 +2,10 @@
     margin: 0;
     padding: 0;
 }
-
 nav{
+
+}
+.box1-nav{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -21,7 +23,7 @@ nav{
     height: 100%;
 }
 .botao-publicacoes-nav{
-    width: 10vw;
+    width: 120px;
     height: 7vh;
 
     border: 1px solid #0d2a4d;
@@ -35,7 +37,7 @@ nav{
     font-style: normal;
 }
 .botao-login-nav{
-    width: 10vw;
+    width: 120px;
     height: 7vh;
     margin-left: 2vw;
 
@@ -49,7 +51,39 @@ nav{
     font-weight: 600;
     font-style: normal;
 }
+#icone-menu-nav{
+    display: none;
+}
+.line-nav{
+    display: flex;
+    border: 1.5px solid #5a1a22;
+}
 body{
     background: linear-gradient(#1f5fa8, #0d2a4d);
     height: 97vh; /* so para melhor visualização da pagina geral */
+}
+@media (max-width: 450px){
+    .logo-nav{
+        /* width: 75px; */
+    }
+    .botao-publicacoes-nav{
+        display: none;
+    }
+    .botao-login-nav{
+        display: none;
+    }
+    #icone-menu-nav{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #5a1a22;
+        color: #e6392f;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px #0d2a4d;
+
+        width: 45px;
+        height: 7vh;
+        font-size: 30px;
+
+    }
 }
