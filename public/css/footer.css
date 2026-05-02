@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 footer{
     background: linear-gradient(98deg,#4b0c14,#ad1c2e);
     color: white;
@@ -9,6 +11,7 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
