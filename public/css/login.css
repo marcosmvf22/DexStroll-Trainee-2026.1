@@ -90,13 +90,13 @@ body{
 #icone-envelope{
     color: #0d2c4f;
     opacity: 0.7;
-    font-size: 1.5vw;
+    font-size: 20px;
     margin-top: 1.5vh;
 }
 #icone-senha{
     color: #0e2e54;
     opacity: 0.7;
-    font-size: 1.5vw;
+    font-size: 20px;
     margin-top: 1.5vh;
 }
 .elementos-input{
@@ -126,7 +126,8 @@ body{
     border-radius: 0px 20px 20px 0px;
 }
 .img-login{
-    width: 100%;
+    width: 360px;
+    height: 360px;
 }
 .botao-login{
     margin-top: 3vh;
@@ -158,6 +159,24 @@ body{
 @media (max-width: 800px){
     .container-login{
         height: 45vh;
+    }
+    #icone-envelope{
+        font-size: 15px;
+        margin-top: 1.8vh;
+    }
+    #icone-senha{
+        font-size: 15px;
+        margin-top: 1.8vh;
+    }
+    .img-login{
+        width: 300px;
+        height: 300px;
+    }
+}
+@media (max-width: 650px){
+    .img-login{
+        width: 240px;
+        height: 240px;
     }
 }
 @media (max-width: 500px){
@@ -193,7 +212,8 @@ body{
         border-radius: 20px 20px 0px 0px;
     }
     .img-login{
-         width: 50%;
+        width: 55px;
+        height: 55px;
     }
     .input-login{
          width: 20vw;
@@ -201,23 +221,23 @@ body{
     
     }
     .line-login{
-    margin-left: 5px;
-    height: 2vh;
-    margin-top: 0.75vh;
+        margin-left: 5px;
+        height: 2vh;
+        margin-top: 0.75vh;
     }
     #icone-envelope{
-        font-size: 3vw;
+        font-size: 10px;
         margin-top: 1vh;
     }
     #icone-senha{
-        font-size: 3vw;
+        font-size: 10px;
         margin-top: 1vh;
     }
     .botao-login{
-    margin-top: 3vh;
-    width: 15vw;
-    height: 4vh;
-    font-size: 3vw;
+        margin-top: 3vh;
+        width: 15vw;
+        height: 4vh;
+        font-size: 3vw;
 }
     .texto-login{
         font-size: 1.7vw;
