@@ -159,3 +159,60 @@ body{
     margin: 0 10px 15px;
     color: #ccc;
 }
+
+@media (max-width: 768px) {
+    .introducao h1 {
+        font-size: 32px;
+    }
+
+    .dados h2 {
+        font-size: 24px;
+    }
+
+    .texto p, .texto2 p {
+        font-size: 16px;
+    }
+
+    .posts_relacionados h1 {
+        font-size: 28px;
+    }
+
+    .card {
+        width: 200px;
+    }
+
+    .texto2 {
+        flex-direction: column;
+    }
+
+    .texto2 p {
+        flex: none;
+    }
+
+    .imagem_principal {
+        border-radius: 10px;
+    }
+    .imagem_principal img {
+        height: auto;
+    }
+
+    .imagem_lado img {
+        height: auto;
+    }
+
+    .carrossel{
+        width: 100%;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding-left: 10px;
+    }
+
+    .carrossel ul {
+        scroll-snap-type: x mandatory;
+    }
+
+    .card {
+        scroll-snap-align: start;
+    }
+
+}
