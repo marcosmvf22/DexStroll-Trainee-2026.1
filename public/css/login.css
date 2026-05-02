@@ -142,6 +142,11 @@ body{
     color: #0d2a4d;
     font-size: 1vw;
 }
+.texto-link-login{
+    color: #1f5fa8;
+    font-weight: 600;
+    text-decoration: none;
+}
 
 /* responsivo */
 @media (max-width: 950px){
@@ -215,7 +220,7 @@ body{
     font-size: 3vw;
 }
     .texto-login{
-        font-size: 2vw;
+        font-size: 1.7vw;
     }
     
 }
