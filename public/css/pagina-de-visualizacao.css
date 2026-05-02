@@ -7,6 +7,13 @@ body{
     color: white;
     margin: 0;
 }
+
+.card a{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
 .introducao{
     display: flex;
     flex-direction: column;
