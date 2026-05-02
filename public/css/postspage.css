@@ -1,100 +1,120 @@
-body{
-background: linear-gradient(180deg, #1F5FA8 0%, #0D2A4D 100%);
-font-family: "Poppins", sans-serif;
-    color: white;
-    margin: 0;
-    padding: 20px;
-
+body {
+  background: linear-gradient(180deg, #1f5fa8 0%, #0d2a4d 100%);
+  font-family: "Poppins", sans-serif;
+  color: white;
+  margin: 0;
+  padding: 20px;
 }
 
-
 h1 {
-    text-align: center;
-    margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 /*comentar no css aparentemente é diferente de comentar no HTML
 nomes seção grade_posts
 eu vou ficar maluco*/
-time{
-    color: #4FA3FF;
+time {
+  color: #4fa3ff;
 }
-.grade_posts{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 900px;
-    gap: 40px;
-    margin: 0 auto;
+.grade_posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 900px;
+  gap: 40px;
+  margin: 0 auto;
 }
-.publicacao{
-  
-    background-color: #f5f7fa;
-    padding: 20px;
-    display: flex;
-    flex-direction: column; 
-    gap: 15px;
-    border-radius: 40px;
-
+.publicacao {
+  background-color: #f5f7fa;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 40px;
 }
-h2{
-    color: #0D2A4D;
+h2 {
+  color: #0d2a4d;
 }
-.manchetedopost{
-    color: #1F5FA8;
-    text-align: justify;
+.manchetedopost {
+  color: #1f5fa8;
+  text-align: justify;
 }
-.nomeautorpost{
-    color: #1F5FA8;
-    font-weight: bold;
-    align-items: center;
+.nomeautorpost {
+  color: #1f5fa8;
+  font-weight: bold;
+  align-items: center;
 }
-.fotodopost{
-background-color: #0D2A4D;
-height: 250px;
-border-radius: 30px;
-width: 100%;
-
+.fotodopost {
+  background-color: #0d2a4d;
+  height: 250px;
+  border-radius: 30px;
+  width: 100%;
 }
-.lermais-botao{
-    background-color: #E6392f;
-    border-radius: 40px;
-    padding: 10px 20px;
-    color: #f5f7fa;
-    font-family: "Poppins", sans-serif;
-    cursor: pointer;
-    /*fiquei impressionado ao aprender a trocar o cursor pra mãozinha clicando*/
-    
+.lermais-botao {
+  background-color: #e6392f;
+  border-radius: 40px;
+  padding: 10px 20px;
+  color: #f5f7fa;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  /*fiquei impressionado ao aprender a trocar o cursor pra mãozinha clicando*/
 }
 
-.paginacao{
-    margin-top: 50px;
-    display:flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
+.paginacao {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
 }
 
-.button-pagina{
-    cursor: pointer;
-    color: white;
-    width: 52px;
-    height: 52px;
-    background-color: #5A1A22;
-    border: 4px solid #BCCCDB;
-    font-weight:bold;
-    font-size: 20px;
-
+.button-pagina {
+  cursor: pointer;
+  color: white;
+  width: 52px;
+  height: 52px;
+  background-color: #5a1a22;
+  border: 4px solid #bcccdb;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-
-
-@media (max-width: 768px){
-/*nao entendi como  usa isso, mas vou ver  se funciona */
-/* agora entendi */
-.grade_posts{
+@media (max-width: 768px) {
+  /*nao entendi como  usa isso, mas vou ver  se funciona */
+  /* agora entendi */
+  .grade_posts {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
 }
 
+@media (max-width: 768px) {
+  .button-pagina {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    border-width: 3px;
+  }
+  .button-pagina:nth-child(5),
+  .button-pagina:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-pagina {
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+    border-width: 2px;
+  }
+  .button-pagina:nth-child(5),
+  .button-pagina:nth-child(6) {
+    display: none;
+  }
+
+  .paginacao {
+    gap: 6px;
+  }
 }
