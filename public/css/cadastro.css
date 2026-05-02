@@ -131,8 +131,8 @@ body{
     border-radius: 20px 0px 0px 20px;
 }
 .img-cadastro{
-    width: 220px;
-    height: 200px;
+     width: 360px;
+    height: 360px;
 }
 .botao-cadastro{
     margin-top: 3vh;
@@ -149,19 +149,14 @@ body{
     .container-cadastro{
         height: 55vh;
     }
-    .img-cadastro{
-        width: 200px;
-        height: 180px;
-    }
-
 }
 @media (max-width: 800px){
     .container-cadastro{
         height: 45vh;
     }
     .img-cadastro{
-        width: 160px;
-        height: 140px;
+        width: 300px;
+        height: 300px;
     }
     .input-cadastro{
         width: 20vw;
@@ -195,13 +190,13 @@ body{
         font-size: 2vw;
     }
 }
-@media (max-width: 600px){
+@media (max-width: 650px){
     .container-cadastro{
         height: 40vh;
     }
     .img-cadastro{
-        width: 140px;
-        height: 120px;
+        width: 240px;
+        height: 240px;
     }
 }
 @media (max-width: 500px){
@@ -237,8 +232,8 @@ body{
         border-radius: 20px 20px 0px 0px;
     }
     .img-cadastro{
-        width: 50px;
-        height: 30px;
+        width: 55px;
+        height: 55px;
     }
     .input-cadastro{
         width: 20vw;
