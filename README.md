@@ -17,10 +17,10 @@
 ## Equipe
 
 #### Desenvolvedores:
-* Ana Clara (coloque o link do github)
-* Guilherme Sander (coloque o link do github)
-* Isadora de Souza (coloque o link do github)
-* Pedro Quintino (coloque o link do github)
+* Ana Clara https://github.com/Anaclaraleles
+* Guilherme Sander https://github.com/Guilherme-Sander
+* Isadora de Souza https://github.com/izzyadora
+* Pedro Quintino https://github.com/paqgamer
 
 #### Scrum Master:
 * Marcos Vinícius https://github.com/marcosmvf22.
@@ -83,7 +83,26 @@ Após instalar o Git, abra o terminal e configure suas credenciais <sub>(Substit
 git config --global user.name "nomeDeUsuario"
 git config --global user.email email@codejr.com.br
 ```
-## Tutorial Git
+
+### Comandos Básicos
+
+* Para atualizar a main: `git pull`
+
+* Ver informações da branch: `git status`
+
+* Para trocar de branch: `git checkout branch_desejada`
+
+* Adicionar todas as alterações feitas: `git add .`
+
+* Dê um commit com uma mensagem especificando as alterações realizadas: `git commit -m "mensagem especificando o que foi feito"`
+
+* Envie o commit feito para sua branch: `git push origin suabranch`
+
+* Para mesclar sua branch com a main (estando dentro da sua branch): `git merge main`
+
+* Para confirmar o merge: `git push origin suabranch`
+
+## Tutorial Docker
 
 ### Primeira Configuração
 Após instalar o DockerDesktop, abra o terminal e execute o seguinte comando para baixar todas as dependências necessárias:
