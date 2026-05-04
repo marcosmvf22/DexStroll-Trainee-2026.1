@@ -1,3 +1,5 @@
+/* Variaveis do HTML */
+
 const slider = document.querySelector('.carrossel-conteudo');
 const slider_content = document.querySelector('.carrossel-conteudo ul');
 const radio_auto = document.querySelector('.radio-auto');
@@ -5,10 +7,14 @@ const left_arrow = document.getElementById('seta-esquerda');
 const right_arrow = document.getElementById('seta-direita');
 const carrossel = document.querySelector('.carrossel');
 
+/* Variaveis globais */
+
 let current_page = 0;
 let itens_per_view = 1;
 let total_pages = 1;
 let auto_slide_interval;
+
+/* Criacao/Organizacao do Carrossel */
 
 function updateCarrossel ()
 {
@@ -52,6 +58,8 @@ function updateRadioLabel()
     });
 }
 
+/* Movimentacao do Carrossel */
+
 function scrollToPage()
 {
     const item_width = slider_content.children[0].getBoundingClientRect().width;
@@ -85,6 +93,7 @@ function moveRight()
     resetAutoSlide();
 }
 
+/* Slider automatico */
 
 function startAutoSlide()
 {
@@ -100,9 +109,13 @@ function resetAutoSlide()
     startAutoSlide();
 }
 
+/* Eventos */
 left_arrow.addEventListener('click', moveLeft);
 right_arrow.addEventListener('click', moveRight);
 window.addEventListener('resize',updateCarrossel);
+
+
+/* Parte que mantem carrossel sem atualizar com o mause em cima da setas/cards */
 
 carrossel.addEventListener('mouseenter', () => {
     clearInterval(auto_slide_interval);
@@ -111,6 +124,9 @@ carrossel.addEventListener('mouseenter', () => {
 carrossel.addEventListener('mouseleave', () => {
     startAutoSlide();
 });
+
+
+/* Inicializacao do carrossel */
 
 updateCarrossel();
 startAutoSlide();

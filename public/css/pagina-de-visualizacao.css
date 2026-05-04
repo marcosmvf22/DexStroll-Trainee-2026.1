@@ -1,4 +1,7 @@
+/* Import da font poppins */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 
 body{
     background-image: url(../assets/background_pagina_de_visualizacao.png);
@@ -8,6 +11,8 @@ body{
     margin: 20px;
     padding: 20px;
 }
+
+/* Titulo da pagina */
 
 .introducao{
     display: flex;
@@ -38,6 +43,8 @@ body{
     margin: 0;
     font-weight: 600;
 }
+
+/* Conteudo do Post */
 
 .conteudo{
     display: flex;
@@ -93,6 +100,8 @@ body{
     margin: 20px;
     text-align: justify;
 }
+
+/* Posts relacionados e carrossel */
 
 .posts_relacionados{
     display: flex;
@@ -227,6 +236,8 @@ body{
 .radio-label:active{
     background-color: green;
 }
+
+/* Responsividade */
 
 @media (max-width: 768px) {
     .introducao h1 {
