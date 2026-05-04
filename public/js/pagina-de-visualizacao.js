@@ -117,6 +117,7 @@ window.addEventListener('resize',updateCarrossel);
 
 /* Parte que mantem carrossel sem atualizar com o mause em cima da setas/cards */
 
+//para no mause
 carrossel.addEventListener('mouseenter', () => {
     clearInterval(auto_slide_interval);
 });
@@ -125,6 +126,18 @@ carrossel.addEventListener('mouseleave', () => {
     startAutoSlide();
 });
 
+//para no touch
+let touch_timeout;
+slider.addEventListener('touchstart', () => {
+    clearInterval(auto_slide_interval);
+    clearTimeout(touch_timeout);
+});
+
+slider.addEventListener('touchend', () => {
+    touch_timeout = setTimeout(() => {
+        startAutoSlide();
+    }, 4000); 
+});
 
 /* Inicializacao do carrossel */
 
