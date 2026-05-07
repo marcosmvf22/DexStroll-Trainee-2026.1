@@ -51,7 +51,7 @@ time {
   width: 100%;
   height: 350px;
 }
-.postpagetitle{
+.postpagetitle {
   color: #0d2a4d;
 }
 .manchetedopost {
@@ -185,7 +185,11 @@ time {
   }
 }
 
-
+@media (max-width: 480px){
+  main {
+    padding: 20px;
+  }
+}
 /* @media (max-width: 900px) {
   .grade_posts{
     grid-template-columns: 1fr;
