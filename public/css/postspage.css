@@ -1,11 +1,17 @@
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
   background: linear-gradient(180deg, #1f5fa8 0%, #0d2a4d 100%);
   background-attachment: fixed;
   min-height: 100vh;
   font-family: "Poppins", sans-serif;
-  color: white;
-  margin: 0;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px;
 }
 
 h1 {
@@ -13,33 +19,36 @@ h1 {
   margin-bottom: 40px;
 }
 
-/*comentar no css aparentemente é diferente de comentar no HTML
-nomes seção grade_posts
-eu vou ficar maluco*/
+/* 
+
+
+espaço pra eu nao ficar loucogit s
+
+
+*/
 time {
   color: #4fa3ff;
 }
 .grade_posts {
   display: grid;
-  grid-template-columns: repeat(2, 715px);
-  max-width: 1800px;
-  row-gap: 50px;
-  column-gap: 50px;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  gap: 48px;
+
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0px 10px;
+
+  padding: 0px 1vw;
 }
 .publicacao {
   background-color: #f5f7fa;
-  padding: 25px;
+  padding: 32px;
   display: flex;
   flex-direction: row;
-  gap: 25px;
+  gap: 24px;
   border-radius: 40px;
   text-justify: distribute;
-  align-items: center;
-  max-width: 715px;
+
+  width: 100%;
   height: 350px;
 }
 h2 {
@@ -48,35 +57,38 @@ h2 {
 .manchetedopost {
   color: #1f5fa8;
   text-align: justify;
-  width: 330px;
+  width: 100%;
+  margin: 0;
 }
 .conteudopost {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
+  width: 50%;
 }
 .nomeautorpost {
   color: #1f5fa8;
   font-weight: bold;
+  margin: 0 0;
 }
 .fotodopost {
   background-color: #0d2a4d;
-  height: 300px;
+  height: 100%;
   border-radius: 30px;
-  min-width: 300px;
-  max-width: 300px;
+  width: 50%;
 }
 .lermais-botao {
   background-color: #e6392f;
-  width: 220px;
+  width: 50%;
   align-self: center;
   border-radius: 40px;
-  height: 40px;
+  height: auto;
   font-weight: 900;
   color: #f5f7fa;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+
   /*fiquei impressionado ao aprender a trocar o cursor pra mãozinha clicando*/
 }
 
@@ -100,25 +112,23 @@ h2 {
   font-size: 20px;
 }
 
-
-@media (max-width: 1500px) {
+@media (max-width: 1440px) {
   /*nao entendi como  usa isso, mas vou ver  se funciona */
   /* agora entendi */
   .grade_posts {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
-  .publicacao{
+  .publicacao {
     margin: 0 auto;
   }
-  .publicacao{
+  .publicacao {
     flex-direction: column;
-    width: 90%;
-    max-width: 390px;
-    min-height: 630px;
+    align-items: center;
+    width: 100%;
+    height: auto;
     padding: 20px;
     margin: 0 auto;
-
   }
   .button-pagina {
     width: 45px;
@@ -126,26 +136,58 @@ h2 {
     font-size: 18px;
     border-width: 3px;
   }
-  .lermais-botao{
-    width: 220px;
+
+  .conteudopost {
+    width: 100%;
+    gap: 20px;
   }
-  .conteudopost{
+  .manchetedopost {
     width: 100%;
   }
-  .manchetedopost{
+  .fotodopost {
     width: 100%;
+    height: 250px;
   }
-  .fotodopost{
-    max-width: 350px;
+}
+@media (max-width: 1024px) {
+  .grade_posts {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .conteudopost {
+    width: 50%;
+    gap: 0;
+  }
+  .publicacao {
+    flex-direction: row;
+    padding: 24px;
     width: 100%;
-    min-height: 250px;
-    min-width: 250px;
+    height: auto;
+  }
+  .fotodopost {
     height: 100%;
-    max-height: 350px;
+    width: 50%;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px){
+  .publicacao{
+    flex-direction: column;
+    padding: 24px;
+    align-items: flex-start;
+  }
+  .fotodopost{
+    height: 250px;
+    width: 100%;
+  }
+  .conteudopost{
+    width: 100%;
+    gap: 12px;
+  }
+}
+
+
+
+/* @media (max-width: 900px) {
   .grade_posts{
     grid-template-columns: 1fr;
     gap: 30px;
@@ -187,9 +229,9 @@ h2 {
   .button-pagina:nth-child(6) {
     display: none;
   }
-}
+} */
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .button-pagina {
     width: 38px;
     height: 38px;
@@ -204,4 +246,4 @@ h2 {
   .paginacao {
     gap: 6px;
   }
-}
+} */
