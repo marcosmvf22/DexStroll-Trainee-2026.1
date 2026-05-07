@@ -51,7 +51,7 @@ time {
   width: 100%;
   height: 350px;
 }
-h2 {
+.postpagetitle{
   color: #0d2a4d;
 }
 .manchetedopost {
@@ -169,22 +169,21 @@ h2 {
   }
 }
 
-@media (max-width: 768px){
-  .publicacao{
+@media (max-width: 768px) {
+  .publicacao {
     flex-direction: column;
     padding: 24px;
     align-items: flex-start;
   }
-  .fotodopost{
+  .fotodopost {
     height: 250px;
     width: 100%;
   }
-  .conteudopost{
+  .conteudopost {
     width: 100%;
     gap: 12px;
   }
 }
-
 
 
 /* @media (max-width: 900px) {
