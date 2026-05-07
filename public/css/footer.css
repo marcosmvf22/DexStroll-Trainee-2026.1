@@ -65,6 +65,26 @@ p{
 
 }
 
+.diretrizes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.diretrizes button{
+    background: linear-gradient(42deg, #cf261ad0,#064874);
+    border-radius: 30px;
+    width: 10vw;
+    color: white;
+    font-size: 24px;
+}
+
+.diretrizes button:hover{
+    background-color: black;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     footer{
         flex-direction: column;
