@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #bcccdb;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    width: 100vw;
+    height: 100vh;
+    font-style: normal;
+}
+
+.main-dashboard{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.container-dashboard{
+    background-color: #f5f7fa3b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 70%;
+    width: 30%;
+    border-radius: 16px;
+}
+.img-logo-dashboard{
+    width: 25%;
+}
+.titulo-dashboard{
+    color: #131E4C;
+}
+.botoes-dashboard{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+}
+.botoes-superior-dashboard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+.botao-dashboard{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    justify-content:flex-start;
+    /* gap: 10px; */
+    width: 40%;
+    height: 40%;
+    gap: 6px;
+    border-radius: 16px;
+    border: 0;
+    color: #131E4C;
+}
+.botao-logout-dashboard{
+    width: 25%;
+    height: 30%;
+    border-radius: 16px;
+    border: 0;
+}
+
