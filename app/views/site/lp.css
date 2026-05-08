@@ -1,0 +1,35 @@
+
+* {
+    /* redefine todas as propriedades padrão como bordas etc */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 
+
+COPIA COISAS DO MEU CSS SE ACHAR QUE DÁ PRA APROVEITAR ALGO
+-QUINTINO
+
+
+*/
+.Postagens-Landing {
+ /* não entendi muito bem  o que quercolocar em cada div, altera aí depois */
+ background: linear-gradient(180deg, #1f5fa8 0%, #0d2a4d 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px;
+  
+}
+.Posts-Landing{
+    /* isso aqui que é o card? */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1vw;
+    text-justify: distribute;
+}
