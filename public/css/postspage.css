@@ -22,7 +22,7 @@ h1 {
 /* 
 
 
-espaço pra eu nao ficar loucogit s
+espaço,  removo depois
 
 
 */
@@ -92,16 +92,81 @@ time {
   /*fiquei impressionado ao aprender a trocar o cursor pra mãozinha clicando*/
 }
 
-.paginacao {
-  margin-top: 50px;
+.paginacao-posts {
   display: flex;
-  flex-direction: row;
-  width: 100%;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
+  gap: 15px;
+  margin-top: 50px;
+  width: 100%;
+}
+.posts-pokeball.clicada {
+  background: linear-gradient(
+    to bottom,
+    #1b82b1 0%,
+    #1b82b1 45%,
+    #333 45%,
+    #333 55%,
+    #fff 55%,
+    #fff 100%,
+  );
+}
+/* pokebola pra paginação, ainda bem me deram a  ideia*/
+.posts-pokeball {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 3px solid #333;
+  cursor: pointer;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: #333;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    #ee1515 0%,
+    #ee1515 45%,
+    #333 45%,
+    #333 55%,
+    #fff 55%,
+    #fff 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.button-pagina {
+/* bolinha dentro da  pokebola*/
+.posts-pokeball::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* passa o mouse e gira a bola
+agora  tenho que codar mais  efeitinhos */
+.posts-pokeball:hover {
+  transform: scale(1.2) rotate(45deg);
+}
+/* OBS: eu amo o w3schools melhor site pra  aprender a codar, porém gastei 3 horas pra entender oque de fato é um  pseudo-element e  como usar  o ::after */
+/* a  que ta clicada, aí muda de cor*/
+
+/* deixar vermelhinho*/
+.clicada::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 100%;
+  height: 5px;
+}
+
+/* .button-pagina {
   cursor: pointer;
   color: white;
   width: 60px;
@@ -110,7 +175,7 @@ time {
   border: 4px solid #bcccdb;
   font-weight: bold;
   font-size: 20px;
-}
+} */
 
 @media (max-width: 1440px) {
   /*nao entendi como  usa isso, mas vou ver  se funciona */
@@ -185,7 +250,7 @@ time {
   }
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
   main {
     padding: 20px;
   }
