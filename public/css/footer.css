@@ -1,14 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 footer{
+    display: flex;
+ 
     background: linear-gradient(98deg,#4b0c14,#ad1c2e);
     color: white;
     text-align: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 80px;
-    padding-right: 80px;
-    display: flex;
+    padding: 30px 30px;
     justify-content: space-between;
     align-items: center;
     font-family: 'Poppins', sans-serif;
@@ -35,6 +33,70 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.filtro-footer{
+    display: none;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    position: absolute;
+    
+
+}
+
+.modal-container{
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    position: absolute;
+    height: fit-content;
+    z-index: 20;
+    padding: 30px;
+    top: 25%;
+    left: 20%;
+    right: 20%;
+    border-radius: 20px;
+    color: white;
+    background: linear-gradient(98deg,#4b0c14,#ad1c2e);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+
+
+.modal-container button
+{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 30;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    background-color: black;
+}
+
+.modal-container button:hover{
+    background-color: #ad1c2e;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+
+.diretrizes{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.conteudo-diretriz h1{
+    font-size: 20px;
+}
+
+.conteudo-diretriz p{
+    text-align: justify;
 }
 
 footer h1 {
@@ -84,8 +146,7 @@ footer h1 {
     footer{
         flex-direction: column;
         gap: 30px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 20px 20px;
     }
 
     .logo_dexstroll_footer {
