@@ -25,19 +25,20 @@ body{
     gap: 10px;
 }
 
+.contato-politica{
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
 .assinatura{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-h2{
+footer h1 {
     font-size: 24px;
-    margin: 0;
-}
-
-p{
-    font-size: 20px;
     margin: 0;
 }
 
@@ -65,24 +66,18 @@ p{
 
 }
 
-.diretrizes{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-}
-
-.diretrizes button{
-    background: linear-gradient(42deg, #cf261ad0,#064874);
+.politica button{
+    background-color: #bcccd8;
+    border: none;
     border-radius: 30px;
-    width: 10vw;
-    color: white;
     font-size: 24px;
+    transition-duration: 0.4s;
 }
 
-.diretrizes button:hover{
-    background-color: black;
+.politica button:hover{
+    background-color: #1f5fa8;
     cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
 }
 
 @media (max-width: 768px) {
