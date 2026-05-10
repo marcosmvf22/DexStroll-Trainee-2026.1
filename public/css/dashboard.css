@@ -133,32 +133,6 @@ body{
         padding: 8px;
     }
 }
-@media (max-width: 600px){
-    .container-dashboard{
-        height: 40%;
-    }
-    .img-logo-dashboard{
-        width: 30%;
-        margin-top: 8vh;
-    }
-    .titulo-dashboard{
-        font-size: 2vh;
-    }
-    .botoes-dashboard{
-        height: 30%;
-        font-size: 6vh;
-    }
-    .botoes-superior-dashboard{
-        gap: 6px;
-    }
-    .botao-dashboard{
-        padding: 8px;
-    }
-    .botao-logout-dashboard{
-        padding: 6px;
-        width: 10vw;
-    }
-}
     @media (max-width: 600px){
     .container-dashboard{
         height: 25%;
@@ -196,5 +170,9 @@ body{
     .titulo-dashboard{
         font-size: 1.5vh;
         margin-bottom: 4vh;
+    }
+    .botao-dashboard{
+        margin-left: 0vh;
+        padding: 4px;
     }
 }
