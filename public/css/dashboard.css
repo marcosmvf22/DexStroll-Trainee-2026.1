@@ -4,23 +4,22 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #bcccdb;
+    background-image: url("/public/assets/Dashboard.jpg");
+    background-size: cover;
+    background-position: center;
+
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    width: 100vw;
-    height: 100vh;
     font-style: normal;
 }
-
 .main-dashboard{
     display: flex;
-    flex-direction: row;
     height: 100vh;
     align-items: center;
     justify-content: center;
 }
 .container-dashboard{
-    background-color: #f5f7fa3b;
+    background-color:#fffefe59;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +29,7 @@ body{
 }
 .img-logo-dashboard{
     width: 25%;
-    margin-top: 10vh;
+    margin-top: 8vh;
 }
 .titulo-dashboard{
     color: #131E4C;
@@ -65,7 +64,7 @@ body{
     border-radius: 16px;
     border: 0;
     color: #131E4C;
-
+    background-color: #f5f7fa;
     font-size: 1.3vw;
 }
 .botao-logout-dashboard{
@@ -76,6 +75,7 @@ body{
     padding: 10px;
 
     color: #5a1a22;
+    background-color: #f5f7fa;
     width: 25%;
     height: 30%;
     border-radius: 16px;
