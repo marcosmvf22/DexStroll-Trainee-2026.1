@@ -23,7 +23,6 @@ body{
     background-color: #f5f7fa3b;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
     height: 70%;
     width: 30%;
@@ -31,9 +30,11 @@ body{
 }
 .img-logo-dashboard{
     width: 25%;
+    margin-top: 10vh;
 }
 .titulo-dashboard{
     color: #131E4C;
+    margin-bottom: 6vh;
 }
 .botoes-dashboard{
     width: 100%;
@@ -50,25 +51,35 @@ body{
     justify-content: center;
     gap: 10px;
     width: 100%;
-    height: 100%;
+    height: 35%;
+    margin-bottom: 2vh;
 }
 .botao-dashboard{
     display: flex;
     align-items: center;
-    padding: 5px;
+    padding: 15px;
     justify-content:flex-start;
-    /* gap: 10px; */
     width: 40%;
-    height: 40%;
-    gap: 6px;
+    height: 100%;
+    gap: 1vw;
     border-radius: 16px;
     border: 0;
     color: #131E4C;
+
+    font-size: 1.3vw;
 }
 .botao-logout-dashboard{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+    padding: 10px;
+
+    color: #5a1a22;
     width: 25%;
     height: 30%;
     border-radius: 16px;
     border: 0;
+    font-size: 1.1vw;
 }
 
