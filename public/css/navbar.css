@@ -2,9 +2,6 @@
     margin: 0;
     padding: 0;
 }
-nav{
-
-}
 .box1-nav{
     display: flex;
     flex-direction: row;
@@ -63,9 +60,6 @@ body{
     height: 97vh; /* so para melhor visualização da pagina geral */
 }
 @media (max-width: 450px){
-    .logo-nav{
-        /* width: 75px; */
-    }
     .botao-publicacoes-nav{
         display: none;
     }
@@ -84,6 +78,5 @@ body{
         width: 45px;
         height: 7vh;
         font-size: 30px;
-
     }
 }
