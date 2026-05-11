@@ -16,6 +16,44 @@
     width: 100px;
     cursor: pointer;
 }
+.box-pesquisa-nav{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1vw;
+    width: 100%;
+}
+.elementos-input-nav{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin-left: 1.2vh;
+}
+#input-pesquisa-nav{
+    width: 30vw;
+    height: 5vh;
+    padding: 5px;
+    padding-left: 33px;
+
+    background-color:#0d2a4d63;
+    color: #f5f7fa;
+    border: 1px solid  #f5f7fa;
+    border-radius: 40px;
+    margin-top: 0vh;  
+}
+#icone-lupa-nav{
+    color: #f5f7fa;
+    opacity: 0.7;
+    font-size: 20px;
+    margin-top: 1.8vh;
+}
+input::placeholder { 
+    color: #f5f7fa; 
+    opacity: 0.7;
+}
 .botoes-nav{
     display: flex;
     align-items: center;
@@ -23,7 +61,7 @@
     height: 100%;
 }
 .botao-publicacoes-nav{
-    width: 120px;
+    width: 10vw;
     height: 7vh;
 
     border: 1px solid #0d2a4d;
@@ -37,7 +75,7 @@
     cursor: pointer;
 }
 .botao-login-nav{
-    width: 120px;
+    width: 10vw;
     height: 7vh;
     margin-left: 2vw;
 
@@ -48,7 +86,7 @@
     box-shadow: 5px 5px 10px #0d2a4d;
 
     font-weight: 600;
-     cursor: pointer;
+    cursor: pointer;
 }
 .bloco-icone-menu-nav{
     display: none;
