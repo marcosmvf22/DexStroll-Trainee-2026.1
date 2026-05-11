@@ -14,7 +14,7 @@ body{
     display: flex;
     flex-direction: row-reverse;
     width: 60%; 
-    height: 60vh;
+    height: 350px;
     margin-top: 15vh;
 
     border: 1px solid #0d2a4d;
@@ -45,7 +45,7 @@ body{
 }
 .subtitulo-cadastro{
     color: #0d2a4d;
-    margin-bottom: 2vh;
+    margin-bottom: 10px;
     margin-top: 0%;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
@@ -76,7 +76,7 @@ body{
 }
 .input-cadastro{
     width: 20vw;
-    height: 4vh;
+    height: 25px;
     padding: 5px;
     padding-left: 40px;
 
@@ -90,32 +90,32 @@ body{
     color: #0d2c4f;
     opacity: 0.7;
     font-size: 20px;
-    margin-top: 1.5vh;
+    margin-top: 8px;
 }
 #icone-senha{
     color: #0e2e54;
     opacity: 0.7;
     font-size: 20px;
-    margin-top: 1.5vh;
+    margin-top: 8px;
 }
 #icone-user-cadastro{
     color: #0e2e54;
     opacity: 0.7;
     font-size: 20px;
-    margin-top: 1.5vh;
+    margin-top: 8px;
 }
 .elementos-input{
     position: absolute;
     display: flex;
     flex-direction: row;
     height: 50%;
-    margin-left: 1vh;
+    margin-left: 5px;
 }
 .line-cadastro{
     border-left: 1.5px solid #0e2e54;
     margin-left: 5px;
     height: 25px;
-    margin-top: 0.8vh;
+    margin-top: 6px;
     margin-bottom: 40px;
     opacity: 0.7;
 
@@ -137,69 +137,25 @@ body{
 .botao-cadastro{
     margin-top: 3vh;
     width: 10vw;
-    height: 7vh;
+    height: 40px;
 
     border: 1px solid #0d2a4d;
     border-radius: 20px;
     background-color: #0d2a4d;
     color: #bcccdb;
+    cursor: pointer;
 }
 /* responsivo */
-@media (max-width: 950px){
+@media (max-width: 850px){
     .container-cadastro{
-        height: 55vh;
-    }
-}
-@media (max-width: 800px){
-    .container-cadastro{
-        height: 45vh;
+        height: 350px;
     }
     .img-cadastro{
         width: 300px;
         height: 300px;
     }
-    .input-cadastro{
-        width: 20vw;
-        height: 3vh;
-        padding: 5px;
-    }
-    .descricao-cadastro{
-        font-size: 8px;
-    }
-    #icone-envelope{
-        font-size: 15px;
-        margin-top: 1.5vh;
-    }
-    #icone-senha{
-        font-size: 15px;
-        margin-top: 1.5vh;
-    }
-    #icone-user-cadastro{
-        font-size: 15px;
-        margin-top: 1.5vh;
-    }
-    .line-cadastro{
-        margin-left: 5px;
-        height: 3.5vh;
-        margin-top: 0.75vh;
-    }
-    .botao-cadastro{
-        margin-top: 2vh;
-        width: 13vw;
-        height: 6vh;
-        font-size: 2vw;
-    }
 }
 @media (max-width: 650px){
-    .container-cadastro{
-        height: 40vh;
-    }
-    .img-cadastro{
-        width: 240px;
-        height: 240px;
-    }
-}
-@media (max-width: 500px){
     .container-cadastro{
         flex-direction: column-reverse;
         width: 40%;
@@ -216,11 +172,10 @@ body{
         font-size: 4vw;
     }
     .titulo-cadastro{
-        font-size: 3vw;
+        font-size: 15px;
     }
     .subtitulo-cadastro{
-        font-size: 2vw;
-        margin-bottom: 0%;
+        font-size: 10px;
     }
     .campos-cadastro{
         font-size: 2vw;
@@ -232,37 +187,39 @@ body{
         border-radius: 20px 20px 0px 0px;
     }
     .img-cadastro{
-        width: 55px;
-        height: 55px;
+        width: 58px;
+        height: 58px;
+    }
+    .campos-login{
+        font-size: 1.7vw;
     }
     .input-cadastro{
         width: 20vw;
         height: 10px;
+        padding-left: 28px;
     }
     .line-cadastro{
         margin-left: 5px;
-        height: 2vh;
-        margin-top: 0.75vh;
+        height: 15px;
+        margin-top: 2.5px;
+        border: 1px solid #0d2a4d;
     }
     #icone-envelope{
-        font-size: 10px;
-        margin-top: 1vh;
+        font-size: 12px;
+        margin-top: 4.5px;
     }
     #icone-senha{
-        font-size: 10px;
-        margin-top: 1vh;
+        font-size: 12px;
+        margin-top: 5px;
     }
     #icone-user-cadastro{
-        font-size: 10px;
-        margin-top: 1vh;
-    }
-    .line-cadastro{
-        border: 1px solid #0d2a4d;
+        font-size: 12px;
+        margin-top: 4.5px;
     }
     .botao-cadastro{
         margin-top: 1vh;
         width: 15vw;
-        height: 3.5vh;
-        font-size: 2vw;
+        height: 25px;
+        font-size: 10px;
     }
 }
