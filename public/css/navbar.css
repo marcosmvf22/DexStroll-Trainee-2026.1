@@ -14,6 +14,7 @@
 }
 .logo-nav{
     width: 100px;
+    cursor: pointer;
 }
 .botoes-nav{
     display: flex;
@@ -30,8 +31,10 @@
     background-color: #5a1a22;
     color: #bcccdb;
     box-shadow: 5px 5px 10px #0d2a4d;
+    margin-left: 2vw;
 
     font-weight: 600;
+    cursor: pointer;
 }
 .botao-login-nav{
     width: 120px;
@@ -45,6 +48,7 @@
     box-shadow: 5px 5px 10px #0d2a4d;
 
     font-weight: 600;
+     cursor: pointer;
 }
 .bloco-icone-menu-nav{
     display: none;
@@ -60,7 +64,10 @@ body{
     background: linear-gradient(#1f5fa8, #0d2a4d);
     height: 97vh; /* so para melhor visualização da pagina geral */
 }
-@media (max-width: 450px){
+@media (max-width: 600px){
+    .logo-nav{
+        width: 80px;
+    }
     .botao-publicacoes-nav{
         display: none;
     }
