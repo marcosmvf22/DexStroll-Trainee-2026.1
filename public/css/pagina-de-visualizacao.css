@@ -2,14 +2,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+*{
+    box-sizing: border-box;
+}
 
 body{
     background-image: url(../assets/background_pagina_de_visualizacao.png);
     background-size: cover;
     font-family: 'Poppins', sans-serif;
     color: white;
-    margin: 20px;
+    margin: 0;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Titulo da pagina */
@@ -51,8 +55,8 @@ body{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px;
-    padding: 20px;
+    gap: 50px;
+    padding: 90px 50px;
     margin: 20px;
 }
 
@@ -202,6 +206,7 @@ body{
     border-radius: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -244,28 +249,42 @@ body{
         font-size: 24px;
     }
 
+    .conteudo{
+        width: 100%;
+        padding: 5px;
+        margin: 5px;
+        overflow-x: none;
+    }
+
+    
     .texto p, .texto2 p {
         font-size: 16px;
+        line-height: 1.6;
     }
+    
 
-    .posts_relacionados h1 {
-        font-size: 28px;
-    }
-
-    .cards_carrossel {
-        width: 200px;
-    }
-
-    .texto2 {
+    .texto, .texto2{
         flex-direction: column;
+        width: 100vw;
     }
 
     .texto2 p {
         flex: none;
     }
 
-    .imagem_principal {
+    .imagem_principal , .imagem2{
+        height: 70vw;
         border-radius: 10px;
+        width: 100vw;
+    }
+
+    .posts_relacionados h1 {
+        font-size: 28px;
+    }
+    
+    .cards_carrossel {
+        width: 75vw;
+        max-width: 260px;
     }
 
     .carrossel-conteudo{
@@ -285,24 +304,29 @@ body{
     }
 
     .paginacao{
-        margin: 30px;
-        gap: 30px;
+        gap: 15px;
+        margin: 20px 0;
+        flex-wrap: wrap;
     }
 
     .nav-arrow{
-        width: 20vw;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        flex-shrink: 0;
     }
 
     .radio-auto{
-        
-        width: 100%;
-        height: 2vh;
-        gap: 5.5vh;
+        gap: 12px;
     }
 
     .radio-label{
-        border:2.10vw solid white ;
+        width: 12px;
+        height: 12px;
+        border: 2px solid white;
+        padding: 0;
     }
+
     .radio-label:active{
         background-color: green;
     }
