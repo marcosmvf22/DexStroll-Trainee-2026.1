@@ -2,7 +2,6 @@
 
 footer{
     display: flex;
- 
     background: linear-gradient(98deg,#4b0c14,#ad1c2e);
     color: white;
     text-align: center;
@@ -16,6 +15,7 @@ body{
     margin: 0;
     padding: 0;
 }
+
 .redes_sociais, .contato{
     display: flex;
     flex-direction: column;
@@ -42,34 +42,31 @@ body{
     height: 100%;
     background-color: black;
     opacity: 0.5;
-    position: absolute;
-    
-
+    position: fixed;
 }
 
 .modal-container{
     display: none;
-    flex-direction: column;
     text-align: center;
-    position: absolute;
-    height: fit-content;
+    position: fixed;
+    max-height: 80vh;
+    min-width: 80vw;
     z-index: 20;
     padding: 30px;
-    top: 25%;
-    left: 20%;
-    right: 20%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 20px;
     color: white;
     background: linear-gradient(98deg,#4b0c14,#ad1c2e);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
 }
 
-
-.modal-container button
-{
+.fechar-modal{
+    display: none;
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     z-index: 30;
     color: white;
     font-size: 30px;
@@ -79,7 +76,7 @@ body{
     background-color: black;
 }
 
-.modal-container button:hover{
+.fechar-modal:hover{
     background-color: #ad1c2e;
     cursor: pointer;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
@@ -153,7 +150,17 @@ footer h1 {
         width: 160px;
     }
 
-     .icones i {
+    .icones i {
         font-size: 30px;
+    }
+
+    .modal-container{
+        width: 90%;
+        padding: 60px 30px 30px 30px;
+        overflow-y: scroll;
+    }
+    .diretrizes{
+        flex-direction: column;
+        gap: 20px;
     }
 }
