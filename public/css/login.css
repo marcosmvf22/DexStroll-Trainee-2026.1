@@ -3,6 +3,7 @@ body{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
+    height: 100%;
 }
 
 .main-login{
@@ -15,7 +16,7 @@ body{
     display: flex;
     flex-direction: row;
     width: 60%; 
-    height: 60vh;
+    height: 350px;
     margin-top: 15vh;
 
     border: 1px solid #0d2a4d;
@@ -46,7 +47,7 @@ body{
 }
 .subtitulo-login{
     color: #0d2a4d;
-    margin-bottom: 2vh;
+    margin-bottom: 10px;
     margin-top: 0%;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
@@ -68,7 +69,6 @@ body{
     color: #0d2a4d;
     margin-bottom: 0%;
 }
-
 .campos-login{
     display: flex;
     position: relative;
@@ -77,40 +77,39 @@ body{
 }
 .input-login{
     width: 20vw;
-    height: 4vh;
+    height: 25px;
     padding: 5px;
-    padding-left: 33px;
+    padding-left: 35px;
 
     background-color:#bcccdb;
     border: 1px solid  #0d2a4d;
     border-radius: 5px;
-    margin-top: 0vh;
     
 }
 #icone-envelope{
     color: #0d2c4f;
     opacity: 0.7;
     font-size: 20px;
-    margin-top: 1.5vh;
+    margin-top: 8px;
 }
 #icone-senha{
     color: #0e2e54;
     opacity: 0.7;
     font-size: 20px;
-    margin-top: 1.5vh;
+    margin-top: 8px;
 }
 .elementos-input{
     position: absolute;
     display: flex;
     flex-direction: row;
     height: 50%;
-    margin-left: 1vh;
+    margin-left: 5px;
 }
 .line-login{
     border-left: 1.5px solid #0e2e54;
-    margin-left: 5px;
-    height: 4vh;
-    margin-top: 1vh;
+    margin-left: 4px;
+    height: 25px;
+    margin-top: 6px;
     margin-bottom: 40px;
     opacity: 0.7;
 
@@ -132,12 +131,13 @@ body{
 .botao-login{
     margin-top: 3vh;
     width: 10vw;
-    height: 7vh;
+    height: 40px;
 
     border: 1px solid #0d2a4d;
     border-radius: 20px;
     background-color: #0d2a4d;
     color: #bcccdb;
+    cursor: pointer;
 }
 .texto-login{
     color: #0d2a4d;
@@ -150,27 +150,13 @@ body{
 }
 
 /* responsivo */
-@media (max-width: 950px){
+@media (max-width: 850px){
     .container-login{
-        height: 55vh;
-    }
-
-}
-@media (max-width: 800px){
-    .container-login{
-        height: 45vh;
-    }
-    #icone-envelope{
-        font-size: 15px;
-        margin-top: 1.8vh;
-    }
-    #icone-senha{
-        font-size: 15px;
-        margin-top: 1.8vh;
+        height: 300px;
     }
     .img-login{
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
     }
 }
 @media (max-width: 650px){
@@ -195,50 +181,49 @@ body{
     #icone-voltar-login{
         font-size: 4vw;
     }
-    .titulo-login{
-        font-size: 3vw;
-    }
-    .subtitulo-login{
-        font-size: 2vw;
-        margin-bottom: 0%;
-    }
-    .campos-login{
-        font-size: 2vw;
-    }
     .box2-login{
         width: 100%;
         height: 5vh;
         padding: 5px;
         border-radius: 20px 20px 0px 0px;
     }
+    .titulo-login{
+        font-size: 15px;
+    }
+    .subtitulo-login{
+        font-size: 10px;
+    }
     .img-login{
-        width: 55px;
-        height: 55px;
+        width: 58px;
+        height: 58px;
+    }
+    .campos-login{
+        font-size: 1.7vw;
     }
     .input-login{
-         width: 20vw;
-         height: 1.5vh;
-    
+         width: 25vw;
+         height: 1.5vh;  
     }
     .line-login{
         margin-left: 5px;
-        height: 2vh;
-        margin-top: 0.75vh;
+        height: 15px;
+        margin-top: 5px;
     }
     #icone-envelope{
-        font-size: 10px;
-        margin-top: 1vh;
+        font-size: 12px;
+        margin-top: 6px;
     }
     #icone-senha{
-        font-size: 10px;
-        margin-top: 1vh;
+        font-size: 12px;
+        margin-top: 6px;
     }
     .botao-login{
-        margin-top: 3vh;
+        margin-top: 2vh;
         width: 15vw;
-        height: 4vh;
-        font-size: 3vw;
-}
+        height: 25px;
+
+        font-size: 10px;
+    }
     .texto-login{
         font-size: 1.7vw;
     }
