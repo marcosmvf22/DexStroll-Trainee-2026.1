@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  background: white;
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px;
+  width: 100%;
+}
+.tabela-usuarios {
+  align-items: center;
+  width: 100%;
+}
+
+.secao-tabela {
+  display: flex;
+  flex-direction: column;
+}
+.secao-tabela {
+}

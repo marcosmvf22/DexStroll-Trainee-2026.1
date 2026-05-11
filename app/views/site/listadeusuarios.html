@@ -14,17 +14,50 @@
     <link rel="stylesheet" href="../../../public/css/listadeusuarios.css" />
   </head>
   <body>
-    <!-- usar a main para inserir conteudo individual (tabela etc) -->
-    <!-- OBS: MEU TECLADO TA COM ESPAÇO DANDO DUPLO CLIQUE AS VEZES, ESTOU ATENTO, PORÉM PODEM 
-      PASSAR ALGUNS ERROS RELACIONADOS -->
-    <main>
-      <section class="tabela">
-        <!-- na section colocar o esboço da tabela -->
-        <div class="topbar-tabela"></div>
-        <div class="corpotabela"></div>
-        <!-- não sei  se a table é aqui dentro, ou diretodentro  do "Tabela", que é pai dessa div -->
-        <!-- renomear as classes e talvez alterar tags, apenas esboço -->
-      </section>
+   <main class="listausuarioscontainer">
+        <header class="titulo-pagina">
+            <h1 class="titulolistausuarios">Lista de Usuários</h1>
+        </header>
+
+        <section class="secao-tabela">
+            
+            <div class="superioracoes-tabela">
+                <button class="botao-adicionar">Adicionar Usuário</button>
+            </div>
+
+            <table class="tabela-usuarios">
+                <thead>
+                    <tr class="titulos-colunas">
+                        <th>usuario</th>
+                        <th>Nome completo</th>
+                        <th>Email</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>nomedeusuario</td>
+                        <td>Algum Nome aleatório por aí</td>
+                        <td>usuario@email.com</td>
+                        <td class="celula-acoes">
+                          <button class="botao-visualizar" title="Visualizar">👁</button>
+                          <button class="botao-editar" title="Editar">📝</button>
+                          <button class="botao-deletar" title="Deletar">⨂</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>nomedeusuario</td>
+                        <td>Nome Completo pessoa</td>
+                        <td>shaolinmatadordeporco@email.com</td>
+                        <td class="celula-acoes">
+                            <button class="botao-visualizar" title="Visualizar">👁</button>
+                            <button class="botao-editar" title="Editar">📝</button>
+                            <button class="botao-deletar" title="Deletar">⨂</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
   </body>
 </html>
