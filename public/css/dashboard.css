@@ -162,7 +162,7 @@
 }
 @media (max-width: 400px){
     .container-dashboard{
-        height: 20%;
+        width: 40%;
     }
     .img-logo-dashboard{
         margin-top: 2vh;
@@ -171,8 +171,18 @@
         font-size: 1.5vh;
         margin-bottom: 4vh;
     }
+    .botoes-dashboard{
+        margin-top: 10px;
+    }
     .botao-dashboard{
         margin-left: 0vh;
+        height: 22px;
         padding: 4px;
+        font-size: 6px;
+    }
+    .botao-logout-dashboard{
+        height: 22px;
+        font-size: 5px;
+        gap: 4px;
     }
 }
