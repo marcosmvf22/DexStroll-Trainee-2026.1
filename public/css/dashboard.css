@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
+#body-dashboard{
     background-image: url("/public/assets/Dashboard.jpg");
     background-size: cover;
     background-position: center;
@@ -153,7 +153,7 @@ body{
         margin-bottom: 1vh;
     }
     .botao-dashboard{
-        padding: 8px;
+        padding: 5px;
     }
     .botao-logout-dashboard{
         padding: 6px;
