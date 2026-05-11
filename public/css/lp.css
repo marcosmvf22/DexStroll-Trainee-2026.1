@@ -15,7 +15,7 @@
     box-sizing: border-box;
     font-family: 'Poppins';
     /*outline: 1px solid red !important;*/
-    text-decoration: none;
+    text-decoration: none !important; 
 }
 
 html{
@@ -24,6 +24,10 @@ html{
 
 body::-webkit-scrollbar{
     display: none;
+}
+
+a{
+    color: var(--branco-neve)!important;
 }
 
 .hero-section-landing {
@@ -132,8 +136,7 @@ body::-webkit-scrollbar{
 }
 
 .postagens-landing{
-    background: #1F5FA8;
-    background-color: linear-gradient(90deg,rgba(31, 95, 168, 1) 0%, rgba(13, 42, 77, 1) 100%);
+    background-image: linear-gradient(90deg, var(--azul), var(--azul-marinho));
 }
 
 .postagens-landing h2{
@@ -165,7 +168,7 @@ body::-webkit-scrollbar{
     align-items: center;
     justify-content: center;
     gap: 1em;
-    animation: spin 10s infinite linear;
+    animation: spin 40s infinite linear;
     padding: 0 0.5em;  
 }
 
@@ -176,10 +179,6 @@ body::-webkit-scrollbar{
 @keyframes spin{
     from{transform: translateX(0);}
     to{transform: translateX(-100%);}
-}
-
-.slider-landing:hover .slider-conteudo-landing {
-    animation-play-state: paused;
 }
 
 .slider-item-landing{
@@ -203,6 +202,36 @@ body::-webkit-scrollbar{
     transition: transform 0.3s;
 }
 
+.slider-item-landing h4{
+    color: var(--azul-marinho);
+    font-size: 1.3em;
+}
+
+.slider-item-landing h5{
+    color: var(--azul);
+}
+
+.slider-item-landing h6{
+    color: var(--azul-claro);
+    padding-top: 20px;
+}
+
+.slider-item-landing button{
+    color: var(--branco-neve);
+    border-radius: 50px;
+    padding: 10px;
+    background-color: var(--vermelho);
+    border: none;
+}
+
+.slider-item-landing button:hover{
+    background-color: var(--vermelho-escuro);
+    transition: all 0.3s ease;
+    color: var(--cinza);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
 .dados-autor-landing img {
     width: 30px;
     height: 30px;
@@ -213,4 +242,5 @@ body::-webkit-scrollbar{
     gap: 10px;
     align-items: center;
 }
+
 
