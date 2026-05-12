@@ -87,7 +87,10 @@ time {
   width: 50%;
   align-self: center;
   border-radius: 40px;
+  border: none;
   height: auto;
+  padding: 2%;
+  margin-top: 2%;
   font-weight: 900;
   color: #f5f7fa;
   font-family: "Poppins", sans-serif;
