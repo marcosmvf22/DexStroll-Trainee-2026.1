@@ -64,7 +64,7 @@ body{
 
 .fechar-modal{
     display: none;
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 20px;
     z-index: 30;
@@ -126,15 +126,17 @@ footer h1 {
 }
 
 .politica button{
-    background-color: #bcccd8;
+    background-color: transparent;
     border: none;
+    color: white;
+    text-decoration: underline;
     border-radius: 30px;
     font-size: 24px;
     transition-duration: 0.4s;
 }
 
 .politica button:hover{
-    background-color: #1f5fa8;
+    background-color: #520e0e;
     cursor: pointer;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
 }
