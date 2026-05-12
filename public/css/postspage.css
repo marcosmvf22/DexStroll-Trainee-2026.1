@@ -10,22 +10,21 @@ main {
   font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 80px;
+  justify-items: center;
+  text-justify: distribute;
 }
 
-h1 {
+.postpagetitle {
   text-align: center;
-  margin-bottom: 40px;
+  height: auto;
+  width: 100%;
+  color: white;
+  font-size: 4rem;
+  margin-bottom: 4vh;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.6);
 }
 
-/* 
-
-
-espaço,  removo depois
-
-
-*/
 time {
   color: #4fa3ff;
 }
@@ -50,9 +49,14 @@ time {
 
   width: 100%;
   height: 350px;
+  transition: all 0.2s ease-in-out;
 }
-.postpagetitle {
-  color: #0d2a4d;
+
+@media (hover: hover) {
+  .publicacao:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.5);
+  }
 }
 .manchetedopost {
   color: #1f5fa8;
@@ -88,8 +92,6 @@ time {
   color: #f5f7fa;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
-
-  /*fiquei impressionado ao aprender a trocar o cursor pra mãozinha clicando*/
 }
 
 .paginacao-posts {
@@ -108,7 +110,7 @@ time {
     #333 45%,
     #333 55%,
     #fff 55%,
-    #fff 100%,
+    #fff 100%
   );
 }
 /* pokebola pra paginação, ainda bem me deram a  ideia*/
@@ -136,6 +138,8 @@ time {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.2s ease-in-out;
+  /* suaviza o passar  o mouse na bola */
 }
 
 /* bolinha dentro da  pokebola*/
@@ -165,17 +169,6 @@ agora  tenho que codar mais  efeitinhos */
   width: 100%;
   height: 5px;
 }
-
-/* .button-pagina {
-  cursor: pointer;
-  color: white;
-  width: 60px;
-  height: 60px;
-  background-color: #5a1a22;
-  border: 4px solid #bcccdb;
-  font-weight: bold;
-  font-size: 20px;
-} */
 
 @media (max-width: 1440px) {
   /*nao entendi como  usa isso, mas vou ver  se funciona */
@@ -244,9 +237,25 @@ agora  tenho que codar mais  efeitinhos */
     height: 250px;
     width: 100%;
   }
+  .posts-pokeball {
+    width: 45px;
+    height: 45px;
+    font-size: 14px;
+  }
+
+  .posts-pokeball::after {
+    width: 12px;
+    height: 12px;
+  }
   .conteudopost {
     width: 100%;
     gap: 12px;
+  }
+  .paginacao-posts {
+    padding: 4px;
+  }
+  .postpagetitle {
+    font-size: 2rem;
   }
 }
 
@@ -254,7 +263,19 @@ agora  tenho que codar mais  efeitinhos */
   main {
     padding: 20px;
   }
+  .paginacao-posts {
+    padding: 8px;
+  }
+  .posts-pokeball {
+    width: 38px;
+    height: 38px;
+  }
+  .posts-pokeball:nth-child(4),
+  .posts-pokeball:nth-child(5) {
+    display: none;
+  }
 }
+
 /* @media (max-width: 900px) {
   .grade_posts{
     grid-template-columns: 1fr;
