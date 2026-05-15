@@ -12,52 +12,54 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../../public/css/listadeusuarios.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
   <body>
-   <main class="listausuarioscontainer">
-        <header class="titulo-pagina">
-            <h1 class="titulolistausuarios">Lista de Usuários</h1>
-        </header>
+    <main class="listausuarioscontainer">
+      <header class="titulo-pagina">
+        <h1 class="titulolistausuarios">Lista de Usuários</h1>
+      </header>
 
-        <section class="secao-tabela">
+      <section class="secao-tabela">
+        <div class="superioracoes-tabela">
+          <button class="botao-adicionar">Adicionar Usuário</button>
+        </div>
+
+        <table class="tabela-usuarios">
+          <thead>
+            <tr class="titulos-colunas">
+              <th>usuario</th>
+              <th>Nome completo</th>
+              <th>Email</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
             
-            <div class="superioracoes-tabela">
-                <button class="botao-adicionar">Adicionar Usuário</button>
-            </div>
+            <tr>
+              <td>nomedeusuario</td>
+              <td>Nome Completo pessoa</td>
+              <td>shaolinmatadordeporco@email.com</td>
+              <td class="celula-acoes">
+                <button class="botao-visualizar" title="Visualizar">
+                  <span class="material-icons">visibility</span>
+                </button>
 
-            <table class="tabela-usuarios">
-                <thead>
-                    <tr class="titulos-colunas">
-                        <th>usuario</th>
-                        <th>Nome completo</th>
-                        <th>Email</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>nomedeusuario</td>
-                        <td>Algum Nome aleatório por aí</td>
-                        <td>usuario@email.com</td>
-                        <td class="celula-acoes">
-                          <button class="botao-visualizar" title="Visualizar">👁</button>
-                          <button class="botao-editar" title="Editar">📝</button>
-                          <button class="botao-deletar" title="Deletar">⨂</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>nomedeusuario</td>
-                        <td>Nome Completo pessoa</td>
-                        <td>shaolinmatadordeporco@email.com</td>
-                        <td class="celula-acoes">
-                            <button class="botao-visualizar" title="Visualizar">👁</button>
-                            <button class="botao-editar" title="Editar">📝</button>
-                            <button class="botao-deletar" title="Deletar">⨂</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+                <button class="botao-editar" title="Editar">
+                  <span class="material-icons">edit</span>
+                </button>
+
+                <button class="botao-deletar" title="Deletar">
+                  <span class="material-icons">delete</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
   </body>
 </html>
