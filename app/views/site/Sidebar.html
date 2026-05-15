@@ -6,24 +6,84 @@
 
     <!-- Material icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- CSS -->
+     <link rel="stylesheet" href="../../../public/css/Sidebar.css">
     <title>DexStroll-Sidebar</title>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="sidebar-perfilUsuario">
-            <img src="../../../public/assets/fundo-falso.jpg" alt="imagem de perfil">
-            <h1 class="perfilUsuario-nome">Adiministrador</h1>
-            <h1 class="perfilUsuario-email">email@gmail.com</h1>
+    <nav class="sidebar">
+
+        <!-- botão para fechar e abrir sidebar -->
+        <div class="sidebar-topo">
+            
+            <!-- Botão para fechar sidebar -->
+            <div class="habilitar_sidebar">
+                <button class="toggle-sidebar" type="button">
+                    <i class="material-icons">menu</i>
+                </button>
+            </div>
         </div>
+
+        <!-- Menus para outras paginas administrativas -->
         <div class="sidebar-menus">
-            <i class="material-icons">home</i>
-            <i class="material-icons">dashboard</i>
-            <i class="material-icons">group</i>
-            <i class="material-icons">view_list</i>
+            <ul>
+                <!-- Menu home -->
+                <li>
+                    <a href="#" class="sidebar-menus-links">
+                        <i class="material-icons">home</i>
+                        <span class="descricao-menus">Pagina inicial</span>
+                    </a>
+                </li>
+
+                <!-- Menu deshboard -->
+                <li>
+                    <a href="#" class="sidebar-menus-links">
+                        <i class="material-icons">dashboard</i>
+                        <span class="descricao-menus">Dashboard</span>
+                    </a>
+                </li>
+
+                <!-- Menu lista de usuarios -->
+                <li>
+                    <a href="#" class="sidebar-menus-links">
+                        <i class="material-icons">group</i>
+                        <span class="descricao-menus">Lista de Usuários</span>
+                    </a>
+                </li>
+
+                <!-- Menu lista de posts -->
+                <li>
+                    <a href="#" class="sidebar-menus-links">
+                        <i class="material-icons">view_list</i>
+                        <span class="descricao-menus">Lista de Posts</span>
+                    </a>
+                </li>  
+            </ul>
         </div>
-        <div class="sidebar-logout">
-            <i class="material-icons">logout</i>
+
+        <!-- Perfil do usuario e botão de logout -->
+        <div class="sidebar-bottom">
+
+            <!-- Perfil de usuario -->
+            <div class="sidebar-perfilUsuario">
+                <a href="#">
+                    <img src="../../../public/assets/fundo-falso.jpg" alt="imagem de perfil">
+                </a>
+                <div class="info-perfilUsuario">
+                    <p>Adiministrador</p>
+                    <p>email@gmail.com</p>
+                </div>
+                
+            </div>
+
+            <!-- Botão de logout -->
+            <div class="sidebar-logout">
+                <a href="#">
+                    <i class="material-icons">logout</i>
+                </a>
+            </div>
         </div>
-    </div>
+    </nav>
 </body>
 </html>
