@@ -18,6 +18,9 @@ main {
   width: 100%;
   border-collapse: collapse;
 }
+.tabela-usuarios tbody tr {
+  border-bottom: 1px solid #e0e0e0; 
+}
 .botao-adicionar {
   color: white;
   font-weight: 700;
@@ -52,4 +55,23 @@ main {
 .tabela-usuarios td {
   padding: 12px 15px;
   text-align: left;
+  color: black;
+}
+.celula-acoes {
+  display: flex;
+  gap: 12px; 
+}
+
+.celula-acoes button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+  filter: grayscale(100%); 
+}
+
+.celula-acoes button:hover {
+  transform: scale(1.15);
+  opacity: 1;
 }
