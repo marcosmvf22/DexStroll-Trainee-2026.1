@@ -25,7 +25,10 @@
 
       <section class="secao-tabela">
         <div class="superioracoes-tabela">
-          <button class="botao-adicionar">Adicionar Usuário</button>
+          <button class="botao-adicionar">
+            <span class="material-symbols-outlined"> person_add </span>
+            Adicionar Usuário
+          </button>
         </div>
 
         <table class="tabela-usuarios">
@@ -38,12 +41,12 @@
             </tr>
           </thead>
           <tbody>
-            
             <tr>
               <td>nomedeusuario</td>
               <td>Nome Completo pessoa</td>
               <td>shaolinmatadordeporco@email.com</td>
               <td class="celula-acoes">
+                <!-- aparentemente o  JS substitui isso  tudo,  mas vou deixar por enquanto  pra manutenção no  futuro:: -->
                 <button class="botao-visualizar" title="Visualizar">
                   <span class="material-icons">visibility</span>
                 </button>
@@ -61,5 +64,6 @@
         </table>
       </section>
     </main>
+    <script src="../../../public/js/listadeusuarios.js"></script>
   </body>
 </html>
