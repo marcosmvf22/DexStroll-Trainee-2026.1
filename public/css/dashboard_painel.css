@@ -1,12 +1,204 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-*{
+/* Configurações Gerais */
+* {
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-table, tr, th{
-    border: 1px solid black;
+:root{
+    --vermelho-escuro: #5A1A22;
+    --vermelho: #E6392F;
+    --azul-marinho: #0D2A4D;
+    --azul: #1F5FA8;
+    --azul-claro: #4FA3FF;
+    --azul-ceu: #96CCFF;
+    --branco-neve: #F5F7FA;
+    --preto: #2B2F38;
+}
+
+body {
+    background-color: var(--azul-ceu); 
+    color: var(--preto);
+    padding: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* Cabeçalho */
+.header-dashboard h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--azul-marinho);
+}
+
+.header-dashboard h3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--azul-marinho);
+    margin-top: -5px;
+    margin-bottom: 30px;
+}
+
+/* Abas (Publicações / Usuários) */
+.abas-admin {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid transparent;
+}
+
+.aba-item {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--azul);
+    cursor: pointer;
+    padding-bottom: 8px;
+    transition: color 0.3s;
+}
+
+.aba-item.ativa {
+    color: var;
+    border-bottom: 3px solid var(--azul-marinho);
+}
+
+/* Container Escuro da Tabela */
+.card-tabela {
+    background-color: var(--azul-marinho); 
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding-bottom: 2px;
+}
+
+/* Topo do Card */
+.topo-tabela {
+    display: flex;
+    justify-content: flex-end;
+    padding: 25px 30px 15px 30px;
+}
+
+.criar-publicacao-admin {
+    background-color: #ff4a4a; 
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.criar-publicacao-admin:hover {
+    background-color: var(--vermelho-escuro);
+}
+
+
+.tabela-admin {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--branco-neve); 
+}
+
+/* Cabeçalho da Tabela */
+.cabecalho-tabela-admin {
+    background-color: var(--azul-marinho); 
+}
+
+.cabecalho-tabela-admin th {
+    color: var(--branco-neve);
+    font-weight: 500;
+    font-size: 14px;
+    padding: 18px 20px;
+    text-align: center;
+}
+
+/* Linhas e Células de Dados */
+.tabela-admin tbody tr {
+    border-bottom: 1px solid var(--branco-neve); 
+}
+
+.tabela-admin tbody td {
+    padding: 18px 20px;
+    color: var(--preto);
+    font-size: 14px;
+    text-align: center;
+    background-color: var(--branco-neve); 
+}
+
+
+.dado_id_admin {
+    font-weight: 500;
+}
+
+
+.celula-acoes-admin {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.botao-acao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--azul-marinho); 
+    transition: transform 0.1s, color 0.2s;
+}
+
+.botao-acao .material-icons {
+    font-size: 20px;
+}
+
+.botao-acao:hover {
+    transform: scale(1.1);
+}
+
+.botao-deletar:hover {
+    color: #ff4a4a;
+}
+
+/* Paginação */
+.paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-pag {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: var(--azul);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-pag.ativo {
+    background-color: var(--azul-marinho);
+    color: var(--branco-neve);
+    font-weight: 600;
+}
+
+.btn-pag:hover:not(.ativo) {
+    background-color: rgba(17, 34, 64, 0.1);
 }

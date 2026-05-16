@@ -4,41 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/dashboard_painel.css"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Painel - DexStroll</title>
 </head>
 <body>
-    <section>
-        <h1>Dashboard</h1>
-        <!-- substituir com php os usuarios -->
-        <h3>XX usuários encontrados</h3>
-    </section>
-    <section>
-        <button class="publicacoes_admin">Publicações</button>
-        <button class="usuarios_admin">Usuário</button>
-    </section>
-    <table>
-        <th>
-            <button class="criar-publicacao-admin">Criar publicação</button>
-        </th>
-        <th>ID</th>
-        <th>Título</th>
-        <th>Autor</th>
-        <th>Data de criação</th>
-        <th>Ações</th>
-        <tr>
-            <td class="dado_id_admin">a</td>
-            <td class="dado_titulo_admin">a</td>
-            <td class="dado_autor_admin">a</td>
-            <td class="dado_data_criacao_admin">a</td>
-             <td class="dado_acoes_admin">a</td>
-        </tr>
-    </table>
-    <div class="paginacao">
-        <!-- colocar no php a paginação dinamica de acordo com os dados -->
-        <button class="btn-prev-tabela-admin">&lt</button>
-        <button class="pagina-tabela-admin"><a href="">1</a></button>
-        <button class="btn-next-tabela-admin">&gt</button>
-        
+    <div class="dashboard-container">
+        <header class="header-dashboard">
+            <h1>Dashboard</h1>
+            <h3>xx publicações encontradas</h3>
+        </header>
+
+        <nav class="abas-admin">
+            <button class="aba-item ativa">Publicações</button>
+            <button class="aba-item">Usuários</button>
+        </nav>
+
+        <div class="card-tabela">
+            <div class="topo-tabela">
+                <button class="criar-publicacao-admin">Criar publicação</button>
+            </div>
+            
+            <table class="tabela-admin">
+                <thead>
+                    <tr class="cabecalho-tabela-admin">
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Data de criação</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="dado_id_admin">1</td>
+                        <td class="dado_titulo_admin">Titulo da publicação</td>
+                        <td class="dado_autor_admin">João da Silva</td>
+                        <td class="dado_data_criacao_admin">DD/MM/YYYY</td>
+                        <td class="celula-acoes-admin">
+                            <button class="botao-acao botao-visualizar-admin" title="Visualizar">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                            <button class="botao-acao botao-editar" title="Editar">
+                                <span class="material-icons">edit</span>
+                            </button>
+                            <button class="botao-acao botao-deletar" title="Deletar">
+                                <span class="material-icons">delete</span>
+                            </button>
+                        </td>
+                        
+                    </tr>
+                    </tbody>
+            </table>
+        </div>
+
+        <div class="paginacao">
+            <button class="btn-pag">&lt;</button>
+            <button class="btn-pag ativo">1</button>
+            <button class="btn-pag">2</button>
+            <button class="btn-pag">3</button>
+            <button class="btn-pag">4</button>
+            <button class="btn-pag">5</button>
+            <button class="btn-pag">6</button>
+            <button class="btn-pag">&gt;</button>
+        </div>
     </div>
 </body>
 </html>
