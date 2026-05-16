@@ -24,6 +24,22 @@
     background-color:#fffefe59;
     border-radius: 16px;
 }
+.topo-dashboard{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+#icone-voltar-dashboard{
+    margin-left: 2%;
+    position: absolute;
+    font-size: 2.5vw;
+    color: #0d2a4d;
+    left: 0px;
+
+    margin-top: 2%;
+}
 .img-logo-dashboard{
     width: 25%;
     margin-top: 8vh;
@@ -160,9 +176,13 @@
         width: 10vw;
     }
 }
-@media (max-width: 400px){
+@media (max-width: 500px){
     .container-dashboard{
-        width: 40%;
+        width: 50%;
+    }
+     #icone-voltar-dashboard{
+        font-size: 5vw;
+        margin-top: 3%;
     }
     .img-logo-dashboard{
         margin-top: 2vh;
@@ -176,13 +196,20 @@
     }
     .botao-dashboard{
         margin-left: 0vh;
-        height: 22px;
+        height: 25px;
         padding: 4px;
-        font-size: 6px;
+        font-size: 8px;
+    }
+    .botao-dashboard i{
+        margin-left: 1vw;
     }
     .botao-logout-dashboard{
-        height: 22px;
-        font-size: 5px;
+        height: 25px;
+        width: 30%;
+        font-size: 8px;
         gap: 4px;
+    }
+    .botao-logout-dashboard i{
+        margin-left: 1vw;
     }
 }
