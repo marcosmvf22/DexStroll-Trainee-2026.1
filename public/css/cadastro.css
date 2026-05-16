@@ -14,7 +14,7 @@ body{
     display: flex;
     flex-direction: row-reverse;
     width: 60%; 
-    height: 350px;
+    height: 400px;
     margin-top: 15vh;
 
     border: 1px solid #0d2a4d;
@@ -45,7 +45,7 @@ body{
 }
 .subtitulo-cadastro{
     color: #0d2a4d;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
     margin-top: 0%;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
@@ -176,6 +176,7 @@ body{
     }
     .subtitulo-cadastro{
         font-size: 10px;
+        margin-bottom: 0.5vh;
     }
     .campos-cadastro{
         font-size: 2vw;
