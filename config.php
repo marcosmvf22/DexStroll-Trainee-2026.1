@@ -2,7 +2,7 @@
 
 return [
     'database' => [
-        'name' => 'codejr_db',
+        'name' => 'dexstroll_db',
         'username' => 'root',
         'password' => 'root',
         'connection' => 'mysql:host=db',
