@@ -7,6 +7,17 @@
     font-family: 'Poppins', sans-serif;
 }
 
+:root {
+    --vermelho-escuro: #5A1A22;
+    --vermelho: #E6392F;
+    --azul-marinho: #0D2A4D;
+    --azul: #1F5FA8;
+    --azul-claro: #4FA3FF;
+    --cinza: #D9D9D9;
+    --branco-neve: #F5F7FA;
+    --preto: #2B2F38;
+}
+
 body{
     background: linear-gradient(-21deg,rgba(31,95,168), rgba(13,42,77));
     color: white;
@@ -193,9 +204,10 @@ body{
 
 .carrossel-conteudo{
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-padding-left: 20px; 
+    border-radius: 40px;
 }
 
 .carrossel-conteudo::-webkit-scrollbar{
@@ -211,14 +223,15 @@ body{
 }
 
 .cards_carrossel{
-    width: 280px;
-    background: rgba(20,20,20,0.85);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-    overflow: hidden;
-    flex-shrink: 0;
-    transition: transform 0.3s, box-shadow 0.3s;
-    scroll-snap-align: start
+    flex: 0 0 350px;
+    background-color:var(--branco-neve);
+    padding: 25px;
+    border-radius: 40px;
+    display: flex;
+    text-align: start;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 380px;
 }
 
 .cards_carrossel:hover {
@@ -227,28 +240,57 @@ body{
 }
 
 .cards_carrossel img{
+    border-radius: 50px;
     width: 100%;
-    height: 160px;
+    height: 280px;
     object-fit: cover;
+    transition: transform 0.3s;
 }
 
-.cards_carrossel h2 {
-    font-size: 18px;
-    margin: 10px;
-}
-
-.cards_carrossel p {
-    font-size: 14px;
+.cards_carrossel p{
     text-align: justify;
-    margin: 0 10px 15px;
-    color: #ccc;
+    color: var(--azul-marinho);
 }
 
-.cards_carrossel a{
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    height: 100%;
+.cards_carrossel h4{
+    color: var(--azul-marinho);
+    font-size: 1.3em;
+}
+
+.cards_carrossel h5{
+    color: var(--azul);
+}
+
+.cards_carrossel h6{
+    color: var(--azul-claro);
+    padding-top: 20px;
+}
+
+.cards_carrossel button{
+    color: var(--branco-neve);
+    border-radius: 50px;
+    padding: 10px;
+    background-color: var(--vermelho);
+    border: none;
+}
+
+.cards_carrossel button:hover{
+    background-color: var(--vermelho-escuro);
+    transition: all 0.3s ease;
+    color: var(--cinza);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.dados-autor-landing img {
+    width: 30px;
+    height: 30px;
+}
+
+.dados-autor-landing{
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 .paginacao{
