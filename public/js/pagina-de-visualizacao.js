@@ -2,7 +2,7 @@
 
 const slider = document.querySelector('.carrossel-conteudo');
 const slider_content = document.querySelector('.carrossel-conteudo ul');
-const radio_auto = document.querySelector('.radio-auto');
+/* const radio_auto = document.querySelector('.radio-auto'); */
 const left_arrow = document.getElementById('seta-esquerda');
 const right_arrow = document.getElementById('seta-direita');
 const carrossel = document.querySelector('.carrossel');
@@ -24,11 +24,11 @@ function updateCarrossel ()
     itens_per_view = Math.max(1, Math.floor(slider_width / item_width))
     total_pages = Math.max(1, Math.ceil(slider_content.children.length / itens_per_view));
     
-    createRadioLabel();
-    updateRadioLabel();
+    /* createRadioLabel(); */
+    /* updateRadioLabel(); */
 }
 
-function createRadioLabel()
+/* function createRadioLabel()
 {
     radio_auto.innerHTML = "";
     for(let i = 0; i< total_pages; i++)
@@ -48,15 +48,15 @@ function createRadioLabel()
 
         radio_auto.appendChild(label);
     }
-}
+} */
 
-function updateRadioLabel()
+/* function updateRadioLabel()
 {
     const label = document.querySelectorAll('.radio-label');
     label.forEach((l,i) => {
         l.classList.toggle('active', i===current_page);
     });
-}
+} */
 
 /* Movimentacao do Carrossel */
 
@@ -67,7 +67,7 @@ function scrollToPage()
     const newPosition = (item_width + gap) * itens_per_view * current_page;
 
     slider.scrollTo({left: newPosition, behavior:'smooth'});
-    updateRadioLabel();
+    /* updateRadioLabel(); */
     
 }
 
