@@ -4,66 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de Usuários</title>
-    <link rel="stylesheet" href="../../../public/css/postspage.css" />
+    
+    <!-- alterar arquivo CSS quando merge -->
+    <link rel="stylesheet" href="../../../public/css/listadeusuarios.css" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../../public/css/listadeusuarios.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
   </head>
   <body>
-    <main class="listausuarioscontainer">
-      <header class="titulo-pagina">
-        <h1 class="titulolistausuarios">Lista de Usuários</h1>
-      </header>
+    <div class="dashboard-container">
+      
+      <div class="topo-tabela">
+        <button class="criar-publicacao-admin">
+          <span class="material-icons" style="vertical-align: middle; font-size: 18px; margin-right: 6px;">person_add</span>
+          Adicionar Usuário
+        </button>
+      </div>
 
-      <section class="secao-tabela">
-        <div class="superioracoes-tabela">
-          <button class="botao-adicionar">
-            <span class="material-symbols-outlined"> person_add </span>
-            Adicionar Usuário
-          </button>
-        </div>
+      <table class="tabela-admin">
+        <thead>
+          <tr class="cabecalho-tabela-admin">
+            <th>Usuário</th>
+            <th>Nome Completo</th>
+            <th>Email</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="corpo-tabela-usuarios">
+          <tr>
+            <td class="dado_id_admin">nomedeusuario</td>
+            <td>Nome Completo pessoa</td>
+            <td>shaolinmatadordeporco@email.com</td>
+            <td class="celula-acoes-admin">
+              <button class="botao-acao" title="Visualizar">
+                <span class="material-icons">visibility</span>
+              </button>
+              <button class="botao-acao" title="Editar">
+                <span class="material-icons">edit</span>
+              </button>
+              <button class="botao-acao botao-deletar" title="Deletar">
+                <span class="material-icons">delete</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-        <table class="tabela-usuarios">
-          <thead>
-            <tr class="titulos-colunas">
-              <th>usuario</th>
-              <th>Nome completo</th>
-              <th>Email</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>nomedeusuario</td>
-              <td>Nome Completo pessoa</td>
-              <td>shaolinmatadordeporco@email.com</td>
-              <td class="celula-acoes">
-                <!-- aparentemente o  JS substitui isso  tudo,  mas vou deixar por enquanto  pra manutenção no  futuro:: -->
-                <button class="botao-visualizar" title="Visualizar">
-                  <span class="material-icons">visibility</span>
-                </button>
+    </div>
 
-                <button class="botao-editar" title="Editar">
-                  <span class="material-icons">edit</span>
-                </button>
-
-                <button class="botao-deletar" title="Deletar">
-                  <span class="material-icons">delete</span>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-    </main>
     <script src="../../../public/js/listadeusuarios.js"></script>
   </body>
 </html>
