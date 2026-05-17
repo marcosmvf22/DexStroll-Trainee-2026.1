@@ -20,39 +20,31 @@ const listaUsuarios = [
 
 //aparentemente declarar variável dinamica é bem melhor que no java, no java eu tinha que declarar strings etc de forma estática
 
-const corpoTabela = document.querySelector(".tabela-usuarios tbody"); //eu acho que isso aqui filtra o elemento direto  da  classe da tabela.
-
-// tive que ler uns 17 sites de tutorial, e no fim o bom e velho reddit ajudou,
-// pelo que entendi: guardo as variaveis, injeto no HTML de forma não fixa, assim já fica meio caminho pro back end, eu acho.
+const corpoTabela = document.getElementById("corpo-tabela-usuarios"); 
 
 if (corpoTabela) {
-  corpoTabela.innerHTML = ""; //assim consigo redefinir qualquer lixo que estiver no HTML, parece mais fácil
+  corpoTabela.innerHTML = ""; // Tirar o HTML (mesmo nao sendo  util agora)
 
   listaUsuarios.forEach((usuario) => {
-    const linhaHTML = /* html */ `
-      <tr>
-        <td>${usuario.username}</td>
+    //eu  vi que esse comentário abaixo pode ajudar minha extensão (prettier) a formatar minhas tags HTML dentro do JS
+    //pelo que entendi a crase faz o html ser injetado deforma linear, resumindo, eu nao entendi, mas funciona
+    const linhaHTML = /* html */ `  
+    <tr>
+        <td class="dado_id_admin">${usuario.username}</td>
         <td>${usuario.nome}</td>
         <td>${usuario.email}</td>
-        <td class="celula-acoes">
- <button class="botao-visualizar" title="Visualizar">
- 
-         
-          <span class="material-symbols-outlined">person_search</span>
-
-
+        
+        <td class="celula-acoes-admin">
+          <button class="botao-acao" title="Visualizar">
+            <span class="material-icons">visibility</span>
           </button>
-
-
-
-
-          <button class="botao-editar" title="Editar">
-         <span class="material-symbols-outlined">edit
-</span>
-
+          
+          <button class="botao-acao" title="Editar">
+            <span class="material-icons">edit</span>
           </button>
-          <button class="botao-deletar" title="Deletar">
-            <span class="material-symbols-outlined">person_cancel</span>
+          
+          <button class="botao-acao botao-deletar" title="Deletar">
+            <span class="material-icons">delete</span>
           </button>
         </td>
       </tr>
