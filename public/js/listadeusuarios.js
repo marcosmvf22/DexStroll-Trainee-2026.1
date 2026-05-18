@@ -2,17 +2,17 @@
 //parece que a sintaxe é maneira até certo ponto
 const listaUsuarios = [
   {
-    username: "FlavinDoPneu",
+    username: "Usuarioexemplo1",
     nome: "Nome Completo Um",
     email: "usuario1@email.com",
   },
   {
-    username: "Shaolin_Matadordeporco",
+    username: "Usuarioexemplo2",
     nome: "Nome Completo Dois",
     email: "usuario2@email.com",
   },
   {
-    username: "a_aurea_vai_esculachar_minha_pagina",
+    username: "nomedeusuario",
     nome: "Nome Completo Três",
     email: "usuario3@email.com",
   },
