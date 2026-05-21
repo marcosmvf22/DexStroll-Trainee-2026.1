@@ -5,3 +5,4 @@ function abrirModal(idModal){
 function fecharModal(idModal){
     document.getElementById(idModal).style.display = "none";
 }
+

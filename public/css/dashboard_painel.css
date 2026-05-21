@@ -17,7 +17,7 @@
     --preto: #2B2F38;
 }
 
-body {
+.body-pagina-publicacao {
     background-color: var(--azul-ceu); 
     color: var(--preto);
     padding: 5vh;
@@ -27,19 +27,19 @@ body {
     min-height: 100vh;
 }
 
-.dashboard-container {
+.pagina-publicacao{
     width: 100%;
     max-width: 1100px;
 }
 
 /* Cabeçalho */
-.header-dashboard h1 {
+.header-pag-publicacao h1 {
     font-size: 42px;
     font-weight: 700;
     color: var(--azul-marinho);
 }
 
-.header-dashboard h3 {
+.header-pag-publicacao h3 {
     font-size: 16px;
     font-weight: 400;
     color: var(--azul-marinho);
@@ -100,7 +100,7 @@ body {
 }
 
 .criar-publicacao-admin:hover {
-    background-color: var(--vermelho-escuro);
+    background-color: #963944;
 }
 
 
@@ -201,4 +201,8 @@ body {
 
 .btn-pag:hover:not(.ativo) {
     background-color: rgba(17, 34, 64, 0.1);
+}
+
+.modalCriarPublicacao{
+    display: none;
 }
