@@ -50,7 +50,7 @@
     font-size: 5vh;
    
     font-family: "Poppins", sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     font-style: normal;
 }
 .botoes-dashboard{
@@ -185,11 +185,11 @@
         margin-top: 3%;
     }
     .img-logo-dashboard{
-        margin-top: 2vh;
+        margin-top: 3vh;
     }
     .titulo-dashboard{
         font-size: 1.5vh;
-        margin-bottom: 4vh;
+        margin-bottom: 2vh;
     }
     .botoes-dashboard{
         margin-top: 10px;
