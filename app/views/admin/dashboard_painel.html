@@ -32,7 +32,7 @@
 
         <div class="card-tabela">
             <div class="topo-tabela">
-                <button class="criar-publicacao-admin" onclick="abrirModal();">Criar publicação</button>
+                <button class="criar-publicacao-admin" onclick="abrirModal()">Criar publicação</button>
             </div>
             
             <table class="tabela-admin">
@@ -84,13 +84,22 @@
     <div class="modalCriarPublicacao">
         <h3>Criar Publicação</h3>
         <form method="post">
-            <textarea id="summernote" name="editordata"></textarea>
+            <div id="editor" name="editordata">
+                <textarea id="summernote" name="editordata"></textarea>
+            </div>
         </form>
 
-        <div>
+        <script>
+            $(document).ready(function() {
+            $('#summernote').summernote();
+            });
+        </script>
+
+        <div class="botoesModalCriarPub">
             <button class="cancelarBotaoModal">Cancelar</button>
             <button class="enviarBotaoModal">Enviar</button>
         </div>
     </div>
+    
 </body>
 </html>

@@ -205,4 +205,41 @@
 
 .modalCriarPublicacao{
     display: none;
+    flex-direction: column;
+    background-color: var(--branco-neve);
+    width: 40%;
+    height: fit-content;
+    padding: 20px;
+    position: absolute;
+    border-radius: 30px;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.4));
+
+}
+
+.modalCriarPublicacao button{
+    padding: 10px;
+    border-radius: 20px;
+    
+}
+
+.modalCriarPublicacao .cancelarBotaoModal:hover{
+    transition: transform 0.2s, color 0.2s;
+    color: var(--branco-neve);
+    font-weight: bold;
+    background-color: var(--vermelho);
+}
+
+
+.modalCriarPublicacao .enviarBotaoModal:hover{
+    transition: transform 0.2s, color 0.2s;
+    color: var(--branco-neve);
+    font-weight: bold;
+    background-color: rgb(86, 155, 86);
+}
+
+
+.botoesModalCriarPub{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
