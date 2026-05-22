@@ -1,8 +1,14 @@
+const filtro = document.querySelector('#filtroFundoModal');
+
 function abrirModal(idModal){
-    document.getElementById(idModal).style.display = "flex";
+    const modal = document.getElementById(idModal);
+    modal.style.display = "flex";
+    filtro.style.display = "flex";
 }
 
 function fecharModal(idModal){
-    document.getElementById(idModal).style.display = "none";
+    const modal = document.getElementById(idModal);
+    modal.style.display = "none";
+    filtro.style.display = "none";
 }
 

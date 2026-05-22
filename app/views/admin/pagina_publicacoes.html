@@ -19,9 +19,10 @@
     <title>Painel - DexStroll</title>
 </head>
 <body class="body-pagina-publicacao">
+    <div class="filtro" id="filtroFundoModal"></div>
     <div class="pagina-publicacao">
         <header class="header-pag-publicacao">
-            <h1>Dashboard</h1>
+            <h1>Publicações</h1>
             <h3>xx publicações encontradas</h3>
         </header>
 
@@ -32,7 +33,7 @@
 
         <div class="card-tabela">
             <div class="topo-tabela">
-                <button class="criar-publicacao-admin" onclick="abrirModal()">Criar publicação</button>
+                <button class="criar-publicacao-admin" onclick="abrirModal('modalCriarPublicacao')">Criar publicação</button>
             </div>
             
             <table class="tabela-admin">
@@ -81,25 +82,34 @@
     </div>
 
     <!-- Modal -->
-    <div class="modalCriarPublicacao">
+    <div class="modal-pagina-publicacao" id="modalCriarPublicacao">
         <h3>Criar Publicação</h3>
+        <hr class="linha-separadora">
         <form method="post">
             <div id="editor" name="editordata">
                 <textarea id="summernote" name="editordata"></textarea>
             </div>
         </form>
 
-        <script>
-            $(document).ready(function() {
-            $('#summernote').summernote();
-            });
-        </script>
 
         <div class="botoesModalCriarPub">
-            <button class="cancelarBotaoModal">Cancelar</button>
-            <button class="enviarBotaoModal">Enviar</button>
+            <button class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
+            <button class="enviarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Enviar</button>
         </div>
     </div>
     
+    <script>
+        $(document).ready(function() {
+        $('#summernote').summernote({
+            height: 300,             
+            width: '100%',           
+            maxHeight: 500,          
+            minHeight: 150
+        });
+        });
+    </script>
+
+    <script src="/public/script.js"></script>
+
 </body>
 </html>
