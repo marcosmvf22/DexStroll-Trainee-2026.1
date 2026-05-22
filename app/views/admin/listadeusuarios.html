@@ -3,25 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lista de Usuários</title>
+    <title>Painel - DexStroll</title>
     
-    <!-- alterar arquivo CSS quando merge -->
     <link rel="stylesheet" href="../../../public/css/listadeusuarios.css" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
-  <body>
+  <body class="body-pagina-publicacao">
     <div class="dashboard-container">
       
+      <header class="header-dashboard">
+        <h1>Dashboard</h1>
+        <h3>xx usuários encontrados</h3>
+      </header>
+
+      <nav class="abas-admin">
+        <button class="aba-item">Publicações</button>
+        <button class="aba-item ativa">Usuários</button>
+      </nav>
+
       <div class="card-tabela">
 
         <div class="topo-tabela">
@@ -61,6 +61,12 @@
         </table>
 
       </div> 
+
+      <div class="paginacao">
+        <button class="btn-pag">&lt;</button>
+        <button class="btn-pag ativo">1</button>
+        <button class="btn-pag">&gt;</button>
+      </div>
 
     </div>
 
