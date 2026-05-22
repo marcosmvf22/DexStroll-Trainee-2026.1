@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/dashboard_painel.css"> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=library_books" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- include libraries(jQuery, bootstrap) -->
@@ -33,7 +34,8 @@
 
         <div class="card-tabela">
             <div class="topo-tabela">
-                <button class="criar-publicacao-admin" onclick="abrirModal('modalCriarPublicacao')">Criar publicação</button>
+                <button class="criar-publicacao-admin" onclick="abrirModal('modalCriarPublicacao')"><span class="material-symbols-outlined">library_books
+</span>Criar publicação</button>
             </div>
             
             <table class="tabela-admin">
@@ -100,12 +102,20 @@
     
     <script>
         $(document).ready(function() {
-        $('#summernote').summernote({
-            height: 300,             
-            width: '100%',           
-            maxHeight: 500,          
-            minHeight: 150
-        });
+            $('#summernote').summernote({
+                height: 300,             
+                width: '100%',           
+                maxHeight: 500,          
+                minHeight: 150,
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ]
+            });
         });
     </script>
 
