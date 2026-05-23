@@ -60,7 +60,7 @@
                         <td class="dado_autor_admin">João da Silva</td>
                         <td class="dado_data_criacao_admin">DD/MM/YYYY</td>
                         <td class="celula-acoes-admin">
-                            <button class="botao-acao botao-visualizar-admin" title="Visualizar">
+                            <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao')" title="Visualizar">
                                 <span class="material-icons">visibility</span>
                             </button>
                             <button class="botao-acao botao-editar"  title="Editar">
@@ -103,6 +103,70 @@
             <button class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
             <button class="enviarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Enviar</button>
         </div>
+    </div>
+
+    <!-- Modal Visualizar -->
+     <div class="modal-visualizar-publicacao" id="modalVisualizarPublicacao">
+        <div class="nav-modal-excluir">
+            <h3 class="titulo-modal-visualizar">Visualizar Publicação</h3>
+            <i class="fa-solid fa-xmark icone-fechar-modal-excluir" onclick="fecharModal('modalVisualizarPublicacao')"></i>
+        </div>
+        <hr class="linha-separadora-modal-excluir">
+
+        <div class="box1-modal-excluir">
+            <div class="grupo-inputs-modal">
+                <label for="input-idPublicacao" class="labal-modal-visualizar">ID:</label>
+                <input id="input-idPublicacao" name="input-idPublicacao" type="text" class="input-modal-visualizar" disabled>
+            </div>
+            <div class="grupo-inputs-modal">
+                <label for="input-tituloModal" class="labal-modal-visualizar">Título:</label>
+                <input id="input-tituloModal" name="input-tituloModal" type="text" class="input-modal-visualizar" disabled>  
+            </div>
+        </div>
+
+        <div class="imagem-principal-modal-excluir">
+            <label for="input-idPublicacao" class="labal-modal-visualizar">Imagem principal:</label>
+                <div class="img-placeholder-modal">
+                    <i class="fa-regular fa-image icone-imagem-modal"></i>
+                </div>
+        </div>
+
+
+        <div class="imagens-secundarias-modal-excluir">
+            <label for="input-idPublicacao" class="labal-modal-visualizar">Outras imagens:</label>
+                <div class="bloco-imagens-secundarias-modal">
+                    <div class="img-placeholder-modal">
+                        <i class="fa-regular fa-image icone-imagem-modal"></i>
+                    </div>
+                    <div class="img-placeholder-modal">
+                        <i class="fa-regular fa-image icone-imagem-modal"></i>
+                    </div>
+                    <div class="img-placeholder-modal">
+                        <i class="fa-regular fa-image icone-imagem-modal"></i>
+                    </div>
+                    <div class="img-placeholder-modal">
+                        <i class="fa-regular fa-image icone-imagem-modal"></i>
+                    </div>
+                </div>
+        </div>
+
+        <div class="grupo-inputs-modal">
+                 <label for="input-autorModal" class="labal-modal-visualizar">Descrição:</label>
+                 <input id="descricaoModal" name="descricaoModal" type="text" class="input-descricao-modal-visualizar" disabled>
+        </div>
+
+
+        <div class="box2-modal-excluir">
+            <div class="grupo-inputs-modal">
+                <label for="input-autorModal" class="labal-modal-visualizar">Autor:</label>
+                <input id="input-autorModal" name="input-autorModal" type="text" class="input-modal-visualizar" disabled>
+            </div>
+            <div class="grupo-inputs-modal">
+                <label for="input-dataPublicacaoModal" class="labal-modal-visualizar">Data de publicação:</label>
+                <input id="input-dataPublicacaoModal" name="input-dataPublicacaoModal" type="text" class="input-modal-visualizar" disabled>
+            </div>
+        </div>
+        
     </div>
 
     <!-- Modal Excluir -->

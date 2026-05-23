@@ -281,7 +281,7 @@
 .linha-separadora-modal-excluir{
     border: none;
     border-top: 2px solid #ccc;
-    margin: 5px 0px 5px 0px; 
+    margin: 5px 0px 0px 0px; 
 }
 .container-icone-modal-excluir{
     display: flex;
@@ -318,3 +318,96 @@
     font-size: 1vw;
     border: 2px solid #5A1A22;
 }
+
+/* Modal visualizar */
+.modal-visualizar-publicacao{
+    display: none;
+    flex-direction: column;
+    background-color: var(--branco-neve);
+    width: 40%;
+    height: 550px;
+    padding: 20px;
+    position: absolute;
+    border-radius: 30px;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.4));
+    overflow-y: auto;
+}
+.nav-modal-excluir{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+}
+.titulo-modal-visualizar{
+    color: #1F5FA8;
+}
+.icone-fechar-modal-excluir{
+    font-size: 2vw;
+    cursor: pointer;
+    color: #1F5FA8;
+}
+.box1-modal-excluir{
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    gap: 1%;
+}
+.box2-modal-excluir{
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 1%;
+}
+.grupo-inputs-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.labal-modal-visualizar {
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 2vh;
+}
+.grupo-inputs-modal input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+#descricaoModal{
+    padding: 35px;
+}
+.imagem-principal-modal-excluir{
+    height: 80vh;
+}
+.img-placeholder-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d4d5d8;
+    height: 80%;
+}
+.icone-imagem-modal{
+    color: #F5F7FA;
+    font-size: 5vw;
+}
+.bloco-imagens-secundarias-modal{
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+.bloco-imagens-secundarias-modal .img-placeholder-modal{
+    height: 15vh;
+}
+.bloco-imagens-secundarias-modal i{
+    font-size: 3vw;
+}
+.modal-visualizar-publicacao::-webkit-scrollbar{
+    width: 0;
+}
+
