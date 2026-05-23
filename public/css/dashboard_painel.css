@@ -378,7 +378,12 @@
     width: 100%;
 }
 #descricaoModal{
-    padding: 35px;
+    padding: 50px;
+}
+#curiosidadesModalVisualizar{
+    padding: 50px;
+    border: 1px solid #0D2A4D;
+    background-color: #1f5fa82e;
 }
 .imagem-principal-modal-excluir{
     display: flex;
@@ -453,4 +458,10 @@
     background-color: #1F5FA8;
     color:#F5F7FA;
     border: none;
+}
+#curiosidadesModalEditar{
+    padding: 50px;
+    margin-bottom: 3vh;
+    border: 1px solid #0D2A4D;
+    background-color: #1f5fa82e;
 }
