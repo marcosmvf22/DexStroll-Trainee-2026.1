@@ -1,4 +1,6 @@
 <!doctype html>
+<!-- refateorei  essa desgraça,  bugou e tive que  restaurar  o backup,
+ aí eu refatorei denovo, e saiu minhas antações, então vai no commit antigo se quiser  ver -->
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -8,7 +10,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
-  <!-- Obrigado guilherme por sugerir o material symbols <(^_^)> -->
   <body class="body-painel-usuarios">
     
     <div class="dashboard-container">
@@ -35,8 +36,7 @@
               <th>Ações</th>
             </tr>
           </thead>
-          <tbody id="corpo-tabela-usuarios">
-            </tbody>
+          <tbody id="corpo-tabela-usuarios"></tbody>
         </table>
       </div> 
 
@@ -61,23 +61,17 @@
         <form id="form-novo-usuario">
           
           <div class="container-foto-upload">
-            <!-- essa div, grande div, eu tinha esquecido de criar, grande container, que chamarei de wrapper-avatar -->
             <div class="wrapper-avatar" id="avatar-clicavel">
-              <!-- sim, é clicável -->
               <span class="material-icons icone-avatar-padrao">account_circle</span>
               <div class="badge-upload">
-                <!-- sim, precisa da seta, porque senao o cliente vai  reclmaar
-                 que o usuario leigo nao  vai saber clicar no icone, ainda que  seja uma pagina administrativa -->
                 <span class="material-icons">arrow_upward</span>
               </div>
             </div>
-            <!-- vai aceitar apenas imagem, senao  o caba envia um audio como foto de perfil e transcende o plano material -->
             <input type="file" id="input-avatar" accept="image/*" style="display: none;">
           </div>
 
           <div class="grupo-campo">
             <label for="input-username">Username</label>
-            <!-- botei required, senão o caba cria um usuario vazio, e o demiurgo vem atrás do programador -->
             <input type="text" id="input-username" required placeholder="Ex: Marcos">
           </div>
 
@@ -99,7 +93,25 @@
 
       </div>
     </div>
-<!-- importa o JS, porque senão, nao tem JS, sem JS pra  javascriptificar a pagina, a pagina vira uma meia pagina -->
+
+    <div class="modal-container-flutuante" id="modal-excluir-usuario">
+      <div class="modalExcluirUsuario">
+        <h3 class="titulo-modal-excluir">Excluir Usuário</h3>
+        <hr class="linha-separadora-modal-excluir">
+        
+        <div class="container-icone-modal-excluir">
+          <span class="material-icons icone-alerta-modal-excluir">error</span>
+        </div>
+        
+        <p class="descricao-modal-excluir">Essa ação é irreversível. Você tem certeza que deseja excluir esse usuário?</p>
+
+        <div class="botoesModalExcluirUsuario">
+          <button type="button" class="cancelarBotaoModalDeExclusao" id="btn-cancelar-excluir">Cancelar</button>
+          <button type="button" class="excluirBotaoModal" id="btn-confirmar-excluir">Excluir</button>
+        </div>
+      </div>
+    </div>
+
     <script src="../../../public/js/listadeusuarios.js"></script>
   </body>
 </html>
