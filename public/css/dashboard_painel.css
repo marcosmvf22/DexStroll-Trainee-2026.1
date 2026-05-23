@@ -381,14 +381,25 @@
     padding: 35px;
 }
 .imagem-principal-modal-excluir{
-    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap:10px
 }
-.img-placeholder-modal{
+.img-principal-placeholder-modal{
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #d4d5d8;
-    height: 80%;
+    height: 30vh;
+    border-radius: 12px;
+}
+.img-secundaria-placeholder-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d4d5d8;
+    height: 20vh;
+    border-radius: 12px;
 }
 .icone-imagem-modal{
     color: #F5F7FA;
@@ -406,9 +417,6 @@
 }
 .bloco-imagens-secundarias-modal i{
     font-size: 3vw;
-}
-.modal-visualizar-publicacao::-webkit-scrollbar{
-    width: 0;
 }
 /* Modal editar */
 .modal-editar-publicacao{
