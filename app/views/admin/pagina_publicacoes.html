@@ -63,7 +63,7 @@
                             <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao')" title="Visualizar">
                                 <span class="material-icons">visibility</span>
                             </button>
-                            <button class="botao-acao botao-editar"  title="Editar">
+                            <button class="botao-acao botao-editar" onclick="abrirModal('modalEditarPublicacao')" title="Editar">
                                 <span class="material-icons">edit</span>
                             </button>
                             <button class="botao-acao botao-deletar" onclick="abrirModal('modalExcluirPublicacao')" title="Deletar">
@@ -94,7 +94,7 @@
         <hr class="linha-separadora">
         <form method="post">
             <div id="editor" name="editordata">
-                <textarea id="summernote" name="editordata"></textarea>
+                <textarea id="summernoteCriar" name="editordata"></textarea>
             </div>
         </form>
 
@@ -113,7 +113,7 @@
         </div>
         <hr class="linha-separadora-modal-excluir">
 
-        <div class="box1-modal-excluir">
+        <div class="box1-modal">
             <div class="grupo-inputs-modal">
                 <label for="input-idPublicacao" class="labal-modal-visualizar">ID:</label>
                 <input id="input-idPublicacao" name="input-idPublicacao" type="text" class="input-modal-visualizar" disabled>
@@ -156,7 +156,7 @@
         </div>
 
 
-        <div class="box2-modal-excluir">
+        <div class="box2-modal">
             <div class="grupo-inputs-modal">
                 <label for="input-autorModal" class="labal-modal-visualizar">Autor:</label>
                 <input id="input-autorModal" name="input-autorModal" type="text" class="input-modal-visualizar" disabled>
@@ -165,8 +165,47 @@
                 <label for="input-dataPublicacaoModal" class="labal-modal-visualizar">Data de publicação:</label>
                 <input id="input-dataPublicacaoModal" name="input-dataPublicacaoModal" type="text" class="input-modal-visualizar" disabled>
             </div>
+        </div>      
+    </div>
+
+    <!-- Modal Editar -->
+     <div class="modal-editar-publicacao" id="modalEditarPublicacao">
+        <h3 class="titulo-modal-visualizar">Editar Publicação</h3>
+        <hr class="linha-separadora-modal-excluir">
+
+        <div class="box1-modal">
+            <div class="grupo-inputs-modal">
+                <label for="input-idPublicacao" class="labal-modal-visualizar">ID:</label>
+                <input id="input-idPublicacao" name="input-idPublicacao" type="text" class="input-modal-visualizar">
+            </div>
+            <div class="grupo-inputs-modal">
+                <label for="input-tituloModal" class="labal-modal-visualizar">Título:</label>
+                <input id="input-tituloModal" name="input-tituloModal" type="text" class="input-modal-visualizar">  
+            </div>
         </div>
-        
+
+        <div class="box2-modal">
+            <div class="grupo-inputs-modal">
+                <label for="input-autorModal" class="labal-modal-visualizar">Autor:</label>
+                <input id="input-autorModal" name="input-autorModal" type="text" class="input-modal-visualizar">
+            </div>
+            <div class="grupo-inputs-modal">
+                <label for="input-dataPublicacaoModal" class="labal-modal-visualizar">Data de publicação:</label>
+                <input id="input-dataPublicacaoModal" name="input-dataPublicacaoModal" type="text" class="input-modal-visualizar">
+            </div>
+        </div>   
+
+        <form method="post">
+            <div id="editor-modal-editar" name="editordata">
+                <textarea id="summernoteEditar" name="editordata"></textarea>
+            </div>
+        </form>
+
+
+        <div class="botoesModalEditarPub">
+            <button class="cancelarBotaoModalEditar" onclick="fecharModal('modalEditarPublicacao')">Cancelar</button>
+            <button class="enviarBotaoModalEditar" onclick="fecharModal('modalEditarPublicacao')">Enviar</button>
+        </div>
     </div>
 
     <!-- Modal Excluir -->
@@ -186,7 +225,25 @@
     
     <script>
         $(document).ready(function() {
-            $('#summernote').summernote({
+            $('#summernoteCriar').summernote({
+                height: 300,             
+                width: '100%',           
+                maxHeight: 500,          
+                minHeight: 150,
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ]
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#summernoteEditar').summernote({
                 height: 300,             
                 width: '100%',           
                 maxHeight: 500,          

@@ -346,12 +346,12 @@
     cursor: pointer;
     color: #1F5FA8;
 }
-.box1-modal-excluir{
+.box1-modal{
     display: grid;
     grid-template-columns: 0.5fr 1.5fr;
     gap: 1%;
 }
-.box2-modal-excluir{
+.box2-modal{
     display: grid;
     grid-template-columns: 1.3fr 0.7fr;
     gap: 1%;
@@ -410,4 +410,39 @@
 .modal-visualizar-publicacao::-webkit-scrollbar{
     width: 0;
 }
+/* Modal editar */
+.modal-editar-publicacao{
+    display: none;
+    flex-direction: column;
+    background-color: var(--branco-neve);
+    width: 40%;
+    height: 550px;
+    padding: 20px;
+    position: absolute;
+    border-radius: 30px;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.4));
+    overflow-y: auto;
+}
 
+.botoesModalEditarPub{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.modal-editar-publicacao button{
+    padding: 10px;
+    border-radius: 20px;   
+    padding-inline: 20px;
+}
+#editor-modal-editar{
+    margin-top: 2vh;
+}
+.cancelarBotaoModalEditar{
+    color: #0D2A4D;
+    border: 1.5px solid #0D2A4D;
+}
+.enviarBotaoModalEditar{
+    background-color: #1F5FA8;
+    color:#F5F7FA;
+    border: none;
+}
