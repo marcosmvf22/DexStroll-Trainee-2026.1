@@ -340,6 +340,7 @@
 }
 .titulo-modal-visualizar{
     color: #1F5FA8;
+    margin-top: 3%;
 }
 .icone-fechar-modal-excluir{
     font-size: 2vw;
@@ -384,11 +385,6 @@
     resize: none;
     overflow-y: auto; 
     padding: 10px;
-}
-#curiosidadesModalVisualizar{
-    padding: 50px;
-    border: 1px solid #0D2A4D;
-    background-color: #1f5fa82e;
 }
 .imagem-principal-modal-excluir{
     display: flex;
@@ -474,3 +470,44 @@
     overflow-y: auto; 
     padding: 10px;
 }
+@media (max-width: 1150px){
+    .box2-modal{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (max-width: 1000px){
+    .titulo-modal-visualizar{
+        font-size: 3vw;
+    }
+    .icone-fechar-modal-excluir{
+        font-size: 3vw;
+    }
+}
+@media (max-width: 550px){
+    .modal-visualizar-publicacao{
+        width: 60%;
+    } 
+    .titulo-modal-visualizar{
+        font-size: 4vw;
+    }
+    .icone-fechar-modal-excluir{
+        font-size: 4vw;
+    }
+    .box1-modal{
+        display: flex;
+        flex-direction: column;
+    }
+    .input-descricao-modal{
+        height: 15vh;
+    }
+    .input-curiosidades-modal{
+        height: 15vh;
+    }
+    .img-principal-placeholder-modal{
+        height: 18vh;
+    }
+    .img-secundaria-placeholder-modal{
+        height: 12vh;  
+    } 
+}  
