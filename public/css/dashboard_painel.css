@@ -446,7 +446,7 @@
 .modal-editar-publicacao button{
     padding: 10px;
     border-radius: 20px;   
-    padding-inline: 20px;
+    padding-inline: 2vw;
 }
 #editor-modal-editar{
     margin-top: 2vh;
@@ -471,12 +471,14 @@
     padding: 10px;
 }
 @media (max-width: 1150px){
+    /* Modal visualizar */
     .box2-modal{
         display: flex;
         flex-direction: column;
     }
 }
 @media (max-width: 1000px){
+    /* Modal visualizar */
     .titulo-modal-visualizar{
         font-size: 3vw;
     }
@@ -485,6 +487,7 @@
     }
 }
 @media (max-width: 550px){
+    /* Modal visualizar */
     .modal-visualizar-publicacao{
         width: 60%;
     } 
@@ -509,5 +512,9 @@
     }
     .img-secundaria-placeholder-modal{
         height: 12vh;  
+    } 
+    /* Modal editar */
+    .modal-editar-publicacao{
+        width: 60%;
     } 
 }  
