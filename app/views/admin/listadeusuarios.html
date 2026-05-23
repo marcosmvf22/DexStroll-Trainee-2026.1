@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Painel - Usuários</title>
-    
     <link rel="stylesheet" href="../../../public/css/listadeusuarios.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
-  <body class="body-pagina-publicacao">
+  <!-- Obrigado guilherme por sugerir o material symbols <(^_^)> -->
+  <body class="body-painel-usuarios">
     
     <div class="dashboard-container">
       
@@ -19,9 +19,8 @@
       </header>
 
       <div class="card-tabela">
-
         <div class="topo-tabela">
-          <button class="criar-publicacao-admin">
+          <button class="criar-usuario-admin" id="btn-abrir-modal">
             <span class="material-icons" style="vertical-align: middle; font-size: 18px; margin-right: 6px;">person_add</span>
             Adicionar Usuário
           </button>
@@ -37,25 +36,8 @@
             </tr>
           </thead>
           <tbody id="corpo-tabela-usuarios">
-            <tr>
-              <td class="dado_id_admin">nomedeusuario</td>
-              <td>Nome Completo pessoa</td>
-              <td>usuarioexemplo@provedor.com</td>
-              <td class="celula-acoes-admin">
-                <button class="botao-acao" title="Visualizar">
-                  <span class="material-icons">visibility</span>
-                </button>
-                <button class="botao-acao" title="Editar">
-                  <span class="material-icons">edit</span>
-                </button>
-                <button class="botao-acao botao-deletar" title="Deletar">
-                  <span class="material-icons">delete</span>
-                </button>
-              </td>
-            </tr>
-          </tbody>
+            </tbody>
         </table>
-
       </div> 
 
       <div class="paginacao">
@@ -66,6 +48,58 @@
 
     </div>
 
+    <div id="modal-usuario" class="modal-container-flutuante">
+      <div class="modal-card-caixa">
+        
+        <div class="modal-header-local">
+          <h2>Cadastrar Novo Usuário</h2>
+          <button type="button" class="botao-fechar-x" id="btn-fechar-x">
+            <span class="material-icons">close</span>
+          </button>
+        </div>
+        
+        <form id="form-novo-usuario">
+          
+          <div class="container-foto-upload">
+            <!-- essa div, grande div, eu tinha esquecido de criar, grande container, que chamarei de wrapper-avatar -->
+            <div class="wrapper-avatar" id="avatar-clicavel">
+              <!-- sim, é clicável -->
+              <span class="material-icons icone-avatar-padrao">account_circle</span>
+              <div class="badge-upload">
+                <!-- sim, precisa da seta, porque senao o cliente vai  reclmaar
+                 que o usuario leigo nao  vai saber clicar no icone, ainda que  seja uma pagina administrativa -->
+                <span class="material-icons">arrow_upward</span>
+              </div>
+            </div>
+            <!-- vai aceitar apenas imagem, senao  o caba envia um audio como foto de perfil e transcende o plano material -->
+            <input type="file" id="input-avatar" accept="image/*" style="display: none;">
+          </div>
+
+          <div class="grupo-campo">
+            <label for="input-username">Username</label>
+            <!-- botei required, senão o caba cria um usuario vazio, e o demiurgo vem atrás do programador -->
+            <input type="text" id="input-username" required placeholder="Ex: Marcos">
+          </div>
+
+          <div class="grupo-campo">
+            <label for="input-nome">Nome Completo</label>
+            <input type="text" id="input-nome" required placeholder="Ex: Marcos marcado de marcos">
+          </div>
+
+          <div class="grupo-campo">
+            <label for="input-email">Email</label>
+            <input type="email" id="input-email" required placeholder="marcos@marcos.marco">
+          </div>
+
+          <div class="modal-rodape-botoes">
+            <button type="button" class="cancelarBotaoModal" id="btn-cancelar">Cancelar</button>
+            <button type="submit" class="enviarBotaoModal">Salvar Usuário</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+<!-- importa o JS, porque senão, nao tem JS, sem JS pra  javascriptificar a pagina, a pagina vira uma meia pagina -->
     <script src="../../../public/js/listadeusuarios.js"></script>
   </body>
 </html>
