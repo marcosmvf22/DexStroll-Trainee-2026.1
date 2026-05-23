@@ -17,6 +17,11 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
 
+      <!-- icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Painel - DexStroll</title>
 </head>
 <body class="body-pagina-publicacao">
@@ -34,8 +39,8 @@
 
         <div class="card-tabela">
             <div class="topo-tabela">
-                <button class="criar-publicacao-admin" onclick="abrirModal('modalCriarPublicacao')"><span class="material-symbols-outlined">library_books
-</span>Criar publicação</button>
+                <button class="criar-publicacao-admin" onclick="abrirModal('modalCriarPublicacao')">
+                    <span class="material-symbols-outlined">library_books</span>Criar publicação</button>
             </div>
             
             <table class="tabela-admin">
@@ -58,10 +63,10 @@
                             <button class="botao-acao botao-visualizar-admin" title="Visualizar">
                                 <span class="material-icons">visibility</span>
                             </button>
-                            <button class="botao-acao botao-editar" title="Editar">
+                            <button class="botao-acao botao-editar"  title="Editar">
                                 <span class="material-icons">edit</span>
                             </button>
-                            <button class="botao-acao botao-deletar" title="Deletar">
+                            <button class="botao-acao botao-deletar" onclick="abrirModal('modalExcluirPublicacao')" title="Deletar">
                                 <span class="material-icons">delete</span>
                             </button>
                         </td>
@@ -83,7 +88,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal Criar -->
     <div class="modal-pagina-publicacao" id="modalCriarPublicacao">
         <h3>Criar Publicação</h3>
         <hr class="linha-separadora">
@@ -97,6 +102,21 @@
         <div class="botoesModalCriarPub">
             <button class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
             <button class="enviarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Modal Excluir -->
+     <div class="modal-excluir-publicacao" id="modalExcluirPublicacao">
+        <h3 class="titulo-modal-excluir">Excluir Publicação</h3>
+        <hr class="linha-separadora-modal-excluir">
+        <div class="container-icone-modal-excluir">
+            <i class="fa-solid fa-circle-exclamation icone-alerta-modal-excluir"></i>
+        </div>
+        <p class="descricao-modal-excluir">Essa ação é irreversível. Você tem certeza que deseja excluir essa publicação?</p>
+
+        <div class="botoesModalExcluirPub">
+            <button class="cancelarBotaoModalDeExclusao" onclick="fecharModal('modalExcluirPublicacao')">Cancelar</button>
+            <button class="excluirBotaoModal" onclick="fecharModal('modalExcluirPublicacao')">Excluir</button>
         </div>
     </div>
     
