@@ -276,7 +276,7 @@
 }
 
 .titulo-modal-excluir{
-    color: #5A1A22;
+    color: #2B2F38;
 }
 .linha-separadora-modal-excluir{
     border: none;
@@ -295,28 +295,31 @@
     margin-bottom: 1vh;
 }
 .descricao-modal-excluir{
-    font-size: 1.3vw;
+    font-size: 1vw;
+    padding: 10px;
+    color: #2B2F38;
+    text-align: center;
 }
 
 .modal-excluir-publicacao button{
     padding: 10px;
     border-radius: 20px;
+    padding-inline: 2vw;
 }
 
 .botoesModalExcluirPub{
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
 }
 .cancelarBotaoModalDeExclusao{
     color: #5A1A22;
-    border: 2px solid #5A1A22;
+    border: 1.5px solid #5A1A22;
 }
 .excluirBotaoModal{
     background-color: #E6392F;
     color: #F5F7FA;
-    font-size: 1vw;
-    border: 2px solid #5A1A22;
+    border: none;
 }
 
 /* Modal visualizar */
@@ -342,7 +345,7 @@
     color: #1F5FA8;
     margin-top: 3%;
 }
-.icone-fechar-modal-excluir{
+.icone-fechar-modal-visualizar{
     font-size: 2vw;
     cursor: pointer;
     color: #1F5FA8;
@@ -475,15 +478,28 @@
         display: flex;
         flex-direction: column;
     }
+    /* Modal excluir */
+    .descricao-modal-excluir{
+        font-size: 1.5vw;
+    }
 }
 @media (max-width: 1000px){
     /* Modal visualizar */
     .titulo-modal-visualizar{
         font-size: 3vw;
     }
-    .icone-fechar-modal-excluir{
+    .icone-fechar-modal-visualizar{
         font-size: 3vw;
     }
+    .icone-alerta-modal-excluir{
+        font-size: 5vw;
+    }
+}
+@media (max-width: 800px){
+ /* Modal excluir */
+    .descricao-modal-excluir{
+        font-size: 2vw;
+    }   
 }
 @media (max-width: 550px){
     /* Modal visualizar */
@@ -493,7 +509,7 @@
     .titulo-modal-visualizar{
         font-size: 4vw;
     }
-    .icone-fechar-modal-excluir{
+    .icone-fechar-modal-visualizar{
         font-size: 4vw;
     }
     .box1-modal{
@@ -516,4 +532,17 @@
     .modal-editar-publicacao{
         width: 60%;
     } 
+    /* Modal excluir */
+    .modal-excluir-publicacao{
+        width: 60%;
+    } 
+    .titulo-modal-excluir{
+        font-size: 4vw;
+    }
+    .icone-alerta-modal-excluir{
+        font-size: 6vw;
+    }
+    .descricao-modal-excluir{
+        font-size: 3vw;
+    }
 }  
