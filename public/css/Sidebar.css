@@ -16,17 +16,36 @@ body{
 .sidebar{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 20px;
     min-height: 100vh;
-    width: fit-content;
+    width: 85px;
     border-radius: 0 8px 8px 0;
     background-color: #0d2a4d;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.sidebar:hover{
+    width: 260px;
+}
+
+.descricao-menus, 
+.info-perfilUsuario, 
+.descricao-logout {
+    display: none;
+}
+
+.sidebar:hover .descricao-menus,
+.sidebar:hover .info-perfilUsuario,
+.sidebar:hover .descricao-logout {
+    display: block;
 }
 
 .material-icons{
-    font-size: 40px;
+    font-size: 30px;
 }
 
 a{
@@ -39,24 +58,53 @@ a{
 .sidebar-topo{
     display: flex;
     flex-direction: column;
-    gap: 20px;
     align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.habilitar_sidebar {
+    display: none; 
 }
 
 .toggle-sidebar{
-    display: flex;
+    display: block;
     align-items: center;
     cursor: pointer;
     border: none;
     background-color: transparent;
 }
 
+/* Perfil do Usuario */
+
+.sidebar-perfilUsuario{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.sidebar-perfilUsuario img{
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    min-width: 3rem;
+}
+
+.info-perfilUsuario p{
+    text-align: center;
+    font-size: 12px;
+    font-weight: 300;
+}
+
 
 /* Menus da sidebar */
+
 .sidebar-menus{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
 }
 
 .sidebar-menus ul{
@@ -64,12 +112,13 @@ a{
     display: flex;
     flex-direction: column;
     gap: 30px;
+    padding: 5px;
 }
 
 .sidebar-menus-links{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     border-radius: 10px;
     text-decoration: none;
     transition: 0.3s;
@@ -81,10 +130,6 @@ a{
 
 }
 
-.descricao-menus{
-    display: none;
-}
-
 
 /* Parte inferior da sidebar */
 
@@ -92,57 +137,76 @@ a{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     gap: 30px;
 }
 
-
-        /* Perfil do Usuario */
-
-.sidebar-perfilUsuario{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+.sidebar-bottom .sidebar-perfilUsuario {
+    display: none; 
 }
-
-.sidebar-perfilUsuario img{
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    object-fit: cover;
-}
-
-.info-perfilUsuario{
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.info-perfilUsuario p{
-    text-align: center;
-    font-size: 10px;
-    font-weight: 100;
-}
+    
 
 .sidebar-logout-links{
     display: flex;
     align-items:center;
     justify-content: center;
     flex-direction: row;
-    gap: 8px;
+    gap: 15px;
 }
 
-.descricao-logout{
-    display: none;
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        width: 260px;
+        z-index: 999;
+        transition: left 0.3s ease;
+    }
+
+    /* Quando o JS ativar a classe no Mobile */
+    .sidebar.mobile-open {
+        left: 0;
+    }
+
+    /* Desativa o efeito de hover do desktop no mobile */
+    .sidebar:hover {
+        width: 260px; 
+    }
+
+    /* Deixa visivel as descriações com a  sidebar do mobile aberta */
+    .descricao-menus, 
+    .info-perfilUsuario, 
+    .descricao-logout {
+        display: block;
+    }
+
+    /* Botão de menu no mobile */
+    .habilitar_sidebar {
+        display: block; 
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1000;
+    }
+
+    .toggle-sidebar {
+        background: #0d2a4d;
+        border: none;
+        padding: 8px;
+        border-radius: 5px;
+    }
+
+    /* Faz perfil aparece em cima de logout */
+    .sidebar-topo .sidebar-perfilUsuario {
+        display: none;
+    }
+
+    .sidebar-bottom .sidebar-perfilUsuario {
+        display: flex; 
+    }
 }
 
-.open-sidebar .info-perfilUsuario{
-    display: block;
-}
-.open-sidebar .descricao-menus{
-    display: block;
-}
-.open-sidebar .descricao-logout{
-    display: block;
-}
+
