@@ -1,0 +1,231 @@
+body{
+    background-color: #bcccdb;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    height: 100%;
+}
+
+.main-login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.container-login{
+    display: flex;
+    flex-direction: row;
+    width: 60%; 
+    height: 40%;
+    margin-top: 15vh;
+
+    border: 1px solid #0d2a4d;
+    border-radius: 20px;
+    box-shadow: 10px 50px 80px #0d2a4d;
+}
+.topo-login{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+#icone-voltar-login{
+    margin-left: 0%;
+    position: absolute;
+    font-size: 2.5vw;
+    color: #0d2a4d;
+    left: 0px;
+}
+.titulo-login{
+    color: #0d2a4d;
+    margin: 0%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.5vw;
+}
+.subtitulo-login{
+    color: #0d2a4d;
+    margin-bottom: 10px;
+    margin-top: 0%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5vw;
+}
+.box1-login{
+    display: flex;
+    flex-direction:column;
+    padding: 10px;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f5f7fa;
+    border-radius: 20px 0px 0px 20px;
+}
+.descricao-login{
+    color: #0d2a4d;
+    margin-bottom: 0%;
+}
+.campos-login{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    font-size: 1vw;
+}
+.input-login{
+    width: 20vw;
+    height: 25px;
+    padding: 5px;
+    padding-left: 35px;
+
+    background-color:#bcccdb;
+    border: 1px solid  #0d2a4d;
+    border-radius: 5px;
+    
+}
+#icone-envelope{
+    color: #0d2c4f;
+    opacity: 0.7;
+    font-size: 20px;
+    margin-top: 8px;
+}
+#icone-senha{
+    color: #0e2e54;
+    opacity: 0.7;
+    font-size: 20px;
+    margin-top: 8px;
+}
+.elementos-input{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    margin-left: 5px;
+}
+.line-login{
+    border-left: 1.5px solid #0e2e54;
+    margin-left: 4px;
+    height: 25px;
+    margin-top: 6px;
+    margin-bottom: 40px;
+    opacity: 0.7;
+
+}
+.box2-login{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+
+    background: linear-gradient(#1f5fa8, #0d2a4d);
+    border-radius: 0px 20px 20px 0px;
+}
+.img-login{
+    width: 100%;
+    height: 100%;
+}
+.botao-login{
+    margin-top: 3vh;
+    width: 10vw;
+    height: 40px;
+
+    border: 1px solid #0d2a4d;
+    border-radius: 20px;
+    background-color: #0d2a4d;
+    color: #bcccdb;
+    cursor: pointer;
+}
+.texto-login{
+    color: #0d2a4d;
+    font-size: 1vw;
+}
+.texto-link-login{
+    color: #1f5fa8;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* responsivo */
+@media (max-width: 850px){
+    .container-login{
+        height: 300px;
+    }
+    .img-login{
+        width: 280px;
+        height: 280px;
+    }
+}
+@media (max-width: 650px){
+    .img-login{
+        width: 240px;
+        height: 240px;
+    }
+}
+@media (max-width: 500px){
+    .container-login{
+       flex-direction: column-reverse;
+       width: 40%;
+       align-items: center;
+       justify-content: center;
+       height: 100%;
+    }
+    .box1-login{
+        width: 100%;
+        padding: 5px;
+        border-radius: 0px 0px 20px 20px;
+    }
+    #icone-voltar-login{
+        font-size: 4vw;
+    }
+    .box2-login{
+        width: 100%;
+        height: 5vh;
+        padding: 5px;
+        border-radius: 20px 20px 0px 0px;
+    }
+    .titulo-login{
+        font-size: 15px;
+    }
+    .subtitulo-login{
+        font-size: 10px;
+    }
+    .img-login{
+        width: 58px;
+        height: 58px;
+    }
+    .campos-login{
+        font-size: 1.7vw;
+    }
+    .input-login{
+         width: 25vw;
+         height: 1.5vh;  
+    }
+    .line-login{
+        margin-left: 5px;
+        height: 15px;
+        margin-top: 5px;
+    }
+    #icone-envelope{
+        font-size: 12px;
+        margin-top: 6px;
+    }
+    #icone-senha{
+        font-size: 12px;
+        margin-top: 6px;
+    }
+    .botao-login{
+        margin-top: 2vh;
+        width: 15vw;
+        height: 25px;
+
+        font-size: 10px;
+    }
+    .texto-login{
+        font-size: 1.7vw;
+    }
+    
+}

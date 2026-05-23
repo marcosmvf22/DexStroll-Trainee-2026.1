@@ -1,0 +1,226 @@
+body{
+    background-color: #bcccdb;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.main-cadastro{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.container-cadastro{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 60%; 
+    height: 40%;
+    margin-top: 15vh;
+
+    border: 1px solid #0d2a4d;
+    border-radius: 20px;
+    box-shadow: 10px 50px 80px #0d2a4d;
+}
+.topo-cadastro{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+#icone-voltar-cadastro{
+    margin-left: 0%;
+    position: absolute;
+    font-size: 2.5vw;
+    color: #0d2a4d;
+    left: 0px;
+}
+.titulo-cadastro{
+    color: #0d2a4d;
+    margin: 0%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.5vw;
+}
+.subtitulo-cadastro{
+    color: #0d2a4d;
+    margin-bottom: 7px;
+    margin-top: 0%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5vw;
+}
+.box1-cadastro{
+    display: flex;
+    flex-direction:column;
+    padding: 10px;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f5f7fa;
+    border-radius: 0px 20px 20px 0px;
+}
+.descricao-cadastro{
+    color: #0d2a4d;
+    margin-bottom: 0%;
+    margin-top: 2%;
+}
+.campos-cadastro{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    font-size: 1vw;
+}
+.input-cadastro{
+    width: 20vw;
+    height: 25px;
+    padding: 5px;
+    padding-left: 40px;
+
+    background-color:#bcccdb;
+    border: 1px solid  #0d2a4d;
+    border-radius: 5px;
+    margin-top: 0vh;
+    
+}
+#icone-envelope{
+    color: #0d2c4f;
+    opacity: 0.7;
+    font-size: 20px;
+    margin-top: 8px;
+}
+#icone-senha{
+    color: #0e2e54;
+    opacity: 0.7;
+    font-size: 20px;
+    margin-top: 8px;
+}
+#icone-user-cadastro{
+    color: #0e2e54;
+    opacity: 0.7;
+    font-size: 20px;
+    margin-top: 8px;
+}
+.elementos-input{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    margin-left: 5px;
+}
+.line-cadastro{
+    border-left: 1.5px solid #0e2e54;
+    margin-left: 5px;
+    height: 25px;
+    margin-top: 6px;
+    margin-bottom: 40px;
+    opacity: 0.7;
+
+}
+.box2-cadastro{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+
+    background: linear-gradient(#1f5fa8, #0d2a4d);
+    border-radius: 20px 0px 0px 20px;
+}
+.img-cadastro{
+    width: 100%;
+    height: 100%;
+}
+.botao-cadastro{
+    margin-top: 3vh;
+    width: 10vw;
+    height: 45px;
+
+    border: 1px solid #0d2a4d;
+    border-radius: 20px;
+    background-color: #0d2a4d;
+    color: #bcccdb;
+    cursor: pointer;
+}
+/* responsivo */
+@media (max-width: 850px){
+    .container-cadastro{
+        height: 350px;
+    }
+    .img-cadastro{
+        width: 300px;
+        height: 300px;
+    }
+}
+@media (max-width: 650px){
+    .container-cadastro{
+        flex-direction: column-reverse;
+        width: 40%;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+    .box1-cadastro{
+        width: 100%;
+        padding: 5px;
+        border-radius: 0px 0px 20px 20px;
+    }
+    #icone-voltar-cadastro{
+        font-size: 4vw;
+    }
+    .titulo-cadastro{
+        font-size: 15px;
+    }
+    .subtitulo-cadastro{
+        font-size: 10px;
+        margin-bottom: 0.5vh;
+    }
+    .campos-cadastro{
+        font-size: 2vw;
+    }
+    .box2-cadastro{
+        width: 100%;
+        height: 5vh;
+        padding: 5px;
+        border-radius: 20px 20px 0px 0px;
+    }
+    .img-cadastro{
+        width: 58px;
+        height: 58px;
+    }
+    .campos-login{
+        font-size: 1.7vw;
+    }
+    .input-cadastro{
+        width: 20vw;
+        height: 10px;
+        padding-left: 28px;
+    }
+    .line-cadastro{
+        margin-left: 5px;
+        height: 15px;
+        margin-top: 2.5px;
+        border: 1px solid #0d2a4d;
+    }
+    #icone-envelope{
+        font-size: 12px;
+        margin-top: 4.5px;
+    }
+    #icone-senha{
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    #icone-user-cadastro{
+        font-size: 12px;
+        margin-top: 4.5px;
+    }
+    .botao-cadastro{
+        margin-top: 1vh;
+        width: 15vw;
+        height: 25px;
+        font-size: 10px;
+    }
+}

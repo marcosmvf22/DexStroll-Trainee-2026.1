@@ -1,0 +1,452 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/* OBS: eu espiei código de alguns colegas, especialmente o da iza, e tentei padronizar as formas  que
+as palavras ficam,  tipo "palavraComposta", e  não "palavra-composta" igual eu tava fazendo */
+/* OBS2: peguei certas coisas da iza, mas eu (quase) entendi tudo*/
+:root { 
+    --vermelho-escuro: #5A1A22;
+    --vermelho: #E6392F;
+    --azul-marinho: #0D2A4D;
+    --azul: #1F5FA8;
+    --azul-claro: #4FA3FF;
+    --azul-ceu: #96CCFF;
+    --branco-neve: #F5F7FA;
+    --preto: #2B2F38;
+}
+
+.body-painel-usuarios {
+    background-color: var(--azul-ceu); 
+    color: var(--preto);
+    padding: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+/* sinceramente, grande parte aqui ta com mesmas  classes que a outra tabela, mas se tratando de estilização, 
+acho que nao tem problema, é pra ser igual  mesmo */
+.dashboard-container {
+    /* essa bosta é uma gambiarra mesmo,   meti o max width pra nao extrapolar muito
+    e tambem defini como 100% pra pegar o invólucro/container/wrapper inteiro */
+    width: 100%;
+    max-width: 1100px;
+}
+
+.header-dashboard h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--azul-marinho);
+}
+
+.header-dashboard h3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--azul-marinho);
+    margin-top: -5px;
+    margin-bottom: 30px;
+}
+/* essa parada de definir  var(cor) eu aprendi no código da iza, obrigado (✿◠‿◠) */
+.card-tabela {
+    background-color: var(--azul-marinho); 
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding-bottom: 2px;
+    width: 100%;
+}
+
+.topo-tabela {
+    display: flex;
+    justify-content: flex-end;
+    padding: 25px 30px 15px 30px;
+}
+
+.criar-usuario-admin {
+    background-color: #ff4a4a; 
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.criar-usuario-admin:hover {
+    background-color: #963944;
+}
+
+.tabela-admin {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--branco-neve); 
+}
+
+.cabecalho-tabela-admin {
+    background-color: var(--azul-marinho); 
+}
+
+.cabecalho-tabela-admin th {
+    color: var(--branco-neve);
+    font-weight: 500;
+    font-size: 14px;
+    padding: 18px 20px;
+    text-align: center;
+}
+
+.tabela-admin tbody tr {
+    border-bottom: 1px solid var(--branco-neve); 
+}
+
+.tabela-admin tbody td {
+    padding: 18px 20px;
+    color: var(--preto);
+    font-size: 14px;
+    text-align: center;
+    background-color: var(--branco-neve); 
+}
+
+.dado_id_admin {
+    font-weight: 500;
+}
+
+.celula-acoes-admin {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.botao-acao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--azul-marinho); 
+    transition: transform 0.1s, color 0.2s;
+}
+
+.botao-acao .material-icons {
+    font-size: 20px;
+}
+
+.botao-acao:hover {
+    transform: scale(1.1);
+}
+/* vermelho, porque deletar é igual assassinato, e o sangue é vermelho */
+.botao-deletar:hover {
+    color: #ff4a4a;
+}
+
+.paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-pag {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: var(--azul);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+/*efeitozinho de passar  o mouse na paginação */
+.btn-pag.ativo {
+    background-color: var(--azul-marinho);
+    color: var(--branco-neve);
+    font-weight: 600;
+}
+/* esse not  abaixo, pra nao dar hoverzinho na pagina atual */
+.btn-pag:hover:not(.ativo) {
+    background-color: rgba(17, 34, 64, 0.1);
+}
+/* estilizar o modal 
+aqui é o modal de criar usuario, nao ta tao especifico  quando o outro modal,
+que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio as classes*/
+.modal-container-flutuante {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-card-caixa {
+    background-color: var(--branco-neve);
+    padding: 30px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    color: var(--preto);
+}
+
+.modal-header-local {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-header-local h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--azul-marinho);
+}
+
+.botao-fechar-x {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--azul-marinho);
+    display: flex;
+    align-items: center;
+}
+
+.container-foto-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+/* nesse e em alguns outros elementos eu  usei o  important, 
+nao sei se isso  é considerado gambiarra, mas nao tava alinhando de  outra forma */
+.wrapper-avatar {
+    position: relative;
+    width: 100px !important;
+    height: 100px !important;
+    min-width: 100px !important;
+    min-height: 100px !important;
+    cursor: pointer;
+    display: block;
+}
+/* bom e velho display block, empilhando tudo */
+/* dei user select none porque senao bugava a seleçãozinha azul na foto */
+.icone-avatar-padrao {
+    font-size: 100px !important;
+    width: 100px !important;
+    height: 100px !important;
+    line-height: 1 !important;
+    color: #cbd5e1;
+    user-select: none;
+    display: block;
+}
+/* essa seta foi uma  desgraça para alinhar, taquei zindex, 20 tipos de align e uma hora funcionou,
+também usei line  height abaixo, achei que ia  quebrar   a responsividade, mas até que ficou dinamico... */
+.badge-upload {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--azul-marinho);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex !important; 
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--branco-neve);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s;
+    z-index: 10;
+}
+/* alinhar a  fotinha e a setinha de upload
+foi a parte mais difícil, superando até a logica do  javascript, acho
+que programar o skyrim em assemlby seria mais fácil que isso */
+/* aqui ao  inves de aplicar na div, aplica diretamente no icone */
+.badge-upload .material-icons {
+    font-size: 16px;
+    line-height: 1;
+    color: white;
+}
+/* a seta já é azul, mas fica azul ao quadrado quando passa o mouse */
+.wrapper-avatar:hover .badge-upload {
+    background-color: var(--azul);
+}
+
+#form-novo-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.grupo-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.grupo-campo label {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--preto);
+}
+
+.grupo-campo input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+.grupo-campo input:focus {
+    border-color: var(--azul);
+}
+
+.modal-rodape-botoes {
+    margin-top: 10px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.cancelarBotaoModal {
+    background: none;
+    border: 1px solid var(--azul-marinho);
+    color: var(--azul-marinho);
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: inline-block;
+    width: auto !important;
+}
+
+.cancelarBotaoModal:hover {
+    background-color: rgba(13, 42, 77, 0.05);
+}
+
+.enviarBotaoModal {
+    background-color: #ff4a4a; 
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: inline-block;
+    width: auto !important;
+}
+
+.enviarBotaoModal:hover {
+    background-color: #963944;
+}
+/* aqui pra baixo é  omodal novo de excluir usuario, tava reciclado da ana, mas mudei as classes pra ficar 
+separado, troquei tudo  que era "publicacao" para "usuario" e também ajustei algumas  coisas */
+.modalExcluirUsuario {
+    background-color: var(--branco-neve);
+    padding: 35px 40px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-modal-excluir {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--preto);
+    margin-bottom: 12px;
+}
+
+.linha-separadora-modal-excluir {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin-bottom: 25px;
+}
+
+.container-icone-modal-excluir {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icone-alerta-modal-excluir {
+    font-size: 75px !important;
+    color: #E6392F !important;
+}
+
+.descricao-modal-excluir {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.botoesModalExcluirUsuario {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+}
+
+.cancelarBotaoModalDeExclusao {
+    background: none;
+    border: 1px solid var(--azul-marinho);
+    color: var(--azul-marinho);
+    padding: 10px 28px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s;
+}
+
+.cancelarBotaoModalDeExclusao:hover {
+    background-color: rgba(13, 42, 77, 0.05);
+}
+
+.excluirBotaoModal {
+    background-color: #E6392F;
+    color: white;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s;
+}
+
+.excluirBotaoModal:hover {
+    background-color: #5A1A22;
+}
