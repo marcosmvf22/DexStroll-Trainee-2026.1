@@ -377,8 +377,13 @@
     transition: border-color 0.2s;
     width: 100%;
 }
-#descricaoModal{
-    padding: 50px;
+.input-descricao-modal{
+    height: 25vh;
+    border-radius: 12px;
+    margin-bottom: 3vh;
+    resize: none;
+    overflow-y: auto; 
+    padding: 10px;
 }
 #curiosidadesModalVisualizar{
     padding: 50px;
@@ -459,9 +464,13 @@
     color:#F5F7FA;
     border: none;
 }
-#curiosidadesModalEditar{
-    padding: 50px;
+.input-curiosidades-modal{
+    height: 25vh;
+    border-radius: 12px;
     margin-bottom: 3vh;
     border: 1px solid #0D2A4D;
     background-color: #1f5fa82e;
+    resize: none;
+    overflow-y: auto; 
+    padding: 10px;
 }
