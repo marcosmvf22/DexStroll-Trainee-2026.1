@@ -10,6 +10,7 @@
     <title>DexStroll</title>
 </head>
 <body>
+    <?php require 'navbar.view.php'; ?>
     <div class="hero-section-landing">
         <section>
         <h1>Explore e domine o mundo Pokémon com estratégia!</h1>
@@ -188,5 +189,6 @@
             </div>
         </div>
     </section>
+    <?php require 'footer.view.php'; ?>
 </body>
 </html>

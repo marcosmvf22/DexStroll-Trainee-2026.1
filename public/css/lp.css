@@ -103,6 +103,8 @@ a{
 
 .sobre-landing{
     padding-bottom: 60px;
+    background-color: var(--branco-neve) !important;
+
 }
 
 .sobre-landing h2{
