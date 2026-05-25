@@ -193,6 +193,7 @@
             </div>
         </div>        
     </main>
+    <?php require "footer.view.php"?>
 </body>
 <script src="../../../public/js/pagina-de-visualizacao.js"></script>
 </html>

@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Controllers;
-use App\Controllers\ExampleController;
+
+use App\Controllers\InitController;
 use App\Core\Router;
 
-$router->get('', 'ExampleController@index');
+$router->get('', 'InitController@index');
 
 $router->get('postspage', 'PostController@index');
 

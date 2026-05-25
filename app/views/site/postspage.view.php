@@ -161,5 +161,7 @@
         <button class="posts-pokeball next">></button>
       </div>
     </main>
+        <?php require 'footer.view.php'; ?>
+
   </body>
 </html>
