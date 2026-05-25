@@ -17,7 +17,10 @@ as palavras ficam,  tipo "palavraComposta", e  não "palavra-composta" igual eu 
     --branco-neve: #F5F7FA;
     --preto: #2B2F38;
 }
-
+.header-dashboard{
+    display: flex;
+    flex-direction: column;
+}
 .body-painel-usuarios {
     background-color: var(--azul-ceu); 
     color: var(--preto);

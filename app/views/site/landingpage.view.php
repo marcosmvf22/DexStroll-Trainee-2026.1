@@ -22,17 +22,17 @@
     <section class="sobre-landing" id="sobre-landing">
         <h2>Mais que um blog!</h2>
         <div class="bloco-sobre-landing">
-            <div>
+            <div class="sobre1">
                 <img src="/public/assets/pokebola-100.png" alt="">
                 <h3>Estratégia Aplicada</h3>
                 <p class=>Entenda como usar habilidades, tipos e combinações na prática.</p>
             </div>
-            <div>
+            <div class="sobre1">
                 <img src="/public/assets/objetivo-90.png" width="100px" height="100px" alt="">
                 <h3>Visão Estratégica</h3>
                 <p>Aprenda diferentes formas de abordar a mesma batalha.</p>
             </div>
-            <div>
+            <di class="sobre1">
                 <img src="/public/assets/grupo-100.png" alt="">
                 <h3>Crescimento Contínuo</h3>
                 <p>Melhore com consistência através da prática e feedback.</p>

@@ -239,6 +239,9 @@ a{
     height: 30px;
 }
 
+.sobre1{
+    width: 250px;
+}
 .dados-autor-landing{
     display: flex;
     gap: 10px;

@@ -15,7 +15,7 @@
     <div class="dashboard-container">
       
       <header class="header-dashboard">
-        <h1>Dashboard</h1>
+        <h1>Lista de Usuários</h1>
         <h3>xx usuários encontrados</h3>
       </header>
 
