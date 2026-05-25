@@ -96,9 +96,23 @@
             <div id="editor" name="editordata">
                 <textarea id="summernoteCriar" name="editordata"></textarea>
             </div>
+
+            <div class="post-options">
+            <h3>Opções do post</h3>
+            
+            <label class="checkbox-container">
+                <input type="checkbox" id="toggle-curiosidade">
+                <span>Adicionar curiosidade</span>
+            </label>
+
+            <div id="input-container" class="hidden">
+                <textarea placeholder="Digite o texto da curiosidade" rows="3"></textarea>
+            </div>
+            </div>
         </form>
 
 
+        
         <div class="botoesModalCriarPub">
             <button class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
             <button class="enviarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Enviar</button>
