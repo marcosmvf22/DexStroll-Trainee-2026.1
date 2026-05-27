@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
 
-*{
+body{
     font-family: 'Poppins', sans-serif;
     color: white;
     margin: 0px;
-    padding: 0px;
+    padding: 0%;
     box-sizing: border-box;
 }
 
 body{
     display: flex;
 }
-
+.sidebar-menus-links .material-icons{
+    color: white;
+}
 .sidebar{
     display: flex;
     flex-direction: column;
@@ -36,6 +38,7 @@ body{
 .info-perfilUsuario, 
 .descricao-logout {
     display: none;
+    color: white;
 }
 
 .sidebar:hover .descricao-menus,
@@ -113,6 +116,7 @@ a{
     flex-direction: column;
     gap: 30px;
     padding: 5px;
+   
 }
 
 .sidebar-menus-links{
@@ -152,6 +156,7 @@ a{
     justify-content: center;
     flex-direction: row;
     gap: 15px;
+    color: white;
 }
 
 

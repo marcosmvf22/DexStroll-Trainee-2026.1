@@ -14,3 +14,7 @@ $router->get('login', 'logincontroller@index');
 $router->get('cadastro', 'cadastrocontroller@index');
 
 $router->get('postagem', 'postunicocontroller@index');
+
+$router->get('dashboard', 'dashboardcontroller@index');
+
+$router->get('usuarios', 'listadeusuarioscontroller@index');

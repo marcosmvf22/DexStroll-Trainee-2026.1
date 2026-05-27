@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    padding: 0;
+    padding: 0%;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
@@ -20,15 +20,23 @@ as palavras ficam,  tipo "palavraComposta", e  não "palavra-composta" igual eu 
 .header-dashboard{
     display: flex;
     flex-direction: column;
+    padding: 0;
 }
-.body-painel-usuarios {
+.pegatudo{
+    gap: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+.main-painel-usuarios {
     background-color: var(--azul-ceu); 
     color: var(--preto);
-    padding: 5vh;
+    padding: 0%;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
 }
 /* sinceramente, grande parte aqui ta com mesmas  classes que a outra tabela, mas se tratando de estilização, 
 acho que nao tem problema, é pra ser igual  mesmo */
@@ -37,6 +45,7 @@ acho que nao tem problema, é pra ser igual  mesmo */
     e tambem defini como 100% pra pegar o invólucro/container/wrapper inteiro */
     width: 100%;
     max-width: 1100px;
+    padding: 0%;
 }
 
 .header-dashboard h1 {

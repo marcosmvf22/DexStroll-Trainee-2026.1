@@ -9,9 +9,8 @@
 
     <!-- CSS -->
      <link rel="stylesheet" href="../../../public/css/Sidebar.css">
-    <title>DexStroll-Sidebar</title>
 </head>
-<body>
+<div class="falsobody">
 
     <!-- Botão para fechar sidebar -->
     <div class="habilitar_sidebar">
@@ -42,7 +41,7 @@
             <ul>
                 <!-- Menu home -->
                 <li>
-                    <a href="#" class="sidebar-menus-links">
+                    <a href="/" class="sidebar-menus-links">
                         <i class="material-icons">home</i>
                         <span class="descricao-menus">Pagina inicial</span>
                     </a>
@@ -50,7 +49,7 @@
 
                 <!-- Menu deshboard -->
                 <li>
-                    <a href="#" class="sidebar-menus-links">
+                    <a href="/dashboard" class="sidebar-menus-links">
                         <i class="material-icons">dashboard</i>
                         <span class="descricao-menus">Dashboard</span>
                     </a>
@@ -98,6 +97,6 @@
             </div>
         </div>
     </nav>
-</body>
+</div>
 <script src="/public/js/Sidebar.js"></script>
 </html>

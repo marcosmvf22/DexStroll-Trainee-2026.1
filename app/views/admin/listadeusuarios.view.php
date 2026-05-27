@@ -10,7 +10,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
-  <body class="body-painel-usuarios">
+  <body class="pegatudo">
+    <?require  "Sidebar.view.php" ?>
+  <main class="main-painel-usuarios">
     
     <div class="dashboard-container">
       
@@ -77,12 +79,12 @@
 
           <div class="grupo-campo">
             <label for="input-nome">Nome Completo</label>
-            <input type="text" id="input-nome" required placeholder="Ex: Marcos marcado de marcos">
+            <input type="text" id="input-nome" required placeholder="Digite seu nome completo">
           </div>
 
           <div class="grupo-campo">
             <label for="input-email">Email</label>
-            <input type="email" id="input-email" required placeholder="marcos@marcos.marco">
+            <input type="email" id="input-email" required placeholder="email@mail.com">
           </div>
 
           <div class="modal-rodape-botoes">
@@ -111,7 +113,7 @@
         </div>
       </div>
     </div>
-
+</main>
     <script src="../../../public/js/listadeusuarios.js"></script>
   </body>
 </html>
