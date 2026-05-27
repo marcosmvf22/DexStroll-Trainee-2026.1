@@ -546,3 +546,37 @@
         font-size: 3vw;
     }
 }  
+
+.post-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: poppins
+}
+
+.checkbox-container {
+  display: inline-flex;
+  align-items: center; 
+  gap: 8px;           
+  cursor: pointer;
+}
+
+.checkbox-container input{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    color: var(--branco-neve);
+    background-color: var(--azul-marinho);
+}
+
+#input-container textarea {
+  width: 100%;
+  max-width: 100em;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.hidden {
+  display: none !important;
+}
