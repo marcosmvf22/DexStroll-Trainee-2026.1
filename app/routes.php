@@ -18,3 +18,5 @@ $router->get('postagem', 'postunicocontroller@index');
 $router->get('dashboard', 'dashboardcontroller@index');
 
 $router->get('usuarios', 'listadeusuarioscontroller@index');
+
+$router->get('adminposts', 'adminpostscontroller@index');

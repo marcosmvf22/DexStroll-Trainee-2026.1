@@ -10,6 +10,7 @@ class InitController
 
     public function index()
     {
-        return view('admin/listadeusuarios');
+        return view('site/landingpage');
+        
     }
 }

@@ -8,7 +8,7 @@
     <title>Pagina de Visualização Unica - DexStroll</title>
 </head>
 <body>
-            <?php require 'navbar.view.php'; ?>
+         
 
     <main class="pagina-de-visualizacao-unica">
 
