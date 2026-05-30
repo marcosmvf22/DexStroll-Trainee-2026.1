@@ -57,9 +57,9 @@
                     <?php foreach($publicacoes as $publicacao): ?>
                     <tr>
                         <td class="dado_id_admin"><?= $publicacao->id ?></td>
-                        <td class="dado_titulo_admin"><?= $publicacao->title ?></td>
-                        <td class="dado_autor_admin"><?= $publicacao->author ?></td>
-                        <td class="dado_data_criacao_admin"><?= $publicacao->created_at ?></td>
+                        <td class="dado_titulo_admin"><?= $publicacao->titulo ?></td>
+                        <td class="dado_autor_admin"><?= $publicacao->autor ?></td>
+                        <td class="dado_data_criacao_admin"><?= $publicacao->data ?></td>
                         <td class="celula-acoes-admin">
                             <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao')" title="Visualizar" <?= $publicacao->id ?>>
                                 <span class="material-icons">visibility</span>
@@ -123,7 +123,7 @@
             </div>
             <div class="grupo-inputs-modal">
                 <label for="input-tituloModal" class="labal-modal-visualizar">Título:</label>
-                <input id="input-tituloModal" name="input-tituloModal" type="text" class="input-modal-visualizar" value="<?= $publicacao->title ?>" disabled>  
+                <input id="input-tituloModal" name="input-tituloModal" type="text" class="input-modal-visualizar" value="<?= $publicacao->titulo ?>" disabled>  
             </div>
         </div>
 
@@ -155,23 +155,23 @@
 
          <div class="grupo-inputs-modal">
                  <label for="input-descricaoModal" class="labal-modal-visualizar">Descrição:</label>
-                 <textarea id="descricaoModalVisualizar" class="input-descricao-modal" disabled><?= $publicacao->content ?></textarea>
+                 <textarea id="descricaoModalVisualizar" class="input-descricao-modal" disabled><?= $publicacao->descricao ?></textarea>
         </div>
 
         <div class="grupo-inputs-modal">
                  <label for="input-curiosidadesModalVisualizar" class="labal-modal-visualizar">Curiosidades:</label>
-                 <textarea id="curiosidadesModalVisualizar" class="input-curiosidades-modal" disabled></textarea>
+                 <textarea id="curiosidadesModalVisualizar" class="input-curiosidades-modal" disabled><?= $publicacao->curiosidade ?></textarea>
         </div>
 
 
         <div class="box2-modal">
             <div class="grupo-inputs-modal">
                 <label for="input-autorModal" class="labal-modal-visualizar">Autor:</label>
-                <input id="input-autorModal" name="input-autorModal" type="text" class="input-modal-visualizar"  value="<?= $publicacao->author ?>" disabled>
+                <input id="input-autorModal" name="input-autorModal" type="text" class="input-modal-visualizar"  value="<?= $publicacao->autor ?>" disabled>
             </div>
             <div class="grupo-inputs-modal">
                 <label for="input-dataPublicacaoModal" class="labal-modal-visualizar">Data de publicação:</label>
-                <input id="input-dataPublicacaoModal" name="input-dataPublicacaoModal" type="text" class="input-modal-visualizar" value="<?= $publicacao->created_at ?>" disabled>
+                <input id="input-dataPublicacaoModal" name="input-dataPublicacaoModal" type="text" class="input-modal-visualizar" value="<?= $publicacao->data ?>" disabled>
             </div>
         </div>      
     </div>
@@ -181,38 +181,40 @@
         <h3 class="titulo-modal-visualizar">Editar Publicação</h3>
         <hr class="linha-separadora-modal-excluir">
 
+        <form method="POST" action="/publicacoes/edit">
+        <input type="hidden" name="id" value="<?= $publicacao->id ?>">
+        
         <div class="grupo-inputs-modal">
             <label for="input-tituloModal" class="labal-modal-visualizar">Título:</label>
-            <input id="input-tituloModal" name="input-tituloModal" type="text" class="input-modal-visualizar">  
+            <input id="input-tituloModal" name="titulo" type="text" class="input-modal-visualizar" value="<?= $publicacao->titulo ?>" >  
         </div>
 
         <div class="box2-modal">
             <div class="grupo-inputs-modal">
                 <label for="input-autorModal" class="labal-modal-visualizar">Autor:</label>
-                <input id="input-autorModal" name="input-autorModal" type="text" class="input-modal-visualizar">
+                <input id="input-autorModal" name="autor" type="text" class="input-modal-visualizar" value="<?= $publicacao->autor ?>">
             </div>
             <div class="grupo-inputs-modal">
                 <label for="input-dataPublicacaoModal" class="labal-modal-visualizar">Data de publicação:</label>
-                <input id="input-dataPublicacaoModal" name="input-dataPublicacaoModal" type="text" class="input-modal-visualizar">
+                <input id="input-dataPublicacaoModal" name="data" type="text" class="input-modal-visualizar" value="<?= $publicacao->data ?>">
             </div>
         </div>   
 
-        <form method="post">
             <div id="editor-modal-editar" name="editordata">
-                <textarea id="summernoteEditar" name="editordata"></textarea>
+                <textarea id="summernoteEditar" name="descricao"><?= $publicacao->descricao ?></textarea>
             </div>
-        </form>
 
          <div class="grupo-inputs-modal">
                 <label for="input-curiosidadesModalEditar" class="labal-modal-visualizar">Curiosidades:</label>
-                <textarea id="curiosidadesModalEditar" class="input-curiosidades-modal"></textarea>
+                <textarea id="curiosidadesModalEditar" class="input-curiosidades-modal" name="curiosidade"><?= $publicacao->curiosidade ?></textarea>
         </div>
 
-
-        <div class="botoesModalEditarPub">
-            <button class="cancelarBotaoModalEditar" onclick="fecharModal('modalEditarPublicacao')">Cancelar</button>
+         <div class="botoesModalEditarPub">
+            <button class="cancelarBotaoModalEditar" type="submit" onclick="fecharModal('modalEditarPublicacao')">Cancelar</button>
             <button class="enviarBotaoModalEditar" onclick="fecharModal('modalEditarPublicacao')">Enviar</button>
         </div>
+
+        </form>
     </div>
 
     <!-- Modal Excluir -->

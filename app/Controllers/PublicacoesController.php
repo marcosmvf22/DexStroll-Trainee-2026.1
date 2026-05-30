@@ -13,4 +13,20 @@ class PublicacoesController
         $publicacoes = App::get('database')->selectAll('publicacao');
         return view('admin/pagina_publicacoes', compact('publicacoes'));
     }
+    public function edit()
+    {
+        $parameters = [
+            'titulo' => $_POST['titulo'],
+            'autor' => $_POST['autor'],
+            'data' => $_POST['data'],
+            'descricao' => $_POST['descricao'],
+            'curiosidade' => $_POST['curiosidade'],
+            'data' => $_POST['data'],
+        ];
+
+        $id = $_POST['id'];
+        
+        App::get('database')->update('publicacao',$id, $parameters);
+        header('Location: /publicacoes');
+    }
 }
