@@ -90,6 +90,7 @@
         </div>
     </div>
 
+    <?php foreach($publicacoes as $publicacao): ?>
     <!-- Modal Criar -->
     <div class="modal-pagina-publicacao" id="modalCriarPublicacao">
         <h3>Criar Publicação</h3>
@@ -118,11 +119,11 @@
         <div class="box1-modal">
             <div class="grupo-inputs-modal">
                 <label for="input-idPublicacao" class="labal-modal-visualizar">ID:</label>
-                <input id="input-idPublicacao" name="input-idPublicacao" type="text" class="input-modal-visualizar" disabled>
+                <input id="input-idPublicacao" name="input-idPublicacao" type="text" class="input-modal-visualizar" value="<?= $publicacao->id ?>" disabled>
             </div>
             <div class="grupo-inputs-modal">
                 <label for="input-tituloModal" class="labal-modal-visualizar">Título:</label>
-                <input id="input-tituloModal" name="input-tituloModal" type="text" class="input-modal-visualizar" disabled>  
+                <input id="input-tituloModal" name="input-tituloModal" type="text" class="input-modal-visualizar" value="<?= $publicacao->title ?>" disabled>  
             </div>
         </div>
 
@@ -154,7 +155,7 @@
 
          <div class="grupo-inputs-modal">
                  <label for="input-descricaoModal" class="labal-modal-visualizar">Descrição:</label>
-                 <textarea id="descricaoModalVisualizar" class="input-descricao-modal" disabled></textarea>
+                 <textarea id="descricaoModalVisualizar" class="input-descricao-modal" disabled><?= $publicacao->content ?></textarea>
         </div>
 
         <div class="grupo-inputs-modal">
@@ -166,11 +167,11 @@
         <div class="box2-modal">
             <div class="grupo-inputs-modal">
                 <label for="input-autorModal" class="labal-modal-visualizar">Autor:</label>
-                <input id="input-autorModal" name="input-autorModal" type="text" class="input-modal-visualizar" disabled>
+                <input id="input-autorModal" name="input-autorModal" type="text" class="input-modal-visualizar"  value="<?= $publicacao->author ?>" disabled>
             </div>
             <div class="grupo-inputs-modal">
                 <label for="input-dataPublicacaoModal" class="labal-modal-visualizar">Data de publicação:</label>
-                <input id="input-dataPublicacaoModal" name="input-dataPublicacaoModal" type="text" class="input-modal-visualizar" disabled>
+                <input id="input-dataPublicacaoModal" name="input-dataPublicacaoModal" type="text" class="input-modal-visualizar" value="<?= $publicacao->created_at ?>" disabled>
             </div>
         </div>      
     </div>
@@ -228,6 +229,7 @@
             <button class="excluirBotaoModal" onclick="fecharModal('modalExcluirPublicacao')">Excluir</button>
         </div>
     </div>
+    <?php endforeach ?>
     
     <script>
         $(document).ready(function() {
