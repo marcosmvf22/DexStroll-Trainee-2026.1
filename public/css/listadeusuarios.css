@@ -462,3 +462,37 @@ separado, troquei tudo  que era "publicacao" para "usuario" e também ajustei al
 .excluirBotaoModal:hover {
     background-color: #5A1A22;
 }
+.mini-avatar-tabela {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--azul-marinho);
+}
+
+
+
+
+.tabela-responsiva-container {
+    width: 100%;
+    overflow-x: auto;
+/* essa parada de webkit scroll eu peguei de alguem que nao lembro quem, mas obrigado */
+    -webkit-overflow-scrolling: touch; 
+}
+
+.tabela-responsiva-container table {
+    width: 100%;
+    min-width: 600px; 
+    border-collapse: collapse;
+}
+
+.celula-acoes-admin {
+    white-space: nowrap; 
+    min-width: 140px; 
+}
+
+.tabela-responsiva-container td, 
+.tabela-responsiva-container th {
+    white-space: nowrap; 
+/* eu nao sabia sobre  nowrap, obrigado guilherme, bisbilhotei sua sidebar */
+}

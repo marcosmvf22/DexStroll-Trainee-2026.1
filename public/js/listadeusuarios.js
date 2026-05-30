@@ -5,16 +5,19 @@
 // de array.
 let listaUsuarios = [
   {
+    avatar: "/public/assets/default-avatar.png",
     username: "Usuarioexemplo1",
     nome: "Nome Completo Um",
     email: "usuario1@email.com",
   },
   {
+    avatar: "/public/assets/default-avatar.png",
     username: "Usuarioexemplo2",
     nome: "Nome Completo Dois",
     email: "usuario2@email.com",
   },
   {
+    avatar: "/public/assets/default-avatar.png", 
     username: "nomedeusuario",
     nome: "Nome Completo Três",
     email: "usuario3@email.com",
@@ -31,7 +34,11 @@ function renderizarTabela() {
     listaUsuarios.forEach((usuario) => {
       const linhaHTML = `  
         <tr>
-          <td class="dado_id_admin">${usuario.username}</td>
+<td class="dado_id_admin">
+<div style="display: flex; align-items: center; justify-content: center; gap: 12px;"><img src="${usuario.avatar ? usuario.avatar : '/public/assets/default-avatar.png'}" class="mini-avatar-tabela" alt="Avatar">
+<span>${usuario.username}</span>
+            </div>
+          </td>
           <td>${usuario.nome}</td>
           <td>${usuario.email}</td>
           <td class="celula-acoes-admin">
@@ -65,6 +72,14 @@ const inputAvatarReal = document.getElementById("input-avatar");
 const modalExclusao = document.getElementById("modal-excluir-usuario");
 const btnCancelarExclusao = document.getElementById("btn-cancelar-excluir");
 const btnConfirmarExclusao = document.getElementById("btn-confirmar-excluir");
+
+const modalEditar = document.getElementById("modal-editar-usuario");
+const btnFecharEditarX = document.getElementById("btn-fechar-editar-x");
+const btnCancelarEditar = document.getElementById("btn-cancelar-editar");
+const formEditar = document.getElementById("form-editar-usuario");
+
+const editAvatarClicavel = document.getElementById("edit-avatar-clicavel");
+const editInputAvatar = document.getElementById("edit-input-avatar");
 
 if (btnAbrir && modal) {
   btnAbrir.addEventListener("click", () => {
@@ -108,9 +123,8 @@ if (corpoTabela && modalExclusao) {
 
     if (botaoLixeira) {
       const linha = botaoLixeira.closest("tr");
-      const usernameId = linha.querySelector(".dado_id_admin").textContent.trim();
-
-      usuarioParaDeletar = usernameId;
+      const emailId = linha.cells[2].textContent.trim();
+      usuarioParaDeletar = emailId;
       modalExclusao.style.display = "flex";
     }
   });
@@ -129,7 +143,8 @@ if (btnCancelarExclusao && modalExclusao) {
 if (btnConfirmarExclusao && modalExclusao) {
   btnConfirmarExclusao.addEventListener("click", () => {
     if (usuarioParaDeletar !== null) {
-      listaUsuarios = listaUsuarios.filter((u) => u.username !== usuarioParaDeletar);
+      listaUsuarios = listaUsuarios.filter((u) => u.email !== usuarioParaDeletar);
+      //troquei acima pra usar o email ao inves de username
       //esse filter !==, é um filtro reverso, achei  mais seguro (fiquei com preguiça naverdade), ele é tipo o oposto
       //de selecionar  o  usuario pra apagar, é selecionar o que vai manter, muito pika
       //obs2:pensei agora q se tiver  muito usuario talvez pese o site, vou ponderar, pois vai 
@@ -143,3 +158,73 @@ if (btnConfirmarExclusao && modalExclusao) {
     }
   });
 }
+
+//modal de editar o usuario, senão não ia dar pra alterar usuario 
+//igual a steam que nao deixa alterar a desgraça do login
+corpoTabela.addEventListener("click", (evento) => {
+  const botaoEditar = evento.target.closest('[title="Editar"]');
+  
+  if (botaoEditar) {
+    const linha = botaoEditar.closest("tr");
+    const username = linha.cells[0].textContent;
+    const nome = linha.cells[1].textContent;
+    const email = linha.cells[2].textContent;
+
+
+    //igual o outro, injeta igual vacina na tabela
+    document.getElementById("edit-email-original").value = email;
+    document.getElementById("edit-input-username").value = username;
+    document.getElementById("edit-input-nome").value = nome;
+    document.getElementById("edit-input-email").value = email;
+
+    modalEditar.style.display = "flex";
+  }
+});
+formEditar.addEventListener("submit", (e) => {
+  e.preventDefault();
+const emailOriginal = document.getElementById("edit-email-original").value;  
+//aqui eu coloquei o filtro pra buscar pelo email ao invés do  usuario para poder  editar usuario
+const index = listaUsuarios.findIndex(u => u.email === emailOriginal);  if (index !== -1) {
+    listaUsuarios[index].username = document.getElementById("edit-input-username").value;
+    listaUsuarios[index].nome = document.getElementById("edit-input-nome").value;
+  }
+
+  renderizarTabela();
+  modalEditar.style.display = "none";
+});
+
+//nao tava fechando, aí fui olhar os outros modais e lembrei que tem botar isso aqui:
+const fecharModalEditar = () => { modalEditar.style.display = "none"; };
+if (btnFecharEditarX) btnFecharEditarX.addEventListener("click", fecharModalEditar);
+if (btnCancelarEditar) btnCancelarEditar.addEventListener("click", fecharModalEditar);
+
+//esqueci da  foto
+if (editAvatarClicavel && editInputAvatar) {
+  editAvatarClicavel.addEventListener("click", () => {
+    editInputAvatar.click();
+  });
+
+
+
+  editInputAvatar.addEventListener("change", (evento) => {
+    const ficheiro = evento.target.files[0];
+    
+    if (ficheiro) {
+      const leitor = new FileReader();
+      
+      leitor.onload = function(e) {
+        
+        
+        editAvatarClicavel.src = e.target.result;
+      };
+      
+      leitor.readAsDataURL(ficheiro);
+    }
+  });
+}
+
+//boa noite, eu acho  que ta tudo certo,  consegui  remover alguns bugs, meu teclado ainda
+// ta dando espaço duplo as vezes, e isso me incomoda sinceramente.
+//devo reprovar em 7 de 8 disciplinas, mas isso é porque tranquei uma  delas;
+//dito  isso gostei do JS, parce bastante o java normal, porém meio fresco em algumas coisas
+//e  mais  facil em outras, talvez eu vá pra essa área

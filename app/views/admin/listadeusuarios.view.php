@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body class="pegatudo">
-    <?require  "Sidebar.view.php" ?>
+    <? require 'Sidebar.view.php' ?>
   <main class="main-painel-usuarios">
     
     <div class="dashboard-container">
@@ -28,7 +28,7 @@
             Adicionar Usuário
           </button>
         </div>
-
+      <div class="tabela-responsiva-container">
         <table class="tabela-admin">
           <thead>
             <tr class="cabecalho-tabela-admin">
@@ -40,6 +40,7 @@
           </thead>
           <tbody id="corpo-tabela-usuarios"></tbody>
         </table>
+      </div>
       </div> 
 
       <div class="paginacao">
@@ -49,7 +50,7 @@
       </div>
 
     </div>
-
+<!-- aqui modal de criar -->
     <div id="modal-usuario" class="modal-container-flutuante">
       <div class="modal-card-caixa">
         
@@ -95,7 +96,46 @@
 
       </div>
     </div>
-
+<!-- modal de editar usuario -->
+<div id="modal-editar-usuario" class="modal-container-flutuante">
+  <div class="modal-card-caixa">
+    <div class="modal-header-local">
+      <h2>Editar Usuário</h2>
+      <button type="button" class="botao-fechar-x" id="btn-fechar-editar-x">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+    <form id="form-editar-usuario">
+      <input type="hidden" id="edit-email-original"> <!-- Para saber quem editar -->
+      <div class="container-foto-upload" style="margin-bottom: 20px;">
+        <div class="wrapper-avatar" style="position: relative; display: inline-block;">
+          <img src="/public/assets/default-avatar.png" id="edit-avatar-clicavel" alt="Avatar" style="width: 100px; height: 100px; border-radius: 50%; cursor: pointer; object-fit: cover; border: 2px solid var(--azul-marinho);"> 
+          <div class="badge-upload" style="pointer-events: none;">
+            <span class="material-icons">arrow_upward</span>
+          </div>
+        </div>
+        <input type="file" id="edit-input-avatar" accept="image/*" style="display: none;">
+      </div>
+      <div class="grupo-campo">
+        <label>Username</label>
+        <input type="text" id="edit-input-username" required>
+      </div>
+      <div class="grupo-campo">
+        <label>Nome Completo</label>
+        <input type="text" id="edit-input-nome" required>
+      </div>
+      <div class="grupo-campo">
+        <label>Email</label>
+        <input type="email" id="edit-input-email" disabled>
+      </div>
+      <div class="modal-rodape-botoes">
+        <button type="button" class="cancelarBotaoModal" id="btn-cancelar-editar">Cancelar</button>
+        <button type="submit" class="enviarBotaoModal">Salvar Alterações</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- modal de excluir -->
     <div class="modal-container-flutuante" id="modal-excluir-usuario">
       <div class="modalExcluirUsuario">
         <h3 class="titulo-modal-excluir">Excluir Usuário</h3>
