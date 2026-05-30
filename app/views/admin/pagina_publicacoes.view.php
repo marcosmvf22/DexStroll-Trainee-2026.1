@@ -54,24 +54,26 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach($publicacoes as $publicacao): ?>
                     <tr>
-                        <td class="dado_id_admin">1</td>
-                        <td class="dado_titulo_admin">Titulo da publicação</td>
-                        <td class="dado_autor_admin">João da Silva</td>
-                        <td class="dado_data_criacao_admin">DD/MM/YYYY</td>
+                        <td class="dado_id_admin"><?= $publicacao->id ?></td>
+                        <td class="dado_titulo_admin"><?= $publicacao->title ?></td>
+                        <td class="dado_autor_admin"><?= $publicacao->author ?></td>
+                        <td class="dado_data_criacao_admin"><?= $publicacao->created_at ?></td>
                         <td class="celula-acoes-admin">
-                            <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao')" title="Visualizar">
+                            <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao')" title="Visualizar" <?= $publicacao->id ?>>
                                 <span class="material-icons">visibility</span>
                             </button>
-                            <button class="botao-acao botao-editar" onclick="abrirModal('modalEditarPublicacao')" title="Editar">
+                            <button class="botao-acao botao-editar" onclick="abrirModal('modalEditarPublicacao')" title="Editar" <?= $publicacao->id ?>>
                                 <span class="material-icons">edit</span>
                             </button>
-                            <button class="botao-acao botao-deletar" onclick="abrirModal('modalExcluirPublicacao')" title="Deletar">
+                            <button class="botao-acao botao-deletar" onclick="abrirModal('modalExcluirPublicacao')" title="Deletar" <?= $publicacao->id ?>>
                                 <span class="material-icons">delete</span>
                             </button>
                         </td>
                         
                     </tr>
+                    <?php endforeach ?>
                     </tbody>
             </table>
         </div>
