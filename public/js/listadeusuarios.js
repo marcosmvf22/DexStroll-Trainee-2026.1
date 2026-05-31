@@ -166,7 +166,7 @@ corpoTabela.addEventListener("click", (evento) => {
   
   if (botaoEditar) {
     const linha = botaoEditar.closest("tr");
-    const username = linha.cells[0].textContent;
+    const username = linha.cells[0].textContent.trim();
     const nome = linha.cells[1].textContent;
     const email = linha.cells[2].textContent;
 
@@ -182,11 +182,17 @@ corpoTabela.addEventListener("click", (evento) => {
 });
 formEditar.addEventListener("submit", (e) => {
   e.preventDefault();
-const emailOriginal = document.getElementById("edit-email-original").value;  
-//aqui eu coloquei o filtro pra buscar pelo email ao invés do  usuario para poder  editar usuario
-const index = listaUsuarios.findIndex(u => u.email === emailOriginal);  if (index !== -1) {
+  const emailOriginal = document.getElementById("edit-email-original").value;  
+  
+  // aqui eu coloquei o filtro pra buscar pelo email ao invés do usuario para poder editar usuario
+  const index = listaUsuarios.findIndex(u => u.email === emailOriginal);  
+  
+  if (index !== -1) {
     listaUsuarios[index].username = document.getElementById("edit-input-username").value;
     listaUsuarios[index].nome = document.getElementById("edit-input-nome").value;
+    
+//reverti a parada de desativar alteracao de email
+    listaUsuarios[index].email = document.getElementById("edit-input-email").value;
   }
 
   renderizarTabela();

@@ -126,7 +126,7 @@
       </div>
       <div class="grupo-campo">
         <label>Email</label>
-        <input type="email" id="edit-input-email" disabled>
+        <input type="email" id="edit-input-email" required>
       </div>
       <div class="modal-rodape-botoes">
         <button type="button" class="cancelarBotaoModal" id="btn-cancelar-editar">Cancelar</button>
