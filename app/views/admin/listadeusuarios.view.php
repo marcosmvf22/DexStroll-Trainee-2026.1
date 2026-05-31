@@ -38,7 +38,25 @@
               <th>Ações</th>
             </tr>
           </thead>
-          <tbody id="corpo-tabela-usuarios"></tbody>
+         <tbody id="corpo-tabela-usuarios">
+  <?php foreach ($usuarios as $usuario) : ?>
+    <tr>
+      <td class="dado_id_admin">
+        <div style="display: flex; align-items: center; justify-content: flex-start; padding-left: 25px; gap: 12px;">
+          <img src="<?= $usuario->avatar ?: '/public/assets/default-avatar.png' ?>" class="mini-avatar-tabela" alt="Avatar">
+          <span><?= $usuario->username ?></span>
+        </div>
+      </td>
+      <td><?= $usuario->nome ?></td>
+      <td><?= $usuario->email ?></td>
+      <td class="celula-acoes-admin">
+        <button class="botao-acao" title="Visualizar"><span class="material-icons">visibility</span></button>
+        <button class="botao-acao" title="Editar"><span class="material-icons">edit</span></button>
+        <button class="botao-acao botao-deletar btn-deletar-linha" title="Deletar"><span class="material-icons">delete</span></button>
+      </td>
+    </tr>
+  <?php endforeach; ?>
+</tbody>
         </table>
       </div>
       </div> 
@@ -61,11 +79,11 @@
           </button>
         </div>
         
-        <form id="form-novo-usuario">
+        <form id="form-novo-usuario" action="/usuarios/criar" method="POST">
           
           <div class="container-foto-upload">
-            <div class="wrapper-avatar" id="avatar-clicavel">
-              <span class="material-icons icone-avatar-padrao">account_circle</span>
+            <div class="wrapper-avatar">
+              <img src="/public/assets/default-avatar.png" id="avatar-clicavel" alt="Avatar">
               <div class="badge-upload">
                 <span class="material-icons">arrow_upward</span>
               </div>
@@ -75,17 +93,17 @@
 
           <div class="grupo-campo">
             <label for="input-username">Username</label>
-            <input type="text" id="input-username" required placeholder="Ex: Marcos">
+            <input type="text" name="username" id="input-username" required placeholder="Digite o username">
           </div>
 
           <div class="grupo-campo">
             <label for="input-nome">Nome Completo</label>
-            <input type="text" id="input-nome" required placeholder="Digite seu nome completo">
+            <input type="text" name="nome" id="input-nome" required placeholder="Digite seu nome completo">
           </div>
 
           <div class="grupo-campo">
             <label for="input-email">Email</label>
-            <input type="email" id="input-email" required placeholder="email@mail.com">
+            <input type="email" name="email" id="input-email" required placeholder="email@mail.com">
           </div>
 
           <div class="modal-rodape-botoes">
@@ -98,6 +116,8 @@
     </div>
 <!-- modal de editar usuario -->
 <div id="modal-editar-usuario" class="modal-container-flutuante">
+  <input type="hidden" name="id" id="edit-id">
+  <!-- esse input hidden pra usar o ID de referencia -->
   <div class="modal-card-caixa">
     <div class="modal-header-local">
       <h2>Editar Usuário</h2>
@@ -118,15 +138,14 @@
       </div>
       <div class="grupo-campo">
         <label>Username</label>
-        <input type="text" id="edit-input-username" required>
-      </div>
+        <input type="text" name="username" id="edit-input-username" required>      </div>
       <div class="grupo-campo">
         <label>Nome Completo</label>
-        <input type="text" id="edit-input-nome" required>
-      </div>
+        <!-- incluí o name="nome, id,etc para consegir comunicar com js e php" -->
+        <input type="text" name="nome" id="edit-input-nome" required>      </div>
       <div class="grupo-campo">
         <label>Email</label>
-        <input type="email" id="edit-input-email" required>
+        <input type="email" name="email" id="edit-input-email" required>
       </div>
       <div class="modal-rodape-botoes">
         <button type="button" class="cancelarBotaoModal" id="btn-cancelar-editar">Cancelar</button>
