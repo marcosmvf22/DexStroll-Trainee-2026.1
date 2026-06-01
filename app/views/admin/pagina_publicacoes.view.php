@@ -140,6 +140,17 @@
             </div>
         </div>
 
+        <div class="box2-modal">
+            <div class="grupo-inputs-modal">
+                <label for="input-autorModal" class="labal-modal-visualizar">Autor:</label>
+                <input id="input-autorModal" name="input-autorModal" type="text" class="input-modal-visualizar"  value="<?= $publicacao->autor ?>" disabled>
+            </div>
+            <div class="grupo-inputs-modal">
+                <label for="input-dataPublicacaoModal" class="labal-modal-visualizar">Data de publicação:</label>
+                <input class="input-dataPublicacaoModal"  type="date" name="data" value="<?= $publicacao->data ?>" disabled>
+            </div>
+        </div>  
+
         <div class="imagem-principal-modal-excluir">
             <label for="input-idPublicacao" class="labal-modal-visualizar">Imagem principal:</label>
                 <div class="img-principal-placeholder-modal">
@@ -167,25 +178,13 @@
         </div>
 
         <div id="editor-modal-visualizar" name="editordata">
-                <textarea id="summernoteVisualizar" name="descricao"><?= $publicacao->descricao ?></textarea>
+                <textarea  id="summernoteVisualizar" name="descricao"><?= $publicacao->descricao ?></textarea>
         </div>
 
         <div class="grupo-inputs-modal">
                  <label for="input-curiosidadesModalVisualizar" class="labal-modal-visualizar">Curiosidades:</label>
                  <textarea id="curiosidadesModalVisualizar" class="input-curiosidades-modal" disabled><?= $publicacao->curiosidade ?></textarea>
-        </div>
-
-
-        <div class="box2-modal">
-            <div class="grupo-inputs-modal">
-                <label for="input-autorModal" class="labal-modal-visualizar">Autor:</label>
-                <input id="input-autorModal" name="input-autorModal" type="text" class="input-modal-visualizar"  value="<?= $publicacao->autor ?>" disabled>
-            </div>
-            <div class="grupo-inputs-modal">
-                <label for="input-dataPublicacaoModal" class="labal-modal-visualizar">Data de publicação:</label>
-                <input class="input-dataPublicacaoModal"  type="date" name="data" value="<?= $publicacao->data ?>" disabled>
-            </div>
-        </div>      
+        </div>    
     </div>
 
     <!-- Modal Editar -->
@@ -288,7 +287,7 @@
     <script>
         $(document).ready(function() {
             $('#summernoteVisualizar').summernote({
-                height: 300,             
+                height: 300,            
                 toolbar: [
                 ]
             });
