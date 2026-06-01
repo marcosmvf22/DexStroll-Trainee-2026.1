@@ -95,8 +95,17 @@
                 <textarea id="summernoteCriar" name="descricao"></textarea>
             </div>
 
-            <h4>Curiosidade</h4>
-            <textarea class="input-curiosidades-modal" name="curiosidade" placeholder="Alguma curiosidade?"></textarea>
+            <div class="post-options">
+            <h3>Opções do post</h3>
+            
+            <label class="checkbox-container">
+                <input type="checkbox" id="toggle-curiosidade">
+                <span>Adicionar curiosidade</span>
+            </label>
+
+            <div id="input-container" class="hidden">
+                <textarea placeholder="Digite o texto da curiosidade" rows="3"></textarea>
+            </div>
 
             <div class="grupo-data-modal">
                 <label for="input-dataPublicacao" class="labal-modal-visualizar">Data de publicação:</label>
