@@ -59,7 +59,7 @@
                         <td class="dado_id_admin"><?= $publicacao->id ?></td>
                         <td class="dado_titulo_admin"><?= $publicacao->titulo ?></td>
                         <td class="dado_autor_admin"><?= $publicacao->autor ?></td>
-                        <td class="dado_data_criacao_admin"><?= $publicacao->data ?></td>
+                        <td class="dado_data_criacao_admin"><?= date('d/m/Y', strtotime($publicacao->data)) ?></td>
                         <td class="celula-acoes-admin">
                             <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao')" title="Visualizar" <?= $publicacao->id ?>>
                                 <span class="material-icons">visibility</span>
@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    <?php foreach($publicacoes as $publicacao): ?>
+    <?php foreach($publicacoes as $publicacao):  ?>
     <!-- Modal Criar -->
     <div class="modal-pagina-publicacao" id="modalCriarPublicacao">
         <h3>Criar Publicação</h3>
@@ -171,7 +171,7 @@
             </div>
             <div class="grupo-inputs-modal">
                 <label for="input-dataPublicacaoModal" class="labal-modal-visualizar">Data de publicação:</label>
-                <input id="input-dataPublicacaoModal" name="input-dataPublicacaoModal" type="text" class="input-modal-visualizar" value="<?= $publicacao->data ?>" disabled>
+                <input class="input-dataPublicacaoModal"  type="date" name="data" value="<?= $publicacao->data ?>" disabled>
             </div>
         </div>      
     </div>
@@ -183,7 +183,7 @@
 
         <form method="POST" action="/publicacoes/edit">
         <input type="hidden" name="id" value="<?= $publicacao->id ?>">
-        
+
         <div class="grupo-inputs-modal">
             <label for="input-tituloModal" class="labal-modal-visualizar">Título:</label>
             <input id="input-tituloModal" name="titulo" type="text" class="input-modal-visualizar" value="<?= $publicacao->titulo ?>" >  
@@ -196,7 +196,7 @@
             </div>
             <div class="grupo-inputs-modal">
                 <label for="input-dataPublicacaoModal" class="labal-modal-visualizar">Data de publicação:</label>
-                <input id="input-dataPublicacaoModal" name="data" type="text" class="input-modal-visualizar" value="<?= $publicacao->data ?>">
+                <input class="input-dataPublicacaoModal"  type="date" name="data" value="<?= $publicacao->data ?>">
             </div>
         </div>   
 
@@ -210,8 +210,8 @@
         </div>
 
          <div class="botoesModalEditarPub">
-            <button class="cancelarBotaoModalEditar" type="submit" onclick="fecharModal('modalEditarPublicacao')">Cancelar</button>
-            <button class="enviarBotaoModalEditar" onclick="fecharModal('modalEditarPublicacao')">Enviar</button>
+            <button class="cancelarBotaoModalEditar" type="button" onclick="fecharModal('modalEditarPublicacao')">Cancelar</button>
+            <button class="enviarBotaoModalEditar" type="submit" onclick="fecharModal('modalEditarPublicacao')">Enviar</button>
         </div>
 
         </form>
