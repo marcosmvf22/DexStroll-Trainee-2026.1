@@ -21,6 +21,9 @@ const btnFecharEditarX = document.getElementById("btn-fechar-editar-x");
 const btnCancelarEditar = document.getElementById("btn-cancelar-editar");
 const formEditar = document.getElementById("form-editar-usuario");
 
+const modalVisualizar = document.getElementById("modal-visualizar-usuario");
+const btnFecharVisualizarX = document.getElementById("btn-fechar-visualizar-x");
+
 
 
 const avatarClicavel = document.getElementById("avatar-clicavel");
@@ -57,7 +60,17 @@ if (avatarClicavel && inputAvatarReal) {
   });
 }
 
+if (corpoTabela && modalVisualizar) {
+  corpoTabela.addEventListener("click", (evento) => {
+    const botaoVisualizar = evento.target.closest('[title="Visualizar"]');
+    if (botaoVisualizar) {
+      modalVisualizar.style.display = "flex";
+    }
+  });
+}
 
+const fecharModalVisualizar = () => { if (modalVisualizar) modalVisualizar.style.display = "none"; };
+if (btnFecharVisualizarX) btnFecharVisualizarX.addEventListener("click", fecharModalVisualizar);
 
 if (corpoTabela && modalExclusao) {
   corpoTabela.addEventListener("click", (evento) => {

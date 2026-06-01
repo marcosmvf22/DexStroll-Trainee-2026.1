@@ -113,6 +113,34 @@
           </form>
         </div>
       </div>
+      
+      <!-- modal de visualizar usuario-->
+       <div id="modal-visualizar-usuario" class="modal-container-flutuante">
+        <div class="modal-card-caixa">
+          <div class="modal-header-local">
+            <h2>Visualizar Usuário</h2>
+            <button type="button" class="botao-fechar-x" id="btn-fechar-visualizar-x">
+              <span class="material-icons">close</span>
+            </button>
+          </div>
+          <form id="form-visualizar-usuario">
+            <div class="container-foto-upload" style="margin-bottom: 20px;">
+              <div class="wrapper-avatar" style="position: relative; display: inline-block;">
+                <img src="/public/assets/default-avatar.png" alt="Avatar" style="width: 100px; height: 100px; border-radius: 50%; cursor: pointer; object-fit: cover; border: 2px solid var(--azul-marinho);"> 
+              </div>
+            </div>
+            <div class="grupo-campo">
+              <label>Username</label>    
+            </div>
+            <div class="grupo-campo">
+              <label>Nome Completo</label>
+            </div>
+            <div class="grupo-campo">
+              <label>Email</label>
+            </div>
+          </form>
+        </div>
+      </div>
       <!-- modal de editar usuario -->
       <div id="modal-editar-usuario" class="modal-container-flutuante">
         <input type="hidden" name="id" id="edit-id">

@@ -246,8 +246,10 @@ que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio
 nao sei se isso  é considerado gambiarra, mas nao tava alinhando de  outra forma */
 .wrapper-avatar {
     position: relative;
+    /*
     width: 100px !important;
     height: 100px !important;
+    */
     min-width: 100px !important;
     min-height: 100px !important;
     cursor: pointer;
@@ -385,6 +387,11 @@ separado, troquei tudo  que era "publicacao" para "usuario" e também ajustei al
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+
+#modal-visualizar-usuario{
+    display:none;
 }
 
 .titulo-modal-excluir {
