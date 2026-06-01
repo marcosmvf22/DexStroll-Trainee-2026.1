@@ -29,4 +29,24 @@ class PublicacoesController
         App::get('database')->update('publicacao',$id, $parameters);
         header('Location: /publicacoes');
     }
+    public function store()
+    {
+        $parameters = [
+            'titulo' => $POST['titulo'],
+            'descricao' => $_['descricao'],
+            'curiosidade' => $_['curiosidade'],
+            'data' => $_POST['data'],
+        ];
+
+        App::get('database')->insert('publicacao', $parameters);
+        header('Location: /publicacoes');
+    }
+    public function delete()
+    {
+        $id = $_POST['id'];
+
+        App::get('database')->delete('publicacao', $id);
+
+        header('Location: /publicacoes');
+    }
 }

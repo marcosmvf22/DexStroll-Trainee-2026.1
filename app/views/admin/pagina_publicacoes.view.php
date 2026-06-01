@@ -32,11 +32,6 @@
             <h3>xx publicações encontradas</h3>
         </header>
 
-        <!-- <nav class="abas-admin">
-            <button class="aba-item ativa">Publicações</button>
-            <button class="aba-item">Usuários</button>
-        </nav> -->
-
         <div class="card-tabela">
             <div class="topo-tabela">
                 <button class="criar-publicacao-admin" onclick="abrirModal('modalCriarPublicacao')">
@@ -81,34 +76,43 @@
         <div class="paginacao">
             <button class="btn-pag">&lt;</button>
             <button class="btn-pag ativo">1</button>
-            <!-- <button class="btn-pag">2</button>
-            <button class="btn-pag">3</button>
-            <button class="btn-pag">4</button>
-            <button class="btn-pag">5</button>
-            <button class="btn-pag">6</button> -->
             <button class="btn-pag">&gt;</button>
         </div>
     </div>
 
-    <?php foreach($publicacoes as $publicacao): ?>
-    <!-- Modal Criar -->
+     <!-- Modal Criar -->
     <div class="modal-pagina-publicacao" id="modalCriarPublicacao">
         <h3>Criar Publicação</h3>
         <hr class="linha-separadora">
-        <form method="post">
+
+      
+        <form method="POST" action="/publicacoes/store">
+            <h4>Título da publicação</h4>
+            <input id="input-tituloModalCriar" name="titulo" type="text" class="input-modal-titulo">
+
+            <h4>Conteúdo</h4>
             <div id="editor" name="editordata">
-                <textarea id="summernoteCriar" name="editordata"></textarea>
+                <textarea id="summernoteCriar" name="descricao"></textarea>
+            </div>
+
+            <h4>Curiosidade</h4>
+            <textarea class="input-curiosidades-modal" name="curiosidade" placeholder="Alguma curiosidade?"></textarea>
+
+            <div class="grupo-data-modal">
+                <label for="input-dataPublicacao" class="labal-modal-visualizar">Data de publicação:</label>
+                <input id="input-dataPublicacao" name="data" type="date" class="input-modal-visualizar" required>
+            </div>
+            
+            <div class="botoesModalCriarPub">
+                <button type="button" class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
+                <button type="submit" class="enviarBotaoModal">Enviar</button>
             </div>
         </form>
 
-
-        <div class="botoesModalCriarPub">
-            <button class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
-            <button class="enviarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Enviar</button>
-        </div>
     </div>
 
     <!-- Modal Visualizar -->
+     <?php foreach($publicacoes as $publicacao): ?>
      <div class="modal-visualizar-publicacao" id="modalVisualizarPublicacao">
         <div class="nav-modal-excluir">
             <h3 class="titulo-modal-visualizar">Visualizar Publicação</h3>
@@ -218,7 +222,7 @@
     </div>
 
     <!-- Modal Excluir -->
-     <div class="modal-excluir-publicacao" id="modalExcluirPublicacao">
+     <div class="modal-excluir-publicacao" id="modalExcluirPublicacao-<?= $publicacao->id ?>">
         <h3 class="titulo-modal-excluir">Excluir Publicação</h3>
         <hr class="linha-separadora-modal-excluir">
         <div class="container-icone-modal-excluir">
@@ -226,10 +230,14 @@
         </div>
         <p class="descricao-modal-excluir">Essa ação é irreversível. Você tem certeza que deseja excluir essa publicação?</p>
 
+        <form method="POST" action="/publicacoes/delete">
+        <input type="hidden" name="id" value="<?= $publicacao->id ?>">
+
         <div class="botoesModalExcluirPub">
-            <button class="cancelarBotaoModalDeExclusao" onclick="fecharModal('modalExcluirPublicacao')">Cancelar</button>
-            <button class="excluirBotaoModal" onclick="fecharModal('modalExcluirPublicacao')">Excluir</button>
+            <button type="button" class="cancelarBotaoModalDeExclusao" onclick="fecharModal('modalExcluirPublicacao-<?= $publicacao->id ?>')">Cancelar</button>
+            <button type="submit" class="excluirBotaoModal">Excluir</button>
         </div>
+    </form>
     </div>
     <?php endforeach ?>
     
