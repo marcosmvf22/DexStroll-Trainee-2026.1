@@ -25,7 +25,7 @@
                  <a href="/">
                          <img class="logo-nav" src="/public/assets/Logo-nav.png" alt="">
                         </a>
-</div>
+            </div>
             <div class="box-pesquisa-nav">
                     <label class="label-nav">
                     <div class="elementos-input-nav">
@@ -47,9 +47,10 @@
             </div>
         </div>
 
-        <div class="box2-nav">
+        <!--<div class="box2-nav">
             <span class="line-nav"></span>
-        </div>
+        </div> -->
+        
     </nav>
     <div class="mobile-menu-nav">
         <ul>
@@ -57,7 +58,7 @@
             <li class="mobile-item-nav"> <a href="" class="mobile-link-nav"><i class="fa-regular fa-file icone-mobile-esquerda-nav"></i>Publicações<i class="fa-solid fa-arrow-right icone-mobile-direita-nav"></i></a></li>
             <li class="mobile-item-nav"> <a href="" class="mobile-link-nav"><i class="fa-regular fa-user icone-mobile-esquerda-nav"></i>Login<i class="fa-solid fa-arrow-right icone-mobile-direita-nav"></i></a></li>
         </ul>
-</div>
+    </div>
 </header>
 
 <body>

@@ -22,6 +22,8 @@ html{
     scroll-behavior: smooth;
 }
 
+
+
 body::-webkit-scrollbar{
     display: none;
 }
@@ -157,6 +159,7 @@ a{
     position: relative;
     border-radius: 30px;
     overflow-X: auto;
+    padding-bottom: 30px;
 }
 
 .slider-conteudo-landing{

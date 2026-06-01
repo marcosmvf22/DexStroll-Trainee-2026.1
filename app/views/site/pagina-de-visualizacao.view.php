@@ -9,13 +9,13 @@
 </head>
 <body>
          
-
+    <?php require "navbar.view.php"?>
     <main class="pagina-de-visualizacao-unica">
 
         <!-- Titulo da pagina -->
         
         <div class="area-de-titulo">
-            <div class="overlay-area-de-titulo"></div>
+            <div class="overlay-area-de-titulo"></div> 
             <div class="conteudo-do-titulo">
                 
                 <a href="#" class="tag-categoria">Categoria</a>
@@ -68,17 +68,17 @@
                 Asperiores officia aspernatur repellat iusto blanditiis nam repellendus aperiam amet atque enim hic obcaecati veniam ut ea numquam magnam doloribus dignissimos, omnis ad illo assumenda cumque delectus unde possimus? Repellendus.
                 Hic obcaecati itaque nulla est repellat aspernatur id tempora fugiat debitis facere error expedita, tempore fugit deleniti ex, delectus in, asperiores unde maiores saepe! Assumenda sit vero accusantium nulla officiis!
             </div>
-            <div class="caixa-de-curiosidade">
-                <div class="cabecalho-caixa-de-curiosidade">
-                    <i class="material-icons">error</i>
-                    <h1>Você sabia?</h1>
-                </div>
-                <div class="conteudo-caixa-de-curiosidade">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam esse, mollitia suscipit qui omnis sit sed eum consequatur, voluptates earum nihil commodi corporis? Maxime, impedit beatae fugiat dolorem culpa minus.
-                        Esse saepe quod repellat earum, officiis et aspernatur eius soluta, nihil voluptatem officia voluptatibus at. Quam aspernatur nemo sequi inventore quos culpa vel. Ab harum excepturi, atque explicabo dicta natus!
-                        Molestiae voluptas tenetur ex ipsam eos sed nulla? Aliquam corporis ea non quisquam quidem culpa illo ipsa aut minus, voluptatem sapiente deleniti. Dolore, deserunt. Est dignissimos eos inventore voluptatem laborum!
-                    </p>
-                </div>
+        </div>
+        <div class="caixa-de-curiosidade">
+            <div class="cabecalho-caixa-de-curiosidade">
+                <i class="material-icons">error</i>
+                <h1>Você sabia?</h1>
+            </div>
+            <div class="conteudo-caixa-de-curiosidade">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam esse, mollitia suscipit qui omnis sit sed eum consequatur, voluptates earum nihil commodi corporis? Maxime, impedit beatae fugiat dolorem culpa minus.
+                    Esse saepe quod repellat earum, officiis et aspernatur eius soluta, nihil voluptatem officia voluptatibus at. Quam aspernatur nemo sequi inventore quos culpa vel. Ab harum excepturi, atque explicabo dicta natus!
+                    Molestiae voluptas tenetur ex ipsam eos sed nulla? Aliquam corporis ea non quisquam quidem culpa illo ipsa aut minus, voluptatem sapiente deleniti. Dolore, deserunt. Est dignissimos eos inventore voluptatem laborum!
+                </p>
             </div>
         </div>
 
