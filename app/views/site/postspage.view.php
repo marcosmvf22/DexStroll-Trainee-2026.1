@@ -156,7 +156,6 @@
         <button class="posts-pokeball">1</button>
         <button class="posts-pokeball clicada">2</button>
         <button class="posts-pokeball">3</button>
-        <button class="posts-pokeball">4</button>
         <button class="posts-pokeball dots">...</button>
         <button class="posts-pokeball next">></button>
       </div>
