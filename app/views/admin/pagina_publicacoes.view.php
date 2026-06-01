@@ -153,9 +153,8 @@
                 </div>
         </div>
 
-         <div class="grupo-inputs-modal">
-                 <label for="input-descricaoModal" class="labal-modal-visualizar">Descrição:</label>
-                 <textarea id="descricaoModalVisualizar" class="input-descricao-modal" disabled><?= $publicacao->descricao ?></textarea>
+        <div id="editor-modal-visualizar" name="editordata">
+                <textarea id="summernoteVisualizar" name="descricao"><?= $publicacao->descricao ?></textarea>
         </div>
 
         <div class="grupo-inputs-modal">
@@ -267,6 +266,16 @@
                     ['height', ['height']]
                 ]
             });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#summernoteVisualizar').summernote({
+                height: 300,             
+                toolbar: [
+                ]
+            });
+            $('#summernoteVisualizar').summernote('disable');
         });
     </script>
 
