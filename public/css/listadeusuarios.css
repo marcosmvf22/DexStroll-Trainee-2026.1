@@ -201,8 +201,10 @@ que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
-
+/* aqui coloquei 80vh e  overflow-y */
 .modal-card-caixa {
     background-color: var(--branco-neve);
     padding: 30px;
@@ -211,8 +213,14 @@ que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio
     max-width: 500px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
     color: var(--preto);
+    height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
-
+/* tentar ocultar o scroll porque ficou bem feinho */
+.modal-card-caixa::-webkit-scrollbar {
+    display: none;
+}
 .modal-header-local {
     display: flex;
     justify-content: space-between;
@@ -239,7 +247,7 @@ que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     width: 100%;
 }
 /* nesse e em alguns outros elementos eu  usei o  important, 
@@ -299,10 +307,14 @@ que programar o skyrim em assemlby seria mais fácil que isso */
     background-color: var(--azul);
 }
 
-#form-novo-usuario {
+#form-novo-usuario,
+#form-editar-usuario,
+#form-visualizar-usuario {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 14px;
+    max-height: 80vh;
+    padding-bottom: 20px;
 }
 
 .grupo-campo {
@@ -331,10 +343,11 @@ que programar o skyrim em assemlby seria mais fácil que isso */
 .grupo-campo input:focus {
     border-color: var(--azul);
 }
-
+/* acho que resolvi o  vazamento de modal */
 .modal-rodape-botoes {
     margin-top: 10px;
     display: flex;
+    padding-bottom: 30px;
     gap: 12px;
     justify-content: flex-end;
     width: 100%;
