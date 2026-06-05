@@ -237,8 +237,8 @@
 .modal-pagina-publicacao .enviarBotaoModal:hover{
     transition: transform 0.2s, color 0.2s;
     color: var(--branco-neve);
+    background-color: var(--azul);
     font-weight: bold;
-    background-color: rgb(86, 155, 86);
 }
 
 
