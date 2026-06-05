@@ -56,13 +56,13 @@
                         <td class="dado_autor_admin"><?= $publicacao->autor ?></td>
                         <td class="dado_data_criacao_admin"><?= date('d/m/Y', strtotime($publicacao->data)) ?></td>
                         <td class="celula-acoes-admin">
-                            <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao')" title="Visualizar" <?= $publicacao->id ?>>
+                            <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao-<?= $publicacao->id ?>')" title="Visualizar" <?= $publicacao->id ?>>
                                 <span class="material-icons">visibility</span>
                             </button>
-                            <button class="botao-acao botao-editar" onclick="abrirModal('modalEditarPublicacao')" title="Editar" <?= $publicacao->id ?>>
+                            <button class="botao-acao botao-editar" onclick="abrirModal('modalEditarPublicacao-<?= $publicacao->id ?>')" title="Editar" <?= $publicacao->id ?>>
                                 <span class="material-icons">edit</span>
                             </button>
-                            <button class="botao-acao botao-deletar" onclick="abrirModal('modalExcluirPublicacao')" title="Deletar" <?= $publicacao->id ?>>
+                            <button class="botao-acao botao-deletar" onclick="abrirModal('modalExcluirPublicacao-<?= $publicacao->id ?>')" title="Deletar" <?= $publicacao->id ?>>
                                 <span class="material-icons">delete</span>
                             </button>
                         </td>
@@ -86,7 +86,7 @@
         <hr class="linha-separadora">
 
       
-        <form method="POST" action="/publicacoes/store">
+        <form action="/publicacoes/store" method="POST">
             <h4>Título da publicação</h4>
             <input id="input-tituloModalCriar" name="titulo" type="text" class="input-modal-titulo">
 
@@ -104,7 +104,7 @@
             </label>
 
             <div id="input-container" class="hidden">
-                <textarea placeholder="Digite o texto da curiosidade" rows="3"></textarea>
+                <textarea placeholder="Digite o texto da curiosidade" rows="3" name="curiosidade"></textarea>
             </div>
 
             <div class="grupo-data-modal">
@@ -113,7 +113,7 @@
             </div>
             
             <div class="botoesModalCriarPub">
-                <button type="button" class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
+                <button type="button" class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao-<?= $publicacao->id ?>')">Cancelar</button>
                 <button type="submit" class="enviarBotaoModal">Enviar</button>
             </div>
         </form>
@@ -122,10 +122,10 @@
 
     <!-- Modal Visualizar -->
      <?php foreach($publicacoes as $publicacao): ?>
-     <div class="modal-visualizar-publicacao" id="modalVisualizarPublicacao">
+     <div class="modal-visualizar-publicacao" id="modalVisualizarPublicacao-<?= $publicacao->id ?>">
         <div class="nav-modal-excluir">
             <h3 class="titulo-modal-visualizar">Visualizar Publicação</h3>
-            <i class="fa-solid fa-xmark icone-fechar-modal-visualizar" onclick="fecharModal('modalVisualizarPublicacao')"></i>
+            <i class="fa-solid fa-xmark icone-fechar-modal-visualizar" onclick="fecharModal('modalVisualizarPublicacao-<?= $publicacao->id ?>')"></i>
         </div>
         <hr class="linha-separadora-modal-excluir">
 
@@ -188,7 +188,7 @@
     </div>
 
     <!-- Modal Editar -->
-     <div class="modal-editar-publicacao" id="modalEditarPublicacao">
+     <div class="modal-editar-publicacao" id="modalEditarPublicacao-<?= $publicacao->id ?>">
         <h3 class="titulo-modal-visualizar">Editar Publicação</h3>
         <hr class="linha-separadora-modal-excluir">
 
@@ -221,8 +221,8 @@
         </div>
 
          <div class="botoesModalEditarPub">
-            <button class="cancelarBotaoModalEditar" type="button" onclick="fecharModal('modalEditarPublicacao')">Cancelar</button>
-            <button class="enviarBotaoModalEditar" type="submit" onclick="fecharModal('modalEditarPublicacao')">Enviar</button>
+            <button class="cancelarBotaoModalEditar" type="button" onclick="fecharModal('modalEditarPublicacao-<?= $publicacao->id ?>')">Cancelar</button>
+            <button class="enviarBotaoModalEditar" type="submit" onclick="fecharModal('modalEditarPublicacao-<?= $publicacao->id ?>')">Enviar</button>
         </div>
 
         </form>

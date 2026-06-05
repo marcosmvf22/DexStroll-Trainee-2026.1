@@ -32,10 +32,12 @@ class PublicacoesController
     public function store()
     {
         $parameters = [
-            'titulo' => $POST['titulo'],
-            'descricao' => $_['descricao'],
-            'curiosidade' => $_['curiosidade'],
+            'titulo' => $_POST['titulo'],
+            'autor' => $_POST['autor'] ?? 1,
             'data' => $_POST['data'],
+            'descricao' => $_POST['descricao'],
+            'curiosidade' => $_POST['curiosidade'],
+            'imagem' => $_POST['imagem'] ?? ''
         ];
 
         App::get('database')->insert('publicacao', $parameters);
