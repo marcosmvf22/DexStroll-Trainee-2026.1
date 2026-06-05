@@ -87,7 +87,7 @@
 
             <h4>Conteúdo</h4>
             <div id="editor" name="editordata">
-                <textarea id="summernoteCriar" name="descricao"></textarea>
+                <textarea id="summernoteCriar" name="conteudo"></textarea>
             </div>
 
             <div class="post-options">
@@ -154,7 +154,7 @@
         </div>
 
         <div id="editor-modal-visualizar">
-            <textarea class="summernoteVisualizar" name="descricao"><?= $publicacao->conteudo ?></textarea>
+            <textarea class="summernoteVisualizar" name="conteudo"><?= $publicacao->conteudo ?></textarea>
         </div>
 
         <div class="grupo-inputs-modal">
@@ -187,7 +187,7 @@
             </div>   
 
             <div id="editor-modal-editar">
-                <textarea class="summernoteEditar" name="descricao"><?= $publicacao->conteudo ?></textarea>
+                <textarea class="summernoteEditar" name="conteudo"><?= $publicacao->conteudo ?></textarea>
             </div>
 
             <div class="grupo-inputs-modal">

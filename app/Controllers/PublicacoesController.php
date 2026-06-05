@@ -19,7 +19,7 @@ class PublicacoesController
             'titulo' => $_POST['titulo'],
             'autor' => $_POST['autor'],
             'data' => $_POST['data'],
-            'descricao' => $_POST['descricao'],
+            'conteudo' => $_POST['conteudo'],
             'curiosidade' => $_POST['curiosidade'],
             'data' => $_POST['data'],
         ];
@@ -35,7 +35,7 @@ class PublicacoesController
             'titulo' => $_POST['titulo'],
             'autor' => $_POST['autor'] ?? 1,
             'data' => $_POST['data'],
-            'descricao' => $_POST['descricao'],
+            'conteudo' => $_POST['conteudo'],
             'curiosidade' => $_POST['curiosidade'],
             'imagem' => $_POST['imagem'] ?? ''
         ];
