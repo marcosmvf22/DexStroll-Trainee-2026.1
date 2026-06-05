@@ -9,7 +9,7 @@ use PDO, Exception;
 class QueryBuilder
 {
     protected $pdo;
-// aqui meio que  faz o método  construir de dentro pra fora, apenas  de  classe  herdada, para nao ter problema de hierarquia de certa forma
+    // aqui meio que  faz o método  construir de dentro pra fora, apenas  de  classe  herdada, para nao ter problema de hierarquia de certa forma
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
@@ -19,7 +19,7 @@ class QueryBuilder
     public function selectAll($table)
     {
         $sql = "select * from {$table}";
-// try-catch pra naodar pau se der erro, e voltar "die"e parar
+        // try-catch pra naodar pau se der erro, e voltar "die"e parar
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -30,9 +30,11 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
-// isso aqui, como marcos tinha dito em aguma daily, foi meioque copia e cola da documentação,
-// mas tive  que adaptar pro contexto do DB nosso
+
+    // isso aqui, como marcos tinha dito em aguma daily, foi meioque copia e cola da documentação,
+    // mas tive  que adaptar pro contexto do DB nosso
     
+    //Função pra pegar info do banco de dados
     public function selectWhere($table, $where)
     {
         $columns = array_keys($where);
@@ -51,7 +53,6 @@ class QueryBuilder
         }
     }
 
-    // tem coisa aqui que  sinceramente nao sei se era necessário, mas ajuda na hora
     public function insert($table, $data)
     {
         $columns = implode(', ', array_keys($data));
@@ -69,7 +70,6 @@ class QueryBuilder
         }
     }
 
-//    implementar  no JS
     public function update($table, $data, $where)
     {
         $setParts = [];
@@ -83,7 +83,7 @@ class QueryBuilder
             $whereParts[] = "$col = :where_$col";
         }
         $whereClause = implode(' AND ', $whereParts);
-// aq ta  meio caminhho andado, só falta implementar a comunicação do front pra isso funcionar
+        
         $sql = "UPDATE {$table} SET {$setClause} WHERE {$whereClause}";
 
         try {
@@ -100,7 +100,6 @@ class QueryBuilder
         }
     }
 
-//    aqui  tbm, implementar no JS, porque ta meio caminho...
     public function delete($table, $where)
     {
         $whereParts = [];
@@ -121,10 +120,10 @@ class QueryBuilder
         }
     }
 
-//aqui ta assim, mas dependendoquecomo comportar, tem que mexer, só o  criar ta funcionando por enquanto mesmo.
-    public function selectOne($table, $where)
-    {
-        $result = $this->selectWhere($table, $where);
-        return $result ? $result[0] : null;
-    }
+    
+    // public function selectOne($table, $where)
+    // {
+    //     $result = $this->selectWhere($table, $where);
+    //     return $result ? $result[0] : null;
+    // }
 }

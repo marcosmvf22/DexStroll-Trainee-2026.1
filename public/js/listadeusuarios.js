@@ -24,8 +24,6 @@ const formEditar = document.getElementById("form-editar-usuario");
 const modalVisualizar = document.getElementById("modal-visualizar-usuario");
 const btnFecharVisualizarX = document.getElementById("btn-fechar-visualizar-x");
 
-
-
 const avatarClicavel = document.getElementById("avatar-clicavel");
 const inputAvatarReal = document.getElementById("input-avatar");
 const editAvatarClicavel = document.getElementById("edit-avatar-clicavel");
@@ -64,6 +62,19 @@ if (corpoTabela && modalVisualizar) {
   corpoTabela.addEventListener("click", (evento) => {
     const botaoVisualizar = evento.target.closest('[title="Visualizar"]');
     if (botaoVisualizar) {
+      const linha = botaoVisualizar.closest("tr");
+
+      const id = linha.dataset.id;
+      const username = linha.cells[0].querySelector("span").textContent.trim();
+      const nome = linha.cells[1].textContent.trim();
+      const email = linha.cells[2].textContent.trim();
+      const avatar = linha.querySelector(".mini-avatar-tabela")?.src || "/public/assets/default-avatar.png";
+
+      document.getElementById("view-id").value = id;
+      document.getElementById("view-username").value = username;
+      document.getElementById("view-nome").value = nome;
+      document.getElementById("view-email").value = email;
+      document.getElementById("view-avatar").src = avatar;
       modalVisualizar.style.display = "flex";
     }
   });
@@ -78,8 +89,10 @@ if (corpoTabela && modalExclusao) {
     if (botaoLixeira) {
       const linha = botaoLixeira.closest("tr");
 
-      const emailId = linha.cells[2].textContent.trim();
-      usuarioParaDeletar = emailId;
+      usuarioParaDeletar = linha.dataset.id;
+
+      document.getElementById("delete-id").value = usuarioParaDeletar;
+
       modalExclusao.style.display = "flex";
     }
   });
@@ -92,27 +105,18 @@ if (btnCancelarExclusao && modalExclusao) {
   });
 }
 
-if (btnConfirmarExclusao && modalExclusao) {
-  btnConfirmarExclusao.addEventListener("click", () => {
-    if (usuarioParaDeletar !== null) {
-// aqui tem que mexer,  porque tava tudo na view, e tem que terminar de migrar pro controller
-// quse pronto eu acho
-      usuarioParaDeletar = null;
-      modalExclusao.style.display = "none";
-    }
-  });
-}
-
 if (corpoTabela && modalEditar) {
   corpoTabela.addEventListener("click", (evento) => {
     const botaoEditar = evento.target.closest('[title="Editar"]');
     if (botaoEditar) {
       const linha = botaoEditar.closest("tr");
-      
+
+      const id = linha.dataset.id;
       const username = linha.cells[0].textContent.trim();
       const nome = linha.cells[1].textContent.trim();
       const email = linha.cells[2].textContent.trim();
 
+      document.getElementById("edit-id").value = id;
       document.getElementById("edit-email-original").value = email;
       document.getElementById("edit-input-username").value = username;
       document.getElementById("edit-input-nome").value = nome;
@@ -123,12 +127,12 @@ if (corpoTabela && modalEditar) {
   });
 }
 
-if (formEditar) {
-  formEditar.addEventListener("submit", (e) => {
-    e.preventDefault();
-    modalEditar.style.display = "none";
-  });
-}
+//if (formEditar) {
+//  formEditar.addEventListener("submit", (e) => {
+//    e.preventDefault();
+//    modalEditar.style.display = "none";
+//  });
+//}
 
 const fecharModalEditar = () => { if (modalEditar) modalEditar.style.display = "none"; };
 if (btnFecharEditarX) btnFecharEditarX.addEventListener("click", fecharModalEditar);
