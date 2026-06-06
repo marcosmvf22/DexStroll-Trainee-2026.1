@@ -47,30 +47,6 @@
     margin-bottom: 30px;
 }
 
-/* Abas (Publicações / Usuários) */
-.abas-admin {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 25px;
-    border-bottom: 2px solid transparent;
-}
-
-.aba-item {
-    background: none;
-    border: none;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--azul);
-    cursor: pointer;
-    padding-bottom: 8px;
-    transition: color 0.3s;
-}
-
-.aba-item.ativa {
-    color: var;
-    border-bottom: 3px solid var(--azul-marinho);
-}
-
 /* Container Escuro da Tabela */
 .card-tabela {
     background-color: var(--azul-marinho); 
@@ -207,6 +183,44 @@
     background-color: rgba(17, 34, 64, 0.1);
 }
 
+/* Modal CRIAR */
+
+.cabecalho-criar-publicacao{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    width: 100%; 
+}
+
+.linha-separadora {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 5px 0px 5px 0px; 
+}
+
+.botao-fechar{
+    cursor: pointer;
+    display: flex;   
+    align-items: center;
+    margin: 0;
+}
+
+#modalCriarPublicacao{
+    max-height: 80vh; 
+    overflow-y: auto;
+}
+
+#modalCriarPublicacao::-webkit-scrollbar{
+    display:none;
+}
+
+.input-modal-titulo{
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
 .modal-pagina-publicacao{
     display: none;
     flex-direction: column;
@@ -220,13 +234,40 @@
 
 }
 
-.modal-pagina-publicacao button{
-    padding: 10px;
-    border-radius: 20px;
-    
+.input-curiosidade-criar{
+    display: none;             
+    width: 100%;
+    height: 10%;
+    border-radius: 10px;
+    padding: 0 10px;
 }
 
-.modal-pagina-publicacao .cancelarBotaoModal:hover{
+.grupo-data-modal{
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.botoesModalCriarPub{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.botoesModalCriarPub button{
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.filtro{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.7;
+    position: fixed;
+    display: none;
+}
+
+/* .modal-pagina-publicacao .cancelarBotaoModal:hover{
     transition: transform 0.2s, color 0.2s;
     color: var(--branco-neve);
     font-weight: bold;
@@ -239,29 +280,8 @@
     color: var(--branco-neve);
     background-color: var(--azul);
     font-weight: bold;
-}
+} */
 
-
-.botoesModalCriarPub{
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.filtro{
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    opacity: 0.7;
-    position: absolute;
-    display: none;
-}
-
-.linha-separadora {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 5px 0px 5px 0px; 
-}
 /* Modal excluir */
 .modal-excluir-publicacao{
     display: none;
@@ -366,7 +386,7 @@
     gap: 3px;
 }
 
-.labal-modal-visualizar {
+.label-modal-visualizar {
     font-weight: 500;
     font-size: 14px;
     margin-top: 2vh;

@@ -77,13 +77,16 @@
     </div>
     
     <div class="modal-pagina-publicacao" id="modalCriarPublicacao">
-        <h3>Criar Publicação</h3>
-        <hr class="linha-separadora">
+        <div class="cabecalho-criar-publicacao">
+            <h3>Criar Publicação</h3>
+            <i class="fa-solid fa-xmark icone-fechar-modal-visualizar" onclick="fecharModal('modalCriarPublicacao')"></i>
+        </div>
         
-        <!-- Modal CRIAR -->
+        <hr class="linha-separadora">
+    <!-- Modal CRIAR -->
         <form action="/publicacoes/store" method="POST">
-            <h4>Título da publicação</h4>
-            <input id="input-tituloModalCriar" name="titulo" type="text" class="input-modal-titulo">
+            <h3>Título da publicação</h3>
+            <input id="input-tituloModalCriar" name="titulo" placeholder="Digite o título da publicação..." type="text" class="input-modal-titulo" required>
 
             <h4>Conteúdo</h4>
             <div id="editor" name="editordata">
@@ -93,24 +96,25 @@
             <div class="post-options">
                 <h3>Opções do post</h3>
                 
-                <label class="checkbox-container">
-                    <input type="checkbox" id="toggle-curiosidade">
-                    <span>Adicionar curiosidade</span>
-                </label>
+        <div class="opcao-checkbox-container">
+            <label class="checkbox-container">
+                <input type="checkbox" id="toggle-curiosidade">
+                <span>Adicionar curiosidade</span>
+            </label>
+        </div>
 
-                <div id="input-container" class="hidden">
-                    <textarea placeholder="Digite o texto da curiosidade" rows="3" name="curiosidade"></textarea>
-                </div>
+        <input type="text" id="input-container-curiosidade" class="input-curiosidade" name="curiosidade" placeholder="Digite o texto da curiosidade..."></textarea>
 
-                <div class="grupo-data-modal">
-                    <label for="input-dataPublicacao" class="labal-modal-visualizar">Data de publicação:</label>
-                    <input id="input-dataPublicacao" name="data" type="date" class="input-modal-visualizar" required>
-                </div>
+        <div class="grupo-data-modal">
+            <label for="input-dataPublicacao" class="label-modal-visualizar">Data de publicação:</label>
+            <input id="input-dataPublicacao" name="data" type="date" class="input-modal-visualizar" required>
+        </div>
                 
-                <div class="botoesModalCriarPub">
-                    <button type="button" class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
-                    <button type="submit" class="enviarBotaoModal">Enviar</button>
-                </div>
+        <hr class="linha-separadora">
+        <div class="botoesModalCriarPub">
+            <button type="button" class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
+            <button type="submit" class="enviarBotaoModal">Enviar</button>
+        </div>
             </div>
         </form>
     </div>
@@ -126,28 +130,28 @@
 
         <div class="box1-modal">
             <div class="grupo-inputs-modal">
-                <label class="labal-modal-visualizar">ID:</label>
+                <label class="label-modal-visualizar">ID:</label>
                 <input type="text" class="input-modal-visualizar" value="<?= $publicacao->id ?>" disabled>
             </div>
             <div class="grupo-inputs-modal">
-                <label class="labal-modal-visualizar">Título:</label>
+                <label class="label-modal-visualizar">Título:</label>
                 <input type="text" class="input-modal-visualizar" value="<?= $publicacao->titulo ?>" disabled>  
             </div>
         </div>
 
         <div class="box2-modal">
             <div class="grupo-inputs-modal">
-                <label class="labal-modal-visualizar">Autor:</label>
+                <label class="label-modal-visualizar">Autor:</label>
                 <input type="text" class="input-modal-visualizar" value="<?= $publicacao->autor ?>" disabled>
             </div>
             <div class="grupo-inputs-modal">
-                <label class="labal-modal-visualizar">Data de publicação:</label>
+                <label class="label-modal-visualizar">Data de publicação:</label>
                 <input type="date" class="input-dataPublicacaoModal" value="<?= $publicacao->data ?>" disabled>
             </div>
         </div>  
 
         <div class="imagem-principal-modal-excluir">
-            <label class="labal-modal-visualizar">Imagem principal:</label>
+            <label class="label-modal-visualizar">Imagem principal:</label>
             <div class="img-principal-placeholder-modal">
                 <i class="fa-regular fa-image icone-imagem-modal"></i>
             </div>
@@ -158,7 +162,7 @@
         </div>
 
         <div class="grupo-inputs-modal">
-             <label class="labal-modal-visualizar">Curiosidades:</label>
+             <label class="label-modal-visualizar">Curiosidades:</label>
              <textarea class="input-curiosidades-modal" disabled><?= $publicacao->curiosidade ?></textarea>
         </div>    
     </div>
@@ -171,17 +175,17 @@
             <input type="hidden" name="id" value="<?= $publicacao->id ?>">
 
             <div class="grupo-inputs-modal">
-                <label class="labal-modal-visualizar">Título:</label>
+                <label class="label-modal-visualizar">Título:</label>
                 <input name="titulo" type="text" class="input-modal-visualizar" value="<?= $publicacao->titulo ?>" >  
             </div>
 
             <div class="box2-modal">
                 <div class="grupo-inputs-modal">
-                    <label class="labal-modal-visualizar">Autor:</label>
+                    <label class="label-modal-visualizar">Autor:</label>
                     <input name="autor" type="text" class="input-modal-visualizar" value="<?= $publicacao->autor ?>">
                 </div>
                 <div class="grupo-inputs-modal">
-                    <label class="labal-modal-visualizar">Data de publicação:</label>
+                    <label class="label-modal-visualizar">Data de publicação:</label>
                     <input class="input-dataPublicacaoModal" type="date" name="data" value="<?= $publicacao->data ?>">
                 </div>
             </div>   
@@ -191,7 +195,7 @@
             </div>
 
             <div class="grupo-inputs-modal">
-                <label class="labal-modal-visualizar">Curiosidades:</label>
+                <label class="label-modal-visualizar">Curiosidades:</label>
                 <textarea class="input-curiosidades-modal" name="curiosidade"><?= $publicacao->curiosidade ?></textarea>
             </div>
 
@@ -223,7 +227,7 @@
     <script>
         $(document).ready(function() {
             $('#summernoteCriar').summernote({
-                height: 300,             
+                height: 200,             
                 width: '100%',           
                 maxHeight: 500,          
                 minHeight: 150,
@@ -233,12 +237,13 @@
                     ['fontsize', ['fontsize']],
                     ['color', ['color']],
                     ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']]
+                    ['height', ['height']],
+                    ['insert', ['picture']],
                 ]
             });
 
             $('.summernoteEditar').summernote({
-                height: 300,             
+                height: 200,             
                 width: '100%',           
                 maxHeight: 500,          
                 minHeight: 150,
@@ -249,11 +254,12 @@
                     ['color', ['color']],
                     ['para', ['ul', 'ol', 'paragraph']],
                     ['height', ['height']]
+                    ['insert', ['picture']],
                 ]
             });
 
             $('.summernoteVisualizar').summernote({
-                height: 300,            
+                height: 200,            
                 toolbar: []
             });
             $('.summernoteVisualizar').summernote('disable');
