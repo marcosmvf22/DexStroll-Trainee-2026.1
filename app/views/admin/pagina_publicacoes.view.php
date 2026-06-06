@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/dashboard_painel.css"> 
+    <link rel="stylesheet" href="/public/css/tabela_publicacoes.css"> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=library_books" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- include libraries(jQuery, bootstrap) -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!-- include summernote css/js -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
 
-      <!-- icones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -25,17 +22,15 @@
     <title>Painel - DexStroll</title>
 </head>
 <body class="body-pagina-publicacao">
+            <? require 'Sidebar.view.php' ?>
+
+    <div class="wrapperbodyposts">
     <div class="filtro" id="filtroFundoModal"></div>
     <div class="pagina-publicacao">
         <header class="header-pag-publicacao">
             <h1>Publicações</h1>
-            <h3>xx publicações encontradas</h3>
+            <h3><?= count($publicacoes) ?> publicações encontradas</h3>
         </header>
-
-        <!-- <nav class="abas-admin">
-            <button class="aba-item ativa">Publicações</button>
-            <button class="aba-item">Usuários</button>
-        </nav> -->
 
         <div class="card-tabela">
             <div class="topo-tabela">
@@ -54,166 +49,163 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($publicacoes as $publicacao): ?>
                     <tr>
-                        <td class="dado_id_admin">1</td>
-                        <td class="dado_titulo_admin">Titulo da publicação</td>
-                        <td class="dado_autor_admin">João da Silva</td>
-                        <td class="dado_data_criacao_admin">DD/MM/YYYY</td>
+                        <td class="dado_id_admin"><?= $publicacao->id ?></td>
+                        <td class="dado_titulo_admin"><?= $publicacao->titulo ?></td>
+                        <td class="dado_autor_admin"><?= $publicacao->autor ?></td>
+                        <td class="dado_data_criacao_admin"><?= date('d/m/Y', strtotime($publicacao->data)) ?></td>
                         <td class="celula-acoes-admin">
-                            <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao')" title="Visualizar">
+                            <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao-<?= $publicacao->id ?>')" title="Visualizar">
                                 <span class="material-icons">visibility</span>
                             </button>
-                            <button class="botao-acao botao-editar" onclick="abrirModal('modalEditarPublicacao')" title="Editar">
+                            <button class="botao-acao botao-editar" onclick="abrirModal('modalEditarPublicacao-<?= $publicacao->id ?>')" title="Editar">
                                 <span class="material-icons">edit</span>
                             </button>
-                            <button class="botao-acao botao-deletar" onclick="abrirModal('modalExcluirPublicacao')" title="Deletar">
+                            <button class="botao-acao botao-deletar" onclick="abrirModal('modalExcluirPublicacao-<?= $publicacao->id ?>')" title="Deletar">
                                 <span class="material-icons">delete</span>
                             </button>
                         </td>
-                        
                     </tr>
-                    </tbody>
+                    <?php endforeach ?>
+                </tbody>
             </table>
         </div>
 
         <div class="paginacao">
             <button class="btn-pag">&lt;</button>
             <button class="btn-pag ativo">1</button>
-            <!-- <button class="btn-pag">2</button>
-            <button class="btn-pag">3</button>
-            <button class="btn-pag">4</button>
-            <button class="btn-pag">5</button>
-            <button class="btn-pag">6</button> -->
             <button class="btn-pag">&gt;</button>
         </div>
     </div>
-
-    <!-- Modal Criar -->
+    
     <div class="modal-pagina-publicacao" id="modalCriarPublicacao">
         <h3>Criar Publicação</h3>
         <hr class="linha-separadora">
-        <form method="post">
+        
+        <!-- Modal CRIAR -->
+        <form action="/publicacoes/store" method="POST">
+            <h4>Título da publicação</h4>
+            <input id="input-tituloModalCriar" name="titulo" type="text" class="input-modal-titulo">
+
+            <h4>Conteúdo</h4>
             <div id="editor" name="editordata">
-                <textarea id="summernoteCriar" name="editordata"></textarea>
+                <textarea id="summernoteCriar" name="conteudo"></textarea>
+            </div>
+
+            <div class="post-options">
+                <h3>Opções do post</h3>
+                
+                <label class="checkbox-container">
+                    <input type="checkbox" id="toggle-curiosidade">
+                    <span>Adicionar curiosidade</span>
+                </label>
+
+                <div id="input-container" class="hidden">
+                    <textarea placeholder="Digite o texto da curiosidade" rows="3" name="curiosidade"></textarea>
+                </div>
+
+                <div class="grupo-data-modal">
+                    <label for="input-dataPublicacao" class="labal-modal-visualizar">Data de publicação:</label>
+                    <input id="input-dataPublicacao" name="data" type="date" class="input-modal-visualizar" required>
+                </div>
+                
+                <div class="botoesModalCriarPub">
+                    <button type="button" class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
+                    <button type="submit" class="enviarBotaoModal">Enviar</button>
+                </div>
             </div>
         </form>
-
-
-        <div class="botoesModalCriarPub">
-            <button class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
-            <button class="enviarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Enviar</button>
-        </div>
     </div>
 
-    <!-- Modal Visualizar -->
-     <div class="modal-visualizar-publicacao" id="modalVisualizarPublicacao">
+    <?php foreach ($publicacoes as $publicacao): ?>
+    <!-- Modal VISUALIZAR -->
+    <div class="modal-visualizar-publicacao" id="modalVisualizarPublicacao-<?= $publicacao->id ?>">
         <div class="nav-modal-excluir">
             <h3 class="titulo-modal-visualizar">Visualizar Publicação</h3>
-            <i class="fa-solid fa-xmark icone-fechar-modal-visualizar" onclick="fecharModal('modalVisualizarPublicacao')"></i>
+            <i class="fa-solid fa-xmark icone-fechar-modal-visualizar" onclick="fecharModal('modalVisualizarPublicacao-<?= $publicacao->id ?>')"></i>
         </div>
         <hr class="linha-separadora-modal-excluir">
 
         <div class="box1-modal">
             <div class="grupo-inputs-modal">
-                <label for="input-idPublicacao" class="labal-modal-visualizar">ID:</label>
-                <input id="input-idPublicacao" name="input-idPublicacao" type="text" class="input-modal-visualizar" disabled>
+                <label class="labal-modal-visualizar">ID:</label>
+                <input type="text" class="input-modal-visualizar" value="<?= $publicacao->id ?>" disabled>
             </div>
             <div class="grupo-inputs-modal">
-                <label for="input-tituloModal" class="labal-modal-visualizar">Título:</label>
-                <input id="input-tituloModal" name="input-tituloModal" type="text" class="input-modal-visualizar" disabled>  
+                <label class="labal-modal-visualizar">Título:</label>
+                <input type="text" class="input-modal-visualizar" value="<?= $publicacao->titulo ?>" disabled>  
             </div>
         </div>
-
-        <div class="imagem-principal-modal-excluir">
-            <label for="input-idPublicacao" class="labal-modal-visualizar">Imagem principal:</label>
-                <div class="img-principal-placeholder-modal">
-                    <i class="fa-regular fa-image icone-imagem-modal"></i>
-                </div>
-        </div>
-
-
-        <div class="imagens-secundarias-modal-excluir">
-            <label for="input-idPublicacao" class="labal-modal-visualizar">Outras imagens:</label>
-                <div class="bloco-imagens-secundarias-modal">
-                    <div class="img-secundaria-placeholder-modal">
-                        <i class="fa-regular fa-image icone-imagem-modal"></i>
-                    </div>
-                    <div class="img-secundaria-placeholder-modal">
-                        <i class="fa-regular fa-image icone-imagem-modal"></i>
-                    </div>
-                    <div class="img-secundaria-placeholder-modal">
-                        <i class="fa-regular fa-image icone-imagem-modal"></i>
-                    </div>
-                    <div class="img-secundaria-placeholder-modal">
-                        <i class="fa-regular fa-image icone-imagem-modal"></i>
-                    </div>
-                </div>
-        </div>
-
-         <div class="grupo-inputs-modal">
-                 <label for="input-descricaoModal" class="labal-modal-visualizar">Descrição:</label>
-                 <textarea id="descricaoModalVisualizar" class="input-descricao-modal" disabled></textarea>
-        </div>
-
-        <div class="grupo-inputs-modal">
-                 <label for="input-curiosidadesModalVisualizar" class="labal-modal-visualizar">Curiosidades:</label>
-                 <textarea id="curiosidadesModalVisualizar" class="input-curiosidades-modal" disabled></textarea>
-        </div>
-
 
         <div class="box2-modal">
             <div class="grupo-inputs-modal">
-                <label for="input-autorModal" class="labal-modal-visualizar">Autor:</label>
-                <input id="input-autorModal" name="input-autorModal" type="text" class="input-modal-visualizar" disabled>
+                <label class="labal-modal-visualizar">Autor:</label>
+                <input type="text" class="input-modal-visualizar" value="<?= $publicacao->autor ?>" disabled>
             </div>
             <div class="grupo-inputs-modal">
-                <label for="input-dataPublicacaoModal" class="labal-modal-visualizar">Data de publicação:</label>
-                <input id="input-dataPublicacaoModal" name="input-dataPublicacaoModal" type="text" class="input-modal-visualizar" disabled>
+                <label class="labal-modal-visualizar">Data de publicação:</label>
+                <input type="date" class="input-dataPublicacaoModal" value="<?= $publicacao->data ?>" disabled>
             </div>
-        </div>      
+        </div>  
+
+        <div class="imagem-principal-modal-excluir">
+            <label class="labal-modal-visualizar">Imagem principal:</label>
+            <div class="img-principal-placeholder-modal">
+                <i class="fa-regular fa-image icone-imagem-modal"></i>
+            </div>
+        </div>
+
+        <div id="editor-modal-visualizar">
+            <textarea class="summernoteVisualizar" name="conteudo"><?= $publicacao->conteudo ?></textarea>
+        </div>
+
+        <div class="grupo-inputs-modal">
+             <label class="labal-modal-visualizar">Curiosidades:</label>
+             <textarea class="input-curiosidades-modal" disabled><?= $publicacao->curiosidade ?></textarea>
+        </div>    
     </div>
 
-    <!-- Modal Editar -->
-     <div class="modal-editar-publicacao" id="modalEditarPublicacao">
+    <div class="modal-editar-publicacao" id="modalEditarPublicacao-<?= $publicacao->id ?>">
         <h3 class="titulo-modal-visualizar">Editar Publicação</h3>
         <hr class="linha-separadora-modal-excluir">
 
-        <div class="grupo-inputs-modal">
-            <label for="input-tituloModal" class="labal-modal-visualizar">Título:</label>
-            <input id="input-tituloModal" name="input-tituloModal" type="text" class="input-modal-visualizar">  
-        </div>
+        <form method="POST" action="/publicacoes/edit">
+            <input type="hidden" name="id" value="<?= $publicacao->id ?>">
 
-        <div class="box2-modal">
             <div class="grupo-inputs-modal">
-                <label for="input-autorModal" class="labal-modal-visualizar">Autor:</label>
-                <input id="input-autorModal" name="input-autorModal" type="text" class="input-modal-visualizar">
+                <label class="labal-modal-visualizar">Título:</label>
+                <input name="titulo" type="text" class="input-modal-visualizar" value="<?= $publicacao->titulo ?>" >  
             </div>
-            <div class="grupo-inputs-modal">
-                <label for="input-dataPublicacaoModal" class="labal-modal-visualizar">Data de publicação:</label>
-                <input id="input-dataPublicacaoModal" name="input-dataPublicacaoModal" type="text" class="input-modal-visualizar">
-            </div>
-        </div>   
 
-        <form method="post">
-            <div id="editor-modal-editar" name="editordata">
-                <textarea id="summernoteEditar" name="editordata"></textarea>
+            <div class="box2-modal">
+                <div class="grupo-inputs-modal">
+                    <label class="labal-modal-visualizar">Autor:</label>
+                    <input name="autor" type="text" class="input-modal-visualizar" value="<?= $publicacao->autor ?>">
+                </div>
+                <div class="grupo-inputs-modal">
+                    <label class="labal-modal-visualizar">Data de publicação:</label>
+                    <input class="input-dataPublicacaoModal" type="date" name="data" value="<?= $publicacao->data ?>">
+                </div>
+            </div>   
+
+            <div id="editor-modal-editar">
+                <textarea class="summernoteEditar" name="conteudo"><?= $publicacao->conteudo ?></textarea>
+            </div>
+
+            <div class="grupo-inputs-modal">
+                <label class="labal-modal-visualizar">Curiosidades:</label>
+                <textarea class="input-curiosidades-modal" name="curiosidade"><?= $publicacao->curiosidade ?></textarea>
+            </div>
+
+            <div class="botoesModalEditarPub">
+                <button class="cancelarBotaoModalEditar" type="button" onclick="fecharModal('modalEditarPublicacao-<?= $publicacao->id ?>')">Cancelar</button>
+                <button class="enviarBotaoModalEditar" type="submit">Enviar</button>
             </div>
         </form>
-
-         <div class="grupo-inputs-modal">
-                <label for="input-curiosidadesModalEditar" class="labal-modal-visualizar">Curiosidades:</label>
-                <textarea id="curiosidadesModalEditar" class="input-curiosidades-modal"></textarea>
-        </div>
-
-
-        <div class="botoesModalEditarPub">
-            <button class="cancelarBotaoModalEditar" onclick="fecharModal('modalEditarPublicacao')">Cancelar</button>
-            <button class="enviarBotaoModalEditar" onclick="fecharModal('modalEditarPublicacao')">Enviar</button>
-        </div>
     </div>
 
-    <!-- Modal Excluir -->
-     <div class="modal-excluir-publicacao" id="modalExcluirPublicacao">
+    <div class="modal-excluir-publicacao" id="modalExcluirPublicacao-<?= $publicacao->id ?>">
         <h3 class="titulo-modal-excluir">Excluir Publicação</h3>
         <hr class="linha-separadora-modal-excluir">
         <div class="container-icone-modal-excluir">
@@ -221,11 +213,15 @@
         </div>
         <p class="descricao-modal-excluir">Essa ação é irreversível. Você tem certeza que deseja excluir essa publicação?</p>
 
-        <div class="botoesModalExcluirPub">
-            <button class="cancelarBotaoModalDeExclusao" onclick="fecharModal('modalExcluirPublicacao')">Cancelar</button>
-            <button class="excluirBotaoModal" onclick="fecharModal('modalExcluirPublicacao')">Excluir</button>
-        </div>
+        <form method="POST" action="/publicacoes/delete">
+            <input type="hidden" name="id" value="<?= $publicacao->id ?>">
+            <div class="botoesModalExcluirPub">
+                <button type="button" class="cancelarBotaoModalDeExclusao" onclick="fecharModal('modalExcluirPublicacao-<?= $publicacao->id ?>')">Cancelar</button>
+                <button type="submit" class="excluirBotaoModal">Excluir</button>
+            </div>
+        </form>
     </div>
+    <?php endforeach ?>
     
     <script>
         $(document).ready(function() {
@@ -243,11 +239,8 @@
                     ['height', ['height']]
                 ]
             });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('#summernoteEditar').summernote({
+
+            $('.summernoteEditar').summernote({
                 height: 300,             
                 width: '100%',           
                 maxHeight: 500,          
@@ -261,10 +254,16 @@
                     ['height', ['height']]
                 ]
             });
+
+            $('.summernoteVisualizar').summernote({
+                height: 300,            
+                toolbar: []
+            });
+            $('.summernoteVisualizar').summernote('disable');
         });
     </script>
 
     <script src="/public/js/codigoModalPublicacoes.js"></script>
-
+    </div>
 </body>
 </html>

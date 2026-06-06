@@ -30,4 +30,6 @@ $router->post('usuarios/atualizar', 'listadeusuarioscontroller@update');
 
 $router->post('usuarios/deletar', 'listadeusuarioscontroller@delete');
 
+$router->get('listadeposts' , 'PublicacoesController@index');
+
 //outra  OBS, pra  visualizar a pagina sem liveserver, só digitar /"url" pra ver a pagina especifica no  localhost

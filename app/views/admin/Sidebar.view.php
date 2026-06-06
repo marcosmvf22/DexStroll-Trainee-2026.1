@@ -57,7 +57,7 @@
 
                 <!-- Menu lista de usuarios -->
                 <li>
-                    <a href="#" class="sidebar-menus-links">
+                    <a href="usuarios" class="sidebar-menus-links">
                         <i class="material-icons">group</i>
                         <span class="descricao-menus">Lista de Usuários</span>
                     </a>
@@ -65,7 +65,7 @@
 
                 <!-- Menu lista de posts -->
                 <li>
-                    <a href="#" class="sidebar-menus-links">
+                    <a href="listadeposts" class="sidebar-menus-links">
                         <i class="material-icons">view_list</i>
                         <span class="descricao-menus">Lista de Posts</span>
                     </a>
