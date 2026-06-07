@@ -11,9 +11,11 @@ class PublicacoesController
     public function index()
     {
         $publicacoes = App::get('database')->selectAll('publicacao');
-        return view('admin/pagina_publicacoes', compact('publicacoes'));
+
+        // Forçando o array manualmente sem usar o compact
+        return view('admin/pagina_publicacoes', ['publicacoes' => $publicacoes]);
     }
-    
+
     //Update - CRUD -> Edição das informações
     public function edit()
     {
@@ -21,14 +23,14 @@ class PublicacoesController
             'titulo' => $_POST['titulo'],
             'autor' => $_POST['autor'],
             'data' => $_POST['data'],
-            'conteudo' => $_POST['conteudo'],
+            'descricao' => $_POST['conteudo'],
             'curiosidade' => $_POST['curiosidade'],
             'data' => $_POST['data'],
         ];
 
         $id = $_POST['id'];
-        
-        App::get('database')->update('publicacao',$id, $parameters);
+
+        App::get('database')->update('publicacao', $id, $parameters);
         header('Location: /publicacoes');
     }
 
@@ -39,7 +41,7 @@ class PublicacoesController
             'titulo' => $_POST['titulo'],
             'autor' => $_POST['autor'] ?? 1,
             'data' => $_POST['data'],
-            'conteudo' => $_POST['conteudo'],
+            'descricao' => $_POST['conteudo'],
             'curiosidade' => $_POST['curiosidade'],
             'imagem' => $_POST['imagem'] ?? ''
         ];
