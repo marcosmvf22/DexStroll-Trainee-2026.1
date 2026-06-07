@@ -1,20 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
 
-body{
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    margin: 0px;
-    padding: 0%;
-    box-sizing: border-box;
-}
 
-body{
-    display: flex;
-}
+
 .sidebar-menus-links .material-icons{
     color: white;
 }
+
 .sidebar{
     display: flex;
     flex-direction: column;
@@ -34,16 +26,26 @@ body{
 }
 
 .descricao-menus, 
-.info-perfilUsuario, 
 .descricao-logout {
     display: none;
     color: white;
 }
 
 .sidebar:hover .descricao-menus,
-.sidebar:hover .info-perfilUsuario,
 .sidebar:hover .descricao-logout {
     display: block;
+}
+
+.info-perfilUsuario{
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+}
+
+.sidebar:hover .info-perfilUsuario{
+    opacity: 1;
+    visibility: visible;
+    color: white;
 }
 
 .material-icons{
@@ -170,6 +172,11 @@ a{
         transition: left 0.3s ease;
     }
 
+    .habilitar_sidebar.sidebar-aberta {
+        top: 15px;
+        left: 19px;
+    }
+
     /* Quando o JS ativar a classe no Mobile */
     .sidebar.mobile-open {
         left: 0;
@@ -198,9 +205,10 @@ a{
     .habilitar_sidebar {
         display: block; 
         position: fixed;
-        top: 15px;
-        left: 15px;
+        top: 0px;
+        left: 0px;
         z-index: 1000;
+        transition: top 0.3s ease, left 0.3s ease;
     }
 
     .toggle-sidebar {
