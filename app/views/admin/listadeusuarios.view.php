@@ -24,7 +24,7 @@
         <div class="card-tabela">
           <div class="topo-tabela">
             <button class="criar-usuario-admin" id="btn-abrir-modal">
-              <span class="material-icons" style="vertical-align: middle; font-size: 18px; margin-right: 6px;">person_add</span>
+              <span class="material-icons">person_add</span>
               Adicionar Usuário
             </button>
           </div>

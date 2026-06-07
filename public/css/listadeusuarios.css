@@ -31,7 +31,7 @@ as palavras ficam,  tipo "palavraComposta", e  não "palavra-composta" igual eu 
 .main-painel-usuarios {
     background-color: var(--azul-ceu); 
     color: var(--preto);
-    padding: 0%;
+    padding: 4%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,6 +91,12 @@ acho que nao tem problema, é pra ser igual  mesmo */
 
 .criar-usuario-admin:hover {
     background-color: #963944;
+}
+
+.criar-usuario-admin span{
+    vertical-align: middle; 
+    font-size: 18px; 
+    margin-right: 6px;
 }
 
 .tabela-admin {
@@ -207,7 +213,7 @@ que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio
 /* aqui coloquei 80vh e  overflow-y */
 .modal-card-caixa {
     background-color: var(--branco-neve);
-    padding: 30px;
+    padding: 30px 30px 0px 30px;
     border-radius: 24px;
     width: 100%;
     max-width: 500px;
@@ -263,6 +269,13 @@ nao sei se isso  é considerado gambiarra, mas nao tava alinhando de  outra form
     cursor: pointer;
     display: block;
 }
+
+.wrapper-avatar img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
 /* bom e velho display block, empilhando tudo */
 /* dei user select none porque senao bugava a seleçãozinha azul na foto */
 .icone-avatar-padrao {
@@ -313,7 +326,7 @@ que programar o skyrim em assemlby seria mais fácil que isso */
     display: flex;
     flex-direction: column;
     gap: 14px;
-    max-height: 80vh;
+  
     padding-bottom: 20px;
 }
 
@@ -347,7 +360,6 @@ que programar o skyrim em assemlby seria mais fácil que isso */
 .modal-rodape-botoes {
     margin-top: 10px;
     display: flex;
-    padding-bottom: 30px;
     gap: 12px;
     justify-content: flex-end;
     width: 100%;
@@ -500,6 +512,10 @@ separado, troquei tudo  que era "publicacao" para "usuario" e também ajustei al
     -webkit-overflow-scrolling: touch; 
 }
 
+.tabela-responsiva-container::-webkit-scrollbar{
+    display: none;
+}
+
 .tabela-responsiva-container table {
     width: 100%;
     min-width: 600px; 
@@ -515,4 +531,13 @@ separado, troquei tudo  que era "publicacao" para "usuario" e também ajustei al
 .tabela-responsiva-container th {
     white-space: nowrap; 
 /* eu nao sabia sobre  nowrap, obrigado guilherme, bisbilhotei sua sidebar */
+}
+
+@media(max-width:768px){
+    .modal-rodape-botoes{
+        flex-direction: column-reverse;
+    }
+    .criar-usuario-admin{
+        font-size: 0px;
+    }
 }
