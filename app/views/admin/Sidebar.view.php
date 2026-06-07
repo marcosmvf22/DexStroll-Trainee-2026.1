@@ -57,7 +57,7 @@
 
                 <!-- Menu lista de usuarios -->
                 <li>
-                    <a href="usuarios" class="sidebar-menus-links">
+                    <a href="/usuarios" class="sidebar-menus-links">
                         <i class="material-icons">group</i>
                         <span class="descricao-menus">Lista de Usuários</span>
                     </a>
@@ -65,7 +65,7 @@
 
                 <!-- Menu lista de posts -->
                 <li>
-                    <a href="listadeposts" class="sidebar-menus-links">
+                    <a href="/listadeposts" class="sidebar-menus-links">
                         <i class="material-icons">view_list</i>
                         <span class="descricao-menus">Lista de Posts</span>
                     </a>
@@ -90,7 +90,7 @@
 
             <!-- Botão de logout -->
             <div class="sidebar-logout">
-                <a href="#" class="sidebar-logout-links">
+                <a href="/login" class="sidebar-logout-links">
                     <i class="material-icons">logout</i>
                     <span class="descricao-logout">Logout</span>
                 </a>
