@@ -91,6 +91,13 @@
                     <h2 class="subtitulo-login">Registre-se aqui.</h2>
 
                     <form action="/login/create" method="POST">
+                          <?php
+                        if (isset($_SESSION['mensagem-erro'])) {
+                            echo $_SESSION['mensagem-erro'];
+
+                            unset($_SESSION['mensagem-erro']);
+                        }
+                        ?>
                     <div class="campos-login">
                         <p class="descricao-cadastro">Nome</p>
                         <label class="label-cadastro">
