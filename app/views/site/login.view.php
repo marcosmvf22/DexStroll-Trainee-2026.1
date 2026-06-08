@@ -90,6 +90,7 @@
 
                     <h2 class="subtitulo-login">Registre-se aqui.</h2>
 
+                    <form action="/login/create" method="POST">
                     <div class="campos-login">
                         <p class="descricao-cadastro">Nome</p>
                         <label class="label-cadastro">
@@ -115,7 +116,7 @@
                                 <i id="icone-senha-cadastro" class="fa-solid fa-lock"></i>
                                 <span class="line-cadastro"></span>
                             </div>
-                            <input id="senha" name="senha" type="senha" class="input-login">
+                            <input id="senha" name="senha" type="password" class="input-login">
                         </label>
 
                         <p class="descricao-cadastro">Confirme a senha</p>
@@ -124,11 +125,12 @@
                                 <i id="icone-senha-cadastro" class="fa-solid fa-lock"></i>
                                 <span class="line-cadastro"></span>
                             </div>
-                            <input id="confirmaSenha" name="confirmaSenha" type="confirmaSenha" class="input-login">
+                            <input id="confirmaSenha" name="confirmaSenha" type="password" class="input-login">
                         </label>
                     </div>
 
                     <button class="botao-cadastro">Cadastrar</button>
+                </form>
                 </div>
 
                 <div class="box2-cadastro">

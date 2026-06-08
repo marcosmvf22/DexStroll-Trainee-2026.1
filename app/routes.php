@@ -9,3 +9,4 @@ $router->get('login', 'LoginController@login');
 $router->get('dashboard', 'LoginController@dashboard');
 $router->post('login', 'LoginController@efetuaLogin');
 $router->post('logout', 'LoginController@logout');
+$router->post('login/create', 'LoginController@store');

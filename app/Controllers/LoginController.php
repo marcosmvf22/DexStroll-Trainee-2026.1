@@ -50,4 +50,16 @@ class LoginController
     public function login(){
         return view('site/login');
     }
+
+    public function store(){
+        $parameters = [
+            'nome' => $_POST['nome'],
+            'email' => $_POST['email'],
+            'senha' => $_POST['senha']
+        ];
+
+        App::get('database')->insert('usuarios',$parameters);
+
+         header('Location: /login');
+    }
 }
