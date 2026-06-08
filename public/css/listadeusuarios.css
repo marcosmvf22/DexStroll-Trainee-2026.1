@@ -37,7 +37,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    
     min-height: 100vh;
     flex: 1;
     min-width: 0;
@@ -48,8 +48,9 @@ acho que nao tem problema, é pra ser igual  mesmo */
 .dashboard-container {
     width: 100%;
     min-width: 0;
-    max-width: 1100px;
+    max-width: 85vw;
     padding: 0%;
+
 }
 
 .header-dashboard h1 {
@@ -111,14 +112,15 @@ acho que nao tem problema, é pra ser igual  mesmo */
 
 .cabecalho-tabela-admin {
     background-color: var(--azul-marinho); 
+    
 }
 
 .cabecalho-tabela-admin th {
     color: var(--branco-neve);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 1.4rem;
     padding: 18px 20px;
-    text-align: center;
+    text-align: left;
 }
 
 .tabela-admin tbody tr {
@@ -128,8 +130,8 @@ acho que nao tem problema, é pra ser igual  mesmo */
 .tabela-admin tbody td {
     padding: 18px 20px;
     color: var(--preto);
-    font-size: 14px;
-    text-align: center;
+    font-size: 1.2rem;
+    text-align: left;
     background-color: var(--branco-neve); 
 }
 
@@ -139,7 +141,7 @@ acho que nao tem problema, é pra ser igual  mesmo */
 
 .celula-acoes-admin {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 12px;
 }
 
@@ -152,7 +154,8 @@ acho que nao tem problema, é pra ser igual  mesmo */
 }
 
 .botao-acao .material-icons {
-    font-size: 20px;
+    font-size: 1.6rem;
+
 }
 
 .botao-acao:hover {
@@ -251,7 +254,6 @@ que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio
 .modal-header-local {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 15px;
 }
 
@@ -260,14 +262,18 @@ que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio
     font-weight: 700;
     color: var(--azul-marinho);
 }
-
+.titulomodal{
+    text-align: center;
+    width: 100%;
+}
+ 
 .botao-fechar-x {
     background: none;
     border: none;
     cursor: pointer;
     color: var(--azul-marinho);
     display: flex;
-    align-items: center;
+    align-items: end;    
 }
 
 .container-foto-upload {
@@ -381,8 +387,9 @@ que programar o skyrim em assemlby seria mais fácil que isso */
 .modal-rodape-botoes {
     margin-top: 10px;
     display: flex;
+    
     gap: 12px;
-    justify-content: flex-end;
+    justify-content: center;
     width: 100%;
 }
 

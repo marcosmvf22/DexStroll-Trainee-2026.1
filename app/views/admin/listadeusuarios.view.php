@@ -45,10 +45,10 @@
                 </tr>
               </thead>
               <tbody id="corpo-tabela-usuarios">
-                <?php foreach ($usuarios as $usuario) : ?>
+                <?php foreach ($usuarios as $usuario): ?>
                   <tr data-id="<?= $usuario->id ?>">
                     <td class="dado_id_admin">
-                      <div style="display: flex; align-items: center; justify-content: flex-start; padding-left: 25px; gap: 12px;">
+                      <div style="display: flex; align-items: center; justify-content: flex-start; gap: 12px;">
                         <img src="<?= $usuario->avatar ?: '/public/assets/default-avatar.png' ?>" class="mini-avatar-tabela" alt="Avatar">
                         <span><?= $usuario->username ?></span>
                       </div>
@@ -75,14 +75,13 @@
       <!-- aqui modal de criar -->
       <div id="modal-usuario" class="modal-container-flutuante">
         <div class="modal-card-caixa">
-          
           <div class="modal-header-local">
-            <h2>Cadastrar Novo Usuário</h2>
-            <button type="button" class="botao-fechar-x" id="btn-fechar-x">
+               <h2>Cadastrar Novo Usuário</h2>
+             <button type="button" class="botao-fechar-x" id="btn-fechar-x">
               <span class="material-icons">close</span>
             </button>
           </div>
-          
+         
           <form id="form-novo-usuario" action="/usuarios/criar" method="POST" enctype="multipart/form-data">
             
             <div class="container-foto-upload">
