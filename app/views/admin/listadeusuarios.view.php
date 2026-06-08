@@ -58,15 +58,13 @@
                 <?php endforeach; ?>
               </tbody>
             </table>
+            
+            <?php require 'paginacao.view.php' ?>
           </div>
-        </div> 
-
-        <div class="paginacao">
-          <button class="btn-pag">&lt;</button>
-          <button class="btn-pag ativo">1</button>
-          <button class="btn-pag">&gt;</button>
         </div>
       </div>
+      
+
 
       <!-- aqui modal de criar -->
       <div id="modal-usuario" class="modal-container-flutuante">

@@ -31,6 +31,35 @@ class QueryBuilder
         }
     }
 
+    //função para contar quantidade de elemntos na tabela
+    public function countAll($table)
+    {
+        $sql = "SELECT COUNT(*) AS total FROM {$table}";
+        
+        try{
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+    
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function paginate($table, $limit, $offset)
+    {
+        $sql = "SELECT * FROM {$table} LIMIT {$limit} OFFSET {$offset}";
+        
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
     // isso aqui, como marcos tinha dito em aguma daily, foi meioque copia e cola da documentação,
     // mas tive  que adaptar pro contexto do DB nosso
     

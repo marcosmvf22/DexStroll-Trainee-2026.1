@@ -12,9 +12,28 @@ class listadeusuarioscontroller
     
     public function index()
     {
-        $usuariosDoBanco = App::get('database')->selectAll('usuarios');
+        // $usuariosDoBanco = App::get('database')->selectAll('usuarios');
+
+        $database = App::get('database');
+
+        $limit = 6;
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        if($currentPage < 1){
+            $currentPage = 1;
+        }
+
+        $offset = ($currentPage - 1) * $limit;
+
+        $totalUsuarios = $database->countAll('usuarios');
+        $totalPages = ceil($totalUsuarios/$limit);
+
+        $usuariosDoBanco = $database->paginate('usuarios',$limit,$offset);
+
         return view('admin/listadeusuarios', [
-            'usuarios' => $usuariosDoBanco
+            'usuarios' => $usuariosDoBanco,
+            'currentPage' => $currentPage,
+            'totalPage' => $totalPages
         ]);
     }
 
