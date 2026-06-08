@@ -89,7 +89,6 @@
 
 
     <script src="/public/js/summernoteConfig.js"></script>
-
     <script src="/public/js/codigoModalPublicacoes.js"></script>
 </body>
 
