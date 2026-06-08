@@ -14,6 +14,8 @@
     <script src="../../../public/js/postspage.js"></script>
   </head>
   <body>
+        <?php require 'navbar.view.php'; ?>
+
     <main>
       <h1 class="postpagetitle">Últimas Postagens</h1>
 
@@ -31,7 +33,7 @@
               Aqui está o resuminho da publicação, alguma coisa tipo um texto
               muito importante que eu deveria ter pego lorem ipsun
             </p>
-            <button class="lermais-botao">Ler Mais</button>
+            <a href="/postagem" class="lermais-botao">Ler Mais</a>
           </div>
         </article>
 
@@ -154,10 +156,11 @@
         <button class="posts-pokeball">1</button>
         <button class="posts-pokeball clicada">2</button>
         <button class="posts-pokeball">3</button>
-        <button class="posts-pokeball">4</button>
         <button class="posts-pokeball dots">...</button>
         <button class="posts-pokeball next">></button>
       </div>
     </main>
+        <?php require 'footer.view.php'; ?>
+
   </body>
 </html>

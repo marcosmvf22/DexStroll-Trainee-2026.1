@@ -20,7 +20,9 @@
 
             <div class="box1-login">
                <div class="topo-login">
-                    <i  id="icone-voltar-login" class="fa-regular fa-circle-left"></i>
+                <a href="/">
+                     <i  id="icone-voltar-login" class="fa-regular fa-circle-left"></i>
+                </a>
                     <h1 class="titulo-login">LOGIN</h1>
                </div>
 
@@ -47,7 +49,7 @@
                 </div>
 
                 <button class="botao-login">Login</button>
-                <p class="texto-login">Não possui uma conta? <a class="texto-link-login" href="">CADASTRE-SE</a></p> 
+                <p class="texto-login">Não possui uma conta? <a class="texto-link-login" href="/cadastro">CADASTRE-SE</a></p> 
             </div>
 
             <div class="box2-login">

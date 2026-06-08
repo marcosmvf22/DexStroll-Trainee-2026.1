@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    padding: 0;
+    padding: 0%;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
@@ -17,23 +17,39 @@ as palavras ficam,  tipo "palavraComposta", e  não "palavra-composta" igual eu 
     --branco-neve: #F5F7FA;
     --preto: #2B2F38;
 }
-
-.body-painel-usuarios {
+.header-dashboard{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+body{
+    gap: 0;
+    margin: 0;
+    display: flex;
     background-color: var(--azul-ceu); 
     color: var(--preto);
-    padding: 5vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-painel-usuarios {
+    padding: 4%;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     min-height: 100vh;
+    flex: 1;
+    min-width: 0;
+    margin-left: 85px;
 }
 /* sinceramente, grande parte aqui ta com mesmas  classes que a outra tabela, mas se tratando de estilização, 
 acho que nao tem problema, é pra ser igual  mesmo */
 .dashboard-container {
-    /* essa bosta é uma gambiarra mesmo,   meti o max width pra nao extrapolar muito
-    e tambem defini como 100% pra pegar o invólucro/container/wrapper inteiro */
     width: 100%;
+    min-width: 0;
     max-width: 1100px;
+    padding: 0%;
 }
 
 .header-dashboard h1 {
@@ -79,6 +95,12 @@ acho que nao tem problema, é pra ser igual  mesmo */
 
 .criar-usuario-admin:hover {
     background-color: #963944;
+}
+
+.criar-usuario-admin span{
+    vertical-align: middle; 
+    font-size: 18px; 
+    margin-right: 6px;
 }
 
 .tabela-admin {
@@ -143,17 +165,24 @@ acho que nao tem problema, é pra ser igual  mesmo */
 
 .paginacao {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-top: 25px;
+    list-style: none;
+    margin: 8px;
 }
 
-.btn-pag {
+.paginacao-container{
+    display: flex;
+    justify-content: center;
+}
+
+.paginacao li{
+    margin: 0 5px;
+}
+
+.paginacao a {
     background: none;
     border: none;
     font-size: 16px;
-    color: var(--azul);
+    color: white;
     cursor: pointer;
     width: 32px;
     height: 32px;
@@ -163,18 +192,28 @@ acho que nao tem problema, é pra ser igual  mesmo */
     border-radius: 6px;
     font-weight: 500;
     transition: all 0.2s;
+
+    text-decoration: none;
+    padding: 8px 12px;
 }
 
-/*efeitozinho de passar  o mouse na paginação */
-.btn-pag.ativo {
-    background-color: var(--azul-marinho);
-    color: var(--branco-neve);
-    font-weight: 600;
+.paginacao a.active{
+    background-color: var(--azul);
+    color: white;
+    border-color: var(--azul-claro);
 }
-/* esse not  abaixo, pra nao dar hoverzinho na pagina atual */
-.btn-pag:hover:not(.ativo) {
-    background-color: rgba(17, 34, 64, 0.1);
+
+.paginacao a.disable{
+    color: #ccc;
+    pointer-events: none;
 }
+
+.paginacao span.dots{
+    padding: 8px 12px;
+    color: #ccc;
+    pointer-events: none;
+}
+
 /* estilizar o modal 
 aqui é o modal de criar usuario, nao ta tao especifico  quando o outro modal,
 que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio as classes*/
@@ -189,18 +228,26 @@ que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
-
+/* aqui coloquei 80vh e  overflow-y */
 .modal-card-caixa {
     background-color: var(--branco-neve);
-    padding: 30px;
+    padding: 30px 30px 0px 30px;
     border-radius: 24px;
     width: 100%;
     max-width: 500px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
     color: var(--preto);
+    height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
-
+/* tentar ocultar o scroll porque ficou bem feinho */
+.modal-card-caixa::-webkit-scrollbar {
+    display: none;
+}
 .modal-header-local {
     display: flex;
     justify-content: space-between;
@@ -227,19 +274,28 @@ que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     width: 100%;
 }
 /* nesse e em alguns outros elementos eu  usei o  important, 
 nao sei se isso  é considerado gambiarra, mas nao tava alinhando de  outra forma */
 .wrapper-avatar {
     position: relative;
+    /*
     width: 100px !important;
     height: 100px !important;
+    */
     min-width: 100px !important;
     min-height: 100px !important;
     cursor: pointer;
     display: block;
+}
+
+.wrapper-avatar img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 /* bom e velho display block, empilhando tudo */
 /* dei user select none porque senao bugava a seleçãozinha azul na foto */
@@ -285,10 +341,14 @@ que programar o skyrim em assemlby seria mais fácil que isso */
     background-color: var(--azul);
 }
 
-#form-novo-usuario {
+#form-novo-usuario,
+#form-editar-usuario,
+#form-visualizar-usuario {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 14px;
+  
+    padding-bottom: 20px;
 }
 
 .grupo-campo {
@@ -317,7 +377,7 @@ que programar o skyrim em assemlby seria mais fácil que isso */
 .grupo-campo input:focus {
     border-color: var(--azul);
 }
-
+/* acho que resolvi o  vazamento de modal */
 .modal-rodape-botoes {
     margin-top: 10px;
     display: flex;
@@ -373,6 +433,11 @@ separado, troquei tudo  que era "publicacao" para "usuario" e também ajustei al
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+
+#modal-visualizar-usuario{
+    display:none;
 }
 
 .titulo-modal-excluir {
@@ -449,4 +514,54 @@ separado, troquei tudo  que era "publicacao" para "usuario" e também ajustei al
 
 .excluirBotaoModal:hover {
     background-color: #5A1A22;
+}
+.mini-avatar-tabela {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--azul-marinho);
+}
+
+
+
+
+.tabela-responsiva-container {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; 
+}
+
+.tabela-responsiva-container::-webkit-scrollbar{
+    display: none;
+}
+
+.tabela-responsiva-container table {
+    width: 100%;
+    min-width: 600px; 
+    border-collapse: collapse;
+}
+
+.celula-acoes-admin {
+    white-space: nowrap; 
+    min-width: 140px; 
+}
+
+.tabela-responsiva-container td, 
+.tabela-responsiva-container th {
+    white-space: nowrap; 
+/* eu nao sabia sobre  nowrap, obrigado guilherme, bisbilhotei sua sidebar */
+}
+
+@media(max-width:768px){
+    .main-painel-usuarios{
+        margin-left: 0;
+        padding-top: 85px;
+    }
+    .modal-rodape-botoes{
+        flex-direction: column-reverse;
+    }
+    .criar-usuario-admin{
+        font-size: 0px;
+    }
 }

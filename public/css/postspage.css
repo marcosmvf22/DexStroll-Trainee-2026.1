@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+    font-family: "Poppins", sans-serif;
+
+}
 main {
   background: linear-gradient(180deg, #1f5fa8 0%, #0d2a4d 100%);
   background-attachment: fixed;
@@ -83,18 +87,27 @@ time {
   width: 50%;
 }
 .lermais-botao {
-  background-color: #e6392f;
-  width: 50%;
-  align-self: center;
-  border-radius: 40px;
-  border: none;
-  height: auto;
-  padding: 2%;
-  margin-top: 2%;
-  font-weight: 900;
-  color: #f5f7fa;
-  font-family: "Poppins", sans-serif;
-  cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #e6392f;
+    width: 50%;
+    align-self: center;
+    border-radius: 40px;
+    border: none;
+    height: auto;
+    padding: 2% 5%;         
+    margin-top: 2%;
+    font-weight: 900;
+    font-family: inherit;   
+    font-size: 1rem;         
+    line-height: 1.2;       
+    color: #f5f7fa;
+    cursor: pointer;
+    box-sizing: border-box; 
+    text-align: center;      
+    transition: background 0.2s;
 }
 
 .paginacao-posts {
@@ -159,11 +172,16 @@ time {
 /* passa o mouse e gira a bola
 agora  tenho que codar mais  efeitinhos */
 .posts-pokeball:hover {
-  transform: scale(1.2) rotate(45deg);
+  transform: scale(1.2);
 }
 /* OBS: eu amo o w3schools melhor site pra  aprender a codar, porém gastei 3 horas pra entender oque de fato é um  pseudo-element e  como usar  o ::after */
 /* a  que ta clicada, aí muda de cor*/
-
+.posts-pokeball.prev:hover {
+  transform: scale(1.2) rotate(-45deg);
+}
+.posts-pokeball.next:hover {
+  transform: scale(1.2) rotate(45deg);
+}
 /* deixar vermelhinho*/
 .clicada::before {
   content: "";

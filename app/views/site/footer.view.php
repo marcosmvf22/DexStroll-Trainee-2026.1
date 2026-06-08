@@ -58,11 +58,11 @@
         </div>
     </footer>
     
-    <!-- Botão para fechar modal -->
-    <button class="fechar-modal" type="button" onclick="fecharModal('modal-visualizar')">X</button>
-
+    
     <!-- Modal com missão, visão e valores -->
     <div class="modal-container" id="modal-visualizar">
+        <!-- Botão para fechar modal -->
+        <button class="fechar-modal" type="button" onclick="fecharModal('modal-visualizar')">X</button>
         <div class="diretrizes">
             <div class="conteudo-diretriz">
                 <h1>Missão</h1>

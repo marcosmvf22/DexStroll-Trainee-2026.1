@@ -25,7 +25,15 @@ class ComposerStaticInit90bbf95869b4e88bf0dc5022e708a458
     );
 
     public static $classMap = array (
-        'App\\Controllers\\ExampleController' => __DIR__ . '/../..' . '/app/Controllers/ExampleController.php',
+        'App\\Controllers\\InitController' => __DIR__ . '/../..' . '/app/Controllers/InitController.php',
+        'App\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/Controllers/PostController.php',
+        'App\\Controllers\\PublicacoesController' => __DIR__ . '/../..' . '/app/Controllers/PublicacoesController.php',
+        'App\\Controllers\\adminpostscontroller' => __DIR__ . '/../..' . '/app/Controllers/adminpostscontroller.php',
+        'App\\Controllers\\cadastrocontroller' => __DIR__ . '/../..' . '/app/Controllers/cadastrocontroller.php',
+        'App\\Controllers\\dashboardcontroller' => __DIR__ . '/../..' . '/app/Controllers/dashboardcontroller.php',
+        'App\\Controllers\\listadeusuarioscontroller' => __DIR__ . '/../..' . '/app/Controllers/listadeusuarioscontroller.php',
+        'App\\Controllers\\logincontroller' => __DIR__ . '/../..' . '/app/Controllers/logincontroller.php',
+        'App\\Controllers\\postunicocontroller' => __DIR__ . '/../..' . '/app/Controllers/postunicocontroller.php',
         'App\\Core\\App' => __DIR__ . '/../..' . '/core/App.php',
         'App\\Core\\Database\\Connection' => __DIR__ . '/../..' . '/core/database/Connection.php',
         'App\\Core\\Database\\QueryBuilder' => __DIR__ . '/../..' . '/core/database/QueryBuilder.php',

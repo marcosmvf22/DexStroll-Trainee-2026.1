@@ -22,6 +22,8 @@ html{
     scroll-behavior: smooth;
 }
 
+
+
 body::-webkit-scrollbar{
     display: none;
 }
@@ -103,12 +105,15 @@ a{
 
 .sobre-landing{
     padding-bottom: 60px;
+    background-color: var(--branco-neve) !important;
+
 }
 
 .sobre-landing h2{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 30px;
     font-size: 3rem;
     color: var(--azul);
@@ -143,6 +148,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 30px;
     color: var(--branco-neve);
     font-size: 3rem;
@@ -155,6 +161,7 @@ a{
     position: relative;
     border-radius: 30px;
     overflow-X: auto;
+    padding-bottom: 30px;
 }
 
 .slider-conteudo-landing{
@@ -237,8 +244,18 @@ a{
     height: 30px;
 }
 
+.sobre1{
+    width: 100%;
+}
 .dados-autor-landing{
     display: flex;
     gap: 10px;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .bloco-sobre-landing{
+        flex-direction: column;
+        align-items: center;
+    }
 }

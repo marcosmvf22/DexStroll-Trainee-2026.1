@@ -1,5 +1,5 @@
 # **Trainee 2026.1**
-
+.
 # **DexStroll**
 
 ## **Projeto Trainee, Code Jr, 2026.1**

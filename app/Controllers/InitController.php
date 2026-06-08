@@ -5,11 +5,12 @@ namespace App\Controllers;
 use App\Core\App;
 use Exception;
 
-class ExampleController
+class InitController
 {
 
     public function index()
     {
-        return view('site/index');
+        return view('site/landingpage');
+        
     }
 }

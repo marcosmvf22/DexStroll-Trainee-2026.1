@@ -24,8 +24,10 @@
 
             <div class="box1-cadastro">
                 <div class="topo-cadastro">
-                    <i id="icone-voltar-cadastro" class="fa-regular fa-circle-left"></i>
-                    <h1 class="titulo-cadastro">Cadastro</h1>
+                    <a href="/login">
+                <i id="icone-voltar-cadastro" class="fa-regular fa-circle-left"></i>
+</a>
+                <h1 class="titulo-cadastro">Cadastro</h1>
                 </div>
 
                 <h2 class="subtitulo-cadastro">Registre-se aqui.</h2>
