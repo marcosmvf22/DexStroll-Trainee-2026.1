@@ -57,7 +57,7 @@ class listadeusuarioscontroller
         }
 
                 
-        // definindo variaveis
+
         $dados = 
         [
             'username' => $_POST['username'],
@@ -98,7 +98,7 @@ class listadeusuarioscontroller
 
         $id = (int)$_POST['id'];
 
-        //pega usuario atual
+
         $usuarioAtual = App::get('database')->selectWhere(
             'usuarios',
             ['id' => $id]
@@ -127,7 +127,7 @@ class listadeusuarioscontroller
                 mkdir($uploadDir, 0777, true);
             }
 
-            // remove avatar antigo
+
             if (!empty($usuarioAtual->avatar) && $usuarioAtual->avatar !== '/public/assets/default-avatar.png') {
 
                 $avatarAntigo = __DIR__ . '/../../' . ltrim($usuarioAtual->avatar, '/');
@@ -161,7 +161,7 @@ class listadeusuarioscontroller
 
         $id = (int)$_POST['id'];
 
-        //remove a foto do perfil junto do usuario igual em update
+
         $usuario = App::get('database')->selectWhere(
             'usuarios',
             ['id' => $id]
@@ -181,31 +181,10 @@ class listadeusuarioscontroller
             }
         }
 
-        App::get('database')->delete('usuarios', ['id' => $id]);
-        header('Location: /usuarios?sucesso=deletado');
+        App::get('database')->delete('usuarios', $id);        header('Location: /usuarios?sucesso=deletado');
         exit();
     }
 
    
     
-    // public function getUsuarioJson()
-    // {
-    //     if (empty($_GET['id'])) {
-    //         http_response_code(400);
-    //         echo json_encode(['erro' => 'ID não informado']);
-    //         return;
-    //     }
-
-    //     $id = (int)$_GET['id'];
-    //     $usuario = App::get('database')->selectWhere('usuarios', ['id' => $id]);
-
-    //     if (!$usuario) {
-    //         http_response_code(404);
-    //         echo json_encode(['erro' => 'Usuário não encontrado']);
-    //         return;
-    //     }
-
-
-    //     echo json_encode($usuario[0]);
-    // }
 }
