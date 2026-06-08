@@ -166,8 +166,7 @@ acho que nao tem problema, é pra ser igual  mesmo */
 .paginacao {
     display: flex;
     list-style: none;
-    padding: 0;
-    margin: 0;
+    margin: 8px;
 }
 
 .paginacao-container{
