@@ -10,8 +10,28 @@ class PublicacoesController
 
     public function index()
     {
-        $publicacoes = App::get('database')->selectAll('publicacao');
-        return view('admin/pagina_publicacoes', compact('publicacoes'));
+        $database = App::get('database');
+
+        $limit = 6;
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        if($currentPage < 1){
+            $currentPage = 1;
+        }
+
+        $offset = ($currentPage - 1) * $limit;
+
+        $totalPublicacao = $database->countAll('publicacao');
+        $totalPages = ceil($totalPublicacao/$limit);
+
+        $publicacoes = $database->paginate('publicacao',$limit,$offset);
+
+        return view('admin/pagina_publicacoes', [
+            'publicacoes' => $publicacoes,
+            'currentPage' => $currentPage,
+            'totalPage' => $totalPages,
+            'totalPublicacoes' => $totalPublicacao
+        ]);
     }
     public function edit()
     {

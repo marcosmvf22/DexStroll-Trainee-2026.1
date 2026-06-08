@@ -32,7 +32,7 @@
         <div class="pagina-publicacao">
             <header class="header-pag-publicacao">
                 <h1>Publicações</h1>
-                <h3><?= count($publicacoes) ?> publicações encontradas</h3>
+                <h3><?= $totalPublicacoes ?> publicações encontradas</h3>
             </header>
 
             <div class="card-tabela">
