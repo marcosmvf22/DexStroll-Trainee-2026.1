@@ -1,102 +1,84 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Botão para fechar sidebar -->
+<div class="habilitar_sidebar">
+     <button class="toggle-sidebar" type="button">
+     <i class="material-icons">menu</i>
+    </button>
+</div>
 
-    <!-- Material icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<nav class="sidebar">
+    <!-- botão para fechar e abrir sidebar -->
+    <div class="sidebar-topo">
 
-    <!-- CSS -->
-     <link rel="stylesheet" href="../../../public/css/Sidebar.css">
-</head>
-<div class="falsobody">
-
-    <!-- Botão para fechar sidebar -->
-    <div class="habilitar_sidebar">
-        <button class="toggle-sidebar" type="button">
-            <i class="material-icons">menu</i>
-        </button>
+         <!-- Perfil de usuario -->
+        <div class="sidebar-perfilUsuario">
+            <a href="#">
+                <img src="../../../public/assets/fundo-falso.jpg" alt="imagem de perfil">
+            </a>
+            <div class="info-perfilUsuario">
+                <p>Adiministrador</p>
+                <p>email@gmail.com</p>
+            </div>
+        </div>
     </div>
 
-    <nav class="sidebar">
-
-        <!-- botão para fechar e abrir sidebar -->
-        <div class="sidebar-topo">
-
-             <!-- Perfil de usuario -->
-            <div class="sidebar-perfilUsuario">
-                <a href="#">
-                    <img src="../../../public/assets/fundo-falso.jpg" alt="imagem de perfil">
+    <!-- Menus para outras paginas administrativas -->
+    <div class="sidebar-menus">
+        <ul>
+            <!-- Menu home -->
+            <li>
+                <a href="/" class="sidebar-menus-links">
+                    <i class="material-icons">home</i>
+                    <span class="descricao-menus">Pagina inicial</span>
                 </a>
-                <div class="info-perfilUsuario">
-                    <p>Adiministrador</p>
-                    <p>email@gmail.com</p>
-                </div>
+            </li>
+
+            <!-- Menu deshboard -->
+            <li>
+                <a href="/dashboard" class="sidebar-menus-links">
+                    <i class="material-icons">dashboard</i>
+                    <span class="descricao-menus">Dashboard</span>
+                </a>
+            </li>
+
+            <!-- Menu lista de usuarios -->
+            <li>
+                <a href="/usuarios" class="sidebar-menus-links">
+                    <i class="material-icons">group</i>
+                    <span class="descricao-menus">Lista de Usuários</span>
+                </a>
+            </li>
+
+            <!-- Menu lista de posts -->
+            <li>
+                <a href="/listadeposts" class="sidebar-menus-links">
+                    <i class="material-icons">view_list</i>
+                    <span class="descricao-menus">Lista de Posts</span>
+                </a>
+            </li>  
+        </ul>
+    </div>
+
+    <!-- Perfil do usuario e botão de logout -->
+    <div class="sidebar-bottom">
+
+        <!-- Perfil de usuario -->
+        <div class="sidebar-perfilUsuario">
+            <a href="#">
+                <img src="../../../public/assets/fundo-falso.jpg" alt="imagem de perfil">
+            </a>
+            <div class="info-perfilUsuario">
+                <p>Adiministrador</p>
+                <p>email@gmail.com</p>
             </div>
+            
         </div>
 
-        <!-- Menus para outras paginas administrativas -->
-        <div class="sidebar-menus">
-            <ul>
-                <!-- Menu home -->
-                <li>
-                    <a href="/" class="sidebar-menus-links">
-                        <i class="material-icons">home</i>
-                        <span class="descricao-menus">Pagina inicial</span>
-                    </a>
-                </li>
-
-                <!-- Menu deshboard -->
-                <li>
-                    <a href="/dashboard" class="sidebar-menus-links">
-                        <i class="material-icons">dashboard</i>
-                        <span class="descricao-menus">Dashboard</span>
-                    </a>
-                </li>
-
-                <!-- Menu lista de usuarios -->
-                <li>
-                    <a href="/usuarios" class="sidebar-menus-links">
-                        <i class="material-icons">group</i>
-                        <span class="descricao-menus">Lista de Usuários</span>
-                    </a>
-                </li>
-
-                <!-- Menu lista de posts -->
-                <li>
-                    <a href="/listadeposts" class="sidebar-menus-links">
-                        <i class="material-icons">view_list</i>
-                        <span class="descricao-menus">Lista de Posts</span>
-                    </a>
-                </li>  
-            </ul>
+        <!-- Botão de logout -->
+        <div class="sidebar-logout">
+            <a href="/login" class="sidebar-logout-links">
+                <i class="material-icons">logout</i>
+                <span class="descricao-logout">Logout</span>
+            </a>
         </div>
-
-        <!-- Perfil do usuario e botão de logout -->
-        <div class="sidebar-bottom">
-
-            <!-- Perfil de usuario -->
-            <div class="sidebar-perfilUsuario">
-                <a href="#">
-                    <img src="../../../public/assets/fundo-falso.jpg" alt="imagem de perfil">
-                </a>
-                <div class="info-perfilUsuario">
-                    <p>Adiministrador</p>
-                    <p>email@gmail.com</p>
-                </div>
-                
-            </div>
-
-            <!-- Botão de logout -->
-            <div class="sidebar-logout">
-                <a href="/login" class="sidebar-logout-links">
-                    <i class="material-icons">logout</i>
-                    <span class="descricao-logout">Logout</span>
-                </a>
-            </div>
-        </div>
-    </nav>
-</div>
-<script src="/public/js/Sidebar.js"></script>
-</html>
+    </div>
+</nav>
