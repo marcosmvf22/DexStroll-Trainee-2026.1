@@ -6,7 +6,7 @@
 
     <hr class="linha-separadora">
     <!-- Modal CRIAR -->
-    <form action="/publicacoes/store" method="POST">
+    <form action="/publicacoes/store" method="POST" enctype="multipart/form-data">
         <h3>Título da publicação</h3>
         <input id="input-tituloModalCriar" name="titulo" placeholder="Digite o título da publicação..." type="text" class="input-modal-titulo" required>
 
@@ -16,7 +16,7 @@
         </div>
 
         <h3>Adicionar imagem de capa</h3>
-        <input type="file" name="imagem" accept="image/*" class="input-imagem-criar" id="input-imagemModalCriar">
+        <input type="file" name="imagem" accept="image/*" class="form-control" id="input-imagemModalCriar">
 
         <div class="post-options">
             <h3>Opções do post</h3>

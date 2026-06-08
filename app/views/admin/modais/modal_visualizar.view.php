@@ -28,13 +28,14 @@
     </div>
 
     <div class="imagem-principal-modal-excluir">
-        <label class="label-modal-visualizar">Imagem principal:</label>
+        <p class="label-modal-visualizar">Imagem principal:</p>
         <div class="img-principal-placeholder-modal">
-            <i class="fa-regular fa-image icone-imagem-modal"></i>
+           <img src="/<?= $publicacao->imagem ?>" alt="imagem" style="max-width: 100%; height: auto;">
         </div>
     </div>
 
     <div id="editor-modal-visualizar">
+        <p class="label-modal-visualizar">Descrição:</p>
         <textarea class="summernoteVisualizar" name="conteudo"><?= $publicacao->conteudo ?></textarea>
     </div>
 
