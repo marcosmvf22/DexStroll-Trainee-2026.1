@@ -20,16 +20,32 @@ class PublicacoesController
     //Update - CRUD -> Edição das informações
     public function edit()
     {
+        $id = $_POST['id'];
+
+        $post = App::get('database')->selectOne('publicacao', $id);
+
+        $caminhodaimagem = $post->imagem;
+
+        if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+            $temporario = $_FILES['imagem']['tmp_name'];
+            $nomeimagem = sha1(uniqid($_FILES['imagem']['name'], true)) . "." . pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+            $caminhodaimagem = "public/assets/imagensPosts/" . $nomeimagem;
+            move_uploaded_file($temporario, $caminhodaimagem);
+
+            if($post && !empty($post->imagem) && file_exists($post->imagem)){
+                unlink($post->imagem);
+            }
+        }
+
         $parameters = [
             'titulo' => $_POST['titulo'],
             'autor' => $_POST['autor'],
             'data' => $_POST['data'],
-            'descricao' => $_POST['conteudo'],
+            'conteudo' => $_POST['conteudo'],
             'curiosidade' => $_POST['curiosidade'],
             'data' => $_POST['data'],
+            'imagem' => $caminhodaimagem,
         ];
-
-        $id = $_POST['id'];
 
         App::get('database')->update('publicacao', $id, $parameters);
         header('Location: /publicacoes');
@@ -39,13 +55,19 @@ class PublicacoesController
     //Create - CRUD -> Inserção de informações no banco
     public function store()
     {
+            $temporario = $_FILES['imagem']['tmp_name'];
+            $nomeimagem = sha1(uniqid($_FILES['imagem']['name'], true)) . "." . pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+            $caminhodaimagem = "public/assets/imagensPosts/" . $nomeimagem;
+
+            move_uploaded_file($temporario, $caminhodaimagem);
+
         $parameters = [
             'titulo' => $_POST['titulo'],
             'autor' => $_POST['autor'] ?? 1,
             'data' => $_POST['data'],
-            'descricao' => $_POST['conteudo'],
+            'conteudo' => $_POST['conteudo'],
             'curiosidade' => $_POST['curiosidade'],
-            'imagem' => $_POST['imagem'] ?? '' //para imagem de capa
+            'imagem' => $caminhodaimagem //para imagem de capa
         ];
 
         App::get('database')->insert('publicacao', $parameters);

@@ -27,19 +27,15 @@
         </div>
     </div>
 
-    <!-- <div class="imagem-principal-modal-excluir">
+    <div class="imagem-principal-modal-excluir">
         <label class="label-modal-visualizar">Imagem principal:</label>
         <div class="img-principal-placeholder-modal">
-            <?php if (!empty($publicacao->capa)): ?>
-                <img src="/public/assets/imagensPosts/<?= $publicacao->imagem ?>" alt="Capa da Publicação" class="img-capa-preview">
-            <?php else: ?>
-                <i class="fa-regular fa-image icone-imagem-modal"></i>
-            <?php endif; ?>
+            <i class="fa-regular fa-image icone-imagem-modal"></i>
         </div>
     </div> -->
 
     <div id="editor-modal-visualizar">
-        <textarea class="summernoteVisualizar" name="descricao"><?= $publicacao->descricao ?></textarea>
+        <textarea class="summernoteVisualizar" name="conteudo"><?= $publicacao->conteudo ?></textarea>
     </div>
 
     <div class="grupo-inputs-modal">

@@ -419,9 +419,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #d4d5d8;
     height: 30vh;
     border-radius: 12px;
+    margin-top: 6vh;
+    margin-bottom: 8vh;
 }
 .img-secundaria-placeholder-modal{
     display: flex;
