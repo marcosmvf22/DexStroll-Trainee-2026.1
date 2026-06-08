@@ -1,6 +1,6 @@
 <div class="modal-pagina-publicacao" id="modalCriarPublicacao">
     <div class="cabecalho-criar-publicacao">
-        <h3>Criar Publicação</h3>
+        <h2>Criar Publicação</h2>
         <i class="fa-solid fa-xmark icone-fechar-modal-visualizar" onclick="fecharModal('modalCriarPublicacao')"></i>
     </div>
 
@@ -10,7 +10,7 @@
         <h3>Título da publicação</h3>
         <input id="input-tituloModalCriar" name="titulo" placeholder="Digite o título da publicação..." type="text" class="input-modal-titulo" required>
 
-        <h4>Conteúdo</h4>
+        <h3>Conteúdo</h3>
         <div id="editor" name="editordata">
             <textarea id="summernoteCriar" name="conteudo"></textarea>
         </div>
@@ -21,6 +21,7 @@
         <div class="post-options">
             <h3>Opções do post</h3>
 
+            <!-- To-do: REFATORAR JS E REMOVER FUNÇÃO DE TOGGLE! -->
             <!-- <div class="opcao-checkbox-container">
                 <label class="checkbox-container">
                     <input type="checkbox" id="toggle-curiosidade">
@@ -34,7 +35,7 @@
             </div> -->
 
             
-            <input id="input-curiosidadeModalCriar" name="curiosidade" placeholder="Digite a curiosidade da publicação..." type="text" class="input-modal-curiosidade">
+            <input id="input-curiosidadeModalCriar" name="curiosidade" placeholder="Digite a curiosidade da publicação... (opcional)" type="text" class="input-modal-curiosidade">
 
             <div class="grupo-data-modal">
                 <label for="input-dataPublicacao" class="label-modal-criar">Data de publicação:</label>
