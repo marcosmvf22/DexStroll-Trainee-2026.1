@@ -6,11 +6,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Painel - Usuários</title>
+
     <link rel="stylesheet" href="../../../public/css/listadeusuarios.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+
+    <!-- CSS sidebar -->
+     <link rel="stylesheet" href="../../../public/css/Sidebar.css">
+ 
   </head>
-  <body class="pegatudo">
+  <body>
     <? require 'Sidebar.view.php' ?>
     <main class="main-painel-usuarios">
     
@@ -223,6 +229,10 @@
       </div>
 
     </main>
-    <script src="../../../public/js/listadeusuarios.js"></script>
   </body>
+
+  <!-- JS sidebar -->
+  <script src="/public/js/Sidebar.js"></script>
+  <!-- JS Lista de Usuarios -->
+  <script src="../../../public/js/listadeusuarios.js"></script>
 </html>
