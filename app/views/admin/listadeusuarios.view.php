@@ -23,8 +23,8 @@
       <div class="dashboard-container">
       
         <header class="header-dashboard">
-          <h1>Lista de Usuários</h1>
-          <h3>xx usuários encontrados</h3>
+          <h1>Usuários</h1>
+          <h3><?= $totalUsuarios ?> usuários encontrados</h3>
         </header>
 
         <div class="card-tabela">

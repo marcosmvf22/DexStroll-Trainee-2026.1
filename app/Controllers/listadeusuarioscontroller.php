@@ -33,7 +33,8 @@ class listadeusuarioscontroller
         return view('admin/listadeusuarios', [
             'usuarios' => $usuariosDoBanco,
             'currentPage' => $currentPage,
-            'totalPage' => $totalPages
+            'totalPage' => $totalPages,
+            'totalUsuarios' => $totalUsuarios
         ]);
     }
 
