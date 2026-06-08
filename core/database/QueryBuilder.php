@@ -128,7 +128,7 @@ class QueryBuilder
         }
     }
 
-
+//mantive isso aqui, achei mais facil, e mais util
     public function selectWhere($table, $conditions)
     {
         $whereParts = [];
