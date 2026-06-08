@@ -115,13 +115,16 @@ if (corpoTabela && modalEditar) {
       const username = linha.cells[0].textContent.trim();
       const nome = linha.cells[1].textContent.trim();
       const email = linha.cells[2].textContent.trim();
+      const imgDaTabela = linha.querySelector(".mini-avatar-tabela");
+      const srcAvatar = imgDaTabela ? imgDaTabela.getAttribute("src") : "/public/assets/default-avatar.png";
 
       document.getElementById("edit-id").value = id;
       document.getElementById("edit-email-original").value = email;
       document.getElementById("edit-input-username").value = username;
       document.getElementById("edit-input-nome").value = nome;
       document.getElementById("edit-input-email").value = email;
-
+      //adicionei a imagem pro modal de editar
+      document.getElementById("edit-avatar-clicavel").src = srcAvatar;
       modalEditar.style.display = "flex";
     }
   });
