@@ -49,7 +49,7 @@ class listadeusuarioscontroller
         }
             
             
-        $existe = App::get('database')->selectWhere('usuarios', ['email' => $_POST['email']]);
+        $existe = App::get('database')->selectWhereUser('usuarios', ['email' => $_POST['email']]);
         if ($existe) 
         {
             header('Location: /usuarios?erro=email_duplicado');
@@ -57,7 +57,7 @@ class listadeusuarioscontroller
         }
 
                 
-
+        // definindo variaveis
         $dados = 
         [
             'username' => $_POST['username'],
@@ -83,7 +83,7 @@ class listadeusuarioscontroller
         }
 
         // implementa desse jeitoac ho que funciona
-        App::get('database')->insert('usuarios', $dados);
+        App::get('database')->insertUser('usuarios', $dados);
         header('Location: /usuarios?sucesso=criado');
         exit();
     }
@@ -98,8 +98,8 @@ class listadeusuarioscontroller
 
         $id = (int)$_POST['id'];
 
-
-        $usuarioAtual = App::get('database')->selectWhere(
+        //pega usuario atual
+        $usuarioAtual = App::get('database')->selectWhereUser(
             'usuarios',
             ['id' => $id]
         );
@@ -127,7 +127,7 @@ class listadeusuarioscontroller
                 mkdir($uploadDir, 0777, true);
             }
 
-
+            // remove avatar antigo
             if (!empty($usuarioAtual->avatar) && $usuarioAtual->avatar !== '/public/assets/default-avatar.png') {
 
                 $avatarAntigo = __DIR__ . '/../../' . ltrim($usuarioAtual->avatar, '/');
@@ -145,7 +145,7 @@ class listadeusuarioscontroller
             $dados['avatar'] = '/public/uploads/avatars/' . $nomeArquivo;
         }
 
-        App::get('database')->update('usuarios', $dados, ['id' => $id]);
+        App::get('database')->updateUser('usuarios', $dados, ['id' => $id]);
         header('Location: /usuarios?sucesso=atualizado');
         exit();
     }
@@ -161,8 +161,8 @@ class listadeusuarioscontroller
 
         $id = (int)$_POST['id'];
 
-
-        $usuario = App::get('database')->selectWhere(
+        //remove a foto do perfil junto do usuario igual em update
+        $usuario = App::get('database')->selectWhereUser(
             'usuarios',
             ['id' => $id]
         );
@@ -181,10 +181,31 @@ class listadeusuarioscontroller
             }
         }
 
-        App::get('database')->delete('usuarios', $id);        header('Location: /usuarios?sucesso=deletado');
+        App::get('database')->deleteUser('usuarios', ['id' => $id]);
+        header('Location: /usuarios?sucesso=deletado');
         exit();
     }
 
    
     
+    // public function getUsuarioJson()
+    // {
+    //     if (empty($_GET['id'])) {
+    //         http_response_code(400);
+    //         echo json_encode(['erro' => 'ID não informado']);
+    //         return;
+    //     }
+
+    //     $id = (int)$_GET['id'];
+    //     $usuario = App::get('database')->selectWhere('usuarios', ['id' => $id]);
+
+    //     if (!$usuario) {
+    //         http_response_code(404);
+    //         echo json_encode(['erro' => 'Usuário não encontrado']);
+    //         return;
+    //     }
+
+
+    //     echo json_encode($usuario[0]);
+    // }
 }
