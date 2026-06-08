@@ -2,7 +2,7 @@
     <h3 class="titulo-modal-visualizar">Editar Publicação</h3>
     <hr class="linha-separadora-modal-excluir">
 
-    <form method="POST" action="/publicacoes/edit">
+    <form method="POST" action="/publicacoes/edit" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $publicacao->id ?>">
 
         <div class="grupo-inputs-modal">
@@ -18,6 +18,16 @@
             <div class="grupo-inputs-modal">
                 <label class="label-modal-visualizar">Data de publicação:</label>
                 <input class="input-dataPublicacaoModal" type="date" name="data" value="<?= $publicacao->data ?>">
+            </div>
+        </div>
+            
+            <label class="label-modal-visualizar">Imagem principal:</label>
+            <input type="file" name="imagem" accept="image/*" class="form-control" id="input-imagemModalCriar">
+
+        <div class="imagem-principal-modal-excluir">
+            <p class="label-modal-visualizar">Imagem atual:</p>
+            <div class="img-principal-placeholder-modal">
+                <img src="/<?= $publicacao->imagem ?>" alt="imagem" style="max-width: 100%; height: auto;">
             </div>
         </div>
 
