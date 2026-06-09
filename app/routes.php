@@ -32,4 +32,10 @@ $router->post('usuarios/deletar', 'listadeusuarioscontroller@delete');
 
 $router->get('listadeposts' , 'PublicacoesController@index');
 
+$router->get('publicacoes', 'PublicacoesController@index');
+$router->post('publicacoes/edit', 'PublicacoesController@edit');
+$router->post('publicacoes/store', 'PublicacoesController@store');
+$router->post('publicacoes/delete', 'PublicacoesController@delete');
+$router->post('publicacoes/upload-imagem', 'PublicacoesController@uploadImagem');
+
 //outra  OBS, pra  visualizar a pagina sem liveserver, só digitar /"url" pra ver a pagina especifica no  localhost

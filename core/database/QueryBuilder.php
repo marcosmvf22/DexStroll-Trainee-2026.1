@@ -31,6 +31,21 @@ class QueryBuilder
         }
     }
 
+    public function selectAll($table)
+    {
+        $sql = "select * from {$table}";
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
     //função para contar quantidade de elemntos na tabela
     public function countAll($table)
     {
@@ -197,7 +212,7 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
-    
+
     public function delete($table, $id)
         {
             $sql = sprintf('DELETE FROM %s WHERE %s',
