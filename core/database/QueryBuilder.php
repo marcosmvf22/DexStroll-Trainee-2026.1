@@ -81,6 +81,38 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+    
+     public function selectOne($table, $id)
+    {
+         $sql = sprintf('SELECT * FROM %s WHERE id=:id LIMIT 1',$table);
+
+         try{
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['id' => $id]);
+
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        } catch (Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function update($table, $id, $parameters){
+        $sql = sprintf('UPDATE %s SET %s WHERE id = %s',
+        $table,
+        implode(', ', array_map(function($param){
+            return $param . ' = :' .$param;
+        }, array_keys($parameters))),
+        $id
+        );
+        try{
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($parameters);
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+        } catch (Exception $e){
+            die($e->getMessage());
+        }
+    }
 
     public function insertUser($table, $data)
     {
@@ -94,6 +126,23 @@ class QueryBuilder
                 $stmt->bindValue(":{$key}", $value);
             }
             return $stmt->execute();
+            } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    public function insert($table, $parameters){
+        $sql = sprintf('INSERT INTO %s (%s) VALUES (:%s)',
+        $table,
+        implode(', ', array_keys($parameters)),
+        implode(', :', array_keys($parameters)),
+        );
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($parameters);
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -148,11 +197,20 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
-
     
-    // public function selectOne($table, $where)
-    // {
-    //     $result = $this->selectWhere($table, $where);
-    //     return $result ? $result[0] : null;
-    // }
+    public function delete($table, $id)
+        {
+            $sql = sprintf('DELETE FROM %s WHERE %s',
+            $table,
+            'id = :id'    
+            );
+            
+            try{
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute(compact('id'));
+
+            } catch (Exception $e){
+                die($e->getMessage());
+            }
+        }
 }

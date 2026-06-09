@@ -1,7 +1,6 @@
 const filtro = document.querySelector('#filtroFundoModal');
-const checkbox = document.getElementById('toggle-curiosidade');
-const inputContainer = document.getElementById('input-container');
-
+const toggleCuriosidade = document.querySelector('#toggle-curiosidade');
+const grupoCuriosidade = document.querySelector('#input-container-curiosidade')
 
 function abrirModal(idModal){
     const modal = document.getElementById(idModal);
@@ -15,10 +14,10 @@ function fecharModal(idModal){
     filtro.style.display = "none";
 }
 
-checkbox.addEventListener('change', function() {
-  if (this.checked) {
-    inputContainer.classList.remove('hidden'); // Mostra o input
-  } else {
-    inputContainer.classList.add('hidden');    // Esconde o input
-  }
+toggleCuriosidade.addEventListener('change', function(){
+    if(toggleCuriosidade.checked){
+        grupoCuriosidade.style.display = "flex";
+    } else{
+        grupoCuriosidade.style.display = "none";
+    }
 });
