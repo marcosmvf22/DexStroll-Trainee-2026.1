@@ -145,7 +145,26 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
-    public function insert($table, $parameters){
+    public function verificaLogin($email, $senha){
+
+        $sql = sprintf('SELECT * FROM  usuarios WHERE email = :email AND senha = :senha');
+
+        try{
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([
+                'email' => $email,
+                'senha' => $senha
+            ]);
+
+            $user = $stmt->fetch(PDO::FETCH_OBJ);
+            return $user;
+
+        } catch (Exception $e){
+            die($e ->getMessage());
+        }
+    }
+
+     public function insert($table, $parameters){
         $sql = sprintf('INSERT INTO %s (%s) VALUES (:%s)',
         $table,
         implode(', ', array_keys($parameters)),

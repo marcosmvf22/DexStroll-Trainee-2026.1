@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['id'])){
+        header('Location: /login');
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -31,8 +41,9 @@
                     <button class="botao-dashboard"><i class="fa-solid fa-users"></i>Usuários</button>
                     <button class="botao-dashboard"><i class="fa-solid fa-border-all"></i>Publicações</button>
                 </div>
-                <button class="botao-logout-dashboard"><i
-                        class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
+                <form action="/logout" method="POST" class="form-dashboard">
+                    <button class="botao-logout-dashboard"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
+                </form>
             </div>
         </div>
     </main>
