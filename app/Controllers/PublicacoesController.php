@@ -7,25 +7,18 @@ use Exception;
 
 class PublicacoesController
 {
-   
-    //Read - CRUD -> Leitura das informações
     public function index()
     {
         $publicacoes = App::get('database')->selectAll('publicacao');
 
-        // Forçando o array manualmente sem usar o compact
         return view('admin/pagina_publicacoes', ['publicacoes' => $publicacoes]);
         exit;
     }
-    
 
-    //Update - CRUD -> Edição das informações
     public function edit()
     {
         $id = $_POST['id'];
-
         $post = App::get('database')->selectOne('publicacao', $id);
-
         $caminhodaimagem = $post->imagem;
 
         if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
@@ -45,22 +38,25 @@ class PublicacoesController
             'data' => $_POST['data'],
             'conteudo' => $_POST['conteudo'],
             'curiosidade' => $_POST['curiosidade'],
-            'data' => $_POST['data'],
+            'imagem' => $caminhodaimagem
         ];
-
-        $id = $_POST['id'];
         
-        App::get('database')->update('publicacao',$id, $parameters);
+        App::get('database')->update('publicacao', $id, $parameters);
         header('Location: /publicacoes');
         exit;
     }
+
     public function store()
     {
+        $caminhodaimagem = null;
+
+        if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
             $temporario = $_FILES['imagem']['tmp_name'];
             $nomeimagem = sha1(uniqid($_FILES['imagem']['name'], true)) . "." . pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
             $caminhodaimagem = "public/assets/imagensPosts/" . $nomeimagem;
 
             move_uploaded_file($temporario, $caminhodaimagem);
+        }
 
         $parameters = [
             'titulo' => $_POST['titulo'],
@@ -68,7 +64,7 @@ class PublicacoesController
             'data' => $_POST['data'],
             'conteudo' => $_POST['conteudo'],
             'curiosidade' => $_POST['curiosidade'],
-            'imagem' => $caminhodaimagem //para imagem de capa
+            'imagem' => $caminhodaimagem
         ];
 
         App::get('database')->insert('publicacao', $parameters);
@@ -76,11 +72,14 @@ class PublicacoesController
         exit;
     }
 
-
-    //Delete - CRUD -> Deleta uma informação do banco
     public function delete()
     {
         $id = $_POST['id'];
+
+        $post = App::get('database')->selectOne('publicacao', $id);
+        if($post && !empty($post->imagem) && file_exists($post->imagem)){
+            unlink($post->imagem);
+        }
 
         App::get('database')->delete('publicacao', $id);
 

@@ -32,7 +32,7 @@
         </div>
 
         <div id="editor-modal-editar">
-            <textarea class="summernoteEditar" name="conteudo"><?= $publicacao->descricao ?></textarea>
+            <textarea class="summernoteEditar" name="conteudo"><?= $publicacao->conteudo ?></textarea>
         </div>
 
         <div class="grupo-inputs-modal">
