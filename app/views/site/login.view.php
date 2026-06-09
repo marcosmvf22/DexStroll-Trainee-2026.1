@@ -1,4 +1,10 @@
+<?php
+    session_start();  
 
+    require 'vendor/autoload.php';
+    require 'core/bootstrap.php';
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -31,6 +37,18 @@
 
                     <h2 class="subtitulo-login">Bem-vindo de volta!</h2>
 
+                    <form action="/login" method="POST">
+                    <div class="mensagem-erro">
+                        <?php
+                        if (isset($_SESSION['mensagem-erro'])) {
+                            echo $_SESSION['mensagem-erro'];
+
+                            unset($_SESSION['mensagem-erro']);
+                        }
+                        ?>
+
+                    </div>
+
                     <div class="campos-login">
                         <p class="descricao-login">Email</p>
                         <label class="label-login">
@@ -47,13 +65,15 @@
                                 <i id="icone-senha" class="fa-solid fa-lock"></i>
                                 <span class="line-login"></span>
                             </div>
-                            <input id="senha" name="senha" type="senha" class="input-login">
+                            <input id="senha" name="senha" type="password" class="input-login">
                         </label>
                     </div>
 
                     <button class="botao-login">Login</button>
+                    </form>
                     <p class="texto-login">Não possui uma conta? <a class="texto-link-login">CADASTRE-SE</a></p>
                 </div>
+
 
                 <div class="box2-login">
                     <img class="img-login" src="/public/assets/logo.png" alt="">
@@ -70,6 +90,14 @@
 
                     <h2 class="subtitulo-login">Registre-se aqui.</h2>
 
+                    <form action="/login/create" method="POST">
+                          <?php
+                        if (isset($_SESSION['mensagem-erro'])) {
+                            echo $_SESSION['mensagem-erro'];
+
+                            unset($_SESSION['mensagem-erro']);
+                        }
+                        ?>
                     <div class="campos-login">
                         <p class="descricao-cadastro">Nome</p>
                         <label class="label-cadastro">
@@ -95,7 +123,7 @@
                                 <i id="icone-senha-cadastro" class="fa-solid fa-lock"></i>
                                 <span class="line-cadastro"></span>
                             </div>
-                            <input id="senha" name="senha" type="senha" class="input-login">
+                            <input id="senha" name="senha" type="password" class="input-login">
                         </label>
 
                         <p class="descricao-cadastro">Confirme a senha</p>
@@ -104,11 +132,12 @@
                                 <i id="icone-senha-cadastro" class="fa-solid fa-lock"></i>
                                 <span class="line-cadastro"></span>
                             </div>
-                            <input id="confirmaSenha" name="confirmaSenha" type="confirmaSenha" class="input-login">
+                            <input id="confirmaSenha" name="confirmaSenha" type="password" class="input-login">
                         </label>
                     </div>
 
                     <button class="botao-cadastro">Cadastrar</button>
+                </form>
                 </div>
 
                 <div class="box2-cadastro">

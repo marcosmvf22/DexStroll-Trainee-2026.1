@@ -6,6 +6,6 @@ class dashboardcontroller
 {
     public function index()
     {
-        return view('admin/Dashboard');
+        return view('admin/dashboard');
     }
 }
