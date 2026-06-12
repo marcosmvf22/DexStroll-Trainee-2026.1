@@ -1,6 +1,17 @@
 <?php
 
 namespace App\Controllers;
+// 
+// 
+// 
+// 
+// NÃO TÁ COM PASSWORD_VERIFY, LOGO  NAO FUNCIONA  
+// DO JEITO QUE TACRIANDO USUARIO
+// NA TABELA DE USUARIOS
+// 
+// 
+// 
+// 
 
 use App\Core\App;
 use Exception;
