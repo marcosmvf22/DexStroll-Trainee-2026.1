@@ -145,16 +145,14 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
-    public function verificaLogin($email, $senha){
+    
+    public function verificaLogin($email){
 
-        $sql = sprintf('SELECT * FROM  usuarios WHERE email = :email AND senha = :senha');
+        $sql = sprintf('SELECT * FROM usuarios WHERE email = :email LIMIT 1');
 
         try{
             $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([
-                'email' => $email,
-                'senha' => $senha
-            ]);
+            $stmt->execute(['email' => $email,]);
 
             $user = $stmt->fetch(PDO::FETCH_OBJ);
             return $user;
@@ -164,7 +162,7 @@ class QueryBuilder
         }
     }
 
-     public function insert($table, $parameters){
+    public function insert($table, $parameters){
         $sql = sprintf('INSERT INTO %s (%s) VALUES (:%s)',
         $table,
         implode(', ', array_keys($parameters)),
@@ -233,18 +231,18 @@ class QueryBuilder
     }
 
     public function delete($table, $id)
-        {
-            $sql = sprintf('DELETE FROM %s WHERE %s',
-            $table,
-            'id = :id'    
-            );
-            
-            try{
-                $stmt = $this->pdo->prepare($sql);
-                $stmt->execute(compact('id'));
-
-            } catch (Exception $e){
-                die($e->getMessage());
-            }
+    {
+        $sql = sprintf('DELETE FROM %s WHERE %s',
+        $table,
+        'id = :id'    
+        );
+        
+        try{
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(compact('id'));
+    
+        } catch (Exception $e){
+            die($e->getMessage());
         }
+    }
 }
