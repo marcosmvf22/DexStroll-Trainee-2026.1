@@ -40,3 +40,6 @@ $router->post('login', 'LoginController@efetuaLogin');
 $router->post('logout', 'LoginController@logout');
 $router->post('login/create', 'LoginController@store');
 
+// abaixo executa função para  encher o banco de  usuario de nome aleatorio pra  teste
+
+$router->get('usuarios/popular', 'listadeusuarioscontroller@popularBanco');

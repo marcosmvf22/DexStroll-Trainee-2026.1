@@ -45,7 +45,7 @@ class listadeusuarioscontroller
             'currentPage' => $currentPage,
             'totalPage' => $totalPages,
             'totalUsuarios' => $totalUsuarios,
-            'pesquisa' => $pesquisa // Adicionado aqui
+            'pesquisa' => $pesquisa 
         ]);
     }
 
@@ -197,6 +197,48 @@ class listadeusuarioscontroller
         exit();
     }
 
+
+
+
+    // POPULAR O BANCO ENCHER DE USUARIO PARA TESTE
+        public function popularBanco()
+    {
+//achei um gerador de nomes  aleatorios para  teste, e  enfiei aqui
+    $nomes = ['Kael', 'Ivan', 'Bruce', 'Paul', 'Serj', 'Isadora', 'Ana', 'Guilherme', 'José', 'João'];
+        $sobrenomes = ['Turguêniev', 'Dickinson', 'DiAnno', 'Tankian', 'Simões', 'Nicácio', 'Silva', 'Santos', 'Oliveira'];
+
+        
+        $senhaPadrao = password_hash('123456', PASSWORD_DEFAULT);
+
+
+        $quantidade = 50;
+
+        for ($i = 0; $i < $quantidade; $i++) {
+            $nomeRandom = $nomes[array_rand($nomes)];
+            $sobrenomeRandom = $sobrenomes[array_rand($sobrenomes)];
+            
+
+            $nomeCompleto = $nomeRandom . ' ' . $sobrenomeRandom;
+
+            $username = strtolower($nomeRandom) . rand(1000, 9999); 
+            $email = $username . '@teste.com';
+
+            $dados = [
+                'username' => $username,
+                'nome'     => $nomeCompleto,
+                'email'    => $email,
+                'senha'    => $senhaPadrao,
+                'avatar'   => '/public/assets/default-avatar.png'
+            ];
+
+
+            \App\Core\App::get('database')->insertUser('usuarios', $dados);
+        }
+
+
+        header('Location: /usuarios?sucesso=banco_populado');
+        exit();
+    }
    
     
     // public function getUsuarioJson()
