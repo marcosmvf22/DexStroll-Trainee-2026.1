@@ -1,4 +1,13 @@
-<?php if($totalPage > 1): ?>
+<?php if($totalPage == 1): ?>
+
+<div class="paginacao-container">
+    <ul class="paginacao">
+        <li>
+            <a class="active"><?= $totalPage ?></a>
+        </li>
+    </ul>
+</div>
+<?php elseif($totalPage >= 1): ?>
     <div class="paginacao-container">
         <ul class="paginacao">
             <li>
