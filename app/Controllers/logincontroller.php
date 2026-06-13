@@ -13,12 +13,13 @@ class LoginController
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        $user = App::get('database') -> verificaLogin(
-            $email,
-            $senha
-        );
+        $user = App::get('database') -> verificaLogin($email);
+        
 
-        if($user != false){
+
+        if ($user && password_verify($senha, $user->senha)) 
+        {
+
             session_start();
 
             $_SESSION['id'] = $user->id;
@@ -26,10 +27,14 @@ class LoginController
             header('Location: /dashboard');
             exit();
         }
-        else{
+        else 
+        {
+
             session_start();
+
             $_SESSION['mensagem-erro'] = 'Usuário ou senha incorretos!';
             header('Location: /login');
+            exit();
         }
 
     }
@@ -54,9 +59,22 @@ class LoginController
     public function store(){
          $parameters = [
             'nome' => $_POST['nome'],
+            'username' => $_POST['username'],
             'email' => $_POST['email'],
-            'senha' => $_POST['senha'],
+            'senha' => password_hash($_POST['senha'], PASSWORD_DEFAULT),
         ];
+
+        $existe = App::get('database')->selectWhereUser(
+            'usuarios',
+            ['email' => $_POST['email']]
+        );
+
+        if ($existe) {
+            session_start();
+            $_SESSION['mensagem-erro'] = 'Email já cadastrado.';
+            header('Location: /login');
+            exit();
+        }
 
         if($_POST['senha'] == $_POST['confirmaSenha']){
              App::get('database')->insert('usuarios',$parameters);
