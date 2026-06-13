@@ -20,135 +20,32 @@
       <h1 class="postpagetitle">Últimas Postagens</h1>
 
       <section class="grade_posts">
-        <article class="publicacao">
-          <div class="fotodopost"></div>
-          <div class="conteudopost">
-            <time class="posts-card-data" datetime="2026-04-27"
-              >Abril 27, 2026</time
-            >
-            <h2 class="titulopost">Título da Publicação</h2>
-            <p class="nomeautorpost">Fulano que escreveu</p>
+        <?php foreach ($publicacoes as $post) : ?>
+          <article class="publicacao">
+            <div class="fotodopost">
+              <img 
+                src="<?= !empty($post->imagem) ? $post->imagem : '/public/assets/default-post.png' ?>" 
+                alt="Capa da publicação" 
+                style="width: 100%; height: 100%; object-fit: cover;"
+              >
+            </div>
+            
+            <div class="conteudopost">
+              <time class="posts-card-data" datetime="<?= $post->data ?>">
+                <?= date('d/m/Y', strtotime($post->data)) ?>
+              </time>
+              
+              <h2 class="titulopost"><?= htmlspecialchars($post->titulo) ?></h2>
+              <p class="nomeautorpost">Autor: <?= htmlspecialchars($post->autor) ?></p>
 
-            <p class="manchetedopost">
-              Aqui está o resuminho da publicação, alguma coisa tipo um texto
-              muito importante que eu deveria ter pego lorem ipsun
-            </p>
-            <a href="/postagem" class="lermais-botao">Ler Mais</a>
-          </div>
-        </article>
-
-        <article class="publicacao">
-          <div class="fotodopost"></div>
-          <div class="conteudopost">
-            <time class="posts-card-data" datetime="2026-04-27"
-              >Abril 27, 2026</time
-            >
-            <h2 class="titulopost">Título da Publicação</h2>
-            <p class="nomeautorpost">Fulano que escreveu</p>
-
-            <p class="manchetedopost">
-              Aqui está o resuminho da publicação, alguma coisa tipo um texto
-              muito importante que eu deveria ter pego lorem ipsun
-            </p>
-            <button class="lermais-botao">Ler Mais</button>
-          </div>
-        </article>
-        <article class="publicacao">
-          <div class="fotodopost"></div>
-          <div class="conteudopost">
-            <time class="posts-card-data" datetime="2026-04-27"
-              >Abril 27, 2026</time
-            >
-            <h2 class="titulopost">Título da Publicação</h2>
-            <p class="nomeautorpost">Fulano que escreveu</p>
-
-            <p class="manchetedopost">
-              Aqui está o resuminho da publicação, alguma coisa tipo um texto
-              muito importante que eu deveria ter pego lorem ipsun
-            </p>
-            <button class="lermais-botao">Ler Mais</button>
-          </div>
-        </article>
-        <article class="publicacao">
-          <div class="fotodopost"></div>
-          <div class="conteudopost">
-            <time class="posts-card-data" datetime="2026-04-27"
-              >Abril 27, 2026</time
-            >
-            <h2 class="titulopost">Título da Publicação</h2>
-            <p class="nomeautorpost">Fulano que escreveu</p>
-
-            <p class="manchetedopost">
-              Aqui está o resuminho da publicação, alguma coisa tipo um texto
-              muito importante que eu deveria ter pego lorem ipsun
-            </p>
-            <button class="lermais-botao">Ler Mais</button>
-          </div>
-        </article>
-        <article class="publicacao">
-          <div class="fotodopost"></div>
-          <div class="conteudopost">
-            <time class="posts-card-data" datetime="2026-04-27"
-              >Abril 27, 2026</time
-            >
-            <h2 class="titulopost">Título da Publicação</h2>
-            <p class="nomeautorpost">Fulano que escreveu</p>
-
-            <p class="manchetedopost">
-              Aqui está o resuminho da publicação, alguma coisa tipo um texto
-              muito importante que eu deveria ter pego lorem ipsun
-            </p>
-            <button class="lermais-botao">Ler Mais</button>
-          </div>
-        </article>
-        <article class="publicacao">
-          <div class="fotodopost"></div>
-          <div class="conteudopost">
-            <time class="posts-card-data" datetime="2026-04-27"
-              >Abril 27, 2026</time
-            >
-            <h2 class="titulopost">Título da Publicação</h2>
-            <p class="nomeautorpost">Fulano que escreveu</p>
-
-            <p class="manchetedopost">
-              Aqui está o resuminho da publicação, alguma coisa tipo um texto
-              muito importante que eu deveria ter pego lorem ipsun
-            </p>
-            <button class="lermais-botao">Ler Mais</button>
-          </div>
-        </article>
-        <article class="publicacao">
-          <div class="fotodopost"></div>
-          <div class="conteudopost">
-            <time class="posts-card-data" datetime="2026-04-27"
-              >Abril 27, 2026</time
-            >
-            <h2 class="titulopost">Título da Publicação</h2>
-            <p class="nomeautorpost">Fulano que escreveu</p>
-
-            <p class="manchetedopost">
-              Aqui está o resuminho da publicação, alguma coisa tipo um texto
-              muito importante que eu deveria ter pego lorem ipsun
-            </p>
-            <button class="lermais-botao">Ler Mais</button>
-          </div>
-        </article>
-        <article class="publicacao">
-          <div class="fotodopost"></div>
-          <div class="conteudopost">
-            <time class="posts-card-data" datetime="2026-04-27"
-              >Abril 27, 2026</time
-            >
-            <h2 class="titulopost">Título da Publicação</h2>
-            <p class="nomeautorpost">Fulano que escreveu</p>
-
-            <p class="manchetedopost">
-              Aqui está o resuminho da publicação, alguma coisa tipo um texto
-              muito importante que eu deveria ter pego lorem ipsun
-            </p>
-            <button class="lermais-botao">Ler Mais</button>
-          </div>
-        </article>
+              <p class="manchetedopost">
+                <?= mb_strimwidth(strip_tags($post->conteudo), 0, 100, "...") ?>
+              </p>
+              
+              <a href="/postagem?id=<?= $post->id ?>" class="lermais-botao">Ler Mais</a>
+            </div>
+          </article>
+        <?php endforeach; ?>
       </section>
 
       <div class="paginacao-posts">

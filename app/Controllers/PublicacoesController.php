@@ -45,7 +45,7 @@ class PublicacoesController
             'data' => $_POST['data'],
             'descricao' => $_POST['conteudo'],
             'curiosidade' => $_POST['curiosidade'],
-            'data' => $_POST['data'],
+            
         ];
 
         $id = $_POST['id'];
@@ -66,7 +66,7 @@ class PublicacoesController
             'titulo' => $_POST['titulo'],
             'autor' => $_POST['autor'] ?? 1,
             'data' => $_POST['data'],
-            'descricao' => $_POST['conteudo'],
+            'conteudo' => $_POST['conteudo'],
             'curiosidade' => $_POST['curiosidade'],
             'imagem' => $caminhodaimagem //para imagem de capa
         ];
