@@ -12,11 +12,11 @@
          <!-- Perfil de usuario -->
         <div class="sidebar-perfilUsuario">
             <a href="#">
-                <img src="../../../public/assets/fundo-falso.jpg" alt="imagem de perfil">
+                <img src="<?= $usuarioLogado->avatar ?>" alt="imagem de perfil">
             </a>
             <div class="info-perfilUsuario">
-                <p>Adiministrador</p>
-                <p>email@gmail.com</p>
+                <p><?= $usuarioLogado->username ?></p>
+                <p><?= $usuarioLogado->email ?></p>
             </div>
         </div>
     </div>
@@ -62,23 +62,24 @@
     <div class="sidebar-bottom">
 
         <!-- Perfil de usuario -->
-        <div class="sidebar-perfilUsuario">
+       <div class="sidebar-perfilUsuario">
             <a href="#">
-                <img src="../../../public/assets/fundo-falso.jpg" alt="imagem de perfil">
+                <img src="<?= $usuarioLogado->avatar ?>" alt="imagem de perfil">
             </a>
             <div class="info-perfilUsuario">
-                <p>Adiministrador</p>
-                <p>email@gmail.com</p>
+                <p><?= $usuarioLogado->username ?></p>
+                <p><?= $usuarioLogado->email ?></p>
             </div>
-            
         </div>
 
         <!-- Botão de logout -->
         <div class="sidebar-logout">
-            <a href="/login" class="sidebar-logout-links">
-                <i class="material-icons">logout</i>
-                <span class="descricao-logout">Logout</span>
-            </a>
+            <form action="/logout" method="POST" class="form-sidebar">
+                <button class="botao-logout-sidebar">
+                    <i class="material-icons">logout</i>
+                    <span class="descricao-logout">Logout</span>
+                </button>
+            </form>
         </div>
     </div>
 </nav>
