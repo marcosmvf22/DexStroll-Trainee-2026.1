@@ -9,10 +9,45 @@ class PublicacoesController
 {
     public function index()
     {
-        $publicacoes = App::get('database')->selectAll('publicacao');
+        // $publicacoes = App::get('database')->selectAll('publicacao');
 
-        return view('admin/pagina_publicacoes', ['publicacoes' => $publicacoes]);
-        exit;
+        // return view('admin/pagina_publicacoes', ['publicacoes' => $publicacoes]);
+        // exit;
+
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $usuarioLogado = App::get('database')->selectOne(
+            'usuarios',
+            $_SESSION['id']
+        );
+
+        $database = App::get('database');
+
+        $limit = 6;
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        if($currentPage < 1){
+            $currentPage = 1;
+        }
+
+        $offset = ($currentPage - 1) * $limit;
+
+        $totalPosts = $database->countAll('publicacao');
+        $totalPages = ceil($totalPosts/$limit);
+
+        $postsDoBanco = $database->paginate('publicacao',$limit,$offset);
+
+        return view('admin/pagina_publicacoes', [
+            'publicacoes' => $postsDoBanco,
+            'currentPage' => $currentPage,
+            'totalPage' => $totalPages,
+            'totalPosts' => $totalPosts,
+            'usuarioLogado' => $usuarioLogado
+        ]);
+
+        exit();
     }
 
     public function edit()
@@ -48,6 +83,8 @@ class PublicacoesController
 
     public function store()
     {
+        session_start();
+
         $caminhodaimagem = null;
 
         if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
@@ -60,7 +97,7 @@ class PublicacoesController
 
         $parameters = [
             'titulo' => $_POST['titulo'],
-            'autor' => $_POST['autor'] ?? 1,
+            'autor' => $_SESSION['id'],
             'data' => $_POST['data'],
             'conteudo' => $_POST['conteudo'],
             'curiosidade' => $_POST['curiosidade'],

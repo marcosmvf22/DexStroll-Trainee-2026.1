@@ -17,17 +17,22 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" 
+    />
 
+    <!-- CSS sidebar -->
+    <link rel="stylesheet" href="../../../public/css/Sidebar.css">
+     
     <title>Painel - DexStroll</title>
 </head>
 
 <body class="body-pagina-publicacao">
+    <? require 'Sidebar.view.php' ?>
     <div class="filtro" id="filtroFundoModal"></div>
     <div class="pagina-publicacao">
         <header class="header-pag-publicacao">
             <h1>Publicações</h1>
-            <h3><?= count($publicacoes) ?> publicações encontradas</h3>
+            <h3><?= $totalPosts?> publicações encontradas</h3>
         </header>
 
         <div class="card-tabela">
@@ -68,12 +73,7 @@
                     <?php endforeach ?>
                 </tbody>
             </table>
-        </div>
-
-        <div class="paginacao">
-            <button class="btn-pag">&lt;</button>
-            <button class="btn-pag ativo">1</button>
-            <button class="btn-pag">&gt;</button>
+            <?php require 'paginacao.view.php' ?>
         </div>
     </div>
 
@@ -90,5 +90,6 @@
     <script src="/public/js/summernoteConfig.js"></script>
     <script src="/public/js/codigoModalPublicacoes.js"></script>
 </body>
-
+<!-- JS sidebar -->
+  <script src="/public/js/Sidebar.js"></script>
 </html>

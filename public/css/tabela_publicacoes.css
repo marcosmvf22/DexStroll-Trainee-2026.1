@@ -151,17 +151,24 @@
 /* Paginação */
 .paginacao {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-top: 25px;
+    list-style: none;
+    margin: 8px;
 }
 
-.btn-pag {
+.paginacao-container{
+    display: flex;
+    justify-content: center;
+}
+
+.paginacao li{
+    margin: 0 5px;
+}
+
+.paginacao a {
     background: none;
     border: none;
     font-size: 16px;
-    color: var(--azul);
+    color: white;
     cursor: pointer;
     width: 32px;
     height: 32px;
@@ -171,16 +178,26 @@
     border-radius: 6px;
     font-weight: 500;
     transition: all 0.2s;
+
+    text-decoration: none;
+    padding: 8px 12px;
 }
 
-.btn-pag.ativo {
-    background-color: var(--azul-marinho);
-    color: var(--branco-neve);
-    font-weight: 600;
+.paginacao a.active{
+    background-color: var(--azul);
+    color: white;
+    border-color: var(--azul-claro);
 }
 
-.btn-pag:hover:not(.ativo) {
-    background-color: rgba(17, 34, 64, 0.1);
+.paginacao a.disable{
+    color: #ccc;
+    pointer-events: none;
+}
+
+.paginacao span.dots{
+    padding: 8px 12px;
+    color: #ccc;
+    pointer-events: none;
 }
 
 /* Modal CRIAR */
