@@ -14,6 +14,15 @@ class listadeusuarioscontroller
     {
         // $usuariosDoBanco = App::get('database')->selectAll('usuarios');
 
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $usuarioLogado = App::get('database')->selectOne(
+            'usuarios',
+            $_SESSION['id']
+        );
+
         $database = App::get('database');
 
         $limit = 6;
@@ -34,7 +43,8 @@ class listadeusuarioscontroller
             'usuarios' => $usuariosDoBanco,
             'currentPage' => $currentPage,
             'totalPage' => $totalPages,
-            'totalUsuarios' => $totalUsuarios
+            'totalUsuarios' => $totalUsuarios,
+            'usuarioLogado' => $usuarioLogado
         ]);
     }
 
