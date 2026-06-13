@@ -10,10 +10,8 @@ class listadeusuarioscontroller
     // aqui defini algumas  funcoes para poder pegar do  banco de dados, e funcionar no controller
     // ao  invés da view no JS, que era temporario so pra mostrar pro cliente
     
-    public function index()
+   public function index()
     {
-        // $usuariosDoBanco = App::get('database')->selectAll('usuarios');
-
         $database = App::get('database');
 
         $limit = 6;
@@ -25,16 +23,29 @@ class listadeusuarioscontroller
 
         $offset = ($currentPage - 1) * $limit;
 
-        $totalUsuarios = $database->countAll('usuarios');
-        $totalPages = ceil($totalUsuarios/$limit);
 
-        $usuariosDoBanco = $database->paginate('usuarios',$limit,$offset);
+        $pesquisa = isset($_GET['pesquisa']) ? trim($_GET['pesquisa']) : '';
+
+
+        if ($pesquisa !== '') {
+
+        $totalUsuarios = $database->countSearch('usuarios', $pesquisa);
+            $totalPages = ceil($totalUsuarios / $limit);
+            $usuariosDoBanco = $database->paginateSearch('usuarios', $pesquisa, $limit, $offset);
+        } else {
+
+        $totalUsuarios = $database->countAll('usuarios');
+            $totalPages = ceil($totalUsuarios / $limit);
+            $usuariosDoBanco = $database->paginate('usuarios', $limit, $offset);
+        }
+
 
         return view('admin/listadeusuarios', [
             'usuarios' => $usuariosDoBanco,
             'currentPage' => $currentPage,
             'totalPage' => $totalPages,
-            'totalUsuarios' => $totalUsuarios
+            'totalUsuarios' => $totalUsuarios,
+            'pesquisa' => $pesquisa // Adicionado aqui
         ]);
     }
 

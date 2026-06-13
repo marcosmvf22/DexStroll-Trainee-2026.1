@@ -50,12 +50,12 @@ class QueryBuilder
     public function countAll($table)
     {
         $sql = "SELECT COUNT(*) AS total FROM {$table}";
-        
-        try{
+
+        try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
-    
+
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -64,7 +64,7 @@ class QueryBuilder
     public function paginate($table, $limit, $offset)
     {
         $sql = "SELECT * FROM {$table} LIMIT {$limit} OFFSET {$offset}";
-        
+
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -77,7 +77,7 @@ class QueryBuilder
 
     // isso aqui, como marcos tinha dito em aguma daily, foi meioque copia e cola da documentação,
     // mas tive  que adaptar pro contexto do DB nosso
-    
+
     //Função pra pegar info do banco de dados
     public function selectWhereUser($table, $where)
     {
@@ -96,35 +96,37 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
-    
-     public function selectOne($table, $id)
-    {
-         $sql = sprintf('SELECT * FROM %s WHERE id=:id LIMIT 1',$table);
 
-         try{
+    public function selectOne($table, $id)
+    {
+        $sql = sprintf('SELECT * FROM %s WHERE id=:id LIMIT 1', $table);
+
+        try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['id' => $id]);
 
             return $stmt->fetch(PDO::FETCH_OBJ);
-        } catch (Exception $e){
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
-    public function update($table, $id, $parameters){
-        $sql = sprintf('UPDATE %s SET %s WHERE id = %s',
-        $table,
-        implode(', ', array_map(function($param){
-            return $param . ' = :' .$param;
-        }, array_keys($parameters))),
-        $id
+    public function update($table, $id, $parameters)
+    {
+        $sql = sprintf(
+            'UPDATE %s SET %s WHERE id = %s',
+            $table,
+            implode(', ', array_map(function ($param) {
+                return $param . ' = :' . $param;
+            }, array_keys($parameters))),
+            $id
         );
-        try{
+        try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute($parameters);
 
             return $stmt->fetchAll(PDO::FETCH_CLASS);
-        } catch (Exception $e){
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
@@ -141,15 +143,16 @@ class QueryBuilder
                 $stmt->bindValue(":{$key}", $value);
             }
             return $stmt->execute();
-            } catch (Exception $e) {
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
-    public function verificaLogin($email, $senha){
+    public function verificaLogin($email, $senha)
+    {
 
         $sql = sprintf('SELECT * FROM  usuarios WHERE email = :email AND senha = :senha');
 
-        try{
+        try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([
                 'email' => $email,
@@ -159,16 +162,18 @@ class QueryBuilder
             $user = $stmt->fetch(PDO::FETCH_OBJ);
             return $user;
 
-        } catch (Exception $e){
-            die($e ->getMessage());
+        } catch (Exception $e) {
+            die($e->getMessage());
         }
     }
 
-     public function insert($table, $parameters){
-        $sql = sprintf('INSERT INTO %s (%s) VALUES (:%s)',
-        $table,
-        implode(', ', array_keys($parameters)),
-        implode(', :', array_keys($parameters)),
+    public function insert($table, $parameters)
+    {
+        $sql = sprintf(
+            'INSERT INTO %s (%s) VALUES (:%s)',
+            $table,
+            implode(', ', array_keys($parameters)),
+            implode(', :', array_keys($parameters)),
         );
 
         try {
@@ -195,7 +200,7 @@ class QueryBuilder
             $whereParts[] = "$col = :where_$col";
         }
         $whereClause = implode(' AND ', $whereParts);
-        
+
         $sql = "UPDATE {$table} SET {$setClause} WHERE {$whereClause}";
 
         try {
@@ -233,18 +238,60 @@ class QueryBuilder
     }
 
     public function delete($table, $id)
-        {
-            $sql = sprintf('DELETE FROM %s WHERE %s',
+    {
+        $sql = sprintf(
+            'DELETE FROM %s WHERE %s',
             $table,
-            'id = :id'    
-            );
-            
-            try{
-                $stmt = $this->pdo->prepare($sql);
-                $stmt->execute(compact('id'));
+            'id = :id'
+        );
 
-            } catch (Exception $e){
-                die($e->getMessage());
-            }
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(compact('id'));
+
+        } catch (Exception $e) {
+            die($e->getMessage());
         }
+    }
+
+// funcaozinha pra contar os resultados
+    public function countSearch($table, $termo)
+    {
+
+        $sql = "SELECT COUNT(*) AS total FROM {$table} 
+                WHERE username LIKE :termo 
+                OR nome LIKE :termo 
+                OR email LIKE :termo";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->bindValue(':termo', '%' . $termo . '%');
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ)->total;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function paginateSearch($table, $termo, $limit, $offset)
+    {
+        $sql = "SELECT * FROM {$table} 
+                WHERE username LIKE :termo 
+                OR nome LIKE :termo 
+                OR email LIKE :termo 
+                LIMIT :limit OFFSET :offset";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            
+
+            $stmt->bindValue(':termo', '%' . $termo . '%', PDO::PARAM_STR);
+            $stmt->bindValue(':limit', (int) $limit, PDO::PARAM_INT);
+            $stmt->bindValue(':offset', (int) $offset, PDO::PARAM_INT);
+            
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }

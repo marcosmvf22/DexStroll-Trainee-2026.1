@@ -572,3 +572,57 @@ separado, troquei tudo  que era "publicacao" para "usuario" e também ajustei al
         font-size: 0px;
     }
 }
+
+
+/* tentativa de estilizar a busca de usuario */
+
+/* isso aqui ta duplicado porem vou organizar depois */
+.topo-tabela {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    gap: 20px;
+    padding: 25px 30px 15px 30px;
+}
+
+
+.pesquisausuario {
+    margin: 0;
+}
+
+.grupo-busca {
+    display: flex;
+    align-items: center;
+    background-color: var(--branco-neve);
+    border-radius: 20px; 
+    padding: 5px 15px;
+    height: 40px;
+}
+
+.input-busca-admin {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    width: 260px; 
+    color: var(--preto);
+}
+
+.btn-busca-admin {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--azul-marinho);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+}
+
+.btn-busca-admin:hover {
+    color: var(--azul);
+}
+
+.btn-busca-admin .material-icons {
+    font-size: 20px;
+}

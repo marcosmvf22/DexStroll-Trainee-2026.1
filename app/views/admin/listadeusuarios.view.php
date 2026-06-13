@@ -29,6 +29,19 @@
 
         <div class="card-tabela">
           <div class="topo-tabela">
+            <form action="/usuarios" method="GET" class="pesquisausuario">
+              <div class="grupo-busca">
+                <input 
+                  type="text" 
+                  name="pesquisa" 
+                  placeholder="Buscar por nome, usuário ou email..." 
+                  value="<?= isset($_GET['pesquisa']) ? htmlspecialchars($_GET['pesquisa']) : '' ?>"
+                  class="input-busca-admin">
+                  <button type="submit" class="btn-busca-admin" title="Pesquisar">
+                  <span class="material-icons">search</span>
+                </button>
+              </div>
+            </form>
             <button class="criar-usuario-admin" id="btn-abrir-modal">
               <span class="material-icons">person_add</span>
               Adicionar Usuário
