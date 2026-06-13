@@ -1,83 +1,71 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../public/css/footer.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">   
-    <title>-Footer - DexStroll</title>
-</head>
-<body>
-    <!-- Filtro do modal -->
-    <div class="filtro-footer" id="filtro"></div>
 
-    <!-- Footer -->
-    <footer> 
+<!-- Filtro do modal -->
+<div class="filtro-footer" id="filtro"></div>
 
-        <!-- Redes sociais -->
-        <div class="redes_sociais">
-            <h1>Redes</h1>
-            <div class="icones">
+<!-- Footer -->
+<footer> 
 
-                <a href="#">
-                    <i class="fab fa-facebook"></i>
-                </a>
+    <!-- Redes sociais -->
+    <div class="redes_sociais">
+        <h1>Redes</h1>
+        <div class="icones">
 
-                <a href="#">
-                    <i class="fab fa-twitter"></i>
-                </a>
-
-                <a href="#">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Logos -->
-        <div class="assinatura">
-            <a href="">
-                <img class="logo_dexstroll_footer" src="../../../public/assets/dexstroll-logo.png" alt="Logo DexStroll">
+            <a href="#">
+                <i class="fab fa-facebook"></i>
             </a>
-            <a href="">
-                <img class="logo_code_footer" src="../../../public/assets/code-logo.png" alt="Logo CodeJR">
-            </a>
-        </div>
 
-        <!-- Contato e Botao de politicas -->
-        <div class="contato-politica">
-            <div class="contato">
-                <h1>Contato</h1>
-                <address class="contatos">
-                    (00)0000-0000 <br>
-                    email@email.com
-                </address>
-            </div>
-            <div class="politica">
-                <button type="button" onclick="abrirModal('modal-visualizar')">Politicas</button>
-            </div>
-        </div>
-    </footer>
-    
-    
-    <!-- Modal com missão, visão e valores -->
-    <div class="modal-container" id="modal-visualizar">
-        <!-- Botão para fechar modal -->
-        <button class="fechar-modal" type="button" onclick="fecharModal('modal-visualizar')">X</button>
-        <div class="diretrizes">
-            <div class="conteudo-diretriz">
-                <h1>Missão</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tenetur iure magnam recusandae beatae, ipsam quas non voluptatem, harum cumque velit ullam consequatur soluta quo nihil similique. Architecto, labore nihil!</p>
-            </div>
-            <div class="conteudo-diretriz">
-                <h1>Visão</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum tempore distinctio et, explicabo officia magni? Ut sequi maiores, illo, impedit, quo dolorum at fugiat facere corporis perspiciatis quod reprehenderit dicta.</p>
-            </div>
-            <div class="conteudo-diretriz">
-                <h1>Valores</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium amet error voluptatem dicta odio dolor quo obcaecati magni explicabo quaerat velit, architecto reprehenderit saepe maiores pariatur, sapiente tempore. Natus, eius.</p>
-            </div>
+            <a href="#">
+                <i class="fab fa-twitter"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-instagram"></i>
+            </a>
         </div>
     </div>
-</body>
-<script src="../../../public/js/footer.js"></script>
-</html>
+
+    <!-- Logos -->
+    <div class="assinatura">
+        <a href="">
+            <img class="logo_dexstroll_footer" src="../../../public/assets/dexstroll-logo.png" alt="Logo DexStroll">
+        </a>
+        <a href="">
+            <img class="logo_code_footer" src="../../../public/assets/code-logo.png" alt="Logo CodeJR">
+        </a>
+    </div>
+
+    <!-- Contato e Botao de politicas -->
+    <div class="contato-politica">
+        <div class="contato">
+            <h1>Contato</h1>
+            <address class="contatos">
+                (00)0000-0000 <br>
+                email@email.com
+            </address>
+        </div>
+        <div class="politica">
+            <button type="button" onclick="abrirModal('modal-visualizar')">Politicas</button>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Modal com missão, visão e valores -->
+<div class="modal-container" id="modal-visualizar">
+    <!-- Botão para fechar modal -->
+    <button class="fechar-modal" type="button" onclick="fecharModal('modal-visualizar')">X</button>
+    <div class="diretrizes">
+        <div class="conteudo-diretriz">
+            <h1>Missão</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tenetur iure magnam recusandae beatae, ipsam quas non voluptatem, harum cumque velit ullam consequatur soluta quo nihil similique. Architecto, labore nihil!</p>
+        </div>
+        <div class="conteudo-diretriz">
+            <h1>Visão</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum tempore distinctio et, explicabo officia magni? Ut sequi maiores, illo, impedit, quo dolorum at fugiat facere corporis perspiciatis quod reprehenderit dicta.</p>
+        </div>
+        <div class="conteudo-diretriz">
+            <h1>Valores</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium amet error voluptatem dicta odio dolor quo obcaecati magni explicabo quaerat velit, architecto reprehenderit saepe maiores pariatur, sapiente tempore. Natus, eius.</p>
+        </div>
+    </div>
+</div>
