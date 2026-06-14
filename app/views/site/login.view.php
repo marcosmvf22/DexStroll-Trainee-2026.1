@@ -91,53 +91,62 @@
                     <h2 class="subtitulo-login">Registre-se aqui.</h2>
 
                     <form action="/login/create" method="POST">
-                          <?php
-                        if (isset($_SESSION['mensagem-erro'])) {
-                            echo $_SESSION['mensagem-erro'];
+                        <?php
+                            if (isset($_SESSION['mensagem-erro'])) {
+                                echo $_SESSION['mensagem-erro'];
 
-                            unset($_SESSION['mensagem-erro']);
-                        }
+                                unset($_SESSION['mensagem-erro']);
+                            }
                         ?>
-                    <div class="campos-login">
-                        <p class="descricao-cadastro">Nome</p>
-                        <label class="label-cadastro">
-                            <div class="elementos-input">
-                                <i id="icone-user-cadastro" class="fa-regular fa-user"></i>
-                                <span class="line-cadastro"></span>
-                            </div>
-                            <input id="nome" name="nome" type="nome" class="input-login">
-                        </label>
+                        <div class="campos-login">
+                            <p class="descricao-cadastro">Nome</p>
+                            <label class="label-cadastro">
+                                <div class="elementos-input">
+                                    <i id="icone-user-cadastro" class="fa-regular fa-user"></i>
+                                    <span class="line-cadastro"></span>
+                                </div>
+                                <input id="nome" name="nome" type="nome" class="input-login">
+                            </label>
 
-                        <p class="descricao-cadastro">Email</p>
-                        <label class="label-cadastro">
-                            <div class="elementos-input">
-                                <i id="icone-envelope-cadastro" class="fa-regular fa-envelope"></i>
-                                <span class="line-cadastro"></span>
-                            </div>
-                            <input id="email" name="email" type="email" class="input-login">
-                        </label>
+                            <p class="descricao-cadastro">Username</p>
+                            <label class="label-cadastro">
+                                <div class="elementos-input">
+                                    <i id="icone-user-cadastro" class="fa-regular fa-user"></i>
+                                    <span class="line-cadastro"></span>
+                                </div>
+                                <input id="nome" name="username" type="nome" class="input-login">
+                            </label>
 
-                        <p class="descricao-cadastro">Senha</p>
-                        <label class="label-cadastro">
-                            <div class="elementos-input">
-                                <i id="icone-senha-cadastro" class="fa-solid fa-lock"></i>
-                                <span class="line-cadastro"></span>
-                            </div>
-                            <input id="senha" name="senha" type="password" class="input-login">
-                        </label>
+                            <p class="descricao-cadastro">Email</p>
+                            <label class="label-cadastro">
+                                <div class="elementos-input">
+                                    <i id="icone-envelope-cadastro" class="fa-regular fa-envelope"></i>
+                                    <span class="line-cadastro"></span>
+                                </div>
+                                <input id="email" name="email" type="email" class="input-login">
+                            </label>
 
-                        <p class="descricao-cadastro">Confirme a senha</p>
-                        <label class="label-cadastro">
-                            <div class="elementos-input">
-                                <i id="icone-senha-cadastro" class="fa-solid fa-lock"></i>
-                                <span class="line-cadastro"></span>
-                            </div>
-                            <input id="confirmaSenha" name="confirmaSenha" type="password" class="input-login">
-                        </label>
-                    </div>
+                            <p class="descricao-cadastro">Senha</p>
+                            <label class="label-cadastro">
+                                <div class="elementos-input">
+                                    <i id="icone-senha-cadastro" class="fa-solid fa-lock"></i>
+                                    <span class="line-cadastro"></span>
+                                </div>
+                                <input id="senha" name="senha" type="password" class="input-login">
+                            </label>
 
-                    <button class="botao-cadastro">Cadastrar</button>
-                </form>
+                            <p class="descricao-cadastro">Confirme a senha</p>
+                            <label class="label-cadastro">
+                                <div class="elementos-input">
+                                    <i id="icone-senha-cadastro" class="fa-solid fa-lock"></i>
+                                    <span class="line-cadastro"></span>
+                                </div>
+                                <input id="confirmaSenha" name="confirmaSenha" type="password" class="input-login">
+                            </label>
+                        </div>
+
+                        <button class="botao-cadastro">Cadastrar</button>
+                    </form>
                 </div>
 
                 <div class="box2-cadastro">

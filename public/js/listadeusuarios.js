@@ -65,9 +65,9 @@ if (corpoTabela && modalVisualizar) {
       const linha = botaoVisualizar.closest("tr");
 
       const id = linha.dataset.id;
-      const username = linha.cells[0].querySelector("span").textContent.trim();
-      const nome = linha.cells[1].textContent.trim();
-      const email = linha.cells[2].textContent.trim();
+      const username = linha.querySelector(".dado_id_admin span").textContent.trim();
+      const nome = linha.querySelector(".col-nome").textContent.trim();
+      const email = linha.querySelector(".col-email").textContent.trim();
       const avatar = linha.querySelector(".mini-avatar-tabela")?.src || "/public/assets/default-avatar.png";
 
       document.getElementById("view-id").value = id;
@@ -112,9 +112,9 @@ if (corpoTabela && modalEditar) {
       const linha = botaoEditar.closest("tr");
 
       const id = linha.dataset.id;
-      const username = linha.cells[0].textContent.trim();
-      const nome = linha.cells[1].textContent.trim();
-      const email = linha.cells[2].textContent.trim();
+      const username = linha.querySelector(".dado_id_admin span").textContent.trim();
+      const nome = linha.querySelector(".col-nome").textContent.trim();
+      const email = linha.querySelector(".col-email").textContent.trim();
       const imgDaTabela = linha.querySelector(".mini-avatar-tabela");
       const srcAvatar = imgDaTabela ? imgDaTabela.getAttribute("src") : "/public/assets/default-avatar.png";
 
