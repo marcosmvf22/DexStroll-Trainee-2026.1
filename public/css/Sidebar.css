@@ -5,6 +5,7 @@
 
 .sidebar-menus-links .material-icons{
     color: white;
+    text-decoration: none;
 }
 
 .sidebar{
@@ -95,10 +96,10 @@ a{
   width: 100%;
 }
 
-.sidebar-perfilUsuario img{
+.imagem-usuario-sidebar{
     border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
+    width: 64px;
+    height: 64px;
     object-fit: cover;
     min-width: 3rem;
 }
@@ -138,7 +139,7 @@ a{
 .sidebar-menus-links:hover{
     background-color: #0d96e6;
     padding: 5px;
-
+    text-decoration: none;
 }
 
 

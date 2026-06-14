@@ -11,9 +11,7 @@
 
          <!-- Perfil de usuario -->
         <div class="sidebar-perfilUsuario">
-            <a href="#">
-                <img src="<?= $usuarioLogado->avatar ?>" alt="imagem de perfil">
-            </a>
+            <img class="imagem-usuario-sidebar" src="<?= $usuarioLogado->avatar ?>" alt="imagem de perfil">
             <div class="info-perfilUsuario">
                 <p><?= $usuarioLogado->username ?></p>
                 <p><?= $usuarioLogado->email ?></p>
@@ -63,9 +61,7 @@
 
         <!-- Perfil de usuario -->
        <div class="sidebar-perfilUsuario">
-            <a href="#">
-                <img src="<?= $usuarioLogado->avatar ?>" alt="imagem de perfil">
-            </a>
+            <img class="imagem-usuario-sidebar" src="<?= $usuarioLogado->avatar ?>" alt="imagem de perfil">
             <div class="info-perfilUsuario">
                 <p><?= $usuarioLogado->username ?></p>
                 <p><?= $usuarioLogado->email ?></p>
