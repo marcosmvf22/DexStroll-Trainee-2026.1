@@ -32,14 +32,16 @@
     <main class="main-dashboard">
         <div class="container-dashboard">
             <div class="topo-dashboard">
-                <i id="icone-voltar-dashboard" class="fa-regular fa-circle-left"></i>
+                <a href="/" class="btn-voltar-home">
+                    <i id="icone-voltar-dashboard" class="fa-regular fa-circle-left"></i>
+                </a>
                 <img class="img-logo-dashboard" src="/public/assets/logoQuadrada.png" alt="">
             </div>
             <h1 class="titulo-dashboard">Dashboard</h1>
             <div class="botoes-dashboard">
                 <div class="botoes-superior-dashboard">
-                    <button class="botao-dashboard"><i class="fa-solid fa-users"></i>Usuários</button>
-                    <button class="botao-dashboard"><i class="fa-solid fa-border-all"></i>Publicações</button>
+                    <a href="/usuarios" class="botao-dashboard"><i class="fa-solid fa-users"></i>Usuários</a>
+                    <a href="/listadeposts" class="botao-dashboard"><i class="fa-solid fa-border-all"></i>Publicações</a>
                 </div>
                 <form action="/logout" method="POST" class="form-dashboard">
                     <button class="botao-logout-dashboard"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>

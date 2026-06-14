@@ -17,17 +17,22 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" 
+    />
 
+    <!-- CSS sidebar -->
+    <link rel="stylesheet" href="../../../public/css/Sidebar.css">
+     
     <title>Painel - DexStroll</title>
 </head>
 
 <body class="body-pagina-publicacao">
+    <? require 'Sidebar.view.php' ?>
     <div class="filtro" id="filtroFundoModal"></div>
     <div class="pagina-publicacao">
         <header class="header-pag-publicacao">
             <h1>Publicações</h1>
-            <h3><?= count($publicacoes) ?> publicações encontradas</h3>
+            <h3><?= $totalPosts?> publicações encontradas</h3>
         </header>
 
         <div class="card-tabela">
@@ -35,45 +40,41 @@
                 <button class="criar-publicacao-admin" onclick="abrirModal('modalCriarPublicacao')">
                     <span class="material-symbols-outlined">library_books</span>Criar publicação</button>
             </div>
-
-            <table class="tabela-admin">
-                <thead>
-                    <tr class="cabecalho-tabela-admin">
-                        <th>ID</th>
-                        <th>Título</th>
-                        <th>Autor</th>
-                        <th>Data de criação</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($publicacoes as $publicacao): ?>
-                        <tr>
-                            <td class="dado_id_admin"><?= $publicacao->id ?></td>
-                            <td class="dado_titulo_admin"><?= $publicacao->titulo ?></td>
-                            <td class="dado_autor_admin"><?= $publicacao->autor ?></td>
-                            <td class="dado_data_criacao_admin"><?= date('d/m/Y', strtotime($publicacao->data)) ?></td>
-                            <td class="celula-acoes-admin">
-                                <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao-<?= $publicacao->id ?>')" title="Visualizar">
-                                    <span class="material-icons">visibility</span>
-                                </button>
-                                <button class="botao-acao botao-editar" onclick="abrirModal('modalEditarPublicacao-<?= $publicacao->id ?>')" title="Editar">
-                                    <span class="material-icons">edit</span>
-                                </button>
-                                <button class="botao-acao botao-deletar" onclick="abrirModal('modalExcluirPublicacao-<?= $publicacao->id ?>')" title="Deletar">
-                                    <span class="material-icons">delete</span>
-                                </button>
-                            </td>
+            <div class="warper-tabela">
+                <table class="tabela-admin">
+                    <thead>
+                        <tr class="cabecalho-tabela-admin">
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>Data de criação</th>
+                            <th>Ações</th>
                         </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="paginacao">
-            <button class="btn-pag">&lt;</button>
-            <button class="btn-pag ativo">1</button>
-            <button class="btn-pag">&gt;</button>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($publicacoes as $publicacao): ?>
+                            <tr>
+                                <td class="dado_id_admin"><?= $publicacao->id ?></td>
+                                <td class="dado_titulo_admin"><?= $publicacao->titulo ?></td>
+                                <td class="dado_autor_admin"><?= $publicacao->autor ?></td>
+                                <td class="dado_data_criacao_admin"><?= date('d/m/Y', strtotime($publicacao->data)) ?></td>
+                                <td class="celula-acoes-admin">
+                                    <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao-<?= $publicacao->id ?>')" title="Visualizar">
+                                        <span class="material-icons">visibility</span>
+                                    </button>
+                                    <button class="botao-acao botao-editar" onclick="abrirModal('modalEditarPublicacao-<?= $publicacao->id ?>')" title="Editar">
+                                        <span class="material-icons">edit</span>
+                                    </button>
+                                    <button class="botao-acao botao-deletar" onclick="abrirModal('modalExcluirPublicacao-<?= $publicacao->id ?>')" title="Deletar">
+                                        <span class="material-icons">delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+            <?php require 'paginacao.view.php' ?>
         </div>
     </div>
 
@@ -90,5 +91,6 @@
     <script src="/public/js/summernoteConfig.js"></script>
     <script src="/public/js/codigoModalPublicacoes.js"></script>
 </body>
-
+<!-- JS sidebar -->
+  <script src="/public/js/Sidebar.js"></script>
 </html>

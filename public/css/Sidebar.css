@@ -5,6 +5,7 @@
 
 .sidebar-menus-links .material-icons{
     color: white;
+    text-decoration: none;
 }
 
 .sidebar{
@@ -95,10 +96,10 @@ a{
   width: 100%;
 }
 
-.sidebar-perfilUsuario img{
+.imagem-usuario-sidebar{
     border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
+    width: 64px;
+    height: 64px;
     object-fit: cover;
     min-width: 3rem;
 }
@@ -137,7 +138,8 @@ a{
 
 .sidebar-menus-links:hover{
     background-color: #0d96e6;
-
+    padding: 5px;
+    text-decoration: none;
 }
 
 
@@ -154,15 +156,35 @@ a{
 .sidebar-bottom .sidebar-perfilUsuario {
     display: none; 
 }
+
+.form-sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 18%;
+    width: 100%;
+    margin-top: 0;
+}
     
 
-.sidebar-logout-links{
+.botao-logout-sidebar{
     display: flex;
     align-items:center;
     justify-content: center;
     flex-direction: row;
     gap: 15px;
     color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.botao-logout-sidebar:hover{
+    background-color: #0d96e6;
+    padding: 5px;
 }
 
 
