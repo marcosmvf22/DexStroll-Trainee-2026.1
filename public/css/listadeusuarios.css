@@ -25,11 +25,9 @@ as palavras ficam,  tipo "palavraComposta", e  não "palavra-composta" igual eu 
 body{
     gap: 0;
     margin: 0;
-    display: flex;
+    
     background-color: var(--azul-ceu); 
     color: var(--preto);
-    justify-content: center;
-    align-items: center;
 }
 
 .main-painel-usuarios {
@@ -68,7 +66,6 @@ acho que nao tem problema, é pra ser igual  mesmo */
 }
 /* essa parada de definir  var(cor) eu aprendi no código da iza, obrigado (✿◠‿◠) */
 .card-tabela {
-    background-color: var(--azul-marinho); 
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -78,6 +75,7 @@ acho que nao tem problema, é pra ser igual  mesmo */
 
 .topo-tabela {
     display: flex;
+    background-color: var(--azul-marinho); 
     justify-content: flex-end;
     padding: 25px 30px 15px 30px;
 }
@@ -175,6 +173,7 @@ acho que nao tem problema, é pra ser igual  mesmo */
 .paginacao-container{
     display: flex;
     justify-content: center;
+    background-color: var(--azul-marinho); 
 }
 
 .paginacao li{
@@ -231,8 +230,7 @@ que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
 }
 /* aqui coloquei 80vh e  overflow-y */
 .modal-card-caixa {
@@ -243,7 +241,7 @@ que sechama modalexcluirusuario, mas é o moda de criarusuario,  depois renomeio
     max-width: 500px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
     color: var(--preto);
-    height: 80vh;
+    max-height: 80vh;
     overflow-y: auto;
     scrollbar-width: none;
 }
@@ -532,51 +530,6 @@ separado, troquei tudo  que era "publicacao" para "usuario" e também ajustei al
 
 
 
-
-.tabela-responsiva-container {
-    max-width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; 
-}
-
-.tabela-responsiva-container::-webkit-scrollbar{
-    display: none;
-}
-
-.tabela-responsiva-container table {
-    width: 100%;
-    min-width: 600px; 
-    border-collapse: collapse;
-}
-
-.celula-acoes-admin {
-    white-space: nowrap; 
-    min-width: 140px; 
-}
-
-.tabela-responsiva-container td, 
-.tabela-responsiva-container th {
-    white-space: nowrap; 
-/* eu nao sabia sobre  nowrap, obrigado guilherme, bisbilhotei sua sidebar */
-}
-
-@media(max-width:768px){
-    .main-painel-usuarios{
-        margin-left: 0;
-        padding-top: 85px;
-    }
-    .modal-rodape-botoes{
-        flex-direction: column-reverse;
-    }
-    .criar-usuario-admin{
-        font-size: 0px;
-    }
-}
-
-
-/* tentativa de estilizar a busca de usuario */
-
-/* isso aqui ta duplicado porem vou organizar depois */
 .topo-tabela {
     display: flex;
     justify-content: space-between; 
@@ -625,4 +578,47 @@ separado, troquei tudo  que era "publicacao" para "usuario" e também ajustei al
 
 .btn-busca-admin .material-icons {
     font-size: 20px;
+}
+
+
+
+.tabela-responsiva-container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.tabela-responsiva-container::-webkit-scrollbar{
+    display: none;
+}
+
+.tabela-responsiva-container table {
+    width: 100%;
+    min-width: 600px; 
+    border-collapse: collapse;
+}
+
+.celula-acoes-admin {
+    white-space: nowrap; 
+    min-width: 140px; 
+}
+
+/* esse nowrap tava deixando o email ficar completo na linha em telas pequenas
+ao inves de quebrar quando era um email grande */
+
+/* .tabela-responsiva-container td, .tabela-responsiva-container th {
+    white-space: nowrap; 
+    /* eu nao sabia sobre  nowrap, obrigado guilherme, bisbilhotei sua sidebar */
+/*}*/
+
+@media(max-width:768px){
+    .main-painel-usuarios{
+        margin-left: 0;
+        padding-top: 85px;
+    }
+    .modal-rodape-botoes{
+        flex-direction: column-reverse;
+    }
+    .criar-usuario-admin{
+        font-size: 0px;
+    }
 }
