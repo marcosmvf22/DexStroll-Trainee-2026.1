@@ -12,6 +12,17 @@ class listadeusuarioscontroller
     
    public function index()
     {
+
+        if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
+
+                $usuarioLogado = App::get('database')->selectOne(
+                    'usuarios',
+                    $_SESSION['id']
+                );
+
+ 
         $database = App::get('database');
 
         $limit = 6;
@@ -44,7 +55,8 @@ class listadeusuarioscontroller
             'currentPage' => $currentPage,
             'totalPage' => $totalPages,
             'totalUsuarios' => $totalUsuarios,
-            'pesquisa' => $pesquisa 
+            'pesquisa' => $pesquisa,
+            'usuarioLogado' => $usuarioLogado
         ]);
     }
 

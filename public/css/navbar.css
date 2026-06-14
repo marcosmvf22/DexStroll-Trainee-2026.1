@@ -67,7 +67,7 @@ input::placeholder {
     border: 1px solid #0d2a4d;
     border-radius: 20px;
     background-color: #5a1a22;
-    color: #bcccdb;
+    color: white;
     box-shadow: 5px 5px 10px #0d2a4d;
     margin-left: 2vw;
 
@@ -81,7 +81,7 @@ input::placeholder {
     border: 1px solid #0d2a4d;
     border-radius: 20px;
     background-color: #5a1a22;
-    color: #bcccdb;
+    color: white;
     box-shadow: 5px 5px 10px #0d2a4d;
     margin-left: 2vw;
 
@@ -95,7 +95,7 @@ input::placeholder {
     align-items: center;
     justify-content: center;
     text-decoration: none;       
-    color: #bcccdb;              
+    color: white;              
     font-weight: 600;
 
 }

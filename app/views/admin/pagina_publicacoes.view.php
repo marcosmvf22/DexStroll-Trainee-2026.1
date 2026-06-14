@@ -37,6 +37,19 @@
 
         <div class="card-tabela">
             <div class="topo-tabela">
+                 <form action="/listadeposts" method="GET" class="pesquisapost">
+              <div class="grupo-busca">
+                <input 
+                  type="text" 
+                  name="pesquisa" 
+                  placeholder="Buscar por nome, usuário ou email..." 
+                  value="<?= isset($_GET['pesquisa']) ? htmlspecialchars($_GET['pesquisa']) : '' ?>"
+                  class="input-busca-admin">
+                  <button type="submit" class="btn-busca-admin" title="Pesquisar">
+                  <span class="material-icons">search</span>
+                </button>
+              </div>
+            </form>
                 <button class="criar-publicacao-admin" onclick="abrirModal('modalCriarPublicacao')">
                     <span class="material-symbols-outlined">library_books</span>Criar publicação</button>
             </div>

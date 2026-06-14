@@ -9,13 +9,19 @@ class PostController
 {
     public function index()
     {
+
+
+    if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
+
+                $usuarioLogado = App::get('database')->selectOne(
+                    'usuarios',
+                    $_SESSION['id']
+                );
         
     
-        // $publicacoesDoBanco = App::get('database')->selectAll('publicacao');
-        // return view('site/postspage', [
-        //     'publicacoes' => $publicacoesDoBanco
-        // ]);
-
+       
         $database = App::get('database');
 
         $limit = 3;
