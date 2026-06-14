@@ -28,13 +28,12 @@ class listadeusuarioscontroller
 
 
         if ($pesquisa !== '') {
-
-        $totalUsuarios = $database->countSearch('usuarios', $pesquisa);
+            $totalUsuarios = $database->countSearch('usuarios', $pesquisa);
             $totalPages = ceil($totalUsuarios / $limit);
             $usuariosDoBanco = $database->paginateSearch('usuarios', $pesquisa, $limit, $offset);
-        } else {
-
-        $totalUsuarios = $database->countAll('usuarios');
+        } 
+        else{
+            $totalUsuarios = $database->countAll('usuarios');
             $totalPages = ceil($totalUsuarios / $limit);
             $usuariosDoBanco = $database->paginate('usuarios', $limit, $offset);
         }
