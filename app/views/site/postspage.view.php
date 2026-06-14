@@ -14,7 +14,7 @@
     <script src="../../../public/js/postspage.js"></script>
   </head>
   <body>
-        <?php require 'navbar.view.php'; ?>
+    <?php require 'navbar.view.php'; ?>
 
     <main>
       <h1 class="postpagetitle">Últimas Postagens</h1>
@@ -48,14 +48,16 @@
         <?php endforeach; ?>
       </section>
 
-      <div class="paginacao-posts">
+      <?php require 'paginacao_postagens.view.php'; ?>
+
+      <!-- <div class="paginacao-posts">
         <button class="posts-pokeball prev"><</button>
         <button class="posts-pokeball">1</button>
         <button class="posts-pokeball clicada">2</button>
         <button class="posts-pokeball">3</button>
         <button class="posts-pokeball dots">...</button>
         <button class="posts-pokeball next">></button>
-      </div>
+      </div> -->
     </main>
         <?php require 'footer.view.php'; ?>
 
