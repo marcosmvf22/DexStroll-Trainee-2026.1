@@ -125,86 +125,38 @@ time {
 .paginacao {
     display: flex;
     list-style: none;
-    margin: 8px;
+    align-items: center;
+    gap: 15px;
 }
 
 .paginacao-container{
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .paginacao li{
-    margin: 0 5px;
+    margin: 0;
 }
 
 .paginacao a {
-    background: none;
-    border: none;
-    font-size: 16px;
-    color: white;
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: all 0.2s;
-
-    text-decoration: none;
-    padding: 8px 12px;
-}
-
-.paginacao a.active{
-    background-color: var(--azul);
-    color: white;
-    border-color: var(--azul-claro);
-}
-
-.paginacao a.disable{
-    color: #ccc;
-    pointer-events: none;
-}
-
-.paginacao span.dots{
-    padding: 8px 12px;
-    color: #ccc;
-    pointer-events: none;
-}
-
-.paginacao-posts {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  margin-top: 50px;
-  width: 100%;
-}
-.posts-pokeball.clicada {
-  background: linear-gradient(
-    to bottom,
-    #1b82b1 0%,
-    #1b82b1 45%,
-    #333 45%,
-    #333 55%,
-    #fff 55%,
-    #fff 100%
-  );
-}
-/* pokebola pra paginação, ainda bem me deram a  ideia*/
-.posts-pokeball {
   width: 55px;
   height: 55px;
   border-radius: 50%;
   border: 3px solid #333;
-  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
   position: relative;
+
   font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-size: 16px;
   color: #333;
-  z-index: 1;
+
   background: linear-gradient(
     to bottom,
     #ee1515 0%,
@@ -214,44 +166,61 @@ time {
     #fff 55%,
     #fff 100%
   );
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  z-index: 1;
   transition: transform 0.2s ease-in-out;
-  /* suaviza o passar  o mouse na bola */
 }
 
-/* bolinha dentro da  pokebola*/
-.posts-pokeball::after {
+.paginacao a::after{
   content: "";
+  
   position: absolute;
   width: 16px;
   height: 16px;
+  
   background: white;
+  border: 3px solid #333;
   border-radius: 50%;
+
   z-index: -1;
 }
 
-/* passa o mouse e gira a bola
-agora  tenho que codar mais  efeitinhos */
-.posts-pokeball:hover {
-  transform: scale(1.2);
+.paginacao a:hover{
+  transform: scale(1.15);
 }
-/* OBS: eu amo o w3schools melhor site pra  aprender a codar, porém gastei 3 horas pra entender oque de fato é um  pseudo-element e  como usar  o ::after */
-/* a  que ta clicada, aí muda de cor*/
-.posts-pokeball.prev:hover {
-  transform: scale(1.2) rotate(-45deg);
+
+.paginacao a.active{
+  background: linear-gradient(
+    to bottom,
+    #1b82b1 0%,
+    #1b82b1 45%,
+    #333 45%,
+    #333 55%,
+    #fff 55%,
+    #fff 100%
+  );
+    
+  color: #333;
 }
-.posts-pokeball.next:hover {
-  transform: scale(1.2) rotate(45deg);
+
+.paginacao a.disable{
+  opacity: 0.5;
+  pointer-events: none;
 }
-/* deixar vermelhinho*/
-.clicada::before {
-  content: "";
-  position: absolute;
-  top: 8px;
-  width: 100%;
-  height: 5px;
+
+.paginacao span.dots{
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.paginacao li:first-child a:hover{
+  transform: scale(1.15) rotate(-45deg);
+}
+
+.paginacao li:last-child a:hover{
+  transform: scale(1.15) rotate(45deg);
 }
 
 @media (max-width: 1440px) {
@@ -291,6 +260,7 @@ agora  tenho que codar mais  efeitinhos */
     height: 250px;
   }
 }
+
 @media (max-width: 1024px) {
   .grade_posts {
     grid-template-columns: repeat(1, 1fr);
@@ -321,24 +291,28 @@ agora  tenho que codar mais  efeitinhos */
     height: 250px;
     width: 100%;
   }
-  .posts-pokeball {
+
+  .paginacao{
+    gap: 8px;
+  }
+
+  .paginacao a{
     width: 45px;
     height: 45px;
     font-size: 14px;
   }
 
-  .posts-pokeball::after {
+  .paginacao a::after{
     width: 12px;
     height: 12px;
   }
+
   .conteudopost {
     width: 100%;
     gap: 12px;
   }
-  .paginacao-posts {
-    padding: 4px;
-  }
-  .postpagetitle {
+
+  .postpagetitle{
     font-size: 2rem;
   }
 }
@@ -346,17 +320,6 @@ agora  tenho que codar mais  efeitinhos */
 @media (max-width: 480px) {
   main {
     padding: 20px;
-  }
-  .paginacao-posts {
-    padding: 8px;
-  }
-  .posts-pokeball {
-    width: 38px;
-    height: 38px;
-  }
-  .posts-pokeball:nth-child(4),
-  .posts-pokeball:nth-child(5) {
-    display: none;
   }
 }
 

@@ -11,7 +11,7 @@
             ?>
 
             <li>
-                <a href="?page=1 ?>" class="<?= $currentPage == 1? 'active' : '' ?>" >1</a>
+                <a href="?page=1" class="<?= $currentPage == 1 ? 'active' : '' ?>">1</a>
             </li>
 
             <?php if($start > 2):?>
