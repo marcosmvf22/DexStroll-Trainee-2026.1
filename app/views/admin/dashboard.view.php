@@ -32,7 +32,9 @@
     <main class="main-dashboard">
         <div class="container-dashboard">
             <div class="topo-dashboard">
-                <i id="icone-voltar-dashboard" class="fa-regular fa-circle-left"></i>
+                <a href="/" class="btn-voltar-home">
+                    <i id="icone-voltar-dashboard" class="fa-regular fa-circle-left"></i>
+                </a>
                 <img class="img-logo-dashboard" src="/public/assets/logoQuadrada.png" alt="">
             </div>
             <h1 class="titulo-dashboard">Dashboard</h1>
