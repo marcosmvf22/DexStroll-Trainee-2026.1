@@ -51,7 +51,11 @@ class QueryBuilder
 
     public function paginate($table, $limit, $offset)
     {
-        $sql = "SELECT * FROM {$table} LIMIT {$limit} OFFSET {$offset}";
+        $sql = "SELECT p.* ,u.username as autor FROM  publicacao p LEFT JOIN usuarios u ON p.autor = u.id LIMIT {$limit} OFFSET {$offset}"; 
+        if ($table !== 'publicacao'){
+            $sql = "SELECT * FROM {$table} LIMIT {$limit} OFFSET {$offset}";
+        }
+        
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -232,6 +236,7 @@ class QueryBuilder
 
     public function paginateSearch($table, $termo, $limit, $offset)
     {
+        
         $sql = "SELECT * FROM {$table} 
                 WHERE username LIKE :termo 
                 OR nome LIKE :termo 
@@ -274,12 +279,19 @@ class QueryBuilder
 
     public function paginateSearchposts($table, $termo, $limit, $offset)
     {
-        $sql = "SELECT * FROM {$table} 
-                WHERE titulo LIKE :termo 
-                OR autor LIKE :termo 
-                
-                OR id LIKE :termo;
+
+
+$sql = "SELECT p.* ,u.username as autor FROM  publicacao p 
+                LEFT JOIN usuarios u ON p.autor = u.id 
+                WHERE p.titulo LIKE :termo 
+                OR u.username LIKE :termo 
+                OR p.id LIKE :termo;
                 LIMIT :limit OFFSET :offset";
+
+       
+
+
+   
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindValue(':termo', '%' . $termo . '%', PDO::PARAM_STR);
