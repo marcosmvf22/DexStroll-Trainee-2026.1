@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Links -->
+    <!-- <link rel="icon" href="./favicons/favicon-16x16.png"> -->
+    <link rel="stylesheet" href="/public/css/pokedex.css">
+
+    <!-- Main JS -->
+     <script defer src="/public/js/pokedex.js"></script>
+    <title>Pokédex</title>
+</head>
+<body>
+    <header class="header-nav-pokedex">
+    <nav>
+        <div class="box1-nav-pokedex">
+            <div class="logo-nav-pokedex">
+                <img class="logo-nav-pokedex" src="/public/assets/Logo-nav.png" alt="">
+            </div>
+            <div class="box-pesquisa-nav-pokedex">
+                    <label class="label-nav-pokedex">
+                    <div class="elementos-input-nav-pokedex">
+                        <i id="icone-lupa-nav-pokedex" class="fa-brands fa-sistrix"></i>
+                    </div>
+                    <input id="input-pesquisa-nav-pokedex" name="email" type="text" placeholder="Buscar publicações...">
+                    </label>
+            </div>
+            <div class="botoes-nav-pokedex">
+                <button class="botao-publicacoes-nav-pokedex">Home</button>
+                <button class="botao-publicacoes-nav-pokedex">Publicações</button>
+                <button class="botao-publicacoes-nav-pokedex">Pokédex</button>
+                <button class="botao-login-nav-pokedex">Login</button>
+                
+            </div>
+            <div class="bloco-icone-menu-nav-pokedex">
+                <button onclick="menuShowNav()"><i id="icone-menu-nav-pokedex" class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+
+        <div class="box2-nav-pokedex">
+            <span class="line-nav-pokedex"></span>
+        </div>
+    </nav>
+    <div class="mobile-menu-nav-pokedex">
+        <ul>
+            <li class="mobile-item-nav-pokedex"> <a href="" class="mobile-link-nav-pokedex"><i class="fa-regular fa-house icone-mobile-esquerda-nav-pokedex"></i> Home <i class="fa-solid fa-arrow-right icone-mobile-direita-nav-pokedex"></i></a></li>
+            <li class="mobile-item-nav-pokedex"> <a href="" class="mobile-link-nav-pokedex"><i class="fa-regular fa-file icone-mobile-esquerda-nav-pokedex"></i>Publicações<i class="fa-solid fa-arrow-right icone-mobile-direita-nav-pokedex"></i></a></li>
+            <li class="mobile-item-nav-pokedex"> <a href="" class="mobile-link-nav-pokedex"><i class="fa-regular fa-user icone-mobile-esquerda-nav-pokedex"></i>Login<i class="fa-solid fa-arrow-right icone-mobile-direita-nav-pokedex"></i></a></li>
+        </ul>
+</div>
+</header>
+
+<script src="/public/js/navbar.js"></script>
+
+    <main>
+        <img src="#" alt="pokemon" class="pokemon_image">
+
+        <h1 class="pokemon_main_data">
+            <span class="pokemon_number"></span> -
+            <span class="pokemon_name"></span>
+        </h1>
+
+        <form class="barra_busca">
+            <input type="search" class="input_search" placeholder="Nome ou ID" required>
+        </form>
+
+        <!-- botões avançar e voltar -->
+        <div class="buttons">
+            <button class="button btn-prev">&lt</button>
+            <button class="button btn-next">&gt</button>
+        </div>
+
+        <div class="pokemon_aditional_data">
+            <span class="pokemon_height"></span><br>
+            <span class="pokemon_weight"></span><br>
+            <span class="pokemon_evolution"></span>
+            
+            <!-- Condições de encontro -->
+            <span class="pokemon_encounters"></span>
+            <span class="pokemon_methods"></span>
+            <span class="pokemon_conditions"></span>
+
+            <!-- Taxa de captura, pra cálculo da pokébola adequada -->
+            <span class="pokemon_capture_rate"></span>
+        </div>
+        
+        <!-- Fundo da pokédex -->
+        <img src="/public/assets/pokédex_lisa.png" alt="pokedex" class="pokedex">
+
+    </main>
+</body>
+</html>
