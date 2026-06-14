@@ -38,9 +38,9 @@ class PostController
 
 
         if ($pesquisa !== '') {
-            $totalPosts = $database->countSearch('publicacao', $pesquisa);
+            $totalPosts = $database->countSearchposts('publicacao', $pesquisa);
             $totalPages = ceil($totalPosts / $limit);
-            $postsDoBanco = $database->paginateSearch('publicacao', $pesquisa, $limit, $offset);
+            $postsDoBanco = $database->paginateSearchposts('publicacao', $pesquisa, $limit, $offset);
         } 
         else{
             $totalPosts = $database->countAll('publicacao');

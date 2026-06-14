@@ -17,44 +17,9 @@
     width: 100px;
     cursor: pointer;
 }
-.box-pesquisa-nav{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 1vw;
-    width: 100%;
-}
-.elementos-input-nav{
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    margin-left: 1.2vh;
-}
-#input-pesquisa-nav{
-    width: 28vw;
-    height: 40px;
-    padding-left: 40px;
 
-    background-color:#0d2a4d63;
-    color: #f5f7fa;
-    border: 1px solid  #f5f7fa;
-    border-radius: 40px;
-    margin-top: 0vh;  
-}
-#icone-lupa-nav{
-    color: #f5f7fa;
-    opacity: 0.7;
-    font-size: 20px;
-    margin-top: 12px;
-}
-input::placeholder { 
-    color: #f5f7fa; 
-    opacity: 0.7;
-    font-size: 0.9rem;
-}
+
+
 .botoes-nav{
     display: flex;
     align-items: center;
@@ -124,6 +89,50 @@ input::placeholder {
 .mobile-menu-nav{
     display: none;
 }
+
+
+
+
+.grupo-busca {
+    display: flex;
+    align-items: center;
+    background-color: var(--branco-neve);
+    border-radius: 20px; 
+    padding: 5px 15px;
+    height: 40px;
+}
+
+.input-busca-admin {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    width: 260px; 
+    color: var(--preto);
+}
+
+.btn-busca-admin {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--azul-marinho);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+}
+
+.btn-busca-admin:hover {
+    color: var(--azul);
+}
+
+.btn-busca-admin .material-icons {
+    font-size: 20px;
+}
+
+
+
+
 
 @media (max-width: 768px){
     .logo-nav{

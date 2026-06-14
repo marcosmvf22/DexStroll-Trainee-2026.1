@@ -42,7 +42,7 @@
                 <input 
                   type="text" 
                   name="pesquisa" 
-                  placeholder="Buscar por nome, usuário ou email..." 
+                  placeholder="Buscar por publicações..." 
                   value="<?= isset($_GET['pesquisa']) ? htmlspecialchars($_GET['pesquisa']) : '' ?>"
                   class="input-busca-admin">
                   <button type="submit" class="btn-busca-admin" title="Pesquisar">

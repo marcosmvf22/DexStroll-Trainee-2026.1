@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <!-- icones -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -27,12 +28,19 @@
                         </a>
             </div>
             <div class="box-pesquisa-nav">
-                    <label class="label-nav">
-                    <div class="elementos-input-nav">
-                        <i id="icone-lupa-nav" class="fa-brands fa-sistrix"></i>
-                    </div>
-                    <input id="input-pesquisa-nav" name="email" type="text" placeholder="Buscar publicações...">
-                    </label>
+                     <form action="/postspage" method="GET" class="pesquisapost">
+              <div class="grupo-busca">
+                <input  
+                  type="text" 
+                  name="pesquisa" 
+                  placeholder="Buscar por publicações..." 
+                  value="<?= isset($_GET['pesquisa']) ? htmlspecialchars($_GET['pesquisa']) : '' ?>"
+                  class="input-busca-admin">
+                  <button type="submit" class="btn-busca-admin" title="Pesquisar">
+                  <span class="material-icons">search</span>
+                </button>
+              </div>
+            </form>
             </div>
             <div class="botoes-nav">
                 <a href="/" class="botao-home-nav">Home</a>

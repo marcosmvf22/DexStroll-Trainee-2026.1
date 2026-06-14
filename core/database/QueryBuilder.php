@@ -248,4 +248,52 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+   
+    
+
+//buscadeposts?:::::
+
+
+
+    public function countSearchposts($table, $termo)
+    {
+        $sql = "SELECT COUNT(*) AS total FROM {$table} 
+                WHERE titulo LIKE :termo 
+                OR autor LIKE :termo 
+            
+                OR id LIKE :termo";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':termo', '%' . $termo . '%');
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ)->total;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function paginateSearchposts($table, $termo, $limit, $offset)
+    {
+        $sql = "SELECT * FROM {$table} 
+                WHERE titulo LIKE :termo 
+                OR autor LIKE :termo 
+                
+                OR id LIKE :termo;
+                LIMIT :limit OFFSET :offset";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':termo', '%' . $termo . '%', PDO::PARAM_STR);
+            $stmt->bindValue(':limit', (int) $limit, PDO::PARAM_INT);
+            $stmt->bindValue(':offset', (int) $offset, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+
+
+
+
 }

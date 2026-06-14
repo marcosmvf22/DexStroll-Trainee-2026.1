@@ -34,17 +34,31 @@ class PublicacoesController
 
         $offset = ($currentPage - 1) * $limit;
 
-        $totalPosts = $database->countAll('publicacao');
-        $totalPages = ceil($totalPosts/$limit);
 
-        $postsDoBanco = $database->paginate('publicacao',$limit,$offset);
+
+        $pesquisa = isset($_GET['pesquisa']) ? trim($_GET['pesquisa']) : '';
+
+
+        if ($pesquisa !== '') {
+            $totalPosts = $database->countSearchposts('publicacao', $pesquisa);
+            $totalPages = ceil($totalPosts / $limit);
+            $postsDoBanco = $database->paginateSearchposts('publicacao', $pesquisa, $limit, $offset);
+        } 
+        else{
+            $totalPosts = $database->countAll('publicacao');
+            $totalPages = ceil($totalPosts/$limit);
+            $postsDoBanco = $database->paginate('publicacao',$limit,$offset);
+        }
+
+    
 
         return view('admin/pagina_publicacoes', [
             'publicacoes' => $postsDoBanco,
             'currentPage' => $currentPage,
             'totalPage' => $totalPages,
             'totalPosts' => $totalPosts,
-            'usuarioLogado' => $usuarioLogado
+            'usuarioLogado' => $usuarioLogado,
+            'pesquisa' => $pesquisa
         ]);
 
         exit();
