@@ -40,39 +40,40 @@
                 <button class="criar-publicacao-admin" onclick="abrirModal('modalCriarPublicacao')">
                     <span class="material-symbols-outlined">library_books</span>Criar publicação</button>
             </div>
-
-            <table class="tabela-admin">
-                <thead>
-                    <tr class="cabecalho-tabela-admin">
-                        <th>ID</th>
-                        <th>Título</th>
-                        <th>Autor</th>
-                        <th>Data de criação</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($publicacoes as $publicacao): ?>
-                        <tr>
-                            <td class="dado_id_admin"><?= $publicacao->id ?></td>
-                            <td class="dado_titulo_admin"><?= $publicacao->titulo ?></td>
-                            <td class="dado_autor_admin"><?= $publicacao->autor ?></td>
-                            <td class="dado_data_criacao_admin"><?= date('d/m/Y', strtotime($publicacao->data)) ?></td>
-                            <td class="celula-acoes-admin">
-                                <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao-<?= $publicacao->id ?>')" title="Visualizar">
-                                    <span class="material-icons">visibility</span>
-                                </button>
-                                <button class="botao-acao botao-editar" onclick="abrirModal('modalEditarPublicacao-<?= $publicacao->id ?>')" title="Editar">
-                                    <span class="material-icons">edit</span>
-                                </button>
-                                <button class="botao-acao botao-deletar" onclick="abrirModal('modalExcluirPublicacao-<?= $publicacao->id ?>')" title="Deletar">
-                                    <span class="material-icons">delete</span>
-                                </button>
-                            </td>
+            <div class="warper-tabela">
+                <table class="tabela-admin">
+                    <thead>
+                        <tr class="cabecalho-tabela-admin">
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>Data de criação</th>
+                            <th>Ações</th>
                         </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($publicacoes as $publicacao): ?>
+                            <tr>
+                                <td class="dado_id_admin"><?= $publicacao->id ?></td>
+                                <td class="dado_titulo_admin"><?= $publicacao->titulo ?></td>
+                                <td class="dado_autor_admin"><?= $publicacao->autor ?></td>
+                                <td class="dado_data_criacao_admin"><?= date('d/m/Y', strtotime($publicacao->data)) ?></td>
+                                <td class="celula-acoes-admin">
+                                    <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao-<?= $publicacao->id ?>')" title="Visualizar">
+                                        <span class="material-icons">visibility</span>
+                                    </button>
+                                    <button class="botao-acao botao-editar" onclick="abrirModal('modalEditarPublicacao-<?= $publicacao->id ?>')" title="Editar">
+                                        <span class="material-icons">edit</span>
+                                    </button>
+                                    <button class="botao-acao botao-deletar" onclick="abrirModal('modalExcluirPublicacao-<?= $publicacao->id ?>')" title="Deletar">
+                                        <span class="material-icons">delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
             <?php require 'paginacao.view.php' ?>
         </div>
     </div>

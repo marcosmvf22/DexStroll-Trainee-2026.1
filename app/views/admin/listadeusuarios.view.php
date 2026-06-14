@@ -38,6 +38,7 @@
             <table class="tabela-admin">
               <thead>
                 <tr class="cabecalho-tabela-admin">
+                  <th>ID</th>
                   <th>Usuário</th>
                   <th>Nome Completo</th>
                   <th>Email</th>
@@ -47,14 +48,15 @@
               <tbody id="corpo-tabela-usuarios">
                 <?php foreach ($usuarios as $usuario): ?>
                   <tr data-id="<?= $usuario->id ?>">
+                    <td class="col-id"><?= $usuario->id ?></td>
                     <td class="dado_id_admin">
                       <div style="display: flex; align-items: center; justify-content: flex-start; gap: 12px;">
                         <img src="<?= $usuario->avatar ?: '/public/assets/default-avatar.png' ?>" class="mini-avatar-tabela" alt="Avatar">
                         <span><?= $usuario->username ?></span>
                       </div>
                     </td>
-                    <td><?= $usuario->nome ?></td>
-                    <td><?= $usuario->email ?></td>
+                    <td class="col-nome"><?= $usuario->nome ?></td>
+                    <td class="col-email"><?= $usuario->email ?></td>
                     <td class="celula-acoes-admin">
                       <button class="botao-acao" title="Visualizar"><span class="material-icons">visibility</span></button>
                       <button class="botao-acao" title="Editar"><span class="material-icons">edit</span></button>
@@ -64,7 +66,8 @@
                 <?php endforeach; ?>
               </tbody>
             </table>
-            
+          </div>
+          <div class="caixa-paginacao">
             <?php require 'paginacao.view.php' ?>
           </div>
         </div>

@@ -30,6 +30,11 @@
 .pagina-publicacao{
     width: 100%;
     max-width: 1100px;
+    margin-left: 85px;
+}
+
+.warper-tabela{
+    overflow-x: auto;
 }
 
 /* Cabeçalho */
@@ -49,7 +54,7 @@
 
 /* Container Escuro da Tabela */
 .card-tabela {
-    background-color: var(--azul-marinho); 
+    
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -59,6 +64,7 @@
 /* Topo do Card */
 .topo-tabela {
     display: flex;
+    background-color: var(--azul-marinho); 
     justify-content: flex-end;
     padding: 25px 30px 15px 30px;
 }
@@ -157,6 +163,7 @@
 
 .paginacao-container{
     display: flex;
+    background-color: var(--azul-marinho); 
     justify-content: center;
 }
 
@@ -271,9 +278,19 @@
     gap: 30px;
 }
 
-.botoesModalCriarPub button{
+.botoesModalCriarPub .cancelarBotaoModal{
     padding: 10px;
     border-radius: 20px;
+    color: #0D2A4D;
+    border: 1.5px solid #0D2A4D;
+}
+
+.botoesModalCriarPub .enviarBotaoModal{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #1F5FA8;
+    color:#F5F7FA;
+    border: none;
 }
 
 .filtro{
@@ -283,6 +300,7 @@
     opacity: 0.7;
     position: fixed;
     display: none;
+    top: 0;
 }
 
 /* .modal-pagina-publicacao .cancelarBotaoModal:hover{
@@ -562,6 +580,12 @@
         font-size: 2vw;
     }   
 }
+@media (max-width: 768px){
+    .pagina-publicacao{
+        margin-left: 0;
+    }
+}
+
 @media (max-width: 550px){
     /* Modal visualizar */
     .modal-visualizar-publicacao{
