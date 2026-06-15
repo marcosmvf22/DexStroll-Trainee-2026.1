@@ -51,3 +51,7 @@ $router->post('login/create', 'LoginController@store');
 $router->get('usuarios/popular', 'listadeusuarioscontroller@popularBanco');
 
 $router->get('pokedex', 'pokedexController@index');
+
+
+//encher  o banco de  posts
+$router->get('publicacoes/popular', 'PublicacoesController@popularPosts');

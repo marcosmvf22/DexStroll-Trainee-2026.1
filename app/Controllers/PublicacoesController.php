@@ -168,4 +168,63 @@ class PublicacoesController
         echo "Erro ao fazer upload da imagem.";
         exit;
     }
+
+
+//popula banco
+
+
+public function popularPosts()
+    {
+
+    $categorias = $this->getCategorias();
+        
+
+        $titulos = ['O retorno da franquia', 'Nova atualização lançada', 'Guia para iniciantes', 'Melhores momentos do ano', 'Análise completa', 'O que esperar do futuro', 'Entrevista exclusiva', 'Rumores confirmados', 'Promoção imperdível', 'Dicas avançadas'];
+        
+        $conteudos = [
+            '<p>Este é um post gerado automaticamente para testes. O conteúdo é apenas um texto genérico para preencher espaço no layout e testar a paginação e a exibição correta das tags HTML geradas pelo Summernote.</p>',
+            '<p>Pokemon é um tema muito legal e interessante pra muitosjovens por aí <b>A equipe de desenvolvimento</b> É  um universo enorme, não é pra qualquer um</p>',
+            '<p>Nem todo mundo gosta, mas é bem legal se pegar  umtempo pra jogar <i>Explorar bem o mapa</i> e entender as mecânicas básicas é essencial para o sucesso.</p>'
+        ];
+        
+        $curiosidades = ['Sabia que o desenvolvimento levou 5 anos?', 'Este é um dos tópicos mais comentados do fórum.', 'O jogo original quase foi cancelado.', 'Foram encontrados vários easter eggs nesta versão.', ''];
+
+        //cria 50  igual  a de usuarios
+        $quantidade = 50;
+    //loopzinho basico
+        for ($i = 0; $i < $quantidade; $i++) {
+
+        $titulo = $titulos[array_rand($titulos)] . ' #' . rand(100, 999);
+            
+
+            $data = date('Y-m-d', strtotime('-' . rand(0, 60) . ' days'));
+            
+
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+            $autorId = isset($_SESSION['id']) ? $_SESSION['id'] : 1;
+
+            $parameters = [
+                'titulo'      => $titulo,
+                'autor'       => $autorId,
+                'data'        => $data,
+                'conteudo'    => $conteudos[array_rand($conteudos)],
+                'categoria'   => $categorias[array_rand($categorias)],
+                'curiosidade' => $curiosidades[array_rand($curiosidades)],
+                'imagem'      => 'public/assets/imagensPosts/1e3171a2b1082af948342a8ffa2c3b25c70fc16f.jpg' //sla, pega qualquer coisa
+            ];
+
+
+            \App\Core\App::get('database')->insert('publicacao', $parameters);
+        }
+
+
+        header('Location: /publicacoes?sucesso=posts_populados');
+        exit();
+    }
+
+
+
+
 }
