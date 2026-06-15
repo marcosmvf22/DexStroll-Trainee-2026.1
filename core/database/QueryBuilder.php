@@ -82,7 +82,7 @@ class QueryBuilder
         }
     }
     
-     public function selectOne($table, $id)
+    public function selectOne($table, $id)
     {
          $sql = sprintf('SELECT * FROM %s WHERE id=:id LIMIT 1',$table);
          try{
@@ -92,6 +92,48 @@ class QueryBuilder
         } catch (Exception $e){
             die($e->getMessage());
         }
+    }
+    
+    public function selectPublicacaoComAutor($id)
+    {
+        $sql = "
+            SELECT p.*, u.username as autor
+            FROM publicacao p
+            LEFT JOIN usuarios u ON p.autor = u.id
+            WHERE p.id = :id
+            LIMIT 1
+        ";
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['id' => $id]);
+
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function getPostsRelacionados($categoria, $idAtual, $limit)
+    {
+        $sql = "
+            SELECT p.*, u.username as autor
+            FROM publicacao p
+            LEFT JOIN usuarios u ON p.autor = u.id
+            WHERE p.categoria = :categoria
+            AND p.id != :id
+            ORDER BY p.data DESC
+            LIMIT {$limit}
+        ";
+
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->execute([
+            'categoria' => $categoria,
+            'id' => $idAtual
+        ]);
+
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function update($table, $id, $parameters){

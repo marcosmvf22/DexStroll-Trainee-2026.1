@@ -8,14 +8,10 @@ use App\Core\App;
 class PostController
 {
     public function index()
-    {
-
-
-    
-       
+    {   
         $database = App::get('database');
 
-        $limit = 3;
+        $limit = 8;
         $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
         if($currentPage < 1){

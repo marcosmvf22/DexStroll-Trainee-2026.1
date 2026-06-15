@@ -15,182 +15,119 @@
         <!-- Titulo da pagina -->
         
         <div class="area-de-titulo">
+            <img class="imagem-capa-post" src="<?= $publicacao->imagem ?>" alt="Imagem de capa do titulo">
+
             <div class="overlay-area-de-titulo"></div> 
             <div class="conteudo-do-titulo">
                 
-                <a href="#" class="tag-categoria">Categoria</a>
-                <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-                <p>Autor • Data da publicação</p>
+                <a href="#" class="tag-categoria"><?=$publicacao->categoria?></a>
+                <h1><?=$publicacao->titulo?></h1>
+                <p><?=$publicacao->autor?> • <?=date('d/m/Y', strtotime($publicacao->data))?></p>
             </div>
         </div>
 
         <!-- Conteudo da pagina -->
 
         <div class="conteudo-da-pagina">
-            <div class="paragrafo">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quo eos! Sint minima ratione voluptatibus. Mollitia voluptatem explicabo deleniti debitis. Quis architecto laboriosam, officia natus necessitatibus alias laborum similique! Suscipit.
-                Ad eligendi, deleniti beatae explicabo error praesentium unde quos veritatis libero ex voluptatem expedita dolor, cum vel adipisci qui vero. Itaque ipsam deleniti corrupti quaerat assumenda magnam perspiciatis explicabo voluptatibus!
-                Earum, laboriosam? Maxime omnis incidunt consequatur quasi quibusdam magnam, adipisci neque dolore fugit, blanditiis eos aperiam? Voluptatem vel facere, dicta in a totam natus asperiores accusantium, ex iusto vitae eligendi!
-                Ab, exercitationem optio perspiciatis similique error cum libero! Molestiae deserunt atque tempore cupiditate fugit tenetur animi nisi inventore eaque non, pariatur officia, fugiat magni officiis suscipit nostrum, veniam sequi quaerat.
-                Asperiores officia aspernatur repellat iusto blanditiis nam repellendus aperiam amet atque enim hic obcaecati veniam ut ea numquam magnam doloribus dignissimos, omnis ad illo assumenda cumque delectus unde possimus? Repellendus.
-                Hic obcaecati itaque nulla est repellat aspernatur id tempora fugiat debitis facere error expedita, tempore fugit deleniti ex, delectus in, asperiores unde maiores saepe! Assumenda sit vero accusantium nulla officiis!
-            </div>
-            <div class="imagem-relacionada">
-                <img src="../../../public/assets/Imagem-de-fundo-exemplo.jpg" alt="Imagem de exemplo">            
-            </div>
-            <div class="paragrafo">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quo eos! Sint minima ratione voluptatibus. Mollitia voluptatem explicabo deleniti debitis. Quis architecto laboriosam, officia natus necessitatibus alias laborum similique! Suscipit.
-                Ad eligendi, deleniti beatae explicabo error praesentium unde quos veritatis libero ex voluptatem expedita dolor, cum vel adipisci qui vero. Itaque ipsam deleniti corrupti quaerat assumenda magnam perspiciatis explicabo voluptatibus!
-                Earum, laboriosam? Maxime omnis incidunt consequatur quasi quibusdam magnam, adipisci neque dolore fugit, blanditiis eos aperiam? Voluptatem vel facere, dicta in a totam natus asperiores accusantium, ex iusto vitae eligendi!
-                Ab, exercitationem optio perspiciatis similique error cum libero! Molestiae deserunt atque tempore cupiditate fugit tenetur animi nisi inventore eaque non, pariatur officia, fugiat magni officiis suscipit nostrum, veniam sequi quaerat.
-                Asperiores officia aspernatur repellat iusto blanditiis nam repellendus aperiam amet atque enim hic obcaecati veniam ut ea numquam magnam doloribus dignissimos, omnis ad illo assumenda cumque delectus unde possimus? Repellendus.
-                Hic obcaecati itaque nulla est repellat aspernatur id tempora fugiat debitis facere error expedita, tempore fugit deleniti ex, delectus in, asperiores unde maiores saepe! Assumenda sit vero accusantium nulla officiis!
-            </div>
-            <div class="imagem-relacionada">
-                <img src="../../../public/assets/Imagem-de-fundo-exemplo.jpg" alt="Imagem de exemplo">            
-            </div>
-            <div class="paragrafo">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quo eos! Sint minima ratione voluptatibus. Mollitia voluptatem explicabo deleniti debitis. Quis architecto laboriosam, officia natus necessitatibus alias laborum similique! Suscipit.
-                Ad eligendi, deleniti beatae explicabo error praesentium unde quos veritatis libero ex voluptatem expedita dolor, cum vel adipisci qui vero. Itaque ipsam deleniti corrupti quaerat assumenda magnam perspiciatis explicabo voluptatibus!
-                Earum, laboriosam? Maxime omnis incidunt consequatur quasi quibusdam magnam, adipisci neque dolore fugit, blanditiis eos aperiam? Voluptatem vel facere, dicta in a totam natus asperiores accusantium, ex iusto vitae eligendi!
-                Ab, exercitationem optio perspiciatis similique error cum libero! Molestiae deserunt atque tempore cupiditate fugit tenetur animi nisi inventore eaque non, pariatur officia, fugiat magni officiis suscipit nostrum, veniam sequi quaerat.
-                Asperiores officia aspernatur repellat iusto blanditiis nam repellendus aperiam amet atque enim hic obcaecati veniam ut ea numquam magnam doloribus dignissimos, omnis ad illo assumenda cumque delectus unde possimus? Repellendus.
-                Hic obcaecati itaque nulla est repellat aspernatur id tempora fugiat debitis facere error expedita, tempore fugit deleniti ex, delectus in, asperiores unde maiores saepe! Assumenda sit vero accusantium nulla officiis!
-            </div>
-            <div class="imagem-relacionada">
-                <img src="../../../public/assets/Imagem-de-fundo-exemplo.jpg" alt="Imagem de exemplo">            
-            </div>
-            <div class="paragrafo">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quo eos! Sint minima ratione voluptatibus. Mollitia voluptatem explicabo deleniti debitis. Quis architecto laboriosam, officia natus necessitatibus alias laborum similique! Suscipit.
-                Ad eligendi, deleniti beatae explicabo error praesentium unde quos veritatis libero ex voluptatem expedita dolor, cum vel adipisci qui vero. Itaque ipsam deleniti corrupti quaerat assumenda magnam perspiciatis explicabo voluptatibus!
-                Earum, laboriosam? Maxime omnis incidunt consequatur quasi quibusdam magnam, adipisci neque dolore fugit, blanditiis eos aperiam? Voluptatem vel facere, dicta in a totam natus asperiores accusantium, ex iusto vitae eligendi!
-                Ab, exercitationem optio perspiciatis similique error cum libero! Molestiae deserunt atque tempore cupiditate fugit tenetur animi nisi inventore eaque non, pariatur officia, fugiat magni officiis suscipit nostrum, veniam sequi quaerat.
-                Asperiores officia aspernatur repellat iusto blanditiis nam repellendus aperiam amet atque enim hic obcaecati veniam ut ea numquam magnam doloribus dignissimos, omnis ad illo assumenda cumque delectus unde possimus? Repellendus.
-                Hic obcaecati itaque nulla est repellat aspernatur id tempora fugiat debitis facere error expedita, tempore fugit deleniti ex, delectus in, asperiores unde maiores saepe! Assumenda sit vero accusantium nulla officiis!
-            </div>
-        </div>
-        <div class="caixa-de-curiosidade">
-            <div class="cabecalho-caixa-de-curiosidade">
-                <i class="material-icons">error</i>
-                <h1>Você sabia?</h1>
-            </div>
-            <div class="conteudo-caixa-de-curiosidade">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam esse, mollitia suscipit qui omnis sit sed eum consequatur, voluptates earum nihil commodi corporis? Maxime, impedit beatae fugiat dolorem culpa minus.
-                    Esse saepe quod repellat earum, officiis et aspernatur eius soluta, nihil voluptatem officia voluptatibus at. Quam aspernatur nemo sequi inventore quos culpa vel. Ab harum excepturi, atque explicabo dicta natus!
-                    Molestiae voluptas tenetur ex ipsam eos sed nulla? Aliquam corporis ea non quisquam quidem culpa illo ipsa aut minus, voluptatem sapiente deleniti. Dolore, deserunt. Est dignissimos eos inventore voluptatem laborum!
-                </p>
-            </div>
+            <?= $publicacao->conteudo ?>
         </div>
 
+        <?php if ($temCuriosidade): ?>
+            <div class="caixa-de-curiosidade">
+                <div class="cabecalho-caixa-de-curiosidade">
+                    <i class="material-icons">error</i>
+                    <h1>Você sabia?</h1>
+                </div>
+                <div class="conteudo-caixa-de-curiosidade">
+                    <?= $publicacao->curiosidade ?>
+                </div>
+            </div>
+        <?php endif; ?>
         <!-- Posts relacionados -->
 
         <div class="posts_relacionados">
             <h1>Posts Relacionados</h1>
-            
-            <!-- Area do carrossel -->
+            <?php if (!empty($postsRelacionados)): ?>
+                
+                <!-- Area do carrossel -->
+                <div class="carrossel">
 
-            <div class="carrossel">
+                    <!-- Lista de posts do carrossel -->
 
-                <!-- Lista de posts do carrossel -->
-
-                <div class="carrossel-conteudo">
-                    <ul>
+                    <div class="carrossel-conteudo">
+                       
 
                         <!-- Cards -->
 
-                        <li class="cards_carrossel">
-                            <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                            <div class="data-tag">
-                                <h6>Maio XX, 2026</h6>
-                                <a href="#" class="tag-categoria tag-cards">Categoria</a>
-                            </div>
-                            <h4>Titulo da postagem</h4>
-                            <div class="dados-autor-landing">
-                                <img src="https://picsum.photos/1920/1080?random" alt="imagem-autor">
-                                <h5>Nome do autor</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                            <button>Ler mais</button>
-                        </li>
-                    
-                        <li class="cards_carrossel">
-                            <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                            <div class="data-tag">
-                                <h6>Maio XX, 2026</h6>
-                                <a href="#" class="tag-categoria tag-cards">Categoria</a>
-                            </div>
-                            <div class="dados-autor-landing">
-                                <img src="https://picsum.photos/1920/1080?random" alt="imagem-autor">
-                                <h5>Nome do autor</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                            <button>Ler mais</button>
-                        </li>
-                        <li class="cards_carrossel">
-                            <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                            <div class="data-tag">
-                                <h6>Maio XX, 2026</h6>
-                                <a href="#" class="tag-categoria tag-cards">Categoria</a>
-                            </div>
-                            <div class="dados-autor-landing">
-                                <img src="https://picsum.photos/1920/1080?random" alt="imagem-autor">
-                                <h5>Nome do autor</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                            <button>Ler mais</button>
-                        </li>
+                        <ul>
+                            <?php foreach ($postsRelacionados as $post): ?>
+                                <li class="cards_carrossel">
 
-                        <li class="cards_carrossel">
-                            <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                            <div class="data-tag">
-                                <h6>Maio XX, 2026</h6>
-                                <a href="#" class="tag-categoria tag-cards">Categoria</a>
-                            </div>
-                            <div class="dados-autor-landing">
-                                <img src="https://picsum.photos/1920/1080?random" alt="imagem-autor">
-                                <h5>Nome do autor</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                            <button>Ler mais</button>
-                        </li>
-                        
-                        <li class="cards_carrossel">
-                            <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                            <div class="data-tag">
-                                <h6>Maio XX, 2026</h6>
-                                <a href="#" class="tag-categoria tag-cards">Categoria</a>
-                            </div>
-                            <div class="dados-autor-landing">
-                                <img src="https://picsum.photos/1920/1080?random" alt="imagem-autor">
-                                <h5>Nome do autor</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                            <button>Ler mais</button>
-                        </li>
-                        
-                        <li class="cards_carrossel">
-                            <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                            <div class="data-tag">
-                                <h6>Maio XX, 2026</h6>
-                                <a href="#" class="tag-categoria tag-cards">Categoria</a>
-                            </div>
-                            <div class="dados-autor-landing">
-                                <img src="https://picsum.photos/1920/1080?random" alt="imagem-autor">
-                                <h5>Nome do autor</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                            <button>Ler mais</button>
-                        </li>
-                    </ul>
+                                    <img
+                                        src="<?= !empty($post->imagem)
+                                            ? $post->imagem
+                                            : 'https://picsum.photos/1920/1080?random' ?>"
+                                        alt="<?= htmlspecialchars($post->titulo) ?>"
+                                    >
+
+                                    <div class="data-tag">
+                                        <h6>
+                                            <?= date('d/m/Y', strtotime($post->data)) ?>
+                                        </h6>
+
+                                        <span class="tag-categoria tag-cards">
+                                            <?= htmlspecialchars($post->categoria) ?>
+                                        </span>
+                                    </div>
+
+                                    <h4>
+                                        <?= htmlspecialchars($post->titulo) ?>
+                                    </h4>
+
+                                    <div class="dados-autor-landing">
+                                        <h5>
+                                            <?= htmlspecialchars($post->autor) ?>
+                                        </h5>
+                                    </div>
+
+                                    <p>
+                                        <?= mb_strimwidth(
+                                            strip_tags($post->conteudo),
+                                            0,
+                                            120,
+                                            '...'
+                                        ) ?>
+                                    </p>
+
+                                    <a
+                                        href="/postagem?id=<?= $post->id ?>"
+                                        class="lermais-botao"
+                                    >
+                                        Ler mais
+                                    </a>
+
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+
+                    <!-- Setas e paginacao -->
+
+                    <div class="navegacao-posts-relacionados">
+                        <div class="nav-arrow arrow-left posts-relacionado-pokeball" id="seta-esquerda"><</div>
+                        <div class="nav-arrow arrow-right posts-relacionado-pokeball" id="seta-direita">></div>
+                    </div>
                 </div>
 
-                <!-- Setas e paginacao -->
+            <?php else: ?>
 
-                <div class="navegacao-posts-relacionados">
-                    <div class="nav-arrow arrow-left posts-relacionado-pokeball" id="seta-esquerda"><</div>
-                    <div class="nav-arrow arrow-right posts-relacionado-pokeball" id="seta-direita">></div>
+                <div class="sem-posts-relacionados">
+                    <h3>Nenhum post relacionado encontrado.</h3>
+                    <p>Este conteúdo ainda não possui outras publicações da mesma categoria.</p>
                 </div>
-            </div>
+                
+            <?php endif; ?>
+
         </div>        
     </main>
     <?php require "footer.view.php"?>
