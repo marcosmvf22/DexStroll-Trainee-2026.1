@@ -10,7 +10,9 @@
 
 body{
     text-align: center;
-    background-image: url('/public/assets/fundo-pokedex.jpg');
+    background-image: url('/public/assets/fundo-pokedex.jpg') ;
+    background-color: #1F5FA8;
+    background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: auto;
@@ -25,23 +27,23 @@ main{
 }
 
 .pokedex{
-    width: 100%;
-    max-width: 425px;
+    width: 70%;
 }
 
 .pokemon_image{
     position: absolute;
-    bottom: 55%;
-    left: 50%;
-    transform: translate(-75%, 20%);
+    bottom: 50%;
+    left: 32%;
+    transform: translate(-60%, 30%);
     height: 18%;
     font-size: clamp(8px, 5vw, 25px);
-}
+} 
 
-.pokemon_data{
+.pokemon_main_data{
     position: absolute;
-    top: 54.5%;
-    right: 27%;
+    top: 60%;
+    left: 22%;
+    font-size: clamp(16px, 1.5vw, 25px);
 }
 
 .pokemon_name{
@@ -49,11 +51,11 @@ main{
     text-transform: capitalize;
 }
 
-.form{
+.barra_busca{
     position: absolute;
-    width: 65%;
-    top: 65%;
-    left: 13.5%;
+    width: 25%;
+    top: 70%;
+    left: 19.5%;
 }
 
 .input_search{
@@ -72,17 +74,16 @@ main{
 .buttons{
     position: absolute;
     bottom: 10%;
-    left: 50%;
-    width: 65%;
-    /* background-color: red; */
+    left: 60%;
+    width: 60%;
     transform: translate(-57%, 0);
     display: flex;
     gap: 20px;
 }
 
 .button{
-    width: 50%;
-    padding: 4%;
+    width: 10% auto;
+    padding: 2%;
     border: 2px solid #000;
     font-size: clamp(8px, 5vw, 1rem);
     font-weight: 600;
@@ -95,4 +96,116 @@ main{
 .button:active{
     box-shadow: inset -4px 4px 0 #222;
     font-size: 0.9rem;
+}
+
+.pokemon_aditional_data{
+    position: absolute;
+    top: 30%;
+    left: 55.5%;
+    width: 16vw;
+    height: 28vh;
+    border-radius:20px;
+    background-color: white;
+    border: 3px solid #000000;
+    color: #000;
+    text-align: justify;
+    padding: 20px;
+}
+
+
+@media (max-width: 600px){
+    .logo-nav-pokedex{
+        width: 80px;
+    }
+    .box1-nav-pokedex{
+        padding-inline: 2vh;
+    }
+    #input-pesquisa-nav-pokedex{
+        width: 30vw;
+    }
+    input::placeholder { 
+        font-size: 1.2vh;
+    }
+    #icone-lupa-nav-pokedex{
+        font-size: 20px;
+    }
+    .botao-publicacoes-nav-pokedex{
+        display: none;
+    }
+    .botao-login-nav-pokedex{
+        display: none;
+    }
+    .bloco-icone-menu-nav-pokedex{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #5a1a22;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px #0d2a4d;
+
+        width: 55px;
+        height: 5vh;
+    }
+    .bloco-icone-menu-nav-pokedex button{
+        background-color: transparent;
+        border: none;
+        width: 50%;
+        height: 50%;
+        cursor: pointer;
+
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .botao-menu-nav-pokedex{
+        background-color: transparent;
+    }
+    #icone-menu-nav-pokedex{
+        color: #e6392f;
+        font-size: 6vw;
+    }
+    .mobile-menu-nav-pokedex ul{ 
+        display: flex; 
+        flex-direction: column; 
+        text-align: center; 
+        padding-bottom: 1rem; 
+        background-color: #5a1a22;
+    }
+    .mobile-item-nav-pokedex{ 
+        display: flex; 
+        align-items: center;
+        width: 50%;
+
+        margin-left: 18vw;
+        border-radius: 10px;
+        border-left: solid 6px #e1352c;
+
+        padding: 1rem; 
+        background-color: #f5f7fa;
+        margin-top: 2vh;
+
+        font-weight: 400;
+        
+    }
+    .mobile-link-nav-pokedex{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        text-decoration: none;
+        color:#5a1a22;
+        font-size: 2.5vh;
+    }
+    .icone-mobile-esquerda-nav-pokedex{
+        color: #e1352c;
+        font-size: 3vh;
+    }
+    .icone-mobile-direita-nav-pokedex{
+        color: #e1352c;
+        font-size: 2vh;
+    }
+    .open{
+        display: block;
+    }
 }

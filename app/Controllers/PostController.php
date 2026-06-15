@@ -11,15 +11,6 @@ class PostController
     {
 
 
-    if (session_status() === PHP_SESSION_NONE) {
-                    session_start();
-                }
-
-                $usuarioLogado = App::get('database')->selectOne(
-                    'usuarios',
-                    $_SESSION['id']
-                );
-        
     
        
         $database = App::get('database');
