@@ -27,12 +27,17 @@
         </div>
     </div>
 
+    <div class="grupo-inputs-modal">
+        <label class="label-modal-visualizar">Categoria:</label>
+        <input type="text" class="input-modal-visualizar" value="<?= $publicacao->categoria ?>" disabled>
+    </div>
+
     <div class="imagem-principal-modal-excluir">
         <label class="label-modal-visualizar">Imagem principal:</label>
         <div class="img-principal-placeholder-modal">
             <i class="fa-regular fa-image icone-imagem-modal"></i>
         </div>
-    </div> -->
+    </div>
 
     <div id="editor-modal-visualizar">
         <textarea class="summernoteVisualizar" name="conteudo"><?= $publicacao->conteudo ?></textarea>

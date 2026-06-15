@@ -15,19 +15,28 @@
                 <label class="label-modal-visualizar">Autor:</label>
                 <input name="autor" type="text" class="input-modal-visualizar" value="<?= $publicacao->autor ?>">
             </div>
+
             <div class="grupo-inputs-modal">
-                <label class="label-modal-visualizar">Data de publicação:</label>
-                <input class="input-dataPublicacaoModal" type="date" name="data" value="<?= $publicacao->data ?>">
+                <label class="label-modal-visualizar">Categoria:</label>
+                <select name="categoria" required>
+                    <?php foreach ($categorias as $categoria): ?>
+                        <option value="<?= $categoria ?>" <?= $publicacao->categoria === $categoria ? 'selected' : '' ?>>
+                            <?= $categoria ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
             </div>
         </div>
             
-            <label class="label-modal-visualizar">Imagem principal:</label>
-            <input type="file" name="imagem" accept="image/*" class="form-control" id="input-imagemModalCriar">
+        
+        <label class="label-modal-visualizar">Imagem de Capa:</label>
+
+        <input type="file" name="imagem" accept="image/*" class="form-control" id="input-imagemModalCriar">
 
         <div class="imagem-principal-modal-excluir">
-            <p class="label-modal-visualizar">Imagem atual:</p>
+            <p class="label-modal-visualizar">Imagem de capa atual:</p>
             <div class="img-principal-placeholder-modal">
-                <img src="/<?= $publicacao->imagem ?>" alt="imagem" style="max-width: 100%; height: auto;">
+                <img src="/<?= $publicacao->imagem ?>" alt="imagem" style="max-width: 100%; max-height: 100%;">
             </div>
         </div>
 

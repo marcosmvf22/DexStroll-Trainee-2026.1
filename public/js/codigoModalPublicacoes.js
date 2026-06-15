@@ -14,10 +14,10 @@ function fecharModal(idModal){
     filtro.style.display = "none";
 }
 
-toggleCuriosidade.addEventListener('change', function(){
-    if(toggleCuriosidade.checked){
-        grupoCuriosidade.style.display = "flex";
-    } else{
-        grupoCuriosidade.style.display = "none";
-    }
-});
+// toggleCuriosidade.addEventListener('change', function(){
+//     if(toggleCuriosidade.checked){
+//         grupoCuriosidade.style.display = "flex";
+//     } else{
+//         grupoCuriosidade.style.display = "none";
+//     }
+// });

@@ -60,6 +60,7 @@
                             <th>ID</th>
                             <th>Título</th>
                             <th>Autor</th>
+                            <th>Categoria</th>
                             <th>Data de criação</th>
                             <th>Ações</th>
                         </tr>
@@ -70,6 +71,7 @@
                                 <td class="dado_id_admin"><?= $publicacao->id ?></td>
                                 <td class="dado_titulo_admin"><?= $publicacao->titulo ?></td>
                                 <td class="dado_autor_admin"><?= $publicacao->autor ?></td>
+                                <td class="dado_categoria_admin"><?= $publicacao->categoria ?> </td>
                                 <td class="dado_data_criacao_admin"><?= date('d/m/Y', strtotime($publicacao->data)) ?></td>
                                 <td class="celula-acoes-admin">
                                     <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao-<?= $publicacao->id ?>')" title="Visualizar">

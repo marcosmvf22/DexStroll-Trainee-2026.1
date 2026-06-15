@@ -7,6 +7,17 @@ use Exception;
 
 class PublicacoesController
 {
+
+    private function getCategorias()
+    {
+        return[
+            'Jogos',
+            'Noticia',
+            'Midia',
+            'Guias'
+        ];
+    }
+
     public function index()
     {
         // $publicacoes = App::get('database')->selectAll('publicacao');
@@ -50,7 +61,7 @@ class PublicacoesController
             $postsDoBanco = $database->paginate('publicacao',$limit,$offset);
         }
 
-    
+        $categorias = $this->getCategorias();
 
         return view('admin/pagina_publicacoes', [
             'publicacoes' => $postsDoBanco,
@@ -58,7 +69,8 @@ class PublicacoesController
             'totalPage' => $totalPages,
             'totalPosts' => $totalPosts,
             'usuarioLogado' => $usuarioLogado,
-            'pesquisa' => $pesquisa
+            'pesquisa' => $pesquisa,
+            'categorias' => $categorias
         ]);
 
         exit();
@@ -84,8 +96,9 @@ class PublicacoesController
         $parameters = [
             'titulo' => $_POST['titulo'],
             'autor' => $_POST['autor'],
-            'data' => $_POST['data'],
+            'data' => date('Y-m-d'),
             'conteudo' => $_POST['conteudo'],
+            'categoria' => $_POST['categoria'],
             'curiosidade' => $_POST['curiosidade'],
             'imagem' => $caminhodaimagem
         ];
@@ -112,8 +125,9 @@ class PublicacoesController
         $parameters = [
             'titulo' => $_POST['titulo'],
             'autor' => $_SESSION['id'],
-            'data' => $_POST['data'],
+            'data' => date('Y-m-d'),
             'conteudo' => $_POST['conteudo'],
+            'categoria' => $_POST['categoria'],
             'curiosidade' => $_POST['curiosidade'],
             'imagem' => $caminhodaimagem
         ];
