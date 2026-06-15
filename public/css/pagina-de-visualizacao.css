@@ -313,11 +313,11 @@ main{
     font-size: 0.67em;
 }
 
-.fundo-conteudo-cards{
+/* .fundo-conteudo-cards{
     background-color: rgba(0, 0, 0, 0.6);   
     border-radius: 10px;
     padding: 10px;
-}
+} */
 
 .cards_carrossel p{
     text-align: justify;

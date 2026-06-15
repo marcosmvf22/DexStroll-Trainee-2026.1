@@ -136,6 +136,27 @@ class QueryBuilder
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function ultimasPublicacoes($limit)
+    {
+        $sql = "
+            SELECT p.*, u.username AS autor
+            FROM publicacao p
+            LEFT JOIN usuarios u ON p.autor = u.id
+            ORDER BY p.data DESC
+            LIMIT :limit
+        ";
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
     public function update($table, $id, $parameters){
         $sql = sprintf('UPDATE %s SET %s WHERE id = %s',
         $table,
@@ -323,12 +344,12 @@ class QueryBuilder
     {
 
 
-$sql = "SELECT p.* ,u.username as autor FROM  publicacao p 
-                LEFT JOIN usuarios u ON p.autor = u.id 
-                WHERE p.titulo LIKE :termo 
-                OR u.username LIKE :termo 
-                OR p.id LIKE :termo;
-                LIMIT :limit OFFSET :offset";
+        $sql = "SELECT p.* ,u.username as autor FROM  publicacao p 
+            LEFT JOIN usuarios u ON p.autor = u.id 
+            WHERE p.titulo LIKE :termo 
+            OR u.username LIKE :termo 
+            OR p.id LIKE :termo;
+            LIMIT :limit OFFSET :offset";
 
        
 

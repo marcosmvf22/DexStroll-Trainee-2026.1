@@ -47,72 +47,56 @@
         <div class="slider-landing">
             <div class="slider-conteudo-landing">
                 <!-- itens landing -->
-                <div class="slider-item-landing">
-                    <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                    <h6>Maio XX, 2026</h6>
-                    <h4>Titulo da postagem</h4>
-                    <div class="dados-autor-landing">
-                        <img src="" alt="imagem-autor">
-                        <h5>Nome do autor</h5>
+                <?php foreach($ultimasPublicacoes as $post): ?>
+
+                    <div class="slider-item-landing">
+
+                        <img
+                            src="<?= !empty($post->imagem)
+                                ? $post->imagem
+                                : '/public/assets/default-post.png' ?>"
+                            alt="<?= htmlspecialchars($post->titulo) ?>"
+                        >
+
+                        <div class="data-tag">
+                            <h6>
+                                <?= date('d/m/Y', strtotime($post->data)) ?>
+                            </h6>
+                            
+                            <span class="tag-categoria tag-cards">
+                                <?= htmlspecialchars($post->categoria) ?>
+                            </span>
+                        </div>
+
+                        <h4>
+                            <?= htmlspecialchars($post->titulo) ?>
+                        </h4>
+
+                        <div class="dados-autor-landing">
+                            <h5>
+                                <?= htmlspecialchars($post->autor) ?>
+                            </h5>
+                        </div>
+
+                        <p>
+                            <?= mb_strimwidth(
+                                strip_tags($post->conteudo),
+                                0,
+                                120,
+                                '...'
+                            ) ?>
+                        </p>
+
+                        <a
+                            href="/postagem?id=<?= $post->id ?>"
+                            class="botao-ler-mais"
+                        >
+                            Ler mais
+                        </a>
+
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                    <button>Ler mais</button>
-                </div>
-                <div class="slider-item-landing">
-                    <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                    <h6>Maio XX, 2026</h6>
-                    <h4>Titulo da postagem</h4>
-                    <div class="dados-autor-landing">
-                        <img src="" alt="imagem-autor">
-                        <h5>Nome do autor</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                    <button>Ler mais</button>
-                </div>
-                <div class="slider-item-landing">
-                    <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                    <h6>Maio XX, 2026</h6>
-                    <h4>Titulo da postagem</h4>
-                    <div class="dados-autor-landing">
-                        <img src="" alt="imagem-autor">
-                        <h5>Nome do autor</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                    <button>Ler mais</button>
-                </div>
-                <div class="slider-item-landing">
-                    <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                    <h6>Maio XX, 2026</h6>
-                    <h4>Titulo da postagem</h4>
-                    <div class="dados-autor-landing">
-                        <img src="" alt="imagem-autor">
-                        <h5>Nome do autor</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                    <button>Ler mais</button>
-                </div>
-                <div class="slider-item-landing">
-                    <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                    <h6>Maio XX, 2026</h6>
-                    <h4>Titulo da postagem</h4>
-                    <div class="dados-autor-landing">
-                        <img src="" alt="imagem-autor">
-                        <h5>Nome do autor</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                    <button>Ler mais</button>
-                </div>
-                <div class="slider-item-landing">
-                    <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                    <h6>Maio XX, 2026</h6>
-                    <h4>Titulo da postagem</h4>
-                    <div class="dados-autor-landing">
-                        <img src="" alt="imagem-autor">
-                        <h5>Nome do autor</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                    <button>Ler mais</button>
-                </div>
+
+                <?php endforeach; ?>
             </div>
 
 
@@ -120,72 +104,55 @@
 
             <div aria-hidden class="slider-conteudo-landing">
                 <!-- itens landing -->
-                <div class="slider-item-landing">
-                    <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                    <h6>Maio XX, 2026</h6>
-                    <h4>Titulo da postagem</h4>
-                    <div class="dados-autor-landing">
-                        <img src="" alt="imagem-autor">
-                        <h5>Nome do autor</h5>
+                <?php foreach($ultimasPublicacoes as $post): ?>
+
+                    <div class="slider-item-landing">
+
+                        <img
+                            src="<?= !empty($post->imagem)
+                                ? $post->imagem
+                                : '/public/assets/default-post.png' ?>"
+                            alt="<?= htmlspecialchars($post->titulo) ?>"
+                        >
+
+                        <div class="data-tag">
+                            <h6>
+                                <?= date('d/m/Y', strtotime($post->data)) ?>
+                            </h6>
+                            
+                            <span class="tag-categoria tag-cards">
+                                <?= htmlspecialchars($post->categoria) ?>
+                            </span>
+                        </div>
+                        <h4>
+                            <?= htmlspecialchars($post->titulo) ?>
+                        </h4>
+
+                        <div class="dados-autor-landing">
+                            <h5>
+                                <?= htmlspecialchars($post->autor) ?>
+                            </h5>
+                        </div>
+
+                        <p>
+                            <?= mb_strimwidth(
+                                strip_tags($post->conteudo),
+                                0,
+                                120,
+                                '...'
+                            ) ?>
+                        </p>
+
+                        <a
+                            href="/postagem?id=<?= $post->id ?>"
+                            class="botao-ler-mais"
+                        >
+                            Ler mais
+                        </a>
+
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                    <button>Ler mais</button>
-                </div>
-                <div class="slider-item-landing">
-                    <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                    <h6>Maio XX, 2026</h6>
-                    <h4>Titulo da postagem</h4>
-                    <div class="dados-autor-landing">
-                        <img src="" alt="imagem-autor">
-                        <h5>Nome do autor</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                    <button>Ler mais</button>
-                </div>
-                <div class="slider-item-landing">
-                    <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                    <h6>Maio XX, 2026</h6>
-                    <h4>Titulo da postagem</h4>
-                    <div class="dados-autor-landing">
-                        <img src="" alt="imagem-autor">
-                        <h5>Nome do autor</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                    <button>Ler mais</button>
-                </div>
-                <div class="slider-item-landing">
-                    <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                    <h6>Maio XX, 2026</h6>
-                    <h4>Titulo da postagem</h4>
-                    <div class="dados-autor-landing">
-                        <img src="" alt="imagem-autor">
-                        <h5>Nome do autor</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                    <button>Ler mais</button>
-                </div>
-                <div class="slider-item-landing">
-                    <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                    <h6>Maio XX, 2026</h6>
-                    <h4>Titulo da postagem</h4>
-                    <div class="dados-autor-landing">
-                        <img src="" alt="imagem-autor">
-                        <h5>Nome do autor</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                    <button>Ler mais</button>
-                </div>
-                <div class="slider-item-landing">
-                    <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                    <h6>Maio XX, 2026</h6>
-                    <h4>Titulo da postagem</h4>
-                    <div class="dados-autor-landing">
-                        <img src="" alt="imagem-autor">
-                        <h5>Nome do autor</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                    <button>Ler mais</button>
-                </div>
+
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
