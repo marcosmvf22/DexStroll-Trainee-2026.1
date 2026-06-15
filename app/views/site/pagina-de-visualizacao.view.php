@@ -63,49 +63,51 @@
                             <?php foreach ($postsRelacionados as $post): ?>
                                 <li class="cards_carrossel">
 
-                                    <img
-                                        src="<?= !empty($post->imagem)
-                                            ? $post->imagem
-                                            : 'https://picsum.photos/1920/1080?random' ?>"
-                                        alt="<?= htmlspecialchars($post->titulo) ?>"
-                                    >
+                                    <div class="fundo-conteudo-cards">
+                                        <img
+                                            src="<?= !empty($post->imagem)
+                                                ? $post->imagem
+                                                : 'https://picsum.photos/1920/1080?random' ?>"
+                                            alt="<?= htmlspecialchars($post->titulo) ?>"
+                                        >
 
-                                    <div class="data-tag">
-                                        <h6>
-                                            <?= date('d/m/Y', strtotime($post->data)) ?>
-                                        </h6>
-
-                                        <span class="tag-categoria tag-cards">
-                                            <?= htmlspecialchars($post->categoria) ?>
-                                        </span>
+                                        <div class="data-tag">
+                                            <h6>
+                                                <?= date('d/m/Y', strtotime($post->data)) ?>
+                                            </h6>
+                                            
+                                            <span class="tag-categoria tag-cards">
+                                                <?= htmlspecialchars($post->categoria) ?>
+                                            </span>
+                                        </div>
+                                        
+                                        <h4>
+                                            <?= htmlspecialchars($post->titulo) ?>
+                                        </h4>
+                                        
+                                        <div class="dados-autor-landing">
+                                            <h5>
+                                                <?= htmlspecialchars($post->autor) ?>
+                                            </h5>
+                                        </div>
+                                        
+                                        <p>
+                                            <?= mb_strimwidth(
+                                                strip_tags($post->conteudo),
+                                                0,
+                                                120,
+                                                '...'
+                                            ) ?>
+                                        </p>
+                                        
                                     </div>
-
-                                    <h4>
-                                        <?= htmlspecialchars($post->titulo) ?>
-                                    </h4>
-
-                                    <div class="dados-autor-landing">
-                                        <h5>
-                                            <?= htmlspecialchars($post->autor) ?>
-                                        </h5>
-                                    </div>
-
-                                    <p>
-                                        <?= mb_strimwidth(
-                                            strip_tags($post->conteudo),
-                                            0,
-                                            120,
-                                            '...'
-                                        ) ?>
-                                    </p>
-
+                                    
                                     <a
                                         href="/postagem?id=<?= $post->id ?>"
                                         class="lermais-botao"
-                                    >
+                                        >
                                         Ler mais
-                                    </a>
-
+                                   </a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
