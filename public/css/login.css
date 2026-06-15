@@ -56,6 +56,8 @@ body{
     margin-left: 0%;
     position: absolute;
     font-size: 2.5vw;
+            text-decoration: none;
+
     color: #0d2a4d;
     left: 0px;
     cursor: pointer;
@@ -363,10 +365,13 @@ body{
     }
     #icone-voltar-login{
         font-size: 5vw;
+        text-decoration: none;
         margin-left: 2%;
     }
     #icone-voltar-cadastro{
         font-size: 5vw;
+                text-decoration: none;
+
         margin-left: 2%;
     }
     .box2-login{

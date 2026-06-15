@@ -31,7 +31,9 @@
             <div class="container-secundario-login">
                 <div class="box1-login">
                     <div class="topo-login">
-                        <i id="icone-voltar-login" class="fa-regular fa-circle-left"></i>
+                        
+                        <a href= "/" id="icone-voltar-login" class="fa-regular fa-circle-left"></a>
+
                         <h1 class="titulo-login">LOGIN</h1>
                     </div>
 
