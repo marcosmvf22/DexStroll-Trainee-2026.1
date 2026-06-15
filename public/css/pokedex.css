@@ -49,8 +49,8 @@ main{
 .pokemon_main_data{
     position: absolute;
     top: 60%;
-    left: 19%;
-    font-size: clamp(16px, 1.5vw, 25px);
+    left: 18%;
+    font-size: clamp(1.5rem, 4vw, 1rem);
 }
 
 .pokemon_name{
@@ -64,6 +64,15 @@ main{
     top: 70%;
     left: 14.5%;
 }
+
+input::placeholder{
+    font-size: clamp(0.3rem, 1rem, 1rem);
+}
+
+.barra_busca {
+    font-size: 1rem;
+}
+
 
 .input_search{
     width: 100%;
@@ -139,6 +148,9 @@ main{
 }
 
 @media (max-width: 600px){
+    input::placeholder{
+        font-size: 0.75rem;
+    }
     .pokemon_aditional_data {
         width: 34%;
         left: 55%; 
@@ -151,12 +163,26 @@ main{
     }
 
     .button{
-        padding: 2%;
+        padding: 1%;
     }
     
     .buttons {
-        bottom: 8%;
+        padding: 5%;
+        bottom: 0.5%;
         gap: 6px;   
     }
    
+}
+
+@media (max-width: 320px){
+    .pokemon_main_data{
+        font-size: 0.5rem;
+    }
+    .buttons {
+        bottom: 15%;
+        padding: 0.5%;
+    }
+    .input_search{
+        display: none
+    }
 }
