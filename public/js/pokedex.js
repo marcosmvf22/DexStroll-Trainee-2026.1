@@ -59,33 +59,10 @@ const renderPokemon = async (pokemon) => {
         pokemonImage.style.display = 'block';
         pokemonName.innerHTML = data.name;
         pokemonNumber.innerHTML = data.id;
-        pokemonHeight.innerHTML = `Altura: ${data.height/10} m`;
-        pokemonWeight.innerHTML = `Peso: ${data.weight/10} kg`;
+        pokemonHeight.innerHTML = `<strong>Altura:</strong> ${data.height/10} m`;
+        pokemonWeight.innerHTML = `<strong>Peso:</strong> ${data.weight/10} kg`;
 
-        // //  ENCONTROS, MÉTODOS E CONDIÇÕES 
-        // const encountersData = await fetchPokemonEncounters(data.id);
-        // if (encountersData && encountersData.length > 0) {
-        //     // Locais
-        //     const locais = encountersData.map(lugar => lugar.location_area.name);
-        //     pokemonEncounters.innerHTML = locais.slice(0, 3).join(', '); // Pega os 3 primeiros pra não estourar o layout
-
-        //     // Métodos
-        //     const metodos = encountersData.map(lugar => {
-        //         return lugar.version_details.map(detail => detail.encounter_details.map(enc => enc.method.name));
-        //     }).flat(2);
-        //     pokemonMethods.innerHTML = [...new Set(metodos)].join(', ');
-
-        //     // Condições
-        //     const condicoes = encountersData.map(lugar => {
-        //         return lugar.version_details.map(detail => detail.encounter_details.map(enc => enc.condition_values.map(c => c.name)));
-        //     }).flat(3);
-        //     pokemonConditions.innerHTML = condicoes.length > 0 ? [...new Set(condicoes)].join(', ') : 'Nenhuma';
-        // } else {
-        //     pokemonEncounters.innerHTML = 'Não encontrado na natureza';
-        //     pokemonMethods.innerHTML = '-';
-        //     pokemonConditions.innerHTML = '-';
-        // }
-
+    
         //EVOLUÇÕES
         const evolutionData = await fetchPokemonEvolution(data.id);
         if(evolutionData){
@@ -103,13 +80,44 @@ const renderPokemon = async (pokemon) => {
             }
 
             if(proximaEvolucao){
-                pokemonEvolution.innerHTML = `Evolução: ${capitalizarPrimeiraLetra(proximaEvolucao)}`;
+                pokemonEvolution.innerHTML = `<strong>Evolução:</strong> ${capitalizarPrimeiraLetra(proximaEvolucao)}`;
             } else {
-                pokemonEvolution.innerHTML = 'Não evolui';
+                pokemonEvolution.innerHTML = '<strong>Evolução:</strong>Não evolui';
             }
         } else {
-            pokemonEvolution.innerHTML = 'Sem dados de evolução';
+            pokemonEvolution.innerHTML = '<strong>Evolução:</strong>Sem dados de evolução';
         }
+
+    // //  ENCONTROS, MÉTODOS E CONDIÇÕES 
+       const encountersData = await fetchPokemonEncounters(data.id);
+
+    if (encountersData && encountersData.length > 0) {
+        // Locais
+        const locais = encountersData.map(lugar => lugar.location_area.name);
+        const listaLocais = locais.slice(0, 3).join(', ');
+        pokemonEncounters.innerHTML = `<br><strong>Local:</strong> ${listaLocais}`;
+
+        // Métodos
+        const metodos = encountersData.map(lugar => {
+            return lugar.version_details.map(detail => detail.encounter_details.map(enc => enc.method.name));
+        }).flat(2);
+        const listaMetodos = [...new Set(metodos)].join(', ');
+        pokemonMethods.innerHTML = `<br><strong>Método:</strong> ${listaMetodos}`;
+
+        // Condições
+        const condicoes = encountersData.map(lugar => {
+            return lugar.version_details.map(detail => detail.encounter_details.map(enc => enc.condition_values.map(c => c.name)));
+        }).flat(3);
+        const listaCondicoes = condicoes.length > 0 ? [...new Set(condicoes)].join(', ') : 'Nenhuma';
+        pokemonConditions.innerHTML = `<br><strong>Condição:</strong> ${listaCondicoes}`;
+
+    } else {
+        // Caso o pokémon não tenha dados de encontro
+        pokemonEncounters.innerHTML = '<br><strong>Local:</strong> Não encontrado na natureza';
+        pokemonMethods.innerHTML = '<br><strong>Método:</strong> -';
+        pokemonConditions.innerHTML = '<br><strong>Condição:</strong> -';
+    }
+
 
         //TRATAMENTO DA IMAGEM
         try {
@@ -160,24 +168,3 @@ function capitalizarPrimeiraLetra(str) {
 // Inicializa o app
 renderPokemon(searchPokemon);
 
-function menuShowNav() {
-    let mobileMenuNav = document.querySelector('.mobile-menu-nav-pokedex');
-    let headerNav = document.querySelector('.header-nav-pokedex');
-    let lineNav = document.querySelector('.line-nav-pokedex');
-    let blocoMenuNav = document.querySelector('.bloco-icone-menu-nav-pokedex');
-
-    if (mobileMenuNav.classList.contains('open')) {
-        mobileMenuNav.classList.remove('open');
-        document.querySelector('#icone-menu-nav-pokedex').className = "fa-solid fa-bars";
-        headerNav.style.background = "transparent";
-        lineNav.style.borderColor = "#5a1a22";
-        blocoMenuNav.style.boxShadow = "5px 5px 10px #0d2a4d";
-
-    } else {
-        mobileMenuNav.classList.add('open');      
-        document.querySelector('#icone-menu-nav-pokedex').className = "fa-solid fa-x";
-        headerNav.style.background = "#5a1a22";
-        lineNav.style.borderColor = "#e1352c";
-        blocoMenuNav.style.boxShadow = "none";
-    }
-}
