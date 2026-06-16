@@ -7,7 +7,7 @@ use PDO, Exception;
 class QueryBuilder
 {
     protected $pdo;
-    
+
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
@@ -40,7 +40,7 @@ class QueryBuilder
     public function countAll($table)
     {
         $sql = "SELECT COUNT(*) AS total FROM {$table}";
-        try{
+        try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
@@ -51,9 +51,12 @@ class QueryBuilder
 
     public function paginate($table, $limit, $offset)
     {
-        $sql = "SELECT p.* ,u.username as autor FROM  publicacao p LEFT JOIN usuarios u ON p.autor = u.id LIMIT {$limit} OFFSET {$offset}"; 
+    //  ORDENAR POR MAIS RECENTE, sou ruimm em sql
+        $sql = "SELECT p.* ,u.username as autor FROM publicacao p LEFT JOIN usuarios u ON p.autor = u.id ORDER BY p.id DESC LIMIT {$limit} OFFSET {$offset}"; 
+        
         if ($table !== 'publicacao'){
-            $sql = "SELECT * FROM {$table} LIMIT {$limit} OFFSET {$offset}";
+        // mesmacoisasoque pro usuario
+        $sql = "SELECT * FROM {$table} ORDER BY id DESC LIMIT {$limit} OFFSET {$offset}";
         }
         
         try {
@@ -81,19 +84,19 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
-    
+
     public function selectOne($table, $id)
     {
-         $sql = sprintf('SELECT * FROM %s WHERE id=:id LIMIT 1',$table);
-         try{
+        $sql = sprintf('SELECT * FROM %s WHERE id=:id LIMIT 1', $table);
+        try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['id' => $id]);
             return $stmt->fetch(PDO::FETCH_OBJ);
-        } catch (Exception $e){
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
-    
+
     public function selectPublicacaoComAutor($id)
     {
         $sql = "
@@ -157,19 +160,21 @@ class QueryBuilder
         }
     }
 
-    public function update($table, $id, $parameters){
-        $sql = sprintf('UPDATE %s SET %s WHERE id = %s',
-        $table,
-        implode(', ', array_map(function($param){
-            return $param . ' = :' .$param;
-        }, array_keys($parameters))),
-        $id
+    public function update($table, $id, $parameters)
+    {
+        $sql = sprintf(
+            'UPDATE %s SET %s WHERE id = %s',
+            $table,
+            implode(', ', array_map(function ($param) {
+                return $param . ' = :' . $param;
+            }, array_keys($parameters))),
+            $id
         );
-        try{
+        try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute($parameters);
             return $stmt->fetchAll(PDO::FETCH_CLASS);
-        } catch (Exception $e){
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
@@ -185,29 +190,32 @@ class QueryBuilder
                 $stmt->bindValue(":{$key}", $value);
             }
             return $stmt->execute();
-            } catch (Exception $e) {
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
-    
 
-    public function verificaLogin($email){
+
+    public function verificaLogin($email)
+    {
         $sql = sprintf('SELECT * FROM usuarios WHERE email = :email LIMIT 1');
-        try{
+        try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['email' => $email]);
             $user = $stmt->fetch(PDO::FETCH_OBJ);
             return $user;
-        } catch (Exception $e){
-            die($e ->getMessage());
+        } catch (Exception $e) {
+            die($e->getMessage());
         }
     }
 
-    public function insert($table, $parameters){
-        $sql = sprintf('INSERT INTO %s (%s) VALUES (:%s)',
-        $table,
-        implode(', ', array_keys($parameters)),
-        implode(', :', array_keys($parameters)),
+    public function insert($table, $parameters)
+    {
+        $sql = sprintf(
+            'INSERT INTO %s (%s) VALUES (:%s)',
+            $table,
+            implode(', ', array_keys($parameters)),
+            implode(', :', array_keys($parameters)),
         );
         try {
             $stmt = $this->pdo->prepare($sql);
@@ -230,7 +238,7 @@ class QueryBuilder
             $whereParts[] = "$col = :where_$col";
         }
         $whereClause = implode(' AND ', $whereParts);
-        
+
         $sql = "UPDATE {$table} SET {$setClause} WHERE {$whereClause}";
         try {
             $stmt = $this->pdo->prepare($sql);
@@ -267,20 +275,21 @@ class QueryBuilder
 
     public function delete($table, $id)
     {
-        $sql = sprintf('DELETE FROM %s WHERE %s',
-        $table,
-        'id = :id'    
+        $sql = sprintf(
+            'DELETE FROM %s WHERE %s',
+            $table,
+            'id = :id'
         );
-        try{
+        try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(compact('id'));
-        } catch (Exception $e){
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
 
-    
+
     public function countSearch($table, $termo)
     {
         $sql = "SELECT COUNT(*) AS total FROM {$table} 
@@ -299,7 +308,7 @@ class QueryBuilder
 
     public function paginateSearch($table, $termo, $limit, $offset)
     {
-        
+
         $sql = "SELECT * FROM {$table} 
                 WHERE username LIKE :termo 
                 OR nome LIKE :termo 
@@ -316,10 +325,10 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
-   
-    
 
-//buscadeposts?:::::
+
+
+    //buscadeposts?:::::
 
 
 
@@ -348,13 +357,13 @@ class QueryBuilder
             LEFT JOIN usuarios u ON p.autor = u.id 
             WHERE p.titulo LIKE :termo 
             OR u.username LIKE :termo 
-            OR p.id LIKE :termo;
+            OR p.id LIKE :termo
             LIMIT :limit OFFSET :offset";
+            //tinha um ponto e virula no meio dessa desgraça, tirei
 
-       
 
 
-   
+
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindValue(':termo', '%' . $termo . '%', PDO::PARAM_STR);
