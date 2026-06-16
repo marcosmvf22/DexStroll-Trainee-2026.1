@@ -32,7 +32,7 @@
                 <h3>Visão Estratégica</h3>
                 <p>Aprenda diferentes formas de abordar a mesma batalha.</p>
             </div>
-            <di class="sobre1">
+            <div class="sobre1">
                 <img src="/public/assets/grupo-100.png" alt="">
                 <h3>Crescimento Contínuo</h3>
                 <p>Melhore com consistência através da prática e feedback.</p>
