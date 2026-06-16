@@ -26,7 +26,7 @@
               <img 
                 src="<?= !empty($post->imagem) ? $post->imagem : '/public/assets/default-post.png' ?>" 
                 alt="Capa da publicação" 
-                style="width: 100%; height: 100%; object-fit: cover;"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 50px;"
               >
             </div>
             
