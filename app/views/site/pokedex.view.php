@@ -52,6 +52,7 @@
         <img src="/public/assets/pokédex_lisa.png" alt="pokedex" class="pokedex">
 
     </main>
+    <? require 'footer.view.php'?>
 </body>
      <script defer src="/public/js/pokedex.js"></script>
 
