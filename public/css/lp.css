@@ -199,8 +199,8 @@ a{
     justify-content: space-between;
     flex-direction: column;
     gap: 10px;
+    height: 600px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    min-height: 380px;
 }
 
 .tag-categoria{
@@ -284,5 +284,9 @@ a{
     .bloco-sobre-landing{
         flex-direction: column;
         align-items: center;
+    }
+    .slider-item-landing{
+        height: 500px;
+        gap: 4px;
     }
 }
