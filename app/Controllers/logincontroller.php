@@ -54,27 +54,16 @@ class LoginController
     public function store(){
          $parameters = [
             'nome' => $_POST['nome'],
-            'username' => $_POST['username'],
-            'avatar' => $_POST['avatar'],
             'email' => $_POST['email'],
             'senha' => $_POST['senha'],
         ];
 
-        /*if(isset($_POST['senha']) && $_POST['confirmaSenha']){
-            if($_POST['senha'] !== $_POST['confirmaSenha']) {
-                $_SESSION['form_error'] = 'As senhas não conferem. ';
-                header('Location: /login');
-                exit;
-            }
-        }*/
-
-        // if($_POST['senha'] == $_POST['confirmaSenha']){
-             App::get('database')->insert('usuarios', $parameters);
-        // } else {
-        //    dd('Senhas incompatíveis!!');
-        //    header('Location: /login');
+        if($_POST['senha'] == $_POST['confirmaSenha']){
+             App::get('database')->insert('usuarios',$parameters);
+        } else {
+            $_SESSION['mensagem-erro'] = 'Senhas incompatíveis!!';
             
-        // }
+        }
            header('Location: /login');
     }
 }
