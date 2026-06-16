@@ -289,4 +289,10 @@ a{
         height: 500px;
         gap: 4px;
     }
+    .slider-item-landing h6{
+        padding-top: 0;
+    }
+    .slider-item-landing  img{
+        height: 200px;
+    }
 }
