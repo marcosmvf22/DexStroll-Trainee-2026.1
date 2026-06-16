@@ -90,14 +90,7 @@
 
                     <h2 class="subtitulo-login">Registre-se aqui.</h2>
 
-                    <form action="/login/create" method="POST">
-                          <?php
-                        if (isset($_SESSION['mensagem-erro'])) {
-                            echo $_SESSION['mensagem-erro'];
-
-                            unset($_SESSION['mensagem-erro']);
-                        }
-                        ?>
+                    <form action="/login/create" method="POST" onSubmit="return checkPassword(this)">
                     <div class="campos-login">
                         <p class="descricao-cadastro">Nome</p>
                         <label class="label-cadastro">
@@ -107,6 +100,18 @@
                             </div>
                             <input id="nome" name="nome" type="nome" class="input-login">
                         </label>
+
+                        <p class="descricao-cadastro">Apelido</p>
+                        <label class="label-cadastro">
+                            <div class="elementos-input">
+                                <i id="icone-user-cadastro" class="fa-regular fa-user"></i>
+                                <span class="line-cadastro"></span>
+                            </div>
+                            <input id="username" name="username" type="username" class="input-login">
+                        </label>
+
+                        <input id="avatar" name="avatar" type="avatar" value="nulo"/>
+
 
                         <p class="descricao-cadastro">Email</p>
                         <label class="label-cadastro">
@@ -134,6 +139,8 @@
                             </div>
                             <input id="confirmaSenha" name="confirmaSenha" type="password" class="input-login">
                         </label>
+                        
+                        <!-- <div><p>Senhas incompatíveis</p></div> -->
                     </div>
 
                     <button class="botao-cadastro">Cadastrar</button>

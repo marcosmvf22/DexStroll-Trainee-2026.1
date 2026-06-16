@@ -435,3 +435,7 @@ body{
         font-size: 1.7vw;
     }   
 }
+
+#avatar{
+    display: none;
+}
