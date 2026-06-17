@@ -7,6 +7,9 @@ use Exception;
 
 class LoginController
 {
+    public function login(){
+        return view('site/login');
+    }
 
     public function efetuaLogin()
     {
@@ -49,12 +52,6 @@ class LoginController
 
     }
 
-    public function dashboard(){
-        return view('admin/dashboard');
-    }
-    public function login(){
-        return view('site/login');
-    }
 
     public function store(){
          $parameters = [
