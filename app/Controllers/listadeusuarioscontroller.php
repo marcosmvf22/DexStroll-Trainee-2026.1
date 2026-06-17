@@ -10,17 +10,15 @@ class listadeusuarioscontroller
     // aqui defini algumas  funcoes para poder pegar do  banco de dados, e funcionar no controller
     // ao  invés da view no JS, que era temporario so pra mostrar pro cliente
     
-   public function index()
+    public function index()
     {
 
-        if (session_status() === PHP_SESSION_NONE) {
-                    session_start();
-                }
-
-                $usuarioLogado = App::get('database')->selectOne(
-                    'usuarios',
-                    $_SESSION['id']
-                );
+        $this->adminAuth();
+        
+        $usuarioLogado = App::get('database')->selectOne(
+            'usuarios',
+            $_SESSION['id']
+        );
 
  
         $database = App::get('database');
@@ -63,6 +61,9 @@ class listadeusuarioscontroller
     
     public function create()
     {
+
+        $this->adminAuth();
+
         // aqui é meio que por segurança, pra nao renderizar uma celular vazia,etc
         if (empty($_POST['username']) || empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['senha']))
         {    
@@ -113,6 +114,8 @@ class listadeusuarioscontroller
 
     public function update()
     {
+        $this->adminAuth();
+
         if (empty($_POST['id'])) {
             header('Location: /usuarios?erro=id_nao_informado');
             exit();
@@ -176,6 +179,9 @@ class listadeusuarioscontroller
     
     public function delete()
     {
+
+        $this->adminAuth();
+
         if (empty($_POST['id'])) {
             header('Location: /usuarios?erro=id_nao_informado');
             exit();
@@ -212,10 +218,11 @@ class listadeusuarioscontroller
 
 
     // POPULAR O BANCO ENCHER DE USUARIO PARA TESTE
-        public function popularBanco()
+    public function popularBanco()
     {
-//achei um gerador de nomes  aleatorios para  teste, e  enfiei aqui
-    $nomes = ['Kael', 'Ivan', 'Bruce', 'Paul', 'Serj', 'Isadora', 'Ana', 'Guilherme', 'José', 'João'];
+        $this->adminAuth();
+        //achei um gerador de nomes  aleatorios para  teste, e  enfiei aqui
+        $nomes = ['Kael', 'Ivan', 'Bruce', 'Paul', 'Serj', 'Isadora', 'Ana', 'Guilherme', 'José', 'João'];
         $sobrenomes = ['Turguêniev', 'Dickinson', 'DiAnno', 'Tankian', 'Simões', 'Nicácio', 'Silva', 'Santos', 'Oliveira'];
 
         
@@ -249,6 +256,18 @@ class listadeusuarioscontroller
 
         header('Location: /usuarios?sucesso=banco_populado');
         exit();
+    }
+
+    private function adminAuth()
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            exit;
+        }
     }
    
     

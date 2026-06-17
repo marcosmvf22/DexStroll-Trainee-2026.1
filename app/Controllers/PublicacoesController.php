@@ -20,14 +20,7 @@ class PublicacoesController
 
     public function index()
     {
-        // $publicacoes = App::get('database')->selectAll('publicacao');
-
-        // return view('admin/pagina_publicacoes', ['publicacoes' => $publicacoes]);
-        // exit;
-
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
+        $this->adminAuth();
 
         $usuarioLogado = App::get('database')->selectOne(
             'usuarios',
@@ -78,6 +71,9 @@ class PublicacoesController
 
     public function edit()
     {
+
+        $this->adminAuth();
+
         $id = $_POST['id'];
         $post = App::get('database')->selectOne('publicacao', $id);
         $caminhodaimagem = $post->imagem;
@@ -105,12 +101,12 @@ class PublicacoesController
         
         App::get('database')->update('publicacao', $id, $parameters);
         header('Location: /publicacoes');
-        exit;
+        exit();
     }
 
     public function store()
     {
-        session_start();
+        $this->adminAuth();
 
         $caminhodaimagem = null;
 
@@ -134,11 +130,13 @@ class PublicacoesController
 
         App::get('database')->insert('publicacao', $parameters);
         header('Location: /publicacoes');
-        exit;
+        exit();
     }
 
     public function delete()
     {
+        $this->adminAuth();
+
         $id = $_POST['id'];
 
         $post = App::get('database')->selectOne('publicacao', $id);
@@ -149,11 +147,13 @@ class PublicacoesController
         App::get('database')->delete('publicacao', $id);
 
         header('Location: /publicacoes');
-        exit;
+        exit();
     }
 
     public function uploadImagem()
     {
+        $this->adminAuth();
+
         if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
             $temporario = $_FILES['imagem']['tmp_name'];
             $nomeimagem = sha1(uniqid($_FILES['imagem']['name'], true)) . "." . pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
@@ -166,25 +166,27 @@ class PublicacoesController
         }
         http_response_code(400);
         echo "Erro ao fazer upload da imagem.";
-        exit;
+        exit();
     }
 
 
-//popula banco
+    //popula banco
 
 
-public function popularPosts()
+    public function popularPosts()
     {
+        $this->adminAuth();
 
-    $categorias = $this->getCategorias();
+        $categorias = $this->getCategorias();
+        
         // aqui coloquei pra nao criar com uma mesma imagen
         $imagens = [
-        'public/assets/imagensPosts/1e3171a2b1082af948342a8ffa2c3b25c70fc16f.jpg',
-        'public/assets/imagensPosts/139bcefeeb7162c5c5218a99e36c3d8b41db9858.jpg',
-        'public/assets/imagensPosts/a4d6fa3b5171af892fd8a6926104947816d3f4a4.jpg',
-        'public/assets/imagensPosts/716564.png',
-        'public/assets/imagensPosts/453024.jpg'
-    ];
+            'public/assets/imagensPosts/1e3171a2b1082af948342a8ffa2c3b25c70fc16f.jpg',
+            'public/assets/imagensPosts/139bcefeeb7162c5c5218a99e36c3d8b41db9858.jpg',
+            'public/assets/imagensPosts/a4d6fa3b5171af892fd8a6926104947816d3f4a4.jpg',
+            'public/assets/imagensPosts/716564.png',
+            'public/assets/imagensPosts/453024.jpg'
+        ];
         $titulos = ['Quintino é um cara legal','O retorno da franquia', 'Nova atualização lançada', 'Guia para iniciantes', 'Melhores momentos do ano', 'Análise completa', 'O que esperar do futuro', 'Entrevista exclusiva', 'Rumores confirmados', 'Promoção imperdível', 'Dicas avançadas', 'DexStroll é o melhor blog'];
         
         $conteudos = [
@@ -199,10 +201,12 @@ public function popularPosts()
 
         //cria 50  igual  a de usuarios
         $quantidade = 50;
-    //loopzinho basico
-        for ($i = 0; $i < $quantidade; $i++) {
 
-        $titulo = $titulos[array_rand($titulos)] . ' #' . rand(100, 999);
+        //loopzinho basico
+        for ($i = 0; $i < $quantidade; $i++) 
+        {
+
+            $titulo = $titulos[array_rand($titulos)] . ' #' . rand(100, 999);
             
 
             $data = date('Y-m-d', strtotime('-' . rand(0, 60) . ' days'));
@@ -224,20 +228,26 @@ public function popularPosts()
                 'conteudo'    => $conteudos[array_rand($conteudos)],
                 'categoria'   => $categorias[array_rand($categorias)],
                 'curiosidade' => $curiosidades[array_rand($curiosidades)],
-               'imagem'      => $imagens[array_rand($imagens)]
-               //ajustei pra usar mais imagens de teste
+            'imagem'      => $imagens[array_rand($imagens)]
+            //ajustei pra usar mais imagens de teste
             ];
 
 
             \App\Core\App::get('database')->insert('publicacao', $parameters);
         }
-
-
         header('Location: /publicacoes?sucesso=posts_populados');
         exit();
     }
 
+    private function adminAuth()
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
-
-
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            exit;
+        }
+    }
 }
