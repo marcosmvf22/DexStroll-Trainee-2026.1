@@ -130,6 +130,11 @@
               <input type="password" name="senha" id="input-senha" required placeholder="Digite sua senha">
             </div>
 
+            <div class="grupo-campo">
+              <label for="verifica-admin">É administrador?</label>
+              <input type="checkbox" name="admin" id="verifica-admin" required>
+            </div>
+
             <div class="modal-rodape-botoes">
               <button type="button" class="cancelarBotaoModal" id="btn-cancelar">Cancelar</button>
               <button type="submit" class="enviarBotaoModal">Salvar Usuário</button>
@@ -242,7 +247,6 @@
           </form>
         </div>
       </div>
-
     </main>
   </body>
 

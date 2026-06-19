@@ -68,7 +68,7 @@ a{
 }
 
 .hero-section-landing section h1 {
-    font-weight: 900;
+    font-weight: 700;
     line-height: 1;
     font-size: clamp(3rem, 10vw, 5rem); 
     letter-spacing: -2px;
