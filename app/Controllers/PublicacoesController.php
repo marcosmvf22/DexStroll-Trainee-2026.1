@@ -182,13 +182,11 @@ class PublicacoesController
         
         // aqui coloquei pra nao criar com uma mesma imagen
         $imagens = [
-            // 'public/assets/imagensPosts/1e3171a2b1082af948342a8ffa2c3b25c70fc16f.jpg',
-            // 'public/assets/imagensPosts/139bcefeeb7162c5c5218a99e36c3d8b41db9858.jpg',
-            // 'public/assets/imagensPosts/a4d6fa3b5171af892fd8a6926104947816d3f4a4.jpg',
-            // 'public/assets/imagensPosts/716564.png',
-            // 'public/assets/imagensPosts/453024.jpg',
-            'public/assets/imagensPosts/613932.png',
-            'public/assets/imagensPosts/312091.png'
+            'public/assets/imagensPosts/1e3171a2b1082af948342a8ffa2c3b25c70fc16f.jpg',
+            'public/assets/imagensPosts/139bcefeeb7162c5c5218a99e36c3d8b41db9858.jpg',
+            'public/assets/imagensPosts/a4d6fa3b5171af892fd8a6926104947816d3f4a4.jpg',
+            'public/assets/imagensPosts/716564.png',
+            'public/assets/imagensPosts/453024.jpg'
         ];
         $titulos = ['Quintino é um cara legal','O retorno da franquia', 'Nova atualização lançada', 'Guia para iniciantes', 'Melhores momentos do ano', 'Análise completa', 'O que esperar do futuro', 'Entrevista exclusiva', 'Rumores confirmados', 'Promoção imperdível', 'Dicas avançadas', 'DexStroll é o melhor blog'];
         
