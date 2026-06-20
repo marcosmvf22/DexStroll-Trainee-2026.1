@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    
     <title>DexStroll</title>
 </head>
 <body>
@@ -154,6 +156,39 @@
 
                 <?php endforeach; ?>
             </div>
+        </div>
+    </section>
+
+    <section class="politicas">
+        <div>
+            <h2 class="titulo-politicas">Sobre</h2>
+        </div>
+        <div class="bloco-politicas">
+            <div class="card-politica">
+                <h3>Missão</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam quia, quae dolorem rerum, architecto incidunt animi velit laboriosam sint provident laborum consectetur, natus repellat. Numquam id molestiae quaerat dignissimos similique.
+                    Eius, velit nihil sit sed harum voluptate nostrum impedit incidunt illum libero esse dolorem saepe non repellat, eligendi voluptatum sequi minus quas cupiditate nulla animi necessitatibus eum! Similique, qui tempora.
+                    Voluptas eum nihil magnam labore voluptatem veritatis exercitationem culpa temporibus voluptates quia omnis quis accusantium ab consectetur impedit harum, illum natus, quibusdam excepturi non animi fugiat distinctio accusamus. Vitae, officia.
+                </p>
+            </div>
+            <div class="card-politica">
+                <h3>Visão</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam quia, quae dolorem rerum, architecto incidunt animi velit laboriosam sint provident laborum consectetur, natus repellat. Numquam id molestiae quaerat dignissimos similique.
+                    Eius, velit nihil sit sed harum voluptate nostrum impedit incidunt illum libero esse dolorem saepe non repellat, eligendi voluptatum sequi minus quas cupiditate nulla animi necessitatibus eum! Similique, qui tempora.
+                    Voluptas eum nihil magnam labore voluptatem veritatis exercitationem culpa temporibus voluptates quia omnis quis accusantium ab consectetur impedit harum, illum natus, quibusdam excepturi non animi fugiat distinctio accusamus. Vitae, officia.
+                </p>
+            </div>
+            <div class="card-politica">
+                <h3>Valores</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam quia, quae dolorem rerum, architecto incidunt animi velit laboriosam sint provident laborum consectetur, natus repellat. Numquam id molestiae quaerat dignissimos similique.
+                    Eius, velit nihil sit sed harum voluptate nostrum impedit incidunt illum libero esse dolorem saepe non repellat, eligendi voluptatum sequi minus quas cupiditate nulla animi necessitatibus eum! Similique, qui tempora.
+                    Voluptas eum nihil magnam labore voluptatem veritatis exercitationem culpa temporibus voluptates quia omnis quis accusantium ab consectetur impedit harum, illum natus, quibusdam excepturi non animi fugiat distinctio accusamus. Vitae, officia.
+                </p>
+            </div>
+
         </div>
     </section>
     <?php require 'footer.view.php'; ?>
