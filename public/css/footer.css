@@ -5,7 +5,6 @@ footer{
     background: linear-gradient(98deg,#4b0c14,#ad1c2e);
     color: white;
     text-align: center;
-    margin-top: 5vh;
     padding: 30px 30px;
     justify-content: space-between;
     align-items: center;
@@ -19,83 +18,10 @@ footer{
     gap: 10px;
 }
 
-.contato-politica{
-    display: flex;
-    flex-direction: column;
-    gap: 45px;
-}
-
-.politica{
-    width: 100%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .assinatura{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.filtro-footer{
-    display: none;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-    position: fixed;
-}
-
-.modal-container{
-    display: none;
-    text-align: center;
-    position: fixed;
-    max-height: 80vh;
-    min-width: 80vw;
-    z-index: 20;
-    padding: 30px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 20px;
-    color: white;
-    background: linear-gradient(98deg,#4b0c14,#ad1c2e);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
-}
-
-.fechar-modal{
-    display: none;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 30;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    border-radius: 10px;
-    border: none;
-    background-color: transparent;
-}
-
-.fechar-modal:hover{
-    background-color: transparent;
-    cursor: pointer;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
-}
-
-.diretrizes{
-    display: flex;
-    flex-direction: row;
-    gap: 60px;
-}
-
-.conteudo-diretriz h1{
-    font-size: 20px;
-}
-
-.conteudo-diretriz p{
-    text-align: justify;
 }
 
 footer h1 {
@@ -127,23 +53,6 @@ footer h1 {
 
 }
 
-.politica button{
-    background-color: transparent;
-    border: none;
-    color: white;
-    text-decoration: underline;
-    width: 100%;
-    border-radius: 16px;
-    font-size: 24px;
-    transition-duration: 0.4s;
-}
-
-.politica button:hover{
-    background-color: transparent;
-    cursor: pointer;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
-}
-
 @media (max-width: 768px) {
     footer{
         flex-direction: column;
@@ -157,15 +66,5 @@ footer h1 {
 
     .icones i {
         font-size: 30px;
-    }
-
-    .modal-container{
-        width: 90%;
-        padding: 60px 30px 30px 30px;
-        overflow-y: scroll;
-    }
-    .diretrizes{
-        flex-direction: column;
-        gap: 20px;
     }
 }
