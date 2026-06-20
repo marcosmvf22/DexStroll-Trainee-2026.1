@@ -209,7 +209,7 @@
         box-shadow: 5px 5px 10px #0d2a4d;
 
         width: 55px;
-        height: 5vh;
+        height: 45px;
     }
     .bloco-icone-menu-nav button{
         background-color: transparent;
@@ -228,7 +228,7 @@
     }
     #icone-menu-nav{
         color: #e6392f;
-        font-size: 6vw;
+        font-size: 2rem;
     }
     .mobile-menu-nav ul{ 
         display: flex; 
