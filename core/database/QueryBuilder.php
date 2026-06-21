@@ -443,4 +443,36 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+// pra  filtrar nas ultimas postagens clicando na categoria
+    public function countByCategory($table, $categoria)
+    {
+        $sql = "SELECT COUNT(*) AS total FROM {$table} WHERE categoria = :categoria";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':categoria', $categoria, PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ)->total;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function paginateByCategory($table, $categoria, $limit, $offset)
+    {
+
+    $sql = "SELECT p.*, u.username as autor FROM {$table} p 
+                LEFT JOIN usuarios u ON p.autor = u.id 
+                WHERE p.categoria = :categoria 
+                LIMIT :limit OFFSET :offset";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':categoria', $categoria, PDO::PARAM_STR);
+            $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+            $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }
