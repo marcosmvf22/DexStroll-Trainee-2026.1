@@ -91,7 +91,7 @@ body{
 
 .titulo-login{
     color: #0d2a4d;
-    font-size: clamp(48px, 3.4rem, 4rem);
+    font-size: clamp(48px, 3.rem, 4rem);
     flex-grow: 1;
     text-align: center;
     font-family: "Poppins", sans-serif;

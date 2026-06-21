@@ -3,20 +3,23 @@
     padding: 0;
     box-sizing: border-box;
 }
-#body-dashboard{
+
+.main-dashboard {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
     background-image: url("/public/assets/Dashboard.jpg");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative; 
+    overflow: hidden;
 }
 
-.main-dashboard{
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
-
-.container-dashboard{
+.container-dashboard {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,10 +28,12 @@
     min-height: min(500px, 90vh);
     padding: 20px;
     gap: 20px;
-    background-color:#fffefe59;
+    background-color: #fffefe94; 
     border-radius: 16px;
+    position: relative;
+    z-index: 2; 
+    backdrop-filter: blur(10px); 
 }
-
 .topo-dashboard{
     display: flex;
     position: relative;
@@ -67,6 +72,11 @@
     gap: 30px;
 }
 
+.botoes-dashboard:hover{
+    cursor:pointer;
+
+}
+
 .botoes-superior-dashboard{
     display: flex;
     flex-direction: row;
@@ -92,7 +102,7 @@
     background-color: #f5f7fa;
     font-size: 1.5rem;
     font-family: "Poppins", sans-serif;
-    font-weight: 300;
+    font-weight: 500;
     font-style: normal;
 }
 
@@ -120,7 +130,7 @@
     font-size: 1.5rem;
     
     font-family: "Poppins", sans-serif;
-    font-weight: 300;
+    font-weight: 500;
     font-style: normal;
 }
 
