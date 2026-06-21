@@ -35,8 +35,14 @@
         <div class="contato">
             <h1>Contato</h1>
             <address class="contatos">
-                (00)0000-0000 <br>
-                email@email.com
+                Jão Victor Nicacio: <br>
+                (32)98823-2671 <br>
+                joaovictornicaciosilva@gmail.com <br>
+                <br>
+                José Simoes: <br>
+                (32)98420-0244 <br>
+                josesimoesk10@gmail.com
+
             </address>
         </div>
     </div>
