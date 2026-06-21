@@ -33,12 +33,18 @@ footer h1 {
     display: flex;
     gap: 20px;
     padding: 10px 10px;
+    
 }
 
 .icones a{
-    color: white;   
+    color: white;
+    transition: transform 0.3s ease-in-out;
 }
 
+.icones a:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
 .icones i{
     font-size: 40px;
 }
@@ -46,12 +52,25 @@ footer h1 {
 
 .logo_dexstroll_footer{
     width: 226px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo_dexstroll_footer:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .logo_code_footer{
     width: 118px;
-
+    transition: transform 0.3s ease-in-out;
 }
+
+.logo_code_footer:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 
 @media (max-width: 768px) {
     footer{
