@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="../../../public/css/Sidebar.css">
      
     <title>Painel de Publicações - DexStroll</title>
+    <link rel="icon" type="image/png" href="/public/assets/favicon.png">
 </head>
 
 <body class="body-pagina-publicacao">
