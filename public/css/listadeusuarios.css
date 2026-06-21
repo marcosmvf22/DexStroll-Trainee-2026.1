@@ -315,4 +315,27 @@ ao inves de quebrar quando era um email grande */
     .criar-usuario-admin{
         font-size: 0px;
     }
+    .input-busca-admin {
+        width: 200px;
+    }
+}
+@media (max-width: 630px){
+    .input-busca-admin {
+        width: 110px;
+    }
+     .texto-botao {
+        display: none;
+    }
+     .input-busca-admin::placeholder {
+        font-size: 9px;
+    }
+}
+@media (max-width: 385px){
+    .input-busca-admin {
+        width: 80px;
+    }
+    .topo-tabela {
+        gap: 10px;
+            padding: 25px 30px 15px 10px;
+    }
 }
