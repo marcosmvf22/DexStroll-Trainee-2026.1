@@ -53,7 +53,9 @@
               </div>
             </form>
                 <button class="criar-publicacao-admin" onclick="abrirModal('modalCriarPublicacao')">
-                    <span class="material-symbols-outlined">library_books</span>Criar publicação</button>
+                    <span class="material-symbols-outlined">library_books</span>
+                    <span class="texto-botao">Criar publicação</span>
+                </button>
             </div>
             <div class="warper-tabela">
                 <table class="tabela-admin">
