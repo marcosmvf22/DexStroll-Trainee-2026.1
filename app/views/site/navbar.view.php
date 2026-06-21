@@ -29,9 +29,8 @@
                 <a href="/pokedex"  class="botao-publicacoes-nav">Pokédex</a>
                 
                 <?php if (isset($_SESSION['id'])): ?>
-                    <?php if (isset($_SESSION['nivel_acesso']) && $_SESSION['nivel_acesso'] === 'admin'): ?>
-                        <a href="/dashboard" class="botao-publicacoes-nav">Dashboard</a>
-                    <?php endif; ?>
+                    
+                    <a href="/dashboard" class="botao-publicacoes-nav">Dashboard</a>
 
                     <form action="/logout" method="POST" style="display: inline;">
                         <button type="submit" class="botao-login-nav">Sair</button>
