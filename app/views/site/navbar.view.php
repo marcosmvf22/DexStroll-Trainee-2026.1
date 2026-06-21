@@ -4,7 +4,7 @@
             <div class="wrapperbarra">
                 <div class="logo-nav">
                     <a href="/">
-                        <img class="logo-nav" src="/public/assets/Logo-nav.png" alt="">
+                        <img class="logo-nav" src="../../../public/assets/dexstroll-logo.png" alt="">
                     </a>
                 </div>
                 <div class="box-pesquisa-nav">
