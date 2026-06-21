@@ -13,6 +13,9 @@ body{
 
     height: 100vh;
 }
+.mensagem-erro{
+    color: red;
+}
 .container-principal-login{
     position: relative;
     background-color: #f5f7fa;
