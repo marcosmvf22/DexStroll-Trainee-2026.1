@@ -94,74 +94,12 @@ if (session_status() === PHP_SESSION_NONE) {
 
                         <p><?= mb_strimwidth(strip_tags($post->conteudo), 0, 120, '...') ?></p>
 
-                        <a
-                            href="/postagem?id=<?= $post->id ?>"
-                            class="botao-ler-mais"
-                        >
+                        <a href="/postagem?id=<?= $post->id ?>" class="botao-ler-mais">
                             Ler mais
                         </a>
-
                     </div>
-
                 <?php endforeach; ?>
             </div>
-
-
-
-
-            <div aria-hidden class="slider-conteudo-landing">
-                <!-- itens landing -->
-                <?php foreach($ultimasPublicacoes as $post): ?>
-
-                    <div class="slider-item-landing">
-
-                        <img
-                            src="<?= !empty($post->imagem)
-                                ? $post->imagem
-                                : '/public/assets/default-post.png' ?>"
-                            alt="<?= htmlspecialchars($post->titulo) ?>"
-                        >
-
-                        <div class="data-tag">
-                            <h6>
-                                <?= date('d/m/Y', strtotime($post->data)) ?>
-                            </h6>
-                            
-                            <span class="tag-categoria tag-cards">
-                                <?= htmlspecialchars($post->categoria) ?>
-                            </span>
-                        </div>
-                        <h4>
-                            <?= htmlspecialchars($post->titulo) ?>
-                        </h4>
-
-                        <div class="dados-autor-landing">
-                            <h5>
-                                <?= htmlspecialchars($post->autor) ?>
-                            </h5>
-                        </div>
-
-                        <p>
-                            <?= mb_strimwidth(
-                                strip_tags($post->conteudo),
-                                0,
-                                120,
-                                '...'
-                            ) ?>
-                        </p>
-
-                        <a
-                            href="/postagem?id=<?= $post->id ?>"
-                            class="botao-ler-mais"
-                        >
-                            Ler mais
-                        </a>
-
-                    </div>
-
-                <?php endforeach; ?>
-            </div>
-
         </div>
     </section>
 
@@ -202,4 +140,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <!-- JS navbar -->
 <script src="/public/js/navbar.js"></script>
+
+<!-- carrossel lp -->
+<script src="/public/js/lp.js"></script>
 </html>
