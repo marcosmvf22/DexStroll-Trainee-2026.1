@@ -91,7 +91,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                         </div>
 
-                        <h4><?= htmlspecialchars($post->titulo) ?></h4>
+                        <h4 class="titulopost"><?= htmlspecialchars($post->titulo) ?></h4>
 
                         <div class="dados-autor-landing">
                             <h5><?= htmlspecialchars($post->autor) ?></h5>
