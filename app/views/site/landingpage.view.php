@@ -7,6 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,14 +33,15 @@ if (session_status() === PHP_SESSION_NONE) {
     
     <title>DexStroll</title>
 </head>
+
 <body>
     <?php require 'navbar.view.php'; ?>
     <div class="hero-section-landing">
         <section>
-        <h1>Explore e domine o mundo Pokémon com estratégia!</h1>
-        <p>Descubra habilidades, matchups e decisões que realmente mudam suas batalhas.</p>
-        <button><a href="#sobre-landing">Saiba mais</a></button>
-    </section>
+            <h1>Explore e domine o mundo Pokémon com estratégia!</h1>
+            <p>Descubra habilidades, matchups e decisões que realmente mudam suas batalhas.</p>
+            <button><a href="#sobre-landing">Saiba mais</a></button>
+        </section>
 
     </div>
     <section class="sobre-landing" id="sobre-landing">
@@ -65,50 +67,32 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <section class="postagens-landing">
         <h2>Últimas postagens</h2>
-        
 
         <div class="slider-landing">
-            <div class="slider-conteudo-landing">
-                <!-- itens landing -->
-                <?php foreach($ultimasPublicacoes as $post): ?>
+            <button class="nav-arrow arrow-left" id="seta-esquerda" aria-label="Slide anterior">&lt;</button>
+            <button class="nav-arrow arrow-right" id="seta-direita" aria-label="Próximo slide">&gt;</button>
 
+            <div class="slider-conteudo-landing" id="slider-container">
+                <?php foreach ($ultimasPublicacoes as $post): ?>
                     <div class="slider-item-landing">
-
                         <img
-                            src="<?= !empty($post->imagem)
-                                ? $post->imagem
-                                : '/public/assets/default-post.png' ?>"
-                            alt="<?= htmlspecialchars($post->titulo) ?>"
-                        >
+                            src="<?= !empty($post->imagem) ? $post->imagem : '/public/assets/default-post.png' ?>"
+                            alt="<?= htmlspecialchars($post->titulo) ?>">
 
                         <div class="data-tag">
-                            <h6>
-                                <?= date('d/m/Y', strtotime($post->data)) ?>
-                            </h6>
-                            
+                            <h6><?= date('d/m/Y', strtotime($post->data)) ?></h6>
                             <span class="tag-categoria tag-cards">
                                 <?= htmlspecialchars($post->categoria) ?>
                             </span>
                         </div>
 
-                        <h4>
-                            <?= htmlspecialchars($post->titulo) ?>
-                        </h4>
+                        <h4><?= htmlspecialchars($post->titulo) ?></h4>
 
                         <div class="dados-autor-landing">
-                            <h5>
-                                <?= htmlspecialchars($post->autor) ?>
-                            </h5>
+                            <h5><?= htmlspecialchars($post->autor) ?></h5>
                         </div>
 
-                        <p>
-                            <?= mb_strimwidth(
-                                strip_tags($post->conteudo),
-                                0,
-                                120,
-                                '...'
-                            ) ?>
-                        </p>
+                        <p><?= mb_strimwidth(strip_tags($post->conteudo), 0, 120, '...') ?></p>
 
                         <a
                             href="/postagem?id=<?= $post->id ?>"
@@ -177,6 +161,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 <?php endforeach; ?>
             </div>
+
         </div>
     </section>
 

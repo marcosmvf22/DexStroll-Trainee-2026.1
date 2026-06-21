@@ -91,7 +91,7 @@ a{
 .hero-section-landing section button {
     background-color: var(--vermelho);
     color: var(--branco-neve);
-    padding: 16px 45px;
+    padding: 40px 45px;
     font-size: 1.5rem;
     border-radius: 50px; 
     font-weight: bold;
@@ -109,8 +109,7 @@ a{
 
 .sobre-landing{
     padding-bottom: 60px;
-    background-color: var(--branco-neve) !important;
-
+    background-color: var(--branco-neve);
 }
 
 .sobre-landing h2{
@@ -167,60 +166,82 @@ a{
     text-align: center;
     padding: 30px;
     color: var(--branco-neve);
-    font-size: 3rem;
+    font-size: clamp(10%, 2.8rem, 3rem);
 }
 
-.slider-landing{
-    display: flex;
-    width: 100%;
-    overflow: hidden;
+.slider-landing {
     position: relative;
-    scrollbar-width: none;
-    overflow-X: auto;
-    padding-bottom: 30px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 60px 30px 60px;
+    box-sizing: border-box;
 }
 
-.slider-conteudo-landing{
+.slider-conteudo-landing {
     display: flex;
-    flex-shrink: 0;
     flex-direction: row;
     flex-wrap: nowrap;
-    content: max-content;
+    gap: 20px;
+    overflow-x: auto;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-    animation: spin 60s infinite linear;
-    padding: 0 0.5em;  
-
-  
+    padding: 20px 5px;
 }
 
-.slider-landing::-webkit-scrollbar{
+.slider-conteudo-landing::-webkit-scrollbar {
     display: none;
 }
 
-@keyframes spin{
-    from{transform: translateX(0);}
-    to{transform: translateX(-100%);}
-}
-
-.slider-item-landing{
-    flex: 0 0 350px;
-    width: 350px;
-    min-width: 350px;
+.slider-item-landing {
+    flex: 0 0 400px;
+    width: 400px;
+    min-width: 400px;
+    scroll-snap-align: start;
     background-color: var(--branco-neve);
     padding: 25px;
     border-radius: 40px;
     display: flex;
-    /* justify-content: space-between; */
     flex-direction: column;
-    height: 600px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.tag-categoria{
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--vermelho);
+    color: var(--branco-neve);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.nav-arrow:hover {
+    background-color: var(--vermelho-escuro);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.arrow-left {
+    left: 5px;
+}
+
+.arrow-right {
+    right: 5px;
+}
+
+.tag-categoria {
     display: flex;
     align-items: center;
     background-color: #470c13;
@@ -235,21 +256,24 @@ a{
     color: white;
 }
 
-.data-tag{
+.data-tag {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
 }
 
-.tag-cards{
+.tag-cards {
     font-size: 0.67em;
 }
 
-.slider-item-landing img{
+.slider-item-landing img {
     border-radius: 50px;
     width: 100%;
     height: 280px;
+    min-height: 280px;
+    max-height: 280px;
+    flex-shrink: 0;
     object-fit: cover;
     transition: transform 0.3s;
 }
@@ -258,30 +282,38 @@ a{
     padding: 0 10px 10px 0;
 }
 
-.slider-item-landing h4{
+.slider-item-landing p{
+    padding: 0 10px 10px 0;
+}
+
+.slider-item-landing h4 {
     color: var(--azul-marinho);
     font-size: 1.2em;
 }
 
-.slider-item-landing h5{
+.slider-item-landing h5 {
     color: var(--azul);
 }
 
-.slider-item-landing h6{
+.slider-item-landing h6 {
     color: var(--azul-claro);
     padding-top: 20px;
 }
 
-.slider-item-landing a{
+.slider-item-landing a {
     color: var(--branco-neve);
     border-radius: 50px;
     padding: 20px;
     background-color: var(--vermelho);
     text-align: center;
     border: none;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: auto;
 }
 
-.slider-item-landing a:hover{
+.slider-item-landing a:hover {
     background-color: var(--vermelho-escuro);
     transition: all 0.3s ease;
     color: var(--cinza);
@@ -294,10 +326,7 @@ a{
     height: 30px;
 }
 
-.sobre1{
-    width: 100%;
-}
-.dados-autor-landing{
+.dados-autor-landing {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -368,7 +397,7 @@ a{
         font-size: revert;
     }
 
-    .bloco-sobre-landing{
+    .bloco-sobre-landing {
         flex-direction: column;
         align-items: center;
     }
@@ -381,17 +410,42 @@ a{
         font-size: 2rem;
     }
 
-    .slider-item-landing{
-        height: 500px;
+    
+    .slider-item-landing {
+        flex: 0 0 320px;
+        width: 320px;
+        min-width: 320px;
+        height: 520px;
         gap: 4px;
         font-size: 0.9rem;
     }
-    .slider-item-landing h6{
+    
+    .slider-item-landing h6 {
         padding-top: 0;
         font-size: 0.8rem;
     }
-    .slider-item-landing  img{
-        height: 200px;
+    
+    .slider-item-landing img {
+        height: 180px;
+        min-height: 180px;
+        max-height: 180px;
+    }
+    
+    .nav-arrow {
+        display: none;
+    }
+
+    .slider-landing {
+        padding: 0 15px 30px 15px;
+    }
+
+    .bloco-politicas{
+        flex-direction: column;
+    }
+
+    .card-politica{
+        max-width: 700px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
 
     .bloco-politicas{
