@@ -75,9 +75,10 @@ a{
 .hero-section-landing section h1 {
     font-weight: 700;
     line-height: 1;
-    font-size: 3rem; 
+    font-size: clamp(1rem, 14vw, 4.8rem); 
     margin: 0 auto 20px auto; 
     max-width: 900px;
+    word-wrap: break-word
 }
 
 .hero-section-landing section p {
@@ -91,7 +92,7 @@ a{
 .hero-section-landing section button {
     background-color: var(--vermelho);
     color: var(--branco-neve);
-    padding: 40px 45px;
+    padding: 20px 40px;
     font-size: 1.5rem;
     border-radius: 50px; 
     font-weight: bold;
@@ -204,6 +205,7 @@ a{
     border-radius: 40px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 
@@ -276,10 +278,6 @@ a{
     flex-shrink: 0;
     object-fit: cover;
     transition: transform 0.3s;
-}
-
-.slider-item-landing p{
-    padding: 0 10px 10px 0;
 }
 
 .slider-item-landing p{
@@ -389,27 +387,10 @@ a{
 }
 
 @media (max-width: 768px) {
-    .hero-section-landing section h1{
-        font-size: revert;
-    }
-
-    .hero-section-landing section button{
-        font-size: revert;
-    }
-
     .bloco-sobre-landing {
         flex-direction: column;
         align-items: center;
     }
-    
-    .sobre-landing h2{
-        font-size: 2rem;
-    }
-
-    .postagens-landing h2{
-        font-size: 2rem;
-    }
-
     
     .slider-item-landing {
         flex: 0 0 320px;
@@ -437,15 +418,6 @@ a{
 
     .slider-landing {
         padding: 0 15px 30px 15px;
-    }
-
-    .bloco-politicas{
-        flex-direction: column;
-    }
-
-    .card-politica{
-        max-width: 700px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
 
     .bloco-politicas{
