@@ -36,8 +36,14 @@
 .logo-nav{
     width: 100px;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
 }
 
+.logo-nav:hover{
+    width: 100px;
+    cursor: pointer;
+    transform: scale(1.10);
+}
 
 
 .botoes-nav {
@@ -68,7 +74,7 @@
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s ease;
     box-sizing: border-box; 
 }
 
@@ -77,11 +83,21 @@
     background-color: var(--vermelho-escuro);
 }
 
+.botao-home-nav:hover, 
+.botao-publicacoes-nav:hover {
+    background-color: var(--vermelho);
+}
+
 
 .botao-login-nav {
     background-color: #e6392f;
-    /* border: 1px solid #5a1a22; */
+    transition: background-color 0.3s ease;
+    
 }
+.botao-login-nav:hover {
+    background-color: var(--vermelho-escuro);
+}
+
 .bloco-icone-menu-nav{
     display: none;
 }
