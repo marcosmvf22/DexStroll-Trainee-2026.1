@@ -22,5 +22,10 @@ class dashboardcontroller
             header('Location: /login');
             exit;
         }
+
+        if(isset($_SESSION['nivel_acesso']) && $_SESSION['nivel_acesso'] === 'usuario'){
+            header('Location: /');
+            exit;
+        }
     }
 }

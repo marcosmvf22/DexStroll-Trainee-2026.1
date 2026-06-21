@@ -35,12 +35,21 @@ class LoginController
         if ($user && password_verify($senha, $user->senha)) 
         {
 
-            session_start();
+            if(session_status() == PHP_SESSION_NONE){
+                session_start();
+            }
 
             $_SESSION['id'] = $user->id;
+            $_SESSION['nivel_acesso'] = $user -> nivel_acesso;
 
-            header('Location: /dashboard');
-            exit();
+            if($SESSION['nivel_acesso' == 'admin']){
+                header('Location: /dashboard');
+                exit();
+            }
+            else{
+                header('Location: /');
+                exit();
+            }
         }
         else 
         {
@@ -71,6 +80,7 @@ class LoginController
             'username' => $_POST['username'],
             'email' => $_POST['email'],
             'senha' => password_hash($_POST['senha'], PASSWORD_DEFAULT),
+            'nivel_acesso' => 'usuario',
         ];
 
         $existe = App::get('database')->selectWhereUser(
