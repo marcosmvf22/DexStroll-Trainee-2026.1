@@ -91,7 +91,6 @@ class PublicacoesController
 
         $parameters = [
             'titulo' => $_POST['titulo'],
-            'autor' => $_POST['id'],
             'data' => date('Y-m-d'),
             'conteudo' => $_POST['conteudo'],
             'categoria' => $_POST['categoria'],
