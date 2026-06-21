@@ -23,6 +23,11 @@
             <input type="file" name="imagem" accept="image/*" class="form-control" id="input-imagemModalCriar">
         </div>
 
+         <div class="grupo-inputs-modal">
+            <h3>Imagem selecionada:</h3>
+            <img id="imagemSelecionada" alt="imagem Selecionada" style="display:none;" />
+        </div>
+
         <div class="grupo-inputs-modal">
             <h3>Curiosidade do post</h3>
 

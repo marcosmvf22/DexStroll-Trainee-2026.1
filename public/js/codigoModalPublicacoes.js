@@ -14,10 +14,17 @@ function fecharModal(idModal){
     filtro.style.display = "none";
 }
 
-// toggleCuriosidade.addEventListener('change', function(){
-//     if(toggleCuriosidade.checked){
-//         grupoCuriosidade.style.display = "flex";
-//     } else{
-//         grupoCuriosidade.style.display = "none";
-//     }
-// });
+document.getElementById('input-imagemModalCriar').addEventListener('change', function(){
+    const file = this.files[0];
+    if(file){
+        const reader = new FileReader();
+
+        reader.onloadend = function(){
+            const dados = reader.result;
+            document.getElementById('imagemSelecionada').src = dados;
+            document.getElementById('imagemSelecionada').style.display = 'block';
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
