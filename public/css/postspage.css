@@ -233,6 +233,32 @@ time {
   transform: scale(1.15) rotate(45deg);
 }
 
+.data-tag{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.tag-cards{
+  font-size: 0.67em;
+}
+
+.tag-categoria{
+  display: flex;
+  align-items: center;
+  background-color: #470c13;
+  border-radius: 16px;
+  padding: 5px;
+  height: auto;
+  width: fit-content;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+
 @media (max-width: 1440px) {
   /*nao entendi como  usa isso, mas vou ver  se funciona */
   /* agora entendi */
