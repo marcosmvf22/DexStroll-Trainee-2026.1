@@ -134,6 +134,7 @@ class listadeusuarioscontroller
             'username' => $_POST['username'] ?? '',
             'nome'     => $_POST['nome'] ?? '',
             'email'    => $_POST['email'] ?? '',
+            'nivel_acesso' => $_POST['nivel_acesso'] ?? $usuarioAtual->nivel_acesso,
         ];
 
         if (!empty($_POST['senha'])) 

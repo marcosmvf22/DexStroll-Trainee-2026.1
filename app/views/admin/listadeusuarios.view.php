@@ -60,7 +60,7 @@
               </thead>
               <tbody id="corpo-tabela-usuarios">
                 <?php foreach ($usuarios as $usuario): ?>
-                  <tr data-id="<?= $usuario->id ?>">
+                  <tr data-id="<?= $usuario->id ?>" data-nivel="<?= $usuario->nivel_acesso ?>">
                     <td class="col-id"><?= $usuario->id ?></td>
                     <td class="dado_id_admin">
                       <div style="display: flex; align-items: center; justify-content: flex-start; gap: 12px;">
@@ -128,11 +128,6 @@
             <div class="grupo-campo">
               <label for="input-senha">Senha</label>
               <input type="password" name="senha" id="input-senha" required placeholder="Digite sua senha">
-            </div>
-
-            <div class="grupo-campo">
-              <label for="verifica-admin">É administrador?</label>
-              <input type="checkbox" name="admin" id="verifica-admin" required>
             </div>
 
             <div class="modal-rodape-botoes">
@@ -215,6 +210,13 @@
             <div class="grupo-campo">
               <label>Nova senha</label>
               <input type="password" name="senha" id="edit-input-senha">
+            </div>
+            <div class="grupo-campo">
+                <label for="edit-input-nivel">Nível de Acesso</label>
+                <select name="nivel_acesso" id="edit-input-nivel" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; background-color: #fff;">
+                  <option value="usuario">Usuário Comum</option>
+                  <option value="admin">Administrador</option>
+                </select>
             </div>
             <div class="modal-rodape-botoes">
               <button type="button" class="cancelarBotaoModal" id="btn-cancelar-editar">Cancelar</button>

@@ -65,6 +65,7 @@ if (corpoTabela && modalVisualizar) {
       const linha = botaoVisualizar.closest("tr");
 
       const id = linha.dataset.id;
+      const nivel = linha.dataset.nivel || "usuario";
       const username = linha.querySelector(".dado_id_admin span").textContent.trim();
       const nome = linha.querySelector(".col-nome").textContent.trim();
       const email = linha.querySelector(".col-email").textContent.trim();
@@ -75,8 +76,10 @@ if (corpoTabela && modalVisualizar) {
       document.getElementById("view-nome").value = nome;
       document.getElementById("view-email").value = email;
       document.getElementById("view-avatar").src = avatar;
+
+
       modalVisualizar.style.display = "flex";
-    }
+      }
   });
 }
 
@@ -110,8 +113,9 @@ if (corpoTabela && modalEditar) {
     const botaoEditar = evento.target.closest('[title="Editar"]');
     if (botaoEditar) {
       const linha = botaoEditar.closest("tr");
-
+      const nivelReal = linha.dataset.nivel;
       const id = linha.dataset.id;
+      const nivel = linha.dataset.nivel || "usuario";
       const username = linha.querySelector(".dado_id_admin span").textContent.trim();
       const nome = linha.querySelector(".col-nome").textContent.trim();
       const email = linha.querySelector(".col-email").textContent.trim();
@@ -125,6 +129,12 @@ if (corpoTabela && modalEditar) {
       document.getElementById("edit-input-email").value = email;
       //adicionei a imagem pro modal de editar
       document.getElementById("edit-avatar-clicavel").src = srcAvatar;
+
+      const selectNivel = document.getElementById("edit-input-nivel");
+          if (selectNivel && nivelReal) {
+            selectNivel.value = nivel;
+          }
+
       modalEditar.style.display = "flex";
     }
   });

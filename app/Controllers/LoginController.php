@@ -23,36 +23,41 @@ class LoginController
         return view('site/login');
     }
 
-    public function efetuaLogin()
+   public function efetuaLogin()
+{
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $user = App::get('database')->verificaLogin($email);
+    
+
+    if ($user && password_verify($senha, $user->senha)) 
     {
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-
-        $user = App::get('database') -> verificaLogin($email);
-        
-
-
-        if ($user && password_verify($senha, $user->senha)) 
-        {
-
+        if (session_status() === PHP_SESSION_NONE) {
             session_start();
+        }
 
-            $_SESSION['id'] = $user->id;
+        $_SESSION['id'] = $user->id;
+        $_SESSION['nivel_acesso'] = $user->nivel_acesso; 
 
+        if ($_SESSION['nivel_acesso'] === 'admin') {
             header('Location: /dashboard');
-            exit();
+        } else {
+            header('Location: /');
         }
-        else 
-        {
-
-            session_start();
-
-            $_SESSION['mensagem-erro'] = 'Usuário ou senha incorretos!';
-            header('Location: /login');
-            exit();
-        }
-
+        exit();
     }
+    else 
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $_SESSION['mensagem-erro'] = 'Usuário ou senha incorretos!';
+        header('Location: /login');
+        exit();
+    }
+}
 
     public function logout(){
         session_start();
@@ -71,6 +76,7 @@ class LoginController
             'username' => $_POST['username'],
             'email' => $_POST['email'],
             'senha' => password_hash($_POST['senha'], PASSWORD_DEFAULT),
+            'nivel_acesso' => 'usuario',
         ];
 
         $existe = App::get('database')->selectWhereUser(
