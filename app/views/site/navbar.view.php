@@ -24,25 +24,25 @@
                 </div>
             </div>
             <div class="botoes-nav">
-                <a href="/" class="botao-home-nav"><i class="fa-solid fa-house"></i>Home</a>
-                <a href="/postspage" class="botao-publicacoes-nav"><i class="fa-solid fa-newspaper"></i>Publicações</a>
-                <a href="/pokedex"  class="botao-publicacoes-nav"><i class="fa-solid fa-compass"></i>Pokédex</a>
+                <a href="/" class="botao-home-nav">Home</a>
+                <a href="/postspage" class="botao-publicacoes-nav">Publicações</a>
+                <a href="/pokedex"  class="botao-publicacoes-nav">Pokédex</a>
                 
                 <?php if (isset($_SESSION['id'])): ?>
                     <?php if (isset($_SESSION['nivel_acesso']) && $_SESSION['nivel_acesso'] === 'admin'): ?>
-                        <a href="/dashboard" class="botao-publicacoes-nav"><i class="fa-solid fa-gear"></i>Dashboard</a>
+                        <a href="/dashboard" class="botao-publicacoes-nav">Dashboard</a>
                     <?php endif; ?>
 
                     <form action="/logout" method="POST" style="display: inline;">
-                        <button type="submit" class="botao-login-nav"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair</button>
+                        <button type="submit" class="botao-login-nav">Sair</button>
                     </form>
                 <?php else: ?>
-                    <a href="/login" class="botao-login-nav"><i class="fa-solid fa-user"></i>Login</a>
+                    <a href="/login" class="botao-login-nav">Login</a>
                 <?php endif; ?>
                 
             </div>
             <div class="bloco-icone-menu-nav">
-                <button onclick="menuShowNav()"><i id="icone-menu-nav" class="fa-solid fa-bars"></i></button>
+                <button onclick="menuShowNav()"></button>
             </div>
         </div>
         
