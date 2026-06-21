@@ -78,7 +78,7 @@ a{
     font-size: clamp(1rem, 14vw, 4.8rem); 
     margin: 0 auto 20px auto; 
     max-width: 900px;
-    word-wrap: break-word
+    word-wrap: break-word;
 }
 
 .hero-section-landing section p {
@@ -282,6 +282,7 @@ a{
 
 .slider-item-landing p{
     padding: 0 10px 10px 0;
+    word-wrap: break-word;
 }
 
 .slider-item-landing h4 {
