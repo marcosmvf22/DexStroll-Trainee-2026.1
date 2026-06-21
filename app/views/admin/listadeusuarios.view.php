@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Painel - Usuários</title>
+    <title>Painel de Usuários - DexStroll</title>
 
     <link rel="stylesheet" href="../../../public/css/listadeusuarios.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />

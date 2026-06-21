@@ -173,7 +173,7 @@ a{
 .slider-landing {
     position: relative;
     width: 100%;
-    max-width: 1400px;
+    max-width: 95vw;
     margin: 0 auto;
     padding: 0 60px 30px 60px;
     box-sizing: border-box;
@@ -196,9 +196,9 @@ a{
 }
 
 .slider-item-landing {
-    flex: 0 0 400px;
-    width: 400px;
-    min-width: 400px;
+    flex: 0 0 450px;
+    width: 450px;
+    min-width: 450px;
     scroll-snap-align: start;
     background-color: var(--branco-neve);
     padding: 25px;
@@ -206,6 +206,9 @@ a{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
 }
 
 
