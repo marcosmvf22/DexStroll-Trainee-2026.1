@@ -14,7 +14,7 @@ class PublicacoesController
             'Jogos',
             'Notícias',
             'Midia',
-            'Guias'
+            'Guia'
         ];
     }
 
