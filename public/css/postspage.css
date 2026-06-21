@@ -66,6 +66,10 @@ time {
   width: 100%;
   height: 350px;
   transition: all 0.2s ease-in-out;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 @media (hover: hover) {
@@ -79,6 +83,9 @@ time {
   text-align: left;
   width: 100%;
   margin: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 .conteudopost {
   display: flex;
@@ -86,6 +93,9 @@ time {
   justify-content: space-between;
   align-items: flex-start;
   width: 50%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 .nomeautorpost {
   color: #1f5fa8;

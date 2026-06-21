@@ -93,6 +93,9 @@ main{
     padding: 20px;
     gap: 20px;
     z-index: 3;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .conteudo-do-titulo h1{
@@ -100,6 +103,9 @@ main{
     font-size: 36px;
     margin: 0;
     font-weight: 700;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .tag-categoria{
@@ -133,6 +139,9 @@ main{
     width: 100%;
     padding: 20px;
     gap: 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 
@@ -146,12 +155,22 @@ main{
     border-radius: 20px;
 }
 
+.conteudo-da-pagina table {
+    max-width: 100%;
+    display: block;
+    overflow-x: auto;
+}
+
 .conteudo-da-pagina p{
     width: 100%;
     padding: 10px;
 
     line-height: 1.8;
     text-align: justify;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .conteudo-da-pagina h1,
@@ -287,6 +306,9 @@ main{
     flex-direction: column;
     min-height: 380px;
     gap: 10px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .cards_carrossel:hover {
@@ -322,6 +344,9 @@ main{
 .cards_carrossel p{
     text-align: justify;
     color: black;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .cards_carrossel h4{
