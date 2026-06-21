@@ -44,7 +44,9 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="overlay-area-de-titulo"></div> 
             <div class="conteudo-do-titulo">
                 
-                <a href="#" class="tag-categoria"><?=$publicacao->categoria?></a>
+                <a  href="/postspage?categoria=<?= urlencode($publicacao->categoria) ?>" class="tag-categoria tag-cards">
+                    <?= htmlspecialchars($publicacao->categoria) ?>
+                </a>
                 <h1><?=$publicacao->titulo?></h1>
                 <p><?=$publicacao->autor?> • <?=date('d/m/Y', strtotime($publicacao->data))?></p>
             </div>
@@ -100,9 +102,9 @@ if (session_status() === PHP_SESSION_NONE) {
                                                 <?= date('d/m/Y', strtotime($post->data)) ?>
                                             </h6>
                                             
-                                            <span class="tag-categoria tag-cards">
+                                            <a  href="/postspage?categoria=<?= urlencode($post->categoria) ?>" class="tag-categoria tag-cards">
                                                 <?= htmlspecialchars($post->categoria) ?>
-                                            </span>
+                                            </a>
                                         </div>
                                         
                                         <h4>
@@ -128,7 +130,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     
                                     <a
                                         href="/postagem?id=<?= $post->id ?>"
-                                        class="lermais-botao"
+                                        class="botão-ler-mais"
                                         >
                                         Ler mais
                                    </a>
