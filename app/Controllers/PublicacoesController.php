@@ -177,7 +177,7 @@ class PublicacoesController
     {
         $this->adminAuth();
 
-        $categoriasEnum = ['Jogos','Noticias','Midia','Guias'];
+        $categoriasEnum = ['Jogos','Notícias','Midia','Guias'];
         // $categorias = $this->getCategorias();
         
         // aqui coloquei pra nao criar com uma mesma imagen
