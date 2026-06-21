@@ -15,14 +15,17 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="/public/css/lp.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- links da navbar -->
     <link rel="stylesheet" href="/public/css/navbar.css">
     <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <!-- icones -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
@@ -76,15 +79,16 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="slider-conteudo-landing" id="slider-container">
                 <?php foreach ($ultimasPublicacoes as $post): ?>
                     <div class="slider-item-landing">
-                        <img
-                            src="<?= !empty($post->imagem) ? $post->imagem : '/public/assets/default-post.png' ?>"
+                        <img src="<?= !empty($post->imagem) ? $post->imagem : '/public/assets/default-post.png' ?>"
                             alt="<?= htmlspecialchars($post->titulo) ?>">
 
                         <div class="data-tag">
                             <h6><?= date('d/m/Y', strtotime($post->data)) ?></h6>
-                            <span class="tag-categoria tag-cards">
+                            <a href="/postspage?categoria=<?= urlencode($post->categoria) ?>"
+                                class="tag-categoria tag-cards">
                                 <?= htmlspecialchars($post->categoria) ?>
-                            </span>
+                            </a>
+
                         </div>
 
                         <h4><?= htmlspecialchars($post->titulo) ?></h4>
@@ -113,21 +117,27 @@ if (session_status() === PHP_SESSION_NONE) {
                 <i class="fa-solid fa-compass icon-politica"></i>
                 <h3>Missão</h3>
                 <p>
-                    Nossa missão é reunir treinadores, fãs e curiosos em um só lugar, oferecendo notícias, guias, curiosidades e estratégias para tornar a experiência no universo Pokémon mais divertida, acessível e completa.
+                    Nossa missão é reunir treinadores, fãs e curiosos em um só lugar, oferecendo notícias, guias,
+                    curiosidades e estratégias para tornar a experiência no universo Pokémon mais divertida, acessível e
+                    completa.
                 </p>
             </div>
             <div class="card-politica">
                 <i class="fa-solid fa-binoculars icon-politica"></i>
                 <h3>Visão</h3>
                 <p>
-                    Ser uma das principais referências em conteúdo sobre Pokémon no Brasil, construindo uma comunidade apaixonada, colaborativa e sempre atualizada, onde conhecimento, diversão e aprendizado caminham juntos. 
+                    Ser uma das principais referências em conteúdo sobre Pokémon no Brasil, construindo uma comunidade
+                    apaixonada, colaborativa e sempre atualizada, onde conhecimento, diversão e aprendizado caminham
+                    juntos.
                 </p>
             </div>
             <div class="card-politica">
                 <i class="fa-solid fa-hand-fist icon-politica"></i>
                 <h3>Valores</h3>
                 <p>
-                    Valorizamos a paixão pelo universo Pokémon, o respeito à comunidade e a produção de conteúdo confiável e acessível. Incentivamos o aprendizado, a troca de experiências e a diversão em cada etapa da jornada dos treinadores.
+                    Valorizamos a paixão pelo universo Pokémon, o respeito à comunidade e a produção de conteúdo
+                    confiável e acessível. Incentivamos o aprendizado, a troca de experiências e a diversão em cada
+                    etapa da jornada dos treinadores.
                 </p>
             </div>
 
