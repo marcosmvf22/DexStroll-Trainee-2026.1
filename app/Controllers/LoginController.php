@@ -69,15 +69,47 @@ class LoginController
 
     }
 
-
+// tentando manter  a alteração da isa  de admins:
     public function store(){
-         $parameters = [
-            'nome' => $_POST['nome'],
-            'username' => $_POST['username'],
-            'email' => $_POST['email'],
-            'senha' => password_hash($_POST['senha'], PASSWORD_DEFAULT),
-            'nivel_acesso' => 'usuario',
-        ];
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+// pra ver se ta vazio
+        if (
+            empty(trim($_POST['nome'])) || 
+            empty(trim($_POST['username'])) || 
+            empty(trim($_POST['email'])) || 
+            empty($_POST['senha']) || 
+            empty($_POST['confirmaSenha'])
+        ) {
+            $_SESSION['mensagem-erro'] = 'Todos os campos são obrigatórios e não podem ficar em branco.';
+            header('Location: /login');
+            exit();
+        }
+// confirmar senha
+        $senha = $_POST['senha'];
+        $confirmaSenha = $_POST['confirmaSenha'];
+
+
+        if ($senha !== $confirmaSenha) {
+            $_SESSION['mensagem-erro'] = 'Senhas incompatíveis!!';
+            header('Location: /login');
+            exit();
+        }
+
+// validar se  a senha tem os  requisitos de seguranca
+        $temTamanho = strlen($senha) >= 8;
+        $temMaiuscula = preg_match('/[A-Z]/', $senha);
+        $temMinuscula = preg_match('/[a-z]/', $senha);
+        $temNumero = preg_match('/[0-9]/', $senha);
+
+        if (!$temTamanho || !$temMaiuscula || !$temMinuscula || !$temNumero) {
+            $_SESSION['mensagem-erro'] = 'A senha deve ter no mínimo 8 caracteres, 1 letra maiúscula, 1 minúscula e 1 número.';
+            header('Location: /login');
+            exit();
+        }
+
 
         $existe = App::get('database')->selectWhereUser(
             'usuarios',
@@ -85,18 +117,23 @@ class LoginController
         );
 
         if ($existe) {
-            session_start();
             $_SESSION['mensagem-erro'] = 'Email já cadastrado.';
             header('Location: /login');
             exit();
         }
 
-        if($_POST['senha'] == $_POST['confirmaSenha']){
-             App::get('database')->insert('usuarios',$parameters);
-        } else {
-            $_SESSION['mensagem-erro'] = 'Senhas incompatíveis!!';
-            
-        }
-           header('Location: /login');
+
+        $parameters = [
+            'nome' => trim($_POST['nome']),
+            'username' => trim($_POST['username']),
+            'email' => trim($_POST['email']),
+            'senha' => password_hash($senha, PASSWORD_DEFAULT),
+            'nivel_acesso' => 'usuario', 
+        ];
+
+        App::get('database')->insert('usuarios', $parameters);
+        
+        header('Location: /login');
+        exit();
     }
 }
