@@ -12,7 +12,7 @@ class PublicacoesController
     {
         return[
             'Jogos',
-            'Noticia',
+            'Notícias',
             'Midia',
             'Guias'
         ];
