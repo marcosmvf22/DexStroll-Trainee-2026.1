@@ -25,8 +25,8 @@
         <a href="">
             <img class="logo_dexstroll_footer" src="../../../public/assets/dexstroll-logo.png" alt="Logo DexStroll">
         </a>
-        <a href="">
-            <img class="logo_code_footer" src="../../../public/assets/code-logo.png" alt="Logo CodeJR">
+        <a>
+            <img class="logo_code_footer" src="../../../public/assets/code-logo.png" alt="Logo CodeJR" id="easter-egg">
         </a>
     </div>
 
@@ -40,4 +40,6 @@
             </address>
         </div>
     </div>
+
+    <script src="/public/js/footerEasterEgg.js"></script>
 </footer>
