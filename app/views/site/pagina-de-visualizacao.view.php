@@ -28,9 +28,8 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="../../../public/css/footer.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-
-    <title>Pagina de Visualização individual - DexStroll</title>
-</head>
+<!-- fazer o titulo da pagina ser o nome do post, usando htmlspecialchars pra nao bugar se tiver  alguns paranaue no titulo -->
+<title><?= htmlspecialchars($publicacao->titulo) ?> - DexStroll</title></head>
 <body>
          
     <?php require "navbar.view.php"?>
