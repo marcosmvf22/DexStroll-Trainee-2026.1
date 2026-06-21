@@ -44,7 +44,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <section>
             <h1>Explore e domine o mundo Pokémon com estratégia!</h1>
             <p>Descubra habilidades, matchups e decisões que realmente mudam suas batalhas.</p>
-            <button><a href="#sobre-landing">Saiba mais</a></button>
+            <a href="#sobre-landing"><button>Saiba Mais</button></a>
         </section>
 
     </div>
