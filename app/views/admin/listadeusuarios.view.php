@@ -217,13 +217,15 @@
               <label>Nova senha</label>
               <input type="password" name="senha" id="edit-input-senha">
             </div>
-            <div class="grupo-campo">
-                <label for="edit-input-nivel">Nível de Acesso</label>
-                <select name="nivel_acesso" id="edit-input-nivel" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; background-color: #fff;">
-                  <option value="usuario">Usuário Comum</option>
-                  <option value="admin">Administrador</option>
-                </select>
-            </div>
+            <?php if($_SESSION['nivel_acesso'] == 'admin') : ?>
+              <div class="grupo-campo">
+                  <label for="edit-input-nivel">Nível de Acesso</label>
+                  <select name="nivel_acesso" id="edit-input-nivel" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; background-color: #fff;">
+                    <option value="usuario">Usuário Comum</option>
+                    <option value="admin">Administrador</option>
+                  </select>
+              </div>
+            <?php endif; ?>
             <div class="modal-rodape-botoes">
               <button type="button" class="cancelarBotaoModal" id="btn-cancelar-editar">Cancelar</button>
               <button type="submit" class="enviarBotaoModal">Salvar Alterações</button>
