@@ -7,7 +7,7 @@ use App\Core\App;
 
 class PostController
 {
-    public function index()
+   public function index()
     {   
         $database = App::get('database');
 
@@ -22,6 +22,7 @@ class PostController
 
 
         $pesquisa = isset($_GET['pesquisa']) ? trim($_GET['pesquisa']) : '';
+        $categoria = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
 
 
         if ($pesquisa !== '') {
@@ -29,7 +30,12 @@ class PostController
             $totalPages = ceil($totalPosts / $limit);
             $postsDoBanco = $database->paginateSearchposts('publicacao', $pesquisa, $limit, $offset);
         } 
-        else{
+        elseif ($categoria !== '') { 
+            $totalPosts = $database->countByCategory('publicacao', $categoria);
+            $totalPages = ceil($totalPosts / $limit);
+            $postsDoBanco = $database->paginateByCategory('publicacao', $categoria, $limit, $offset);
+        } 
+        else { // Fluxo normal (todos os posts)
             $totalPosts = $database->countAll('publicacao');
             $totalPages = ceil($totalPosts/$limit);
             $postsDoBanco = $database->paginate('publicacao',$limit,$offset);
@@ -40,7 +46,8 @@ class PostController
             'currentPage' => $currentPage,
             'totalPage' => $totalPages,
             'totalPosts' => $totalPosts,
-            'pesquisa' => $pesquisa 
+            'pesquisa' => $pesquisa,
+            'categoriaSelecionada' => $categoria
         ]);
 
         exit();
