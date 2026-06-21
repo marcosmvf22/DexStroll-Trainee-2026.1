@@ -52,6 +52,13 @@
 .img-logo-dashboard{
     width: 120px;
     margin-top: 20px;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center center;
+}
+
+.img-logo-dashboard:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .titulo-dashboard{

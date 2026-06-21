@@ -25,7 +25,7 @@
                 <a href="/" class="btn-voltar-home">
                     <i id="icone-voltar-dashboard" class="fa-regular fa-circle-left"></i>
                 </a>
-                <img class="img-logo-dashboard" src="/public/assets/logoQuadrada.png" alt="">
+                <img class="img-logo-dashboard" src="/public/assets/logoQuadrada.png" alt="Logo DexStroll" onclick="window.location.href='/'">
             </div>
             <h1 class="titulo-dashboard">Dashboard</h1>
             <div class="botoes-dashboard">
