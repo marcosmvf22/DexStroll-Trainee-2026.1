@@ -75,7 +75,7 @@ a{
 .hero-section-landing section h1 {
     font-weight: 700;
     line-height: 1;
-    font-size: clamp(1rem, 14vw, 4.8rem); 
+    font-size: clamp(1rem, 4.2rem, 4.8rem); 
     margin: 0 auto 20px auto; 
     max-width: 900px;
     word-wrap: break-word;
@@ -121,7 +121,7 @@ a{
 .sobre-landing h2{
     text-align: center;
     padding: 30px;
-    font-size: 3rem;
+    font-size: clamp(10%, 3rem, 3.6rem);
     color: var(--azul);
 }
 
@@ -153,6 +153,11 @@ a{
     position: relative;
 }
 
+.sobre1:hover, .sobre2:hover, .sobre3:hover{
+    transition: all 0.3s ease;
+    transform: translateY(-5px);
+}
+
 /* tava quebrando  uma listra  azul  no  degrade, movi  ele pra uma pseudoekemeneto e  dei transparente na  div acima */
 .postagens-landing::before {
     content: "";
@@ -170,7 +175,8 @@ a{
     align-items: center;
     text-align: center;
     color: var(--branco-neve);
-    font-size: clamp(10%, 2.8rem, 3rem);
+    font-size: clamp(10%, 3rem, 3.6rem);
+    padding: 30px;
 }
 
 .slider-landing {
@@ -212,8 +218,13 @@ a{
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.301);
 }
 
+.slider-item-landing:hover{
+    transition: all 0.3s ease;
+    transform: translateY(-10px);
+}
 
 .nav-arrow {
     position: absolute;
@@ -328,6 +339,10 @@ a{
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
+.slider-item-landing::-webkit-scrollbar {
+    display:none;
+}
+
 .dados-autor-landing img {
     width: 30px;
     height: 30px;
@@ -344,58 +359,70 @@ a{
     height: 100%;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(90deg, var(--azul), var(--azul-marinho)); 
+    background: var(--branco-neve); 
     color: var(--branco-neve);
     align-items: center;
     justify-content: center;
+    padding: 60px 0;
 }
 
 .titulo-politicas{
     text-align: center;
-    padding: 30px;
-    color: var(--branco-neve);
-    font-size: 2.5rem;
+    padding: 20px;
+    color: var(--azul);
+    font-size: clamp(10%, 3rem, 3.2rem);
+    font-weight: bold;
 }
 
 .bloco-politicas{
     width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch; 
     justify-content: center;
     padding: 30px;
     gap: 20px;
+    max-width: 1200px; 
 }
 
+.icon-politica{
+    font-size: 60px;
+}
 .card-politica{
-    text-align: justify;
+    text-align: center; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--branco-neve);
-    border-radius: 40px;
+    flex: 1; 
+    background-color: var(--azul-marinho);
+    border-radius: 20px;
     padding: 20px;
-    gap: 20px;
+    gap: 15px;
     cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.301);
 }
 
 .card-politica h3{
-    color: var(--azul);
-    font-size: 1.8rem;
+    color: var(--branco-neve);
+    font-size: 2.2rem;
+    font-weight: bold;
 }
 
 .card-politica p{
-    color: var(--azul-marinho);
-    font-size: 1.3rem;
+    color: var(--branco-neve);
+    font-size: 1.2rem;
 }
 
 .card-politica:hover{
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
 @media (max-width: 768px) {
+    .hero-section-landing section h1{
+        max-width: 700px;
+    }
     .bloco-sobre-landing {
         flex-direction: column;
         align-items: center;

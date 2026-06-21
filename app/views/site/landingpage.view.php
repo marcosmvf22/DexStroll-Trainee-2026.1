@@ -16,21 +16,21 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- links da navbar -->
-        <link rel="stylesheet" href="/public/css/navbar.css">
-        <!-- Fonte -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <!-- icones -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="/public/css/navbar.css">
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- icones -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <!-- CSS do footer -->
-    <link rel="stylesheet" href="../../../public/css/footer.css"> 
+    <link rel="stylesheet" href="../../../public/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <title>Página inicial - DexStroll</title>
 </head>
 
@@ -105,31 +105,28 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <section class="politicas">
         <div>
-            <h2 class="titulo-politicas">Sobre</h2>
+            <h2 class="titulo-politicas">Sobre nós</h2>
         </div>
         <div class="bloco-politicas">
             <div class="card-politica">
+                <i class="fa-solid fa-compass icon-politica"></i>
                 <h3>Missão</h3>
                 <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam quia, quae dolorem rerum, architecto incidunt animi velit laboriosam sint provident laborum consectetur, natus repellat. Numquam id molestiae quaerat dignissimos similique.
-                    Eius, velit nihil sit sed harum voluptate nostrum impedit incidunt illum libero esse dolorem saepe non repellat, eligendi voluptatum sequi minus quas cupiditate nulla animi necessitatibus eum! Similique, qui tempora.
-                    Voluptas eum nihil magnam labore voluptatem veritatis exercitationem culpa temporibus voluptates quia omnis quis accusantium ab consectetur impedit harum, illum natus, quibusdam excepturi non animi fugiat distinctio accusamus. Vitae, officia.
+                    Nossa missão é reunir treinadores, fãs e curiosos em um só lugar, oferecendo notícias, guias, curiosidades e estratégias para tornar a experiência no universo Pokémon mais divertida, acessível e completa.
                 </p>
             </div>
             <div class="card-politica">
+                <i class="fa-solid fa-binoculars icon-politica"></i>
                 <h3>Visão</h3>
                 <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam quia, quae dolorem rerum, architecto incidunt animi velit laboriosam sint provident laborum consectetur, natus repellat. Numquam id molestiae quaerat dignissimos similique.
-                    Eius, velit nihil sit sed harum voluptate nostrum impedit incidunt illum libero esse dolorem saepe non repellat, eligendi voluptatum sequi minus quas cupiditate nulla animi necessitatibus eum! Similique, qui tempora.
-                    Voluptas eum nihil magnam labore voluptatem veritatis exercitationem culpa temporibus voluptates quia omnis quis accusantium ab consectetur impedit harum, illum natus, quibusdam excepturi non animi fugiat distinctio accusamus. Vitae, officia.
+                    Ser uma das principais referências em conteúdo sobre Pokémon no Brasil, construindo uma comunidade apaixonada, colaborativa e sempre atualizada, onde conhecimento, diversão e aprendizado caminham juntos. 
                 </p>
             </div>
             <div class="card-politica">
+                <i class="fa-solid fa-hand-fist icon-politica"></i>
                 <h3>Valores</h3>
                 <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam quia, quae dolorem rerum, architecto incidunt animi velit laboriosam sint provident laborum consectetur, natus repellat. Numquam id molestiae quaerat dignissimos similique.
-                    Eius, velit nihil sit sed harum voluptate nostrum impedit incidunt illum libero esse dolorem saepe non repellat, eligendi voluptatum sequi minus quas cupiditate nulla animi necessitatibus eum! Similique, qui tempora.
-                    Voluptas eum nihil magnam labore voluptatem veritatis exercitationem culpa temporibus voluptates quia omnis quis accusantium ab consectetur impedit harum, illum natus, quibusdam excepturi non animi fugiat distinctio accusamus. Vitae, officia.
+                    Valorizamos a paixão pelo universo Pokémon, o respeito à comunidade e a produção de conteúdo confiável e acessível. Incentivamos o aprendizado, a troca de experiências e a diversão em cada etapa da jornada dos treinadores.
                 </p>
             </div>
 
@@ -143,4 +140,5 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <!-- carrossel lp -->
 <script src="/public/js/lp.js"></script>
+
 </html>
