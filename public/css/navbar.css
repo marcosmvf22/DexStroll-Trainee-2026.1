@@ -17,6 +17,10 @@
     --preto: #2B2F38;
 }
 
+.header-nav{
+    position: relative;
+}
+
 .wrapperbarra{
     align-items: center;
     display: flex;
@@ -103,7 +107,22 @@
 }
 
 .mobile-menu-nav{
-    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(-10px);
+
+    width: 100%;
+
+    visibility: hidden;
+    pointer-events: none;
+
+    background-color: #5a1a22;
+
+    transition: .25s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
 }
 
 .box-pesquisa-nav{
@@ -277,7 +296,11 @@
         font-size: 2vh;
     }
     .open{
-        display: block;
+        opacity: 1;
+        transform: translateY(0);
+
+        visibility: visible;
+        pointer-events: auto;
     }
 }
 
