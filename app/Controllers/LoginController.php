@@ -8,7 +8,6 @@ use Exception;
 class LoginController
 {
     public function login(){
-
         if (session_status() === PHP_SESSION_NONE) 
         {
         session_start();
@@ -22,42 +21,38 @@ class LoginController
 
         return view('site/login');
     }
-
-   public function efetuaLogin()
-{
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-
-    $user = App::get('database')->verificaLogin($email);
     
-
-    if ($user && password_verify($senha, $user->senha)) 
-    {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-
-        $_SESSION['id'] = $user->id;
-        $_SESSION['nivel_acesso'] = $user->nivel_acesso; 
-
-        if ($_SESSION['nivel_acesso'] === 'admin') {
+    public function efetuaLogin(){
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+ 
+        $user = App::get('database')->verificaLogin($email);
+        
+ 
+        if ($user && password_verify($senha, $user->senha)) 
+        {
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+ 
+            $_SESSION['id'] = $user->id;
+            $_SESSION['nivel_acesso'] = $user->nivel_acesso; 
+ 
+            
             header('Location: /dashboard');
-        } else {
-            header('Location: /');
+            exit();
         }
-        exit();
-    }
-    else 
-    {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
+        else 
+        {
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+ 
+            $_SESSION['mensagem-erro'] = 'Usuário ou senha incorretos!';
+            header('Location: /login');
+            exit();
         }
-
-        $_SESSION['mensagem-erro'] = 'Usuário ou senha incorretos!';
-        header('Location: /login');
-        exit();
     }
-}
 
     public function logout(){
         session_start();
@@ -69,13 +64,13 @@ class LoginController
 
     }
 
-// tentando manter  a alteração da isa  de admins:
+    // tentando manter  a alteração da isa  de admins:
     public function store(){
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
-// pra ver se ta vazio
+        // pra ver se ta vazio
         if (
             empty(trim($_POST['nome'])) || 
             empty(trim($_POST['username'])) || 
@@ -87,7 +82,7 @@ class LoginController
             header('Location: /login');
             exit();
         }
-// confirmar senha
+        // confirmar senha
         $senha = $_POST['senha'];
         $confirmaSenha = $_POST['confirmaSenha'];
 
@@ -98,7 +93,7 @@ class LoginController
             exit();
         }
 
-// validar se  a senha tem os  requisitos de seguranca
+        // validar se  a senha tem os  requisitos de seguranca
         $temTamanho = strlen($senha) >= 8;
         $temMaiuscula = preg_match('/[A-Z]/', $senha);
         $temMinuscula = preg_match('/[a-z]/', $senha);

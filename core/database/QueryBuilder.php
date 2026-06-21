@@ -359,10 +359,6 @@ class QueryBuilder
             OR u.username LIKE :termo 
             OR p.id LIKE :termo
             LIMIT :limit OFFSET :offset";
-            //tinha um ponto e virula no meio dessa desgraça, tirei
-
-
-
 
         try {
             $stmt = $this->pdo->prepare($sql);
@@ -376,8 +372,75 @@ class QueryBuilder
         }
     }
 
+    public function countPostsByAutor($autorId)
+    {
+        $query = "SELECT COUNT(*) as total
+                FROM publicacao
+                WHERE autor = :autor";
 
+        try {
+            $statement = $this->pdo->prepare($query);
 
+            $statement->execute([
+                'autor' => $autorId
+            ]);
 
+            return (int) $statement->fetch(\PDO::FETCH_OBJ)->total;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 
+    public function paginatePostsByAutor($autorId, $limit, $offset)
+    {
+        $query = "SELECT * FROM publicacao WHERE autor = :autor ORDER BY id DESC LIMIT :limit OFFSET :offset";
+
+        try {
+            $statement = $this->pdo->prepare($query);
+            $statement->bindValue(':autor', $autorId, \PDO::PARAM_INT);
+            $statement->bindValue(':limit', $limit, \PDO::PARAM_INT);
+            $statement->bindValue(':offset', $offset, \PDO::PARAM_INT);
+            $statement->execute();
+            return $statement->fetchAll(\PDO::FETCH_OBJ); 
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function countSearchPostsByAutor($autorId, $pesquisa)
+    {
+        $query = "SELECT COUNT(*) as total
+                FROM publicacao
+                WHERE autor = :autor
+                AND titulo LIKE :pesquisa";
+                
+        try {
+            $statement = $this->pdo->prepare($query);
+
+            $statement->execute([
+                'autor' => $autorId,
+                'pesquisa' => "%{$pesquisa}%"
+            ]);
+
+            return (int) $statement->fetch(\PDO::FETCH_OBJ)->total;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function paginateSearchPostsByAutor($autorId, $pesquisa, $limit, $offset)
+    {
+        $query = "SELECT * FROM publicacao WHERE autor = :autor AND titulo LIKE :pesquisa ORDER BY id DESC LIMIT :limit OFFSET :offset";
+        try {
+            $statement = $this->pdo->prepare($query);
+            $statement->bindValue(':autor', $autorId, \PDO::PARAM_INT);
+            $statement->bindValue(':pesquisa', "%{$pesquisa}%");
+            $statement->bindValue(':limit', $limit, \PDO::PARAM_INT);
+            $statement->bindValue(':offset', $offset, \PDO::PARAM_INT);
+            $statement->execute();
+            return $statement->fetchAll(\PDO::FETCH_OBJ); 
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }

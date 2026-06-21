@@ -20,7 +20,7 @@ class PublicacoesController
 
     public function index()
     {
-        $this->adminAuth();
+        $this->auth();
 
         $usuarioLogado = App::get('database')->selectOne(
             'usuarios',
@@ -42,16 +42,31 @@ class PublicacoesController
 
         $pesquisa = isset($_GET['pesquisa']) ? trim($_GET['pesquisa']) : '';
 
+        if($_SESSION['nivel_acesso'] === 'admin'){
 
-        if ($pesquisa !== '') {
-            $totalPosts = $database->countSearchposts('publicacao', $pesquisa);
-            $totalPages = ceil($totalPosts / $limit);
-            $postsDoBanco = $database->paginateSearchposts('publicacao', $pesquisa, $limit, $offset);
-        } 
-        else{
-            $totalPosts = $database->countAll('publicacao');
-            $totalPages = ceil($totalPosts/$limit);
-            $postsDoBanco = $database->paginate('publicacao',$limit,$offset);
+            if ($pesquisa !== '') {
+                $totalPosts = $database->countSearchposts('publicacao', $pesquisa);
+                $totalPages = ceil($totalPosts / $limit);
+                $postsDoBanco = $database->paginateSearchposts('publicacao', $pesquisa, $limit, $offset);
+            } 
+            else{
+                $totalPosts = $database->countAll('publicacao');
+                $totalPages = ceil($totalPosts/$limit);
+                $postsDoBanco = $database->paginate('publicacao',$limit,$offset);
+            }
+        }
+        else {
+            if ($pesquisa !== '') {
+                $totalPosts = $database->countSearchPostsByAutor($_SESSION['id'], $pesquisa);
+                $totalPages = ceil($totalPosts / $limit); 
+                
+                $postsDoBanco = $database->paginateSearchPostsByAutor($_SESSION['id'], $pesquisa, $limit, $offset);
+            } else {
+                $totalPosts = $database->countPostsByAutor($_SESSION['id']);
+                $totalPages = ceil($totalPosts / $limit); 
+                
+                $postsDoBanco = $database->paginatePostsByAutor($_SESSION['id'], $limit, $offset);
+            }
         }
 
         $categorias = $this->getCategorias();
@@ -72,10 +87,21 @@ class PublicacoesController
     public function edit()
     {
 
-        $this->adminAuth();
+        $this->auth();
 
         $id = $_POST['id'];
         $post = App::get('database')->selectOne('publicacao', $id);
+
+        if (!$post) {
+            header('Location: /publicacoes?erro=post_nao_encontrado');
+            exit();
+        }
+
+        if ($_SESSION['nivel_acesso'] !== 'admin' && (int)$post->autor !== (int)$_SESSION['id']) {
+            header('Location: /publicacoes?erro=nao_autorizado');
+            exit();
+        }
+
         $caminhodaimagem = $post->imagem;
 
         if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
@@ -105,7 +131,7 @@ class PublicacoesController
 
     public function store()
     {
-        $this->adminAuth();
+        $this->auth();
 
         $caminhodaimagem = null;
 
@@ -134,11 +160,17 @@ class PublicacoesController
 
     public function delete()
     {
-        $this->adminAuth();
+        $this->auth();
 
         $id = $_POST['id'];
 
         $post = App::get('database')->selectOne('publicacao', $id);
+
+        if ($_SESSION['nivel_acesso'] !== 'admin' && (int)$post->autor !== (int)$_SESSION['id']) {
+            header('Location: /publicacoes?erro=nao_autorizado');
+            exit();
+        }
+
         if($post && !empty($post->imagem) && file_exists($post->imagem)){
             unlink($post->imagem);
         }
@@ -151,7 +183,7 @@ class PublicacoesController
 
     public function uploadImagem()
     {
-        $this->adminAuth();
+        $this->auth();
 
         if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
             $temporario = $_FILES['imagem']['tmp_name'];
@@ -174,7 +206,7 @@ class PublicacoesController
 
     public function popularPosts()
     {
-        $this->adminAuth();
+        $this->adminOnly();
 
         $categoriasEnum = ['Jogos','Notícias','Midia','Guias'];
         // $categorias = $this->getCategorias();
@@ -240,7 +272,7 @@ class PublicacoesController
         exit();
     }
 
-    private function adminAuth()
+    private function auth()
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -248,6 +280,16 @@ class PublicacoesController
 
         if (!isset($_SESSION['id'])) {
             header('Location: /login');
+            exit;
+        }
+    }
+
+    private function adminOnly()
+    {
+        $this->auth();
+
+        if ($_SESSION['nivel_acesso'] !== 'admin') {
+            header('Location: /dashboard');
             exit;
         }
     }

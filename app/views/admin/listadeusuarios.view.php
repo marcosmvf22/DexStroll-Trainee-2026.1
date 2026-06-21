@@ -31,23 +31,25 @@
 
         <div class="card-tabela">
           <div class="topo-tabela">
-            <form action="/usuarios" method="GET" class="pesquisausuario">
-              <div class="grupo-busca">
-                <input 
-                  type="text" 
-                  name="pesquisa" 
-                  placeholder="Buscar por nome, usuário ou email..." 
-                  value="<?= isset($_GET['pesquisa']) ? htmlspecialchars($_GET['pesquisa']) : '' ?>"
-                  class="input-busca-admin">
-                  <button type="submit" class="btn-busca-admin" title="Pesquisar">
-                  <span class="material-icons">search</span>
-                </button>
-              </div>
-            </form>
-            <button class="criar-usuario-admin" id="btn-abrir-modal">
-              <span class="material-icons">person_add</span>
-              Adicionar Usuário
-            </button>
+            <?php if($_SESSION['nivel_acesso'] == 'admin') : ?>
+              <form action="/usuarios" method="GET" class="pesquisausuario">
+                <div class="grupo-busca">
+                  <input 
+                    type="text" 
+                    name="pesquisa" 
+                    placeholder="Buscar por nome, usuário ou email..." 
+                    value="<?= isset($_GET['pesquisa']) ? htmlspecialchars($_GET['pesquisa']) : '' ?>"
+                    class="input-busca-admin">
+                    <button type="submit" class="btn-busca-admin" title="Pesquisar">
+                    <span class="material-icons">search</span>
+                  </button>
+                </div>
+              </form>
+              <button class="criar-usuario-admin" id="btn-abrir-modal">
+                <span class="material-icons">person_add</span>
+                Adicionar Usuário
+              </button>
+            <?php endif; ?>
           </div>
           <div class="tabela-responsiva-container">
             <table class="tabela-admin">
@@ -75,7 +77,9 @@
                     <td class="celula-acoes-admin">
                       <button class="botao-acao" title="Visualizar"><span class="material-icons">visibility</span></button>
                       <button class="botao-acao" title="Editar"><span class="material-icons">edit</span></button>
-                      <button class="botao-acao botao-deletar btn-deletar-linha" title="Deletar"><span class="material-icons">delete</span></button>
+                      <?php if($_SESSION['nivel_acesso'] == 'admin') : ?>
+                        <button class="botao-acao botao-deletar btn-deletar-linha" title="Deletar"><span class="material-icons">delete</span></button>
+                      <?php endif; ?>
                     </td>
                   </tr>
                 <?php endforeach; ?>
