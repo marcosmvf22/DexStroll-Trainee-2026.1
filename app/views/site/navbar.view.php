@@ -42,7 +42,7 @@
                 
             </div>
             <div class="bloco-icone-menu-nav">
-                <button onclick="menuShowNav()"></button>
+                <button onclick="menuShowNav()"><i id="icone-menu-nav" class="fa-solid fa-bars"></i></button>
             </div>
         </div>
         
