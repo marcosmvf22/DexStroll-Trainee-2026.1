@@ -37,39 +37,39 @@
 
                     <h2 class="subtitulo-login">Bem-vindo de volta!</h2>
 
-                    <form action="/login" method="POST">
-                    <div class="mensagem-erro">
-                        <?php
-                        if (isset($_SESSION['mensagem-erro'])) {
-                            echo $_SESSION['mensagem-erro'];
+                    <form class="form-login" action="/login" method="POST">
+                        <div class="mensagem-erro">
+                            <?php
+                            if (isset($_SESSION['mensagem-erro'])) {
+                                echo $_SESSION['mensagem-erro'];
 
-                            unset($_SESSION['mensagem-erro']);
-                        }
-                        ?>
+                                unset($_SESSION['mensagem-erro']);
+                            }
+                            ?>
 
-                    </div>
+                        </div>
 
-                    <div class="campos-login">
-                        <p class="descricao-login">Email</p>
-                        <label class="label-login">
-                            <div class="elementos-input">
-                                <i id="icone-envelope" class="fa-regular fa-envelope"></i>
-                                <span class="line-login"></span>
-                            </div>
-                            <input id="email" name="email" type="email" class="input-login">
-                        </label>
+                        <div class="campos-login">
+                            <p class="descricao-login">Email</p>
+                            <label class="label-login">
+                                <div class="elementos-input">
+                                    <i id="icone-envelope" class="fa-regular fa-envelope"></i>
+                                    <span class="line-login"></span>
+                                </div>
+                                <input id="email" name="email" type="email" class="input-login">
+                            </label>
 
-                        <p class="descricao-login">Senha</p>
-                        <label class="label-login">
-                            <div class="elementos-input">
-                                <i id="icone-senha" class="fa-solid fa-lock"></i>
-                                <span class="line-login"></span>
-                            </div>
-                            <input id="senha" name="senha" type="password" class="input-login">
-                        </label>
-                    </div>
+                            <p class="descricao-login">Senha</p>
+                            <label class="label-login">
+                                <div class="elementos-input">
+                                    <i id="icone-senha" class="fa-solid fa-lock"></i>
+                                    <span class="line-login"></span>
+                                </div>
+                                <input id="senha" name="senha" type="password" class="input-login">
+                            </label>
+                        </div>
 
-                    <button class="botao-login">Login</button>
+                        <button class="botao-login">Login</button>
                     </form>
                     <p class="texto-login">Não possui uma conta? <a class="texto-link-login">CADASTRE-SE</a></p>
                 </div>
@@ -90,7 +90,7 @@
 
                     <h2 class="subtitulo-login">Registre-se aqui.</h2>
 
-                    <form action="/login/create" method="POST">
+                    <form class="form-cadastro" action="/login/create" method="POST">
                         <?php
                             if (isset($_SESSION['mensagem-erro'])) {
                                 echo $_SESSION['mensagem-erro'];

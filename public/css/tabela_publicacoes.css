@@ -104,7 +104,7 @@
 .cabecalho-tabela-admin th {
     color: var(--branco-neve);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 20px;
     padding: 18px 20px;
     text-align: center;
 }
@@ -117,7 +117,7 @@
 .tabela-admin tbody td {
     padding: 18px 20px;
     color: var(--preto);
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
     background-color: var(--branco-neve); 
 }

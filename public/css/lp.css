@@ -285,7 +285,9 @@ a{
 
 .slider-item-landing p{
     padding: 0 10px 10px 0;
+    overflow-wrap: break-word;
     word-wrap: break-word;
+    word-break: break-word;
 }
 
 .slider-item-landing h4 {

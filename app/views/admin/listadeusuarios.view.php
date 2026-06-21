@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Painel de Usuários - DexStroll</title>
 
+        <link rel="stylesheet" href="../../../public/css/modalpadronizado.css" />
+
     <link rel="stylesheet" href="../../../public/css/listadeusuarios.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
