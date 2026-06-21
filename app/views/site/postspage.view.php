@@ -49,9 +49,14 @@ if (session_status() === PHP_SESSION_NONE) {
             </div>
             
             <div class="conteudopost">
-              <time class="posts-card-data" datetime="<?= $post->data ?>">
-                <?= date('d/m/Y', strtotime($post->data)) ?>
-              </time>
+              <div class="data-tag">                    
+                <time class="posts-card-data" datetime="<?= $post->data ?>">
+                  <?= date('d/m/Y', strtotime($post->data)) ?>
+                </time>
+                <span class="tag-categoria tag-cards">
+                    <?= htmlspecialchars($post->categoria) ?>
+                </span>
+              </div>
               
               <h2 class="titulopost"><?= htmlspecialchars($post->titulo) ?></h2>
               <p class="nomeautorpost">Autor: <?= htmlspecialchars($post->autor) ?></p>
