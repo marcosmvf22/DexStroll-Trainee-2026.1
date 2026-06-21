@@ -28,7 +28,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="../../../public/css/footer.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <title>DexStroll Publicações</title>
+    <title> Últimas Postagens - DexStroll</title>
   </head>
   <body>
     <?php require 'navbar.view.php'; ?>

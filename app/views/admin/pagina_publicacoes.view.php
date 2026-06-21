@@ -24,7 +24,7 @@
     <!-- CSS sidebar -->
     <link rel="stylesheet" href="../../../public/css/Sidebar.css">
      
-    <title>Painel - DexStroll</title>
+    <title>Painel - Publições</title>
 </head>
 
 <body class="body-pagina-publicacao">
