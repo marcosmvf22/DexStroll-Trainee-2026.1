@@ -6,15 +6,15 @@
         <h1>Redes</h1>
         <div class="icones">
 
-            <a href="#">
+            <a href="https://www.facebook.com/codeempresajunior">
                 <i class="fab fa-facebook"></i>
             </a>
 
-            <a href="#">
+            <a href="https://www.instagram.com/codejr/">
                 <i class="fab fa-twitter"></i>
             </a>
 
-            <a href="#">
+            <a href="https://www.instagram.com/codejr/">
                 <i class="fab fa-instagram"></i>
             </a>
         </div>
