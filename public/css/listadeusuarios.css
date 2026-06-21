@@ -235,6 +235,7 @@ acho que nao tem problema, é pra ser igual  mesmo */
 
 .pesquisausuario {
     margin: 0;
+    width: 50%;
 }
 
 .grupo-busca {
@@ -251,7 +252,7 @@ acho que nao tem problema, é pra ser igual  mesmo */
     background: transparent;
     outline: none;
     font-size: 14px;
-    width: 260px; 
+    width: 100%; 
     color: var(--preto);
 }
 
@@ -316,12 +317,12 @@ ao inves de quebrar quando era um email grande */
         font-size: 0px;
     }
     .input-busca-admin {
-        width: 200px;
+        width: 100%;
     }
 }
 @media (max-width: 630px){
     .input-busca-admin {
-        width: 110px;
+        width: 100%;
     }
      .texto-botao {
         display: none;
@@ -331,8 +332,11 @@ ao inves de quebrar quando era um email grande */
     }
 }
 @media (max-width: 385px){
+    .pesquisausuario{
+        width: 80%;
+    }
     .input-busca-admin {
-        width: 80px;
+        width: 100%;
     }
     .topo-tabela {
         gap: 10px;
