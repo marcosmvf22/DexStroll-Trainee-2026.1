@@ -7,46 +7,55 @@
     <hr class="linha-separadora">
     <!-- Modal CRIAR -->
     <form action="/publicacoes/store" method="POST" enctype="multipart/form-data">
-        <h3>Título da publicação</h3>
-        <input id="input-tituloModalCriar" name="titulo" placeholder="Digite o título da publicação..." type="text" class="input-modal-titulo" required>
+
+        <div class="grupo-inputs-modal">
+            <h3>Título da publicação</h3>
+            <input id="input-tituloModalCriar" name="titulo" placeholder="Digite o título da publicação..." type="text"  required>
+        </div>
 
         <h3>Conteúdo</h3>
         <div id="editor" name="editordata">
             <textarea id="summernoteCriar" name="conteudo"></textarea>
         </div>
 
-        <h3>Adicionar imagem de capa</h3>
-        <input type="file" name="imagem" accept="image/*" class="form-control" id="input-imagemModalCriar">
+        <div class="grupo-inputs-modal">
+            <h3>Adicionar imagem de capa</h3>
+            <input type="file" name="imagem" accept="image/*" class="form-control" id="input-imagemModalCriar">
+        </div>
 
-        <div class="post-options">
-            <h3>Opções do post</h3>
+         <div class="grupo-inputs-modal">
+            <h3>Imagem selecionada:</h3>
+            <img id="imagemSelecionada" alt="imagem Selecionada" style="display:none;" />
+        </div>
 
-            <!-- To-do: REFATORAR JS E REMOVER FUNÇÃO DE TOGGLE! -->
-            <!-- <div class="opcao-checkbox-container">
+        <div class="grupo-inputs-modal">
+            <h3>Curiosidade do post</h3>
+
+            <div class="opcao-checkbox-container">
                 <label class="checkbox-container">
                     <input type="checkbox" id="toggle-curiosidade">
-                    <span>Adicionar curiosidade</span>
+                    <span class="checkbox-label-text">Adicionar curiosidade?</span>
                 </label>
             </div>
  
-            <div class="input-container-curiosidade">
-                <label for="input-curiosidade" class="label-modal-criar">Curiosidade:</label>
-                <input type="text" id="input-curiosidade" class="input-modal-criar" rows=10 columns=10 name="curiosidade" placeholder="Digite o texto da curiosidade...">
-            </div> -->
+            <textarea class="input-curiosidades-modal escondido" name="curiosidade" id="input-curiosidades-modal"> </textarea>
+        </div>
+        
+        <div class="grupo-inputs-modal">
+            <h3>Adicionar categoria</h3>
+            <select name="categoria" required>
+                <?php foreach ($categorias as $categoria): ?>
+                    <option value="<?= $categoria ?>">
+                        <?= $categoria ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
 
-            
-            <input id="input-curiosidadeModalCriar" name="curiosidade" placeholder="Digite a curiosidade da publicação... (opcional)" type="text" class="input-modal-curiosidade">
-
-            <div class="grupo-data-modal">
-                <label for="input-dataPublicacao" class="label-modal-criar">Data de publicação:</label>
-                <input type="date" id="input-dataPublicacao" class="input-modal-criar" name="data" required>
-            </div>
-
-            <hr class="linha-separadora">
-            <div class="botoesModalCriarPub">
-                <button type="button" class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
-                <button type="submit" class="enviarBotaoModal">Enviar</button>
-            </div>
+        <hr class="linha-separadora">
+        <div class="botoesModalCriarPub">
+            <button type="button" class="cancelarBotaoModal" onclick="fecharModal('modalCriarPublicacao')">Cancelar</button>
+            <button type="submit" class="enviarBotaoModal">Enviar</button>
         </div>
     </form>
 </div>

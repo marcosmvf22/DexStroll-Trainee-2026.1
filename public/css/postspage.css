@@ -1,11 +1,21 @@
+:root {
+  --vermelho-escuro: #5a1a22;
+  --vermelho: #e6392f;
+  --azul-marinho: #0d2a4d;
+  --azul: #1f5fa8;
+  --azul-claro: #4fa3ff;
+  --cinza: #d9d9d9;
+  --branco-neve: #f5f7fa;
+  --preto: #2b2f38;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body{
-    font-family: "Poppins", sans-serif;
-
+body {
+  font-family: "Poppins", sans-serif;
 }
 main {
   background: linear-gradient(180deg, #1f5fa8 0%, #0d2a4d 100%);
@@ -26,7 +36,7 @@ main {
   color: white;
   font-size: 4rem;
   margin-bottom: 4vh;
-  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.6);
+  text-shadow: 2px 4px 3px rgba(30, 58, 90, 0.6);
 }
 
 time {
@@ -54,6 +64,18 @@ time {
   width: 100%;
   height: 350px;
   transition: all 0.2s ease-in-out;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.titulopost {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (hover: hover) {
@@ -64,9 +86,12 @@ time {
 }
 .manchetedopost {
   color: #1f5fa8;
-  text-align: justify;
+  text-align: left;
   width: 100%;
   margin: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 .conteudopost {
   display: flex;
@@ -74,6 +99,9 @@ time {
   justify-content: space-between;
   align-items: flex-start;
   width: 50%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 .nomeautorpost {
   color: #1f5fa8;
@@ -81,67 +109,70 @@ time {
   margin: 0 0;
 }
 .fotodopost {
-  background-color: #0d2a4d;
+  background-color: white;
   height: 100%;
-  border-radius: 30px;
+  border-radius: 50px;
   width: 50%;
 }
 .lermais-botao {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    background-color: #e6392f;
-    width: 50%;
-    align-self: center;
-    border-radius: 40px;
-    border: none;
-    height: auto;
-    padding: 2% 5%;         
-    margin-top: 2%;
-    font-weight: 900;
-    font-family: inherit;   
-    font-size: 1rem;         
-    line-height: 1.2;       
-    color: #f5f7fa;
-    cursor: pointer;
-    box-sizing: border-box; 
-    text-align: center;      
-    transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #e6392f;
+  width: 50%;
+  align-self: center;
+  border-radius: 40px;
+  border: none;
+  height: auto;
+  padding: 3% 5%;
+  margin-top: 2%;
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: #f5f7fa;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: center;
+  transition: background 0.2s;
 }
 
-.paginacao-posts {
+.paginacao {
   display: flex;
-  justify-content: center;
+  list-style: none;
   align-items: center;
   gap: 15px;
+}
+
+.paginacao-container {
+  display: flex;
+  justify-content: center;
   margin-top: 50px;
-  width: 100%;
 }
-.posts-pokeball.clicada {
-  background: linear-gradient(
-    to bottom,
-    #1b82b1 0%,
-    #1b82b1 45%,
-    #333 45%,
-    #333 55%,
-    #fff 55%,
-    #fff 100%
-  );
+
+.paginacao li {
+  margin: 0;
 }
-/* pokebola pra paginação, ainda bem me deram a  ideia*/
-.posts-pokeball {
+
+.paginacao a {
   width: 55px;
   height: 55px;
   border-radius: 50%;
   border: 3px solid #333;
-  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
   position: relative;
+
   font-family: "Poppins", sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 16px;
   color: #333;
-  z-index: 1;
+
   background: linear-gradient(
     to bottom,
     #ee1515 0%,
@@ -151,44 +182,88 @@ time {
     #fff 55%,
     #fff 100%
   );
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  z-index: 1;
   transition: transform 0.2s ease-in-out;
-  /* suaviza o passar  o mouse na bola */
 }
 
-/* bolinha dentro da  pokebola*/
-.posts-pokeball::after {
+.paginacao a::after {
   content: "";
+
   position: absolute;
   width: 16px;
   height: 16px;
+
   background: white;
+  border: 3px solid #333;
   border-radius: 50%;
+
   z-index: -1;
 }
 
-/* passa o mouse e gira a bola
-agora  tenho que codar mais  efeitinhos */
-.posts-pokeball:hover {
-  transform: scale(1.2);
+.paginacao a:hover {
+  transform: scale(1.15);
 }
-/* OBS: eu amo o w3schools melhor site pra  aprender a codar, porém gastei 3 horas pra entender oque de fato é um  pseudo-element e  como usar  o ::after */
-/* a  que ta clicada, aí muda de cor*/
-.posts-pokeball.prev:hover {
-  transform: scale(1.2) rotate(-45deg);
+
+.paginacao a.active {
+  background: linear-gradient(
+    to bottom,
+    #1b82b1 0%,
+    #1b82b1 45%,
+    #333 45%,
+    #333 55%,
+    #fff 55%,
+    #fff 100%
+  );
+
+  color: #333;
 }
-.posts-pokeball.next:hover {
-  transform: scale(1.2) rotate(45deg);
+
+.paginacao a.disable {
+  opacity: 0.5;
+  pointer-events: none;
 }
-/* deixar vermelhinho*/
-.clicada::before {
-  content: "";
-  position: absolute;
-  top: 8px;
+
+.paginacao span.dots {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.paginacao li:first-child a:hover {
+  transform: scale(1.15) rotate(-45deg);
+}
+
+.paginacao li:last-child a:hover {
+  transform: scale(1.15) rotate(45deg);
+}
+
+.data-tag {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
   width: 100%;
-  height: 5px;
+}
+
+.tag-categoria {
+  display: flex;
+  align-items: center;
+  background-color: #470c13;
+  border-radius: 16px;
+  padding: 5px;
+  height: auto;
+  padding-inline: 20px;
+  width: fit-content;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+
+.tag-cards {
+  font-size: 0.67em;
 }
 
 @media (max-width: 1440px) {
@@ -198,14 +273,12 @@ agora  tenho que codar mais  efeitinhos */
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
-  .publicacao {
-    margin: 0 auto;
-  }
+
   .publicacao {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: auto;
+    height: 600px;
     padding: 20px;
     margin: 0 auto;
   }
@@ -228,6 +301,7 @@ agora  tenho que codar mais  efeitinhos */
     height: 250px;
   }
 }
+
 @media (max-width: 1024px) {
   .grade_posts {
     grid-template-columns: repeat(1, 1fr);
@@ -253,28 +327,33 @@ agora  tenho que codar mais  efeitinhos */
     flex-direction: column;
     padding: 24px;
     align-items: flex-start;
+    height: auto;
   }
   .fotodopost {
     height: 250px;
     width: 100%;
   }
-  .posts-pokeball {
+
+  .paginacao {
+    gap: 8px;
+  }
+
+  .paginacao a {
     width: 45px;
     height: 45px;
     font-size: 14px;
   }
 
-  .posts-pokeball::after {
+  .paginacao a::after {
     width: 12px;
     height: 12px;
   }
+
   .conteudopost {
     width: 100%;
     gap: 12px;
   }
-  .paginacao-posts {
-    padding: 4px;
-  }
+
   .postpagetitle {
     font-size: 2rem;
   }
@@ -283,17 +362,6 @@ agora  tenho que codar mais  efeitinhos */
 @media (max-width: 480px) {
   main {
     padding: 20px;
-  }
-  .paginacao-posts {
-    padding: 8px;
-  }
-  .posts-pokeball {
-    width: 38px;
-    height: 38px;
-  }
-  .posts-pokeball:nth-child(4),
-  .posts-pokeball:nth-child(5) {
-    display: none;
   }
 }
 

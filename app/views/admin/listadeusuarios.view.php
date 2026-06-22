@@ -5,7 +5,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Painel - Usuários</title>
+    <title>Painel de Usuários - DexStroll</title>
+
+        <link rel="stylesheet" href="../../../public/css/modalpadronizado.css" />
 
     <link rel="stylesheet" href="../../../public/css/listadeusuarios.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -29,10 +31,25 @@
 
         <div class="card-tabela">
           <div class="topo-tabela">
-            <button class="criar-usuario-admin" id="btn-abrir-modal">
-              <span class="material-icons">person_add</span>
-              Adicionar Usuário
-            </button>
+            <?php if($_SESSION['nivel_acesso'] == 'admin') : ?>
+              <form action="/usuarios" method="GET" class="pesquisausuario">
+                <div class="grupo-busca">
+                  <input 
+                    type="text" 
+                    name="pesquisa" 
+                    placeholder="Buscar por nome, usuário ou email..." 
+                    value="<?= isset($_GET['pesquisa']) ? htmlspecialchars($_GET['pesquisa']) : '' ?>"
+                    class="input-busca-admin">
+                    <button type="submit" class="btn-busca-admin" title="Pesquisar">
+                    <span class="material-icons">search</span>
+                  </button>
+                </div>
+              </form>
+              <button class="criar-usuario-admin" id="btn-abrir-modal">
+                <span class="material-icons">person_add</span>
+                Adicionar Usuário
+              </button>
+            <?php endif; ?>
           </div>
           <div class="tabela-responsiva-container">
             <table class="tabela-admin">
@@ -47,7 +64,7 @@
               </thead>
               <tbody id="corpo-tabela-usuarios">
                 <?php foreach ($usuarios as $usuario): ?>
-                  <tr data-id="<?= $usuario->id ?>">
+                  <tr data-id="<?= $usuario->id ?>" data-nivel="<?= $usuario->nivel_acesso ?>">
                     <td class="col-id"><?= $usuario->id ?></td>
                     <td class="dado_id_admin">
                       <div style="display: flex; align-items: center; justify-content: flex-start; gap: 12px;">
@@ -60,7 +77,9 @@
                     <td class="celula-acoes-admin">
                       <button class="botao-acao" title="Visualizar"><span class="material-icons">visibility</span></button>
                       <button class="botao-acao" title="Editar"><span class="material-icons">edit</span></button>
-                      <button class="botao-acao botao-deletar btn-deletar-linha" title="Deletar"><span class="material-icons">delete</span></button>
+                      <?php if($_SESSION['nivel_acesso'] == 'admin') : ?>
+                        <button class="botao-acao botao-deletar btn-deletar-linha" title="Deletar"><span class="material-icons">delete</span></button>
+                      <?php endif; ?>
                     </td>
                   </tr>
                 <?php endforeach; ?>
@@ -198,6 +217,15 @@
               <label>Nova senha</label>
               <input type="password" name="senha" id="edit-input-senha">
             </div>
+            <?php if($_SESSION['nivel_acesso'] == 'admin') : ?>
+              <div class="grupo-campo">
+                  <label for="edit-input-nivel">Nível de Acesso</label>
+                  <select name="nivel_acesso" id="edit-input-nivel" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; background-color: #fff;">
+                    <option value="usuario">Usuário Comum</option>
+                    <option value="admin">Administrador</option>
+                  </select>
+              </div>
+            <?php endif; ?>
             <div class="modal-rodape-botoes">
               <button type="button" class="cancelarBotaoModal" id="btn-cancelar-editar">Cancelar</button>
               <button type="submit" class="enviarBotaoModal">Salvar Alterações</button>
@@ -229,7 +257,6 @@
           </form>
         </div>
       </div>
-
     </main>
   </body>
 

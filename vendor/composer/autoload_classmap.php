@@ -14,6 +14,7 @@ return array(
     'App\\Controllers\\cadastrocontroller' => $baseDir . '/app/Controllers/cadastrocontroller.php',
     'App\\Controllers\\dashboardcontroller' => $baseDir . '/app/Controllers/dashboardcontroller.php',
     'App\\Controllers\\listadeusuarioscontroller' => $baseDir . '/app/Controllers/listadeusuarioscontroller.php',
+    'App\\Controllers\\pokedexController' => $baseDir . '/app/Controllers/pokedexController.php',
     'App\\Controllers\\postunicocontroller' => $baseDir . '/app/Controllers/postunicocontroller.php',
     'App\\Core\\App' => $baseDir . '/core/App.php',
     'App\\Core\\Database\\Connection' => $baseDir . '/core/database/Connection.php',

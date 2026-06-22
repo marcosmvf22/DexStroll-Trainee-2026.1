@@ -27,12 +27,19 @@
         </div>
     </div>
 
+    <div class="grupo-inputs-modal">
+        <label class="label-modal-visualizar">Categoria:</label>
+        <input type="text" class="input-modal-visualizar" value="<?= $publicacao->categoria ?>" disabled>
+    </div>
+
     <div class="imagem-principal-modal-excluir">
-            <p class="label-modal-visualizar">Imagem atual:</p>
+        <label class="label-modal-visualizar">Imagem de capa:</label>
+        <div class="img-principal-placeholder-modal">
             <div class="img-principal-placeholder-modal">
-                <img src="/<?= $publicacao->imagem ?>" alt="imagem" style="max-width: 100%; height: auto;">
+                <img src="/<?= $publicacao->imagem ?>" alt="imagem" style="max-width: 100%; max-height: 100%;">
             </div>
         </div>
+    </div>
 
     <div id="editor-modal-visualizar">
         <textarea class="summernoteVisualizar" name="conteudo"><?= $publicacao->conteudo ?></textarea>

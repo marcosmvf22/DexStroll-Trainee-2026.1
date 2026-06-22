@@ -17,15 +17,6 @@
 ## Equipe
 
 #### Desenvolvedores:
-<<<<<<< HEAD
-* Ana Clara https://github.com/Anaclaraleles
-* Guilherme Sander https://github.com/Guilherme-Sander
-* Isadora de Souza https://github.com/izzyadora
-* Pedro Quintino https://github.com/paqgamer
-
-#### Scrum Master:
-* Marcos Vinícius https://github.com/marcosmvf22.
-=======
 
 * [Ana Clara](https://github.com/Anaclaraleles)
 * [Guilherme Sander](https://github.com/Guilherme-Sander)
@@ -36,10 +27,9 @@
 #### Scrum Master:
 
 * [Marcos Vinícius](https://github.com/marcosmvf22).
->>>>>>> general-posts_page
-
 #### Links Úteis:
 * [Trello do Projeto](https://trello.com/b/riZGvMM9/dexstroll)
+* [Manual de Uso (PDF)](./DexStroll%20-%20Manual%20de%20Uso.pdf)
 
 ---
 

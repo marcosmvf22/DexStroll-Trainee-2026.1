@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/tabela_publicacoes.css"> 
+    <link rel="stylesheet" href="/public/css/modalpadronizado.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=library_books" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,7 +24,8 @@
     <!-- CSS sidebar -->
     <link rel="stylesheet" href="../../../public/css/Sidebar.css">
      
-    <title>Painel - DexStroll</title>
+    <title>Painel de Publicações - DexStroll</title>
+    <link rel="icon" type="image/png" href="/public/assets/favicon.png">
 </head>
 
 <body class="body-pagina-publicacao">
@@ -37,8 +39,23 @@
 
         <div class="card-tabela">
             <div class="topo-tabela">
+                 <form action="/listadeposts" method="GET" class="pesquisapost">
+              <div class="grupo-busca">
+                <input 
+                  type="text" 
+                  name="pesquisa" 
+                  placeholder="Buscar por publicações..." 
+                  value="<?= isset($_GET['pesquisa']) ? htmlspecialchars($_GET['pesquisa']) : '' ?>"
+                  class="input-busca-admin">
+                  <button type="submit" class="btn-busca-admin" title="Pesquisar">
+                  <span class="material-icons">search</span>
+                </button>
+              </div>
+            </form>
                 <button class="criar-publicacao-admin" onclick="abrirModal('modalCriarPublicacao')">
-                    <span class="material-symbols-outlined">library_books</span>Criar publicação</button>
+                    <span class="material-symbols-outlined">library_books</span>
+                    <span class="texto-botao">Criar publicação</span>
+                </button>
             </div>
             <div class="warper-tabela">
                 <table class="tabela-admin">
@@ -47,6 +64,7 @@
                             <th>ID</th>
                             <th>Título</th>
                             <th>Autor</th>
+                            <th>Categoria</th>
                             <th>Data de criação</th>
                             <th>Ações</th>
                         </tr>
@@ -57,6 +75,7 @@
                                 <td class="dado_id_admin"><?= $publicacao->id ?></td>
                                 <td class="dado_titulo_admin"><?= $publicacao->titulo ?></td>
                                 <td class="dado_autor_admin"><?= $publicacao->autor ?></td>
+                                <td class="dado_categoria_admin"><?= $publicacao->categoria ?> </td>
                                 <td class="dado_data_criacao_admin"><?= date('d/m/Y', strtotime($publicacao->data)) ?></td>
                                 <td class="celula-acoes-admin">
                                     <button class="botao-acao botao-visualizar-admin" onclick="abrirModal('modalVisualizarPublicacao-<?= $publicacao->id ?>')" title="Visualizar">

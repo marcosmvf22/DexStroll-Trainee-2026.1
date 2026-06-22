@@ -1,6 +1,4 @@
 <?php
-    session_start();  
-
     require 'vendor/autoload.php';
     require 'core/bootstrap.php';
 
@@ -11,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DexStroll</title>
+    <title>Login - DexStroll</title>
     <link rel="stylesheet" href="/public/css/login.css">
     <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="/public/assets/favicon.png">
 </head>
 
 <body>
@@ -31,45 +30,47 @@
             <div class="container-secundario-login">
                 <div class="box1-login">
                     <div class="topo-login">
-                        <i id="icone-voltar-login" class="fa-regular fa-circle-left"></i>
+                        
+                        <a href= "/" id="icone-voltar-login" class="fa-regular fa-circle-left"></a>
+
                         <h1 class="titulo-login">LOGIN</h1>
                     </div>
 
                     <h2 class="subtitulo-login">Bem-vindo de volta!</h2>
 
-                    <form action="/login" method="POST">
-                    <div class="mensagem-erro">
-                        <?php
-                        if (isset($_SESSION['mensagem-erro'])) {
-                            echo $_SESSION['mensagem-erro'];
+                    <form class="form-login" action="/login" method="POST">
+                        <div class="mensagem-erro">
+                            <?php
+                            if (isset($_SESSION['mensagem-erro'])) {
+                                echo $_SESSION['mensagem-erro'];
 
-                            unset($_SESSION['mensagem-erro']);
-                        }
-                        ?>
+                                unset($_SESSION['mensagem-erro']);
+                            }
+                            ?>
 
-                    </div>
+                        </div>
 
-                    <div class="campos-login">
-                        <p class="descricao-login">Email</p>
-                        <label class="label-login">
-                            <div class="elementos-input">
-                                <i id="icone-envelope" class="fa-regular fa-envelope"></i>
-                                <span class="line-login"></span>
-                            </div>
-                            <input id="email" name="email" type="email" class="input-login">
-                        </label>
+                        <div class="campos-login">
+                            <p class="descricao-login">Email</p>
+                            <label class="label-login">
+                                <div class="elementos-input">
+                                    <i id="icone-envelope" class="fa-regular fa-envelope"></i>
+                                    <span class="line-login"></span>
+                                </div>
+                                <input id="email" name="email" type="email" class="input-login">
+                            </label>
 
-                        <p class="descricao-login">Senha</p>
-                        <label class="label-login">
-                            <div class="elementos-input">
-                                <i id="icone-senha" class="fa-solid fa-lock"></i>
-                                <span class="line-login"></span>
-                            </div>
-                            <input id="senha" name="senha" type="password" class="input-login">
-                        </label>
-                    </div>
+                            <p class="descricao-login">Senha</p>
+                            <label class="label-login">
+                                <div class="elementos-input">
+                                    <i id="icone-senha" class="fa-solid fa-lock"></i>
+                                    <span class="line-login"></span>
+                                </div>
+                                <input id="senha" name="senha" type="password" class="input-login">
+                            </label>
+                        </div>
 
-                    <button class="botao-login">Login</button>
+                        <button class="botao-login">Login</button>
                     </form>
                     <p class="texto-login">Não possui uma conta? <a class="texto-link-login">CADASTRE-SE</a></p>
                 </div>
@@ -90,7 +91,7 @@
 
                     <h2 class="subtitulo-login">Registre-se aqui.</h2>
 
-                    <form action="/login/create" method="POST">
+                    <form class="form-cadastro" action="/login/create" method="POST">
                         <?php
                             if (isset($_SESSION['mensagem-erro'])) {
                                 echo $_SESSION['mensagem-erro'];

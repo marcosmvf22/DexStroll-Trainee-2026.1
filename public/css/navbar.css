@@ -4,9 +4,33 @@
     font-family: "Poppins", sans-serif;
     font-style: normal;
 }
+
+
+:root {
+    --vermelho-escuro: #5A1A22;
+    --vermelho: #E6392F;
+    --azul-marinho: #0D2A4D;
+    --azul: #1F5FA8;
+    --azul-claro: #4FA3FF;
+    --cinza: #D9D9D9;
+    --branco-neve: #F5F7FA;
+    --preto: #2B2F38;
+}
+
+.header-nav{
+    position: relative;
+}
+
+.wrapperbarra{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    width: 50%;
+}
 .box1-nav{
     display: flex;
-    background: rgba(31,95,168);
+    background: var(--azul);
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -16,116 +40,167 @@
 .logo-nav{
     width: 100px;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: left center;
 }
-.box-pesquisa-nav{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 1vw;
-    width: 100%;
-}
-.elementos-input-nav{
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    margin-left: 1.2vh;
-}
-#input-pesquisa-nav{
-    width: 28vw;
-    height: 40px;
-    padding-left: 40px;
 
-    background-color:#0d2a4d63;
-    color: #f5f7fa;
-    border: 1px solid  #f5f7fa;
-    border-radius: 40px;
-    margin-top: 0vh;  
+.logo-nav:hover{
+    cursor: pointer;
+    transform: scale(1.05);
 }
-#icone-lupa-nav{
-    color: #f5f7fa;
-    opacity: 0.7;
-    font-size: 20px;
-    margin-top: 12px;
-}
-input::placeholder { 
-    color: #f5f7fa; 
-    opacity: 0.7;
-    font-size: 0.9rem;
-}
-.botoes-nav{
+
+
+.botoes-nav {
     display: flex;
+    font-size: 16px;
     align-items: center;
     justify-content: center;
+    color: white;
     height: 20vh;
+    gap: 2vw;
 }
-.botao-publicacoes-nav{
-    width: 120px;
-    height: 40px;
-    border: 1px solid #0d2a4d;
-    border-radius: 20px;
-    background-color: #5a1a22;
-    color: #bcccdb;
-    box-shadow: 5px 5px 10px #0d2a4d;
-    margin-left: 2vw;
 
-    font-weight: 600;
-    cursor: pointer;
-}
-.botao-home-nav{
-    width: 110px;
-    height: 40px;
 
-    border: 1px solid #0d2a4d;
-    border-radius: 20px;
-    background-color: #5a1a22;
-    color: #bcccdb;
-    box-shadow: 5px 5px 10px #0d2a4d;
-    margin-left: 2vw;
-
-    font-weight: 600;
-    cursor: pointer;
-}
 .botao-home-nav,
 .botao-publicacoes-nav,
 .botao-login-nav {
     display: inline-flex;        
     align-items: center;
-    justify-content: center;
-    text-decoration: none;       
-    color: #bcccdb;              
-    font-weight: 600;
-
-}
-.botao-login-nav{
-    width: 110px;
-    height: 40px;
-    margin-left: 2vw;
-
-    border: 1px solid #5a1a22;
+    justify-content: center; 
+    gap: 8px;
+    
+    width: 140px; 
+    height: 40px; 
     border-radius: 20px;
-    background-color: #e6392f;
-    box-shadow: 5px 5px 10px #0d2a4d;
+    border: none;
+    
+    color: white;              
     font-weight: 600;
+    font-size: 14px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; 
 }
+
+.botao-home-nav, 
+.botao-publicacoes-nav {
+    background-color: var(--vermelho-escuro);
+}
+
+.botao-home-nav:hover, 
+.botao-publicacoes-nav:hover {
+    background-color: var(--vermelho);
+}
+
+
+.botao-login-nav {
+    background-color: #e6392f;
+    transition: background-color 0.3s ease;
+    
+}
+.botao-login-nav:hover {
+    background-color: var(--vermelho-escuro);
+}
+
 .bloco-icone-menu-nav{
     display: none;
 }
 
-/*
-.line-nav{
-    display: flex;
-    border: 1.5px solid #5a1a22;
-}
-*/
 .mobile-menu-nav{
-    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(-10px);
+
+    width: 100%;
+
+    visibility: hidden;
+    pointer-events: none;
+
+    background-color: #5a1a22;
+
+    transition: .25s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
 }
 
+.box-pesquisa-nav{
+    width: 50%;
+}
+.grupo-busca {
+    display: flex;
+    align-items: center;
+    background-color: var(--branco-neve);
+    border-radius: 20px; 
+    padding: 5px 15px;
+    height: 40px;
+    width: 100%;
+}
+
+.input-busca-admin {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    width: 100%; 
+    color: var(--preto);
+}
+
+.btn-busca-admin {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--azul-marinho);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+}
+
+.btn-busca-admin:hover {
+    color: var(--azul);
+}
+
+.btn-busca-admin .material-icons {
+    font-size: 20px;
+}
+
+.botao-login-nav{
+    background: #ff4d4d; 
+    border: none; 
+    color: white; 
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.botao-publicacoes-nav{
+    color: #007bff; 
+    font-weight: 600;
+}
+
+
+@media (max-width: 1024px){
+    .botoes-nav{
+        font-size: 0.8rem;
+        gap: 1vw;
+    }
+    .botao-home-nav,
+    .botao-login-nav,
+    .botao-publicacoes-nav{
+        width: 96px;
+    }
+    
+}
 @media (max-width: 768px){
+    .box-pesquisa-nav{
+        width: 80%;
+    }
+    .wrapperbarra{
+        gap: 10vw;
+        width:80vw;
+        margin-right: 20px;
+    }
     .logo-nav{
         width: 80px;
     }
@@ -159,7 +234,7 @@ input::placeholder {
         box-shadow: 5px 5px 10px #0d2a4d;
 
         width: 55px;
-        height: 5vh;
+        height: 45px;
     }
     .bloco-icone-menu-nav button{
         background-color: transparent;
@@ -178,7 +253,7 @@ input::placeholder {
     }
     #icone-menu-nav{
         color: #e6392f;
-        font-size: 6vw;
+        font-size: 2rem;
     }
     .mobile-menu-nav ul{ 
         display: flex; 
@@ -221,6 +296,15 @@ input::placeholder {
         font-size: 2vh;
     }
     .open{
-        display: block;
+        opacity: 1;
+        transform: translateY(0);
+
+        visibility: visible;
+        pointer-events: auto;
     }
+}
+
+.botoes-nav a{
+    color: #ffffff;
+    text-decoration: none !important;
 }

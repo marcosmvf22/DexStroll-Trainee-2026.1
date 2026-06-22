@@ -52,9 +52,6 @@ main{
 
 
 .area-de-titulo{
-    background-image: url(../../public/assets/Imagem-de-fundo-exemplo.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -66,12 +63,25 @@ main{
     border-radius: 16px;
 }
 
+.imagem-capa-post{
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+
+    object-fit: cover;
+
+    z-index: 1;
+}
+
 .overlay-area-de-titulo{
     position: absolute;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg,rgba(13,42,77,0.95) 0%,rgba(13,42,77,0.6) 40%,rgba(13,42,77,0.2) 100%);
-    z-index: 1;
+    z-index: 2;
     border-radius: 15px;
 }
 
@@ -82,7 +92,10 @@ main{
     align-items: flex-start;
     padding: 20px;
     gap: 20px;
-    z-index: 2;
+    z-index: 3;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .conteudo-do-titulo h1{
@@ -90,20 +103,28 @@ main{
     font-size: 36px;
     margin: 0;
     font-weight: 700;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
-.tag-categoria{
+.tag-categoria {
     display: flex;
     align-items: center;
     background-color: #470c13;
     border-radius: 16px;
     padding: 5px;
     height: auto;
+    padding-inline: 20px;
     width: fit-content;
     font-size: 16px;
     text-decoration: none;
     cursor: pointer;
     color: white;
+}
+
+.tag-cards {
+    font-size: 0.67em;
 }
 
 .conteudo-do-titulo p{
@@ -119,41 +140,65 @@ main{
     border-radius: 16px; 
     flex-direction: column;
     align-items: center;
-    text-align: center;
     max-width: 900px;
     width: 100%;
     padding: 20px;
     gap: 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
-.imagem-relacionada{
-    max-width: 900px;
-    height: 80vh;
-}
 
-.imagem-relacionada img{
+.conteudo-da-pagina img{
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    max-width: 900px;
+    height: auto;
+
+    margin: 20px auto;
     border-radius: 20px;
 }
 
-.paragrafo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; 
-    width: 100%;
-    max-width: 900px;
-    padding: 10px;
+.conteudo-da-pagina table {
+    max-width: 100%;
+    display: block;
+    overflow-x: auto;
 }
 
-.paragrafo p{
-    font-size: 16px;
-    text-align: justify;
-    margin: auto;
+.conteudo-da-pagina p{
+    width: 100%;
+    padding: 10px;
+
     line-height: 1.8;
+    text-align: justify;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.conteudo-da-pagina h1,
+.conteudo-da-pagina h2,
+.conteudo-da-pagina h3,
+.conteudo-da-pagina ul,
+.conteudo-da-pagina ol,
+.conteudo-da-pagina blockquote{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.conteudo-da-pagina ul{
+    padding-left: 40px;
+    margin: 20px 0;
+}
+
+.conteudo-da-pagina ul li{
+    display: list-item;
+}
+
+.conteudo-da-pagina a{
+    color: #1F5FA8;
 }
 
 .caixa-de-curiosidade{
@@ -266,6 +311,9 @@ main{
     flex-direction: column;
     min-height: 380px;
     gap: 10px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .cards_carrossel:hover {
@@ -292,9 +340,13 @@ main{
     font-size: 0.67em;
 }
 
+
 .cards_carrossel p{
     text-align: justify;
-    color: var(--azul-marinho);
+    color: black;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .cards_carrossel h4{
@@ -303,7 +355,7 @@ main{
 }
 
 .cards_carrossel h5{
-    color: var(--azul);
+    color: var(--azul-claro);
 }
 
 .cards_carrossel h6{
@@ -311,15 +363,17 @@ main{
     padding-top: 20px;
 }
 
-.cards_carrossel button{
+.cards_carrossel .botão-ler-mais{
     color: var(--branco-neve);
     border-radius: 50px;
     padding: 10px;
     background-color: var(--vermelho);
     border: none;
+    text-decoration: none;
+    text-align: center;
 }
 
-.cards_carrossel button:hover{
+.cards_carrossel a:hover{
     background-color: var(--vermelho-escuro);
     transition: all 0.3s ease;
     color: var(--cinza);
@@ -387,6 +441,31 @@ main{
 
 .posts-relacionado-pokeball:hover {
   transform: scale(1.2) rotate(45deg);
+}
+
+.sem-posts-relacionados{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    padding: 40px 20px;
+    margin-top: 20px;
+
+    border-radius: 16px;
+    background-color: rgba(255,255,255,0.05);
+
+    text-align: center;
+}
+
+.sem-posts-relacionados h3{
+    color: white;
+    font-size: 1.5rem;
+}
+
+.sem-posts-relacionados p{
+    color: #d9d9d9;
 }
 
 

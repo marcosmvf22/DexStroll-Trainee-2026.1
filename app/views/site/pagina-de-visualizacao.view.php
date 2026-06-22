@@ -1,32 +1,35 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 
-    <!-- CSS e font da pagina de visualização individual-->
+    <!-- CSS Pagina de visualização individual -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../../../public/css/pagina-de-visualizacao.css">
 
-    <!-- CSS e font do footer -->
+    <!-- links da navbar -->
+        <link rel="stylesheet" href="/public/css/navbar.css">
+        <!-- Fonte -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!-- icones -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- CSS do footer -->
     <link rel="stylesheet" href="../../../public/css/footer.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Links da navbar -->
-    <link rel="stylesheet" href="/public/css/navbar.css">
-    <!-- Fonte -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <!-- icones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" 
-    />
 
-    <title>Pagina de Visualização Unica - DexStroll</title>
+
+    <title><?=$publicacao->titulo?> - DexStroll</title>
 </head>
 <body>
          
@@ -37,182 +40,123 @@
         <!-- Titulo da pagina -->
         
         <div class="area-de-titulo">
+            <img class="imagem-capa-post" src="<?= $publicacao->imagem ?>" alt="Imagem de capa do titulo">
+
             <div class="overlay-area-de-titulo"></div> 
             <div class="conteudo-do-titulo">
                 
-                <a href="#" class="tag-categoria">Categoria</a>
-                <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-                <p>Autor • Data da publicação</p>
+                <a  href="/postspage?categoria=<?= urlencode($publicacao->categoria) ?>" class="tag-categoria tag-cards">
+                    <?= htmlspecialchars($publicacao->categoria) ?>
+                </a>
+                <h1><?=$publicacao->titulo?></h1>
+                <p><?=$publicacao->autor?> • <?=date('d/m/Y', strtotime($publicacao->data))?></p>
             </div>
         </div>
 
         <!-- Conteudo da pagina -->
 
         <div class="conteudo-da-pagina">
-            <div class="paragrafo">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quo eos! Sint minima ratione voluptatibus. Mollitia voluptatem explicabo deleniti debitis. Quis architecto laboriosam, officia natus necessitatibus alias laborum similique! Suscipit.
-                Ad eligendi, deleniti beatae explicabo error praesentium unde quos veritatis libero ex voluptatem expedita dolor, cum vel adipisci qui vero. Itaque ipsam deleniti corrupti quaerat assumenda magnam perspiciatis explicabo voluptatibus!
-                Earum, laboriosam? Maxime omnis incidunt consequatur quasi quibusdam magnam, adipisci neque dolore fugit, blanditiis eos aperiam? Voluptatem vel facere, dicta in a totam natus asperiores accusantium, ex iusto vitae eligendi!
-                Ab, exercitationem optio perspiciatis similique error cum libero! Molestiae deserunt atque tempore cupiditate fugit tenetur animi nisi inventore eaque non, pariatur officia, fugiat magni officiis suscipit nostrum, veniam sequi quaerat.
-                Asperiores officia aspernatur repellat iusto blanditiis nam repellendus aperiam amet atque enim hic obcaecati veniam ut ea numquam magnam doloribus dignissimos, omnis ad illo assumenda cumque delectus unde possimus? Repellendus.
-                Hic obcaecati itaque nulla est repellat aspernatur id tempora fugiat debitis facere error expedita, tempore fugit deleniti ex, delectus in, asperiores unde maiores saepe! Assumenda sit vero accusantium nulla officiis!
-            </div>
-            <div class="imagem-relacionada">
-                <img src="../../../public/assets/Imagem-de-fundo-exemplo.jpg" alt="Imagem de exemplo">            
-            </div>
-            <div class="paragrafo">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quo eos! Sint minima ratione voluptatibus. Mollitia voluptatem explicabo deleniti debitis. Quis architecto laboriosam, officia natus necessitatibus alias laborum similique! Suscipit.
-                Ad eligendi, deleniti beatae explicabo error praesentium unde quos veritatis libero ex voluptatem expedita dolor, cum vel adipisci qui vero. Itaque ipsam deleniti corrupti quaerat assumenda magnam perspiciatis explicabo voluptatibus!
-                Earum, laboriosam? Maxime omnis incidunt consequatur quasi quibusdam magnam, adipisci neque dolore fugit, blanditiis eos aperiam? Voluptatem vel facere, dicta in a totam natus asperiores accusantium, ex iusto vitae eligendi!
-                Ab, exercitationem optio perspiciatis similique error cum libero! Molestiae deserunt atque tempore cupiditate fugit tenetur animi nisi inventore eaque non, pariatur officia, fugiat magni officiis suscipit nostrum, veniam sequi quaerat.
-                Asperiores officia aspernatur repellat iusto blanditiis nam repellendus aperiam amet atque enim hic obcaecati veniam ut ea numquam magnam doloribus dignissimos, omnis ad illo assumenda cumque delectus unde possimus? Repellendus.
-                Hic obcaecati itaque nulla est repellat aspernatur id tempora fugiat debitis facere error expedita, tempore fugit deleniti ex, delectus in, asperiores unde maiores saepe! Assumenda sit vero accusantium nulla officiis!
-            </div>
-            <div class="imagem-relacionada">
-                <img src="../../../public/assets/Imagem-de-fundo-exemplo.jpg" alt="Imagem de exemplo">            
-            </div>
-            <div class="paragrafo">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quo eos! Sint minima ratione voluptatibus. Mollitia voluptatem explicabo deleniti debitis. Quis architecto laboriosam, officia natus necessitatibus alias laborum similique! Suscipit.
-                Ad eligendi, deleniti beatae explicabo error praesentium unde quos veritatis libero ex voluptatem expedita dolor, cum vel adipisci qui vero. Itaque ipsam deleniti corrupti quaerat assumenda magnam perspiciatis explicabo voluptatibus!
-                Earum, laboriosam? Maxime omnis incidunt consequatur quasi quibusdam magnam, adipisci neque dolore fugit, blanditiis eos aperiam? Voluptatem vel facere, dicta in a totam natus asperiores accusantium, ex iusto vitae eligendi!
-                Ab, exercitationem optio perspiciatis similique error cum libero! Molestiae deserunt atque tempore cupiditate fugit tenetur animi nisi inventore eaque non, pariatur officia, fugiat magni officiis suscipit nostrum, veniam sequi quaerat.
-                Asperiores officia aspernatur repellat iusto blanditiis nam repellendus aperiam amet atque enim hic obcaecati veniam ut ea numquam magnam doloribus dignissimos, omnis ad illo assumenda cumque delectus unde possimus? Repellendus.
-                Hic obcaecati itaque nulla est repellat aspernatur id tempora fugiat debitis facere error expedita, tempore fugit deleniti ex, delectus in, asperiores unde maiores saepe! Assumenda sit vero accusantium nulla officiis!
-            </div>
-            <div class="imagem-relacionada">
-                <img src="../../../public/assets/Imagem-de-fundo-exemplo.jpg" alt="Imagem de exemplo">            
-            </div>
-            <div class="paragrafo">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quo eos! Sint minima ratione voluptatibus. Mollitia voluptatem explicabo deleniti debitis. Quis architecto laboriosam, officia natus necessitatibus alias laborum similique! Suscipit.
-                Ad eligendi, deleniti beatae explicabo error praesentium unde quos veritatis libero ex voluptatem expedita dolor, cum vel adipisci qui vero. Itaque ipsam deleniti corrupti quaerat assumenda magnam perspiciatis explicabo voluptatibus!
-                Earum, laboriosam? Maxime omnis incidunt consequatur quasi quibusdam magnam, adipisci neque dolore fugit, blanditiis eos aperiam? Voluptatem vel facere, dicta in a totam natus asperiores accusantium, ex iusto vitae eligendi!
-                Ab, exercitationem optio perspiciatis similique error cum libero! Molestiae deserunt atque tempore cupiditate fugit tenetur animi nisi inventore eaque non, pariatur officia, fugiat magni officiis suscipit nostrum, veniam sequi quaerat.
-                Asperiores officia aspernatur repellat iusto blanditiis nam repellendus aperiam amet atque enim hic obcaecati veniam ut ea numquam magnam doloribus dignissimos, omnis ad illo assumenda cumque delectus unde possimus? Repellendus.
-                Hic obcaecati itaque nulla est repellat aspernatur id tempora fugiat debitis facere error expedita, tempore fugit deleniti ex, delectus in, asperiores unde maiores saepe! Assumenda sit vero accusantium nulla officiis!
-            </div>
-        </div>
-        <div class="caixa-de-curiosidade">
-            <div class="cabecalho-caixa-de-curiosidade">
-                <i class="material-icons">error</i>
-                <h1>Você sabia?</h1>
-            </div>
-            <div class="conteudo-caixa-de-curiosidade">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam esse, mollitia suscipit qui omnis sit sed eum consequatur, voluptates earum nihil commodi corporis? Maxime, impedit beatae fugiat dolorem culpa minus.
-                    Esse saepe quod repellat earum, officiis et aspernatur eius soluta, nihil voluptatem officia voluptatibus at. Quam aspernatur nemo sequi inventore quos culpa vel. Ab harum excepturi, atque explicabo dicta natus!
-                    Molestiae voluptas tenetur ex ipsam eos sed nulla? Aliquam corporis ea non quisquam quidem culpa illo ipsa aut minus, voluptatem sapiente deleniti. Dolore, deserunt. Est dignissimos eos inventore voluptatem laborum!
-                </p>
-            </div>
+            <?= $publicacao->conteudo ?>
         </div>
 
+        <?php if ($temCuriosidade): ?>
+            <div class="caixa-de-curiosidade">
+                <div class="cabecalho-caixa-de-curiosidade">
+                    <i class="material-icons">error</i>
+                    <h1>Você sabia?</h1>
+                </div>
+                <div class="conteudo-caixa-de-curiosidade">
+                    <?= $publicacao->curiosidade ?>
+                </div>
+            </div>
+        <?php endif; ?>
         <!-- Posts relacionados -->
 
         <div class="posts_relacionados">
             <h1>Posts Relacionados</h1>
-            
-            <!-- Area do carrossel -->
+            <?php if (!empty($postsRelacionados)): ?>
+                
+                <!-- Area do carrossel -->
+                <div class="carrossel">
 
-            <div class="carrossel">
+                    <!-- Lista de posts do carrossel -->
 
-                <!-- Lista de posts do carrossel -->
-
-                <div class="carrossel-conteudo">
-                    <ul>
+                    <div class="carrossel-conteudo">
+                       
 
                         <!-- Cards -->
 
-                        <li class="cards_carrossel">
-                            <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                            <div class="data-tag">
-                                <h6>Maio XX, 2026</h6>
-                                <a href="#" class="tag-categoria tag-cards">Categoria</a>
-                            </div>
-                            <h4>Titulo da postagem</h4>
-                            <div class="dados-autor-landing">
-                                <img src="https://picsum.photos/1920/1080?random" alt="imagem-autor">
-                                <h5>Nome do autor</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                            <button>Ler mais</button>
-                        </li>
-                    
-                        <li class="cards_carrossel">
-                            <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                            <div class="data-tag">
-                                <h6>Maio XX, 2026</h6>
-                                <a href="#" class="tag-categoria tag-cards">Categoria</a>
-                            </div>
-                            <div class="dados-autor-landing">
-                                <img src="https://picsum.photos/1920/1080?random" alt="imagem-autor">
-                                <h5>Nome do autor</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                            <button>Ler mais</button>
-                        </li>
-                        <li class="cards_carrossel">
-                            <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                            <div class="data-tag">
-                                <h6>Maio XX, 2026</h6>
-                                <a href="#" class="tag-categoria tag-cards">Categoria</a>
-                            </div>
-                            <div class="dados-autor-landing">
-                                <img src="https://picsum.photos/1920/1080?random" alt="imagem-autor">
-                                <h5>Nome do autor</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                            <button>Ler mais</button>
-                        </li>
+                        <ul>
+                            <?php foreach ($postsRelacionados as $post): ?>
+                                <li class="cards_carrossel">
 
-                        <li class="cards_carrossel">
-                            <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                            <div class="data-tag">
-                                <h6>Maio XX, 2026</h6>
-                                <a href="#" class="tag-categoria tag-cards">Categoria</a>
-                            </div>
-                            <div class="dados-autor-landing">
-                                <img src="https://picsum.photos/1920/1080?random" alt="imagem-autor">
-                                <h5>Nome do autor</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                            <button>Ler mais</button>
-                        </li>
-                        
-                        <li class="cards_carrossel">
-                            <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                            <div class="data-tag">
-                                <h6>Maio XX, 2026</h6>
-                                <a href="#" class="tag-categoria tag-cards">Categoria</a>
-                            </div>
-                            <div class="dados-autor-landing">
-                                <img src="https://picsum.photos/1920/1080?random" alt="imagem-autor">
-                                <h5>Nome do autor</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                            <button>Ler mais</button>
-                        </li>
-                        
-                        <li class="cards_carrossel">
-                            <img src="https://picsum.photos/1920/1080?random" alt="imagem">
-                            <div class="data-tag">
-                                <h6>Maio XX, 2026</h6>
-                                <a href="#" class="tag-categoria tag-cards">Categoria</a>
-                            </div>
-                            <div class="dados-autor-landing">
-                                <img src="https://picsum.photos/1920/1080?random" alt="imagem-autor">
-                                <h5>Nome do autor</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in fringilla leo, sit amet convallis justo.  Aenean finibus feugiat massa commodo lobortis.</p>
-                            <button>Ler mais</button>
-                        </li>
-                    </ul>
+                                    <div class="fundo-conteudo-cards">
+                                        <img
+                                            src="<?= !empty($post->imagem)
+                                                ? $post->imagem
+                                                : 'https://picsum.photos/1920/1080?random' ?>"
+                                            alt="<?= htmlspecialchars($post->titulo) ?>"
+                                        >
+
+                                        <div class="data-tag">
+                                            <h6>
+                                                <?= date('d/m/Y', strtotime($post->data)) ?>
+                                            </h6>
+                                            
+                                            <a  href="/postspage?categoria=<?= urlencode($post->categoria) ?>" class="tag-categoria tag-cards">
+                                                <?= htmlspecialchars($post->categoria) ?>
+                                            </a>
+                                        </div>
+                                        
+                                        <h4>
+                                            <?= htmlspecialchars($post->titulo) ?>
+                                        </h4>
+                                        
+                                        <div class="dados-autor-landing">
+                                            <h5>
+                                                <?= htmlspecialchars($post->autor) ?>
+                                            </h5>
+                                        </div>
+                                        
+                                        <p>
+                                            <?= mb_strimwidth(
+                                                strip_tags($post->conteudo),
+                                                0,
+                                                120,
+                                                '...'
+                                            ) ?>
+                                        </p>
+                                        
+                                    </div>
+                                    
+                                    <a
+                                        href="/postagem?id=<?= $post->id ?>"
+                                        class="botão-ler-mais"
+                                        >
+                                        Ler mais
+                                   </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+
+                    <!-- Setas e paginacao -->
+
+                    <div class="navegacao-posts-relacionados">
+                        <div class="nav-arrow arrow-left posts-relacionado-pokeball" id="seta-esquerda"><</div>
+                        <div class="nav-arrow arrow-right posts-relacionado-pokeball" id="seta-direita">></div>
+                    </div>
                 </div>
 
-                <!-- Setas de movimento-->
+            <?php else: ?>
 
-                <div class="navegacao-posts-relacionados">
-                    <div class="nav-arrow arrow-left posts-relacionado-pokeball" id="seta-esquerda"><</div>
-                    <div class="nav-arrow arrow-right posts-relacionado-pokeball" id="seta-direita">></div>
+                <div class="sem-posts-relacionados">
+                    <h3>Nenhum post relacionado encontrado.</h3>
+                    <p>Este conteúdo ainda não possui outras publicações da mesma categoria.</p>
                 </div>
-            </div>
+                
+            <?php endif; ?>
+
         </div>        
     </main>
 
@@ -227,4 +171,9 @@
     <!-- JS pagina individual -->
     <script src="../../../public/js/pagina-de-visualizacao.js"></script>
 </body>
+<!-- JS pagina de visualização -->
+<script src="../../../public/js/pagina-de-visualizacao.js"></script>
+
+<!-- JS navbar -->
+  <script src="/public/js/navbar.js"></script>
 </html>

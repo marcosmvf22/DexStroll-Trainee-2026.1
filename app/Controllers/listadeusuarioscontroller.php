@@ -12,7 +12,14 @@ class listadeusuarioscontroller
     
     public function index()
     {
-        // $usuariosDoBanco = App::get('database')->selectAll('usuarios');
+
+        $this->auth();
+        
+        $usuarioLogado = App::get('database')->selectOne(
+            'usuarios',
+            $_SESSION['id']
+        );
+
 
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -34,16 +41,41 @@ class listadeusuarioscontroller
 
         $offset = ($currentPage - 1) * $limit;
 
-        $totalUsuarios = $database->countAll('usuarios');
-        $totalPages = ceil($totalUsuarios/$limit);
 
-        $usuariosDoBanco = $database->paginate('usuarios',$limit,$offset);
+        $pesquisa = isset($_GET['pesquisa']) ? trim($_GET['pesquisa']) : '';
+
+        if($_SESSION['nivel_acesso'] === 'admin'){
+
+            if ($pesquisa !== '') {
+                $totalUsuarios = $database->countSearch('usuarios', $pesquisa);
+                $totalPages = ceil($totalUsuarios / $limit);
+                $usuariosDoBanco = $database->paginateSearch('usuarios', $pesquisa, $limit, $offset);
+            } 
+            else{
+                $totalUsuarios = $database->countAll('usuarios');
+                $totalPages = ceil($totalUsuarios / $limit);
+                $usuariosDoBanco = $database->paginate('usuarios', $limit, $offset);
+            }
+        }
+        else {
+
+            $usuariosDoBanco = [
+                $usuarioLogado
+            ];
+
+            $totalUsuarios = 1;
+            $totalPages = 1;
+            $currentPage = 1;
+        }
+
+
 
         return view('admin/listadeusuarios', [
             'usuarios' => $usuariosDoBanco,
             'currentPage' => $currentPage,
             'totalPage' => $totalPages,
             'totalUsuarios' => $totalUsuarios,
+            'pesquisa' => $pesquisa,
             'usuarioLogado' => $usuarioLogado
         ]);
     }
@@ -51,6 +83,9 @@ class listadeusuarioscontroller
     
     public function create()
     {
+
+        $this->adminOnly();
+
         // aqui é meio que por segurança, pra nao renderizar uma celular vazia,etc
         if (empty($_POST['username']) || empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['senha']))
         {    
@@ -101,6 +136,15 @@ class listadeusuarioscontroller
 
     public function update()
     {
+        $this->auth();
+
+        $id = (int) $_POST['id'];
+
+        if ($_SESSION['nivel_acesso'] !== 'admin' && $_SESSION['id'] != $id) {
+            header('Location: /usuarios');
+            exit;
+        }
+
         if (empty($_POST['id'])) {
             header('Location: /usuarios?erro=id_nao_informado');
             exit();
@@ -120,6 +164,10 @@ class listadeusuarioscontroller
             'nome'     => $_POST['nome'] ?? '',
             'email'    => $_POST['email'] ?? '',
         ];
+        
+        if ($_SESSION['nivel_acesso'] === 'admin') {
+            $dados['nivel_acesso'] = $_POST['nivel_acesso'] ?? $usuarioAtual->nivel_acesso;
+        }
 
         if (!empty($_POST['senha'])) 
         {
@@ -164,6 +212,9 @@ class listadeusuarioscontroller
     
     public function delete()
     {
+
+        $this->adminOnly();
+
         if (empty($_POST['id'])) {
             header('Location: /usuarios?erro=id_nao_informado');
             exit();
@@ -196,7 +247,72 @@ class listadeusuarioscontroller
         exit();
     }
 
-   
+
+
+
+    // POPULAR O BANCO ENCHER DE USUARIO PARA TESTE
+    public function popularBanco()
+    {
+        $this->adminOnly();
+        //achei um gerador de nomes  aleatorios para  teste, e  enfiei aqui
+        $nomes = ['Kael', 'Ivan', 'Bruce', 'Paul', 'Serj', 'Isadora', 'Ana', 'Guilherme', 'José', 'João'];
+        $sobrenomes = ['Turguêniev', 'Dickinson', 'DiAnno', 'Tankian', 'Simões', 'Nicácio', 'Silva', 'Santos', 'Oliveira'];
+
+        
+        $senhaPadrao = password_hash('123456', PASSWORD_DEFAULT);
+
+
+        $quantidade = 50;
+
+        for ($i = 0; $i < $quantidade; $i++) {
+            $nomeRandom = $nomes[array_rand($nomes)];
+            $sobrenomeRandom = $sobrenomes[array_rand($sobrenomes)];
+            
+
+            $nomeCompleto = $nomeRandom . ' ' . $sobrenomeRandom;
+
+            $username = strtolower($nomeRandom) . rand(1000, 9999); 
+            $email = $username . '@teste.com';
+
+            $dados = [
+                'username' => $username,
+                'nome'     => $nomeCompleto,
+                'email'    => $email,
+                'senha'    => $senhaPadrao,
+                'avatar'   => '/public/assets/default-avatar.png'
+            ];
+
+
+            \App\Core\App::get('database')->insertUser('usuarios', $dados);
+        }
+
+
+        header('Location: /usuarios?sucesso=banco_populado');
+        exit();
+    }
+
+    private function auth()
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            exit;
+        }
+    }
+
+    private function adminOnly()
+    {
+        $this->auth();
+
+        if ($_SESSION['nivel_acesso'] !== 'admin') {
+            header('Location: /dashboard');
+            exit;
+        }
+    }
+    
     
     // public function getUsuarioJson()
     // {

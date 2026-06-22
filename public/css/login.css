@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
     background-color: #bcccdb;
     font-family: "Poppins", sans-serif;
@@ -10,18 +14,23 @@ body{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px;
 }
+
+.mensagem-erro{
+    color: red;
+}
+
 .container-principal-login{
+    width: min(1000px, 90vw);
     position: relative;
     background-color: #f5f7fa;
-    width: 60%;
-    height: 65%;
     overflow: hidden;
     border-radius: 20px 20px 20px 20px;
     box-shadow: 10px 50px 80px #0d2a4d;
 }
+
 .container-principal-login::before{
     content:"";
     position:absolute;
@@ -33,72 +42,107 @@ body{
     background:linear-gradient(#1f5fa8,#0d2a4d);
     z-index: 0;
 }
-.container-secundario-login{
+
+.container-secundario-login,
+.container-secundario-cadastro{
     position: absolute;
-    display: flex;
-    flex-direction: row;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10;
-    z-index: 1;
 
-    border: 1px solid #0d2a4d;
+    display: flex;
+    transition: all .4s ease;
     border-radius: 20px;
+
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+    border: none;
 }
+
+.container-secundario-login{
+    flex-direction: row;
+}
+
+.container-secundario-cadastro{
+    flex-direction: row-reverse;
+}
+
 .topo-login{
     display: flex;
-    position: relative;
-    flex-direction: row;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
+    margin-bottom: 10px;
+    padding: 0 0 0 15px;
 }
-#icone-voltar-login{
-    margin-left: 0%;
-    position: absolute;
-    font-size: 2.5vw;
-    color: #0d2a4d;
-    left: 0px;
+
+#icone-voltar-login,
+#icone-voltar-cadastro{
+  
+    text-decoration: none;
+    position: static !important; 
+    font-size: 1.8rem;
+    color: #0d2a4d; 
+    flex-shrink: 0;
     cursor: pointer;
 }
+
 .titulo-login{
     color: #0d2a4d;
-    margin: 0%;
+    font-size: clamp(48px, 3.4rem, 4rem);
+    flex-grow: 1;
+    text-align: center;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 2.5vw;
+    margin: 0% 10% 0% 0%;
 }
+
 .subtitulo-login{
     color: #0d2a4d;
-    margin-bottom: 10px;
-    margin-top: 0%;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0% 0% 10% 0%;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 1.5vw;
 }
-.box1-login{
+
+.box1-login,
+.box1-cadastro{
     display: flex;
     flex-direction:column;
-    padding: 10px;
-    width: 50%;
     align-items: center;
     justify-content: center;
+    padding: 10px;
+    width: 50%;
+}
+
+.box1-login{
     border-radius: 20px 0px 0px 20px;
 }
+
+.box1-cadastro{
+    border-radius: 0px 20px 20px 0px;
+}
+
 .descricao-login{
     color: #0d2a4d;
     margin-bottom: 0%;
 }
+
 .campos-login{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    font-size: 1vw;
+    width: 100%;
+    max-width: 400px;
+    
+    font-size: 0.95rem;
 }
+
 .input-login{
-    width: 20vw;
-    height: 25px;
+    width: 100%;
+    height: 38px;
     padding: 5px;
     padding-left: 40px;
 
@@ -107,34 +151,39 @@ body{
     border-radius: 5px;
     
 }
-#icone-envelope{
+
+#icone-envelope,
+#icone-senha,
+#icone-user-cadastro,
+#icone-envelope-cadastro,
+#icone-senha-cadastro
+{
     color: #0d2c4f;
     opacity: 0.7;
     font-size: 20px;
-    margin-top: 8px;
+    line-height: 1;
 }
-#icone-senha{
-    color: #0e2e54;
-    opacity: 0.7;
-    font-size: 20px;
-    margin-top: 8px;
-}
+
 .elementos-input{
     position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
     display: flex;
-    flex-direction: row;
-    height: 50%;
-    margin-left: 5px;
+    align-items: center;
 }
+
+.line-cadastro,
 .line-login{
     border-left: 1.5px solid #0e2e54;
-    margin-left: 4px;
-    height: 25px;
-    margin-top: 6px;
-    margin-bottom: 40px;
     opacity: 0.7;
+    align-self: center;
+    height: 20px;
+    margin-left: 4px;
 
 }
+
 .box2-login{
     display: flex;
     padding: 10px;
@@ -144,15 +193,23 @@ body{
 
     border-radius: 0px 20px 20px 0px;
 }
+
 .img-login{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    max-width: 350px;
+    height: auto;
 }
+
 .botao-login{
-    margin-top: 3vh;
-    width: 10vw;
+    width: 100%;
+    max-width: 250px;
     height: 40px;
-    margin-left: 27%;
+    margin: 25px auto 0;
+    display: block;
+
+    font-size: 1rem;
+    font-weight: 600;
+    
 
     border: 1px solid #0d2a4d;
     border-radius: 20px;
@@ -160,62 +217,44 @@ body{
     color: #bcccdb;
     cursor: pointer;
 }
+
 .texto-login{
     color: #0d2a4d;
-    font-size: 1vw;
+    font-size: 0.95rem;
 }
+
 .texto-link-login{
     color: #1f5fa8;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
 }
-/* cadastro */
-.container-secundario-cadastro{
-    position: absolute;
-    display: flex;
+
+
+.form-login,
+.form-cadastro{
     width: 100%;
-    height: 100%;
-    flex-direction: row-reverse;
+    max-width: 400px;
 
-
-    border: 1px solid #0d2a4d;
-    border-radius: 20px;
-    box-shadow: 10px 50px 80px #0d2a4d;
-}
-.container-secundario-cadastro .input-login{
-    height: 20px;  
-}
-#icone-voltar-cadastro{
-    margin-left: 0%;
-    position: absolute;
-    font-size: 2.5vw;
-    color: #0d2a4d;
-    left: 0px;
-    cursor: pointer;
-}
-.box1-cadastro{
     display: flex;
-    flex-direction:column;
-    padding: 10px;
-    width: 50%;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    z-index: 1;
-
-    border-radius: 0px 20px 20px 0px;
 }
+
+.label-login,
+.label-cadastro{
+    position: relative;
+    width: 100%;
+}
+
+
+
 .descricao-cadastro{
     color: #0d2a4d;
     margin-bottom: 0%;
     margin-top: 2%;
 }
-#icone-user-cadastro{
-    color: #0e2e54;
-    opacity: 0.7;
-    font-size: 20px;
-    margin-top: 6px;
-}
+
 .box2-cadastro{
     display: flex;
     padding: 10px;
@@ -225,11 +264,16 @@ body{
 
     border-radius: 20px 0px 0px 20px;
 }
+
 .botao-cadastro{
-    margin-top: 3vh;
-    width: 10vw;
-    height: 30px;
-    margin-left: 25%;
+    width: 100%;
+    max-width: 250px;
+    height: 40px;
+    margin: 25px auto 0;
+    display: block;
+
+    font-size: 1rem;
+    font-weight: 600;
 
     border: 1px solid #0d2a4d;
     border-radius: 20px;
@@ -237,27 +281,21 @@ body{
     color: #bcccdb;
     cursor: pointer;
 }
-#icone-envelope-cadastro{
-    color: #0d2c4f;
-    opacity: 0.7;
-    font-size: 20px;
-    margin-top: 6px;
-}
-#icone-senha-cadastro{
-    color: #0e2e54;
-    opacity: 0.7;
-    font-size: 20px;
-    margin-top: 6px;
-}
-.line-cadastro{
-    border-left: 1.5px solid #0e2e54;
-    margin-left: 5px;
-    height: 25px;
-    margin-top: 3px;
-    margin-bottom: 40px;
-    opacity: 0.7;
-}
+
 /* Transicao */
+
+.container-principal-login.loginActive .container-secundario-login{
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.container-principal-login.cadastroActive .container-secundario-cadastro{
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+}
+
 .container-principal-login.loginActive .box1-cadastro{
     opacity: 0;
     pointer-events: none;
@@ -305,133 +343,128 @@ body{
     transition: all .3s;
     transform: translateX(50%);
 }
+
 /* responsivo */
-@media (max-width: 850px){
-    .container-login{
-        height: 300px;
-    }
-    .img-login{
-        width: 280px;
-        height: 280px;
+
+@media (min-width: 769px) {
+    .container-principal-login {
+        min-height: 700px;
     }
 }
-@media (max-width: 650px){
-    .img-login{
-        width: 240px;
-        height: 240px;
-    }
-}
-@media (max-width: 500px){
-    .container-principal-login{
-        height: 40%;
-        background-color: none;
-    }
-    .container-secundario-login{
-       flex-direction: column-reverse;
-       width: 100%;
-       align-items: center;
-       justify-content: center;
-       height: 100%;
-    }
-    .container-secundario-cadastro{
-       flex-direction: column-reverse;
-       width: 100%;
-       align-items: center;
-       justify-content: center;
-       height: 100%;
-    }
-    .container-principal-login::before{
-       opacity: 0;
-    }
-    .container-principal-login.loginActive .box1-login{
+
+@media (max-width: 768px){
+    .container-principal-login {
         width: 100%;
-        height: 90%;
-        padding: 5px;
-        border-radius: 0px 0px 20px 20px;
+        min-height: auto; 
+        height: auto;
+        box-shadow: none;
+        border-radius: 15px;
     }
-    .container-principal-login.loginActive .box1-cadastro{
-        opacity: 0;
+
+
+    .container-principal-login::before {
+        display: none;
     }
-    .container-principal-login.loginActive .container-secundario-cadastro{
-        height: 0;
-    }
-    .container-principal-login.cadastroActive .box1-cadastro{
+
+  
+    .container-secundario-login,
+    .container-secundario-cadastro {
+        flex-direction: column;
+        position: relative;
         width: 100%;
-        height: 90%;
-        padding: 5px;
-        border-radius: 0px 0px 20px 20px;
+        height: auto;
+        border: none;
     }
-    #icone-voltar-login{
-        font-size: 5vw;
-        margin-left: 2%;
-    }
-    #icone-voltar-cadastro{
-        font-size: 5vw;
-        margin-left: 2%;
-    }
-    .box2-login{
+
+    .box1-login,
+    .box1-cadastro,
+    .box2-login,
+    .box2-cadastro {
         width: 100%;
-        height: 20%;
-        padding: 5px;
-        border-radius: 20px 20px 0px 0px;
-        transform: none;
-        background:linear-gradient(#1f5fa8,#0d2a4d);
+        transition: none !important;
+        transform: none !important;
     }
-    .box2-cadastro{
+
+    .box1-login, .box1-cadastro {
+        padding: 20px;
+        order: 2; 
+    }
+
+    .box2-login, .box2-cadastro {
+        height: 120px;
+        padding: 15px;
+        order: 1; 
+        background: linear-gradient(#1f5fa8, #0d2a4d);
+        border-radius: 15px 15px 0 0;
+    }
+
+    .img-login {
+        width: auto;
+        height: 100px; 
+    }
+
+    .titulo-login {
+        font-size: 1.8rem;
+        margin-right: 1.8rem;
+    }
+
+    .subtitulo-login {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    #icone-voltar-login, 
+    #icone-voltar-cadastro {
+        font-size: 1.8rem;
+        left: 15px;
+        color:#0d2a4d; 
+    }
+
+    .campos-login {
+        font-size: 1rem;
         width: 100%;
-        height: 20%;
-        padding: 5px;
-        border-radius: 20px 20px 0px 0px;
-        transform: none;
-        background:linear-gradient(#1f5fa8,#0d2a4d);
+        max-width: 100%;
     }
-    .titulo-login{
-        font-size: 15px;
+
+    .input-login {
+        width: 100%; 
+        height: 45px; 
     }
-    .subtitulo-login{
-        font-size: 10px;
+
+    .elementos-input {
+        top: 50%;
+        transform: translateY(-50%);
     }
-    .img-login{
-        width: 65px;
-        height: 65px;
+
+    .line-login, .line-cadastro {
+        height: 20px;
+        margin-top: 0;
     }
-    .campos-login{
-        font-size: 1.7vw;
+
+
+    .botao-login, 
+    .botao-cadastro {
+        margin-top: 20px;
+        width: 100%;
+        max-width: 100%;
+        height: 45px;
+        font-size: 1rem;
     }
-    .input-login{
-         width: 25vw;
-         height: 1.5vh;  
-    }
-    .line-login{
-        margin-left: 5px;
-        height: 15px;
-        margin-top: 5px;
-    }
-    #icone-user-cadastro{
-        font-size: 12px;
-        margin-top: 6px;
-    }
-    #icone-envelope{
-        font-size: 12px;
-        margin-top: 6px;
-    }
-    #icone-senha{
-        font-size: 12px;
-        margin-top: 6px;
-    }
-    .botao-login{
-        margin-top: 2vh;
-        width: 15vw;
-        height: 25px;
-        font-size: 10px;
-    }
-    .botao-cadastro{
-        margin-top: 2vh;
-        width: 18vw;
-        height: 25px;
-        font-size: 10px;
-    }
-    .texto-login{
-        font-size: 1.7vw;
+
+    .texto-login {
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 15px;
     }   
+
+    .container-principal-login.loginActive .container-secundario-cadastro {
+        display: none;
+    }
+    .container-principal-login.cadastroActive .container-secundario-login {
+        display: none;
+    }
+    .container-principal-login.loginActive .container-secundario-login,
+    .container-principal-login.cadastroActive .container-secundario-cadastro {
+        display: flex;
+    }
 }

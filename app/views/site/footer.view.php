@@ -1,7 +1,3 @@
-
-<!-- Filtro do modal -->
-<div class="filtro-footer" id="filtro"></div>
-
 <!-- Footer -->
 <footer> 
 
@@ -10,15 +6,15 @@
         <h1>Redes</h1>
         <div class="icones">
 
-            <a href="#">
+            <a href="https://www.facebook.com/codeempresajunior">
                 <i class="fab fa-facebook"></i>
             </a>
 
-            <a href="#">
+            <a href="https://www.instagram.com/codejr/">
                 <i class="fab fa-twitter"></i>
             </a>
 
-            <a href="#">
+            <a href="https://www.instagram.com/codejr/">
                 <i class="fab fa-instagram"></i>
             </a>
         </div>
@@ -29,43 +25,27 @@
         <a href="">
             <img class="logo_dexstroll_footer" src="../../../public/assets/dexstroll-logo.png" alt="Logo DexStroll">
         </a>
-        <a href="">
-            <img class="logo_code_footer" src="../../../public/assets/code-logo.png" alt="Logo CodeJR">
+        <a>
+            <img class="logo_code_footer" src="../../../public/assets/code-logo.png" alt="Logo CodeJR" id="easter-egg">
         </a>
     </div>
 
     <!-- Contato e Botao de politicas -->
-    <div class="contato-politica">
+    <div class="contato">
         <div class="contato">
             <h1>Contato</h1>
             <address class="contatos">
-                (00)0000-0000 <br>
-                email@email.com
+                Jão Victor Nicacio: <br>
+                (32)98823-2671 <br>
+                joaovictornicaciosilva@gmail.com <br>
+                <br>
+                José Simoes: <br>
+                (32)98420-0244 <br>
+                josesimoesk10@gmail.com
+
             </address>
         </div>
-        <div class="politica">
-            <button type="button" onclick="abrirModal('modal-visualizar')">Politicas</button>
-        </div>
     </div>
+
+    <script src="/public/js/footerEasterEgg.js"></script>
 </footer>
-
-
-<!-- Modal com missão, visão e valores -->
-<div class="modal-container" id="modal-visualizar">
-    <!-- Botão para fechar modal -->
-    <button class="fechar-modal" type="button" onclick="fecharModal('modal-visualizar')">X</button>
-    <div class="diretrizes">
-        <div class="conteudo-diretriz">
-            <h1>Missão</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tenetur iure magnam recusandae beatae, ipsam quas non voluptatem, harum cumque velit ullam consequatur soluta quo nihil similique. Architecto, labore nihil!</p>
-        </div>
-        <div class="conteudo-diretriz">
-            <h1>Visão</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum tempore distinctio et, explicabo officia magni? Ut sequi maiores, illo, impedit, quo dolorum at fugiat facere corporis perspiciatis quod reprehenderit dicta.</p>
-        </div>
-        <div class="conteudo-diretriz">
-            <h1>Valores</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium amet error voluptatem dicta odio dolor quo obcaecati magni explicabo quaerat velit, architecto reprehenderit saepe maiores pariatur, sapiente tempore. Natus, eius.</p>
-        </div>
-    </div>
-</div>

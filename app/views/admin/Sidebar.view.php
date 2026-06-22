@@ -31,13 +31,14 @@
             </li>
 
             <!-- Menu deshboard -->
-            <li>
-                <a href="/dashboard" class="sidebar-menus-links">
-                    <i class="material-icons">dashboard</i>
-                    <span class="descricao-menus">Dashboard</span>
-                </a>
-            </li>
-
+                <li>
+                    
+                    <a href="/dashboard" class="sidebar-menus-links">
+                        <i class="material-icons">dashboard</i>
+                        <span class="descricao-menus">Dashboard</span>
+                    </a>
+ 
+                </li>
             <!-- Menu lista de usuarios -->
             <li>
                 <a href="/usuarios" class="sidebar-menus-links">

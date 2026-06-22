@@ -7,16 +7,20 @@ use Exception;
 
 class PublicacoesController
 {
+
+    private function getCategorias()
+    {
+        return[
+            'Jogos',
+            'Notícias',
+            'Midia',
+            'Guia'
+        ];
+    }
+
     public function index()
     {
-        // $publicacoes = App::get('database')->selectAll('publicacao');
-
-        // return view('admin/pagina_publicacoes', ['publicacoes' => $publicacoes]);
-        // exit;
-
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
+        $this->auth();
 
         $usuarioLogado = App::get('database')->selectOne(
             'usuarios',
@@ -34,17 +38,47 @@ class PublicacoesController
 
         $offset = ($currentPage - 1) * $limit;
 
-        $totalPosts = $database->countAll('publicacao');
-        $totalPages = ceil($totalPosts/$limit);
 
-        $postsDoBanco = $database->paginate('publicacao',$limit,$offset);
+
+        $pesquisa = isset($_GET['pesquisa']) ? trim($_GET['pesquisa']) : '';
+
+        if($_SESSION['nivel_acesso'] === 'admin'){
+
+            if ($pesquisa !== '') {
+                $totalPosts = $database->countSearchposts('publicacao', $pesquisa);
+                $totalPages = ceil($totalPosts / $limit);
+                $postsDoBanco = $database->paginateSearchposts('publicacao', $pesquisa, $limit, $offset);
+            } 
+            else{
+                $totalPosts = $database->countAll('publicacao');
+                $totalPages = ceil($totalPosts/$limit);
+                $postsDoBanco = $database->paginate('publicacao',$limit,$offset);
+            }
+        }
+        else {
+            if ($pesquisa !== '') {
+                $totalPosts = $database->countSearchPostsByAutor($_SESSION['id'], $pesquisa);
+                $totalPages = ceil($totalPosts / $limit); 
+                
+                $postsDoBanco = $database->paginateSearchPostsByAutor($_SESSION['id'], $pesquisa, $limit, $offset);
+            } else {
+                $totalPosts = $database->countPostsByAutor($_SESSION['id']);
+                $totalPages = ceil($totalPosts / $limit); 
+                
+                $postsDoBanco = $database->paginatePostsByAutor($_SESSION['id'], $limit, $offset);
+            }
+        }
+
+        $categorias = $this->getCategorias();
 
         return view('admin/pagina_publicacoes', [
             'publicacoes' => $postsDoBanco,
             'currentPage' => $currentPage,
             'totalPage' => $totalPages,
             'totalPosts' => $totalPosts,
-            'usuarioLogado' => $usuarioLogado
+            'usuarioLogado' => $usuarioLogado,
+            'pesquisa' => $pesquisa,
+            'categorias' => $categorias
         ]);
 
         exit();
@@ -52,8 +86,22 @@ class PublicacoesController
 
     public function edit()
     {
+
+        $this->auth();
+
         $id = $_POST['id'];
         $post = App::get('database')->selectOne('publicacao', $id);
+
+        if (!$post) {
+            header('Location: /publicacoes?erro=post_nao_encontrado');
+            exit();
+        }
+
+        if ($_SESSION['nivel_acesso'] !== 'admin' && (int)$post->autor !== (int)$_SESSION['id']) {
+            header('Location: /publicacoes?erro=nao_autorizado');
+            exit();
+        }
+
         $caminhodaimagem = $post->imagem;
 
         if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
@@ -69,21 +117,21 @@ class PublicacoesController
 
         $parameters = [
             'titulo' => $_POST['titulo'],
-            'autor' => $_POST['autor'],
-            'data' => $_POST['data'],
+            'data' => date('Y-m-d'),
             'conteudo' => $_POST['conteudo'],
+            'categoria' => $_POST['categoria'],
             'curiosidade' => $_POST['curiosidade'],
             'imagem' => $caminhodaimagem
         ];
         
         App::get('database')->update('publicacao', $id, $parameters);
         header('Location: /publicacoes');
-        exit;
+        exit();
     }
 
     public function store()
     {
-        session_start();
+        $this->auth();
 
         $caminhodaimagem = null;
 
@@ -98,22 +146,31 @@ class PublicacoesController
         $parameters = [
             'titulo' => $_POST['titulo'],
             'autor' => $_SESSION['id'],
-            'data' => $_POST['data'],
+            'data' => date('Y-m-d'),
             'conteudo' => $_POST['conteudo'],
+            'categoria' => $_POST['categoria'],
             'curiosidade' => $_POST['curiosidade'],
             'imagem' => $caminhodaimagem
         ];
 
         App::get('database')->insert('publicacao', $parameters);
         header('Location: /publicacoes');
-        exit;
+        exit();
     }
 
     public function delete()
     {
+        $this->auth();
+
         $id = $_POST['id'];
 
         $post = App::get('database')->selectOne('publicacao', $id);
+
+        if ($_SESSION['nivel_acesso'] !== 'admin' && (int)$post->autor !== (int)$_SESSION['id']) {
+            header('Location: /publicacoes?erro=nao_autorizado');
+            exit();
+        }
+
         if($post && !empty($post->imagem) && file_exists($post->imagem)){
             unlink($post->imagem);
         }
@@ -121,11 +178,13 @@ class PublicacoesController
         App::get('database')->delete('publicacao', $id);
 
         header('Location: /publicacoes');
-        exit;
+        exit();
     }
 
     public function uploadImagem()
     {
+        $this->auth();
+
         if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
             $temporario = $_FILES['imagem']['tmp_name'];
             $nomeimagem = sha1(uniqid($_FILES['imagem']['name'], true)) . "." . pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
@@ -138,6 +197,100 @@ class PublicacoesController
         }
         http_response_code(400);
         echo "Erro ao fazer upload da imagem.";
-        exit;
+        exit();
+    }
+
+
+    //popula banco
+
+
+    public function popularPosts()
+    {
+        $this->adminOnly();
+
+        $categoriasEnum = ['Jogos','Notícias','Midia','Guias'];
+        // $categorias = $this->getCategorias();
+        
+        // aqui coloquei pra nao criar com uma mesma imagen
+        // renomeei pra ficar mais faicl de todo mundo se organizar nisso, pequeno detalhe extremamente irrelevvavnte, mas enfim
+        $imagens = [
+            'public/assets/imagensPosts/imagem1.jpg',
+            'public/assets/imagensPosts/imagem2.jpg',
+            'public/assets/imagensPosts/imagem3.jpg',
+            'public/assets/imagensPosts/imagem4.jpg',
+            'public/assets/imagensPosts/imagem5.jpg'
+        ];
+        $titulos = ['Quintino é um cara legal','O retorno da franquia', 'Nova atualização lançada', 'Guia para iniciantes', 'Melhores momentos do ano', 'Análise completa', 'O que esperar do futuro', 'Entrevista exclusiva', 'Rumores confirmados', 'Promoção imperdível', 'Dicas avançadas', 'DexStroll é o melhor blog'];
+        
+        $conteudos = [
+            '<p>Este é um post gerado automaticamente para testes. O conteúdo é apenas um texto genérico para preencher espaço no layout e testar a paginação e a exibição correta das tags HTML geradas pelo Summernote.</p>',
+            '<p>Pokemon é um tema muito legal e interessante pra muitosjovens por aí <b>A equipe de desenvolvimento</b> É  um universo enorme, não é pra qualquer um</p>',
+            '<p>Nem todo mundo gosta, mas é bem legal se pegar  umtempo pra jogar <i>Explorar bem o mapa</i> e entender as mecânicas básicas é essencial para o sucesso.</p>',
+            '<p>Todo mundo sabe que o Quintino pode dar trabalho às vezes,  mas se tiver paciencia ele até que é um  cara legal</p>',
+            '<p> '
+        ];
+        
+        $curiosidades = ['Sabia que o Quintino é um  cara  legal?', 'Este é um dos tópicos mais comentados do fórum.', 'O jogo original quase foi cancelado.', 'Foram encontrados vários easter eggs nesta versão.', 'Sabia que meu teclado está dando 2 espaços às vezes?'];
+
+        //cria 50  igual  a de usuarios
+        $quantidade = 50;
+
+        //loopzinho basico
+        for ($i = 0; $i < $quantidade; $i++) 
+        {
+
+            $titulo = $titulos[array_rand($titulos)] . ' #' . rand(100, 999);
+            
+
+            $data = date('Y-m-d', strtotime('-' . rand(0, 60) . ' days'));
+            
+
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+            $autorId = isset($_SESSION['id']) ? $_SESSION['id'] : 1;
+
+            
+
+
+
+            $parameters = [
+                'titulo'      => $titulo,
+                'autor'       => $autorId,
+                'data'        => $data,
+                'conteudo'    => $conteudos[array_rand($conteudos)],
+                'categoria'   => $categoriasEnum[array_rand($categoriasEnum)],
+                'curiosidade' => $curiosidades[array_rand($curiosidades)],
+            'imagem'      => $imagens[array_rand($imagens)]
+            //ajustei pra usar mais imagens de teste
+            ];
+
+
+            \App\Core\App::get('database')->insert('publicacao', $parameters);
+        }
+        header('Location: /publicacoes?sucesso=posts_populados');
+        exit();
+    }
+
+    private function auth()
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            exit;
+        }
+    }
+
+    private function adminOnly()
+    {
+        $this->auth();
+
+        if ($_SESSION['nivel_acesso'] !== 'admin') {
+            header('Location: /dashboard');
+            exit;
+        }
     }
 }

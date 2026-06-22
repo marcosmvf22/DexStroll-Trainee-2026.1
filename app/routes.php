@@ -8,14 +8,36 @@ use App\Core\Router;
 // lembra de rodar "composer dump-autoload" quando criar novos "controllers" 
 //  pra atualizar as classes, senao nao funciona  bem
 
-$router->get('', 'InitController@index');
-// aqui  é a raiz, ta definido  pra entrar na landingpage, obviamente
-// ele era  o "examplecontroller", renomeei para initcontroller
 
+//Rota da landing page
+$router->get('', 'InitController@index');
+
+
+//Rota da pagina de ultimas postagens
 $router->get('postspage', 'PostController@index');
 
+
+//Rota da pagina de visualização individual
 $router->get('postagem', 'postunicocontroller@index');
 
+//Rota da pokedex
+$router->get('pokedex', 'pokedexController@index');
+
+
+//Rotas do login
+$router->get('login', 'LoginController@login');
+
+$router->post('login', 'LoginController@efetuaLogin');
+
+$router->post('logout', 'LoginController@logout');
+
+$router->post('login/create', 'LoginController@store');
+
+//Rota da dashboard
+$router->get('dashboard', 'dashboardcontroller@index');
+
+
+//Rotas da lista de usuarios
 $router->get('usuarios', 'listadeusuarioscontroller@index');
 
 $router->post('usuarios/criar', 'listadeusuarioscontroller@create');
@@ -26,17 +48,21 @@ $router->post('usuarios/deletar', 'listadeusuarioscontroller@delete');
 
 $router->get('listadeposts' , 'PublicacoesController@index');
 
+
+//Rotas da lista de posts
 $router->get('publicacoes', 'PublicacoesController@index');
+
 $router->post('publicacoes/edit', 'PublicacoesController@edit');
+
 $router->post('publicacoes/store', 'PublicacoesController@store');
+
 $router->post('publicacoes/delete', 'PublicacoesController@delete');
+
 $router->post('publicacoes/upload-imagem', 'PublicacoesController@uploadImagem');
 
-//outra  OBS, pra  visualizar a pagina sem liveserver, só digitar /"url" pra ver a pagina especifica no  localhost
 
-$router->get('login', 'LoginController@login');
-$router->get('dashboard', 'LoginController@dashboard');
-$router->post('login', 'LoginController@efetuaLogin');
-$router->post('logout', 'LoginController@logout');
-$router->post('login/create', 'LoginController@store');
+//Funções de popular bancos 
 
+$router->get('usuarios/popular', 'listadeusuarioscontroller@popularBanco');
+
+$router->get('publicacoes/popular', 'PublicacoesController@popularPosts');

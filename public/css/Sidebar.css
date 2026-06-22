@@ -101,7 +101,6 @@ a{
     width: 64px;
     height: 64px;
     object-fit: cover;
-    min-width: 3rem;
 }
 
 .info-perfilUsuario p{
@@ -250,7 +249,11 @@ a{
 
     .sidebar-bottom{
         align-items: center;
-        width: auto;
+    }
+
+    .imagem-usuario-sidebar{
+        width: 54px;
+        height: 54px;
     }
 
     /* Faz perfil aparece em cima de logout */

@@ -10,7 +10,12 @@ class InitController
 
     public function index()
     {
-        return view('site/landingpage');
+        $limit = 10;
+
+        $ultimasPublicacoes = App::get('database')->ultimasPublicacoes($limit);
+        return view('site/landingpage', [
+            'ultimasPublicacoes' => $ultimasPublicacoes
+        ]);
         
     }
 }
