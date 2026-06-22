@@ -73,8 +73,11 @@
                         <?php foreach ($publicacoes as $publicacao): ?>
                             <tr>
                                 <td class="dado_id_admin"><?= $publicacao->id ?></td>
-                                <td class="dado_titulo_admin"><?= $publicacao->titulo ?></td>
-                                <td class="dado_autor_admin"><?= $publicacao->autor ?></td>
+                                <td class="dado_titulo_admin"><?= htmlspecialchars(substr($publicacao->titulo, 0, 50)) . (strlen($publicacao->titulo) > 50 ? '...' : '') ?></td>
+                                <td class="dado_autor_admin"> <?= $publicacao->autor ?></td>
+
+
+
                                 <td class="dado_categoria_admin"><?= $publicacao->categoria ?> </td>
                                 <td class="dado_data_criacao_admin"><?= date('d/m/Y', strtotime($publicacao->data)) ?></td>
                                 <td class="celula-acoes-admin">

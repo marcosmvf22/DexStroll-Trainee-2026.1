@@ -26,7 +26,14 @@
     align-items: center;
     min-height: 100vh;
 }
+.dado_titulo_admin{
+display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .pagina-publicacao{
     width: 100%;
     max-width: 85vw;
