@@ -302,6 +302,9 @@
         visibility: visible;
         pointer-events: auto;
     }
+    .input-busca-admin::placeholder{
+       color: transparent;
+    }
 }
 
 .botoes-nav a{
