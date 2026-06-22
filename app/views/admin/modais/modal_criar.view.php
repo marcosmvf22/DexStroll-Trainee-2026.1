@@ -31,21 +31,14 @@
         <div class="grupo-inputs-modal">
             <h3>Curiosidade do post</h3>
 
-            <!-- To-do: REFATORAR JS E REMOVER FUNÇÃO DE TOGGLE! -->
-            <!-- <div class="opcao-checkbox-container">
+            <div class="opcao-checkbox-container">
                 <label class="checkbox-container">
                     <input type="checkbox" id="toggle-curiosidade">
-                    <span>Adicionar curiosidade</span>
+                    <span class="checkbox-label-text">Adicionar curiosidade?</span>
                 </label>
             </div>
  
-            <div class="input-container-curiosidade">
-                <label for="input-curiosidade" class="label-modal-criar">Curiosidade:</label>
-                <input type="text" id="input-curiosidade" class="input-modal-criar" rows=10 columns=10 name="curiosidade" placeholder="Digite o texto da curiosidade...">
-            </div> -->
-
-            
-            <textarea class="input-curiosidades-modal" name="curiosidade"> </textarea>
+            <textarea class="input-curiosidades-modal escondido" name="curiosidade" id="input-curiosidades-modal"> </textarea>
         </div>
         
         <div class="grupo-inputs-modal">

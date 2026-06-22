@@ -1,6 +1,6 @@
 const filtro = document.querySelector('#filtroFundoModal');
 const toggleCuriosidade = document.querySelector('#toggle-curiosidade');
-const grupoCuriosidade = document.querySelector('#input-container-curiosidade')
+const grupoCuriosidade = document.querySelector('#input-curiosidades-modal')
 
 function abrirModal(idModal){
     const modal = document.getElementById(idModal);
@@ -26,5 +26,13 @@ document.getElementById('input-imagemModalCriar').addEventListener('change', fun
         };
 
         reader.readAsDataURL(file);
+    }
+});
+
+toggleCuriosidade.addEventListener('change', function() {
+    if (this.checked) {
+        grupoCuriosidade.style.display = "block";
+    } else {
+        grupoCuriosidade.style.display = "none";
     }
 });

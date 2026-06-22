@@ -510,6 +510,31 @@
     border-radius: 30px;
     border: 2px solid #F5F7FA;
 }
+
+.checkbox-container {
+    display: flex;         
+    flex-direction: row;  
+    align-items: center;  
+    gap: 8px;             
+    cursor: pointer;      
+
+    font-size: 16px;
+    font-weight: bold;
+    color: #1a202c;        
+}
+
+
+#toggle-curiosidade {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.escondido{
+    display: none;
+}
+
 /* Modal editar */
 .modal-editar-publicacao{
     display: none;
@@ -570,6 +595,8 @@
     border-radius: 30px;
     border: 2px solid #F5F7FA;
 }
+
+
 @media (max-width: 1150px){
     /* Modal visualizar */
     .box2-modal{
