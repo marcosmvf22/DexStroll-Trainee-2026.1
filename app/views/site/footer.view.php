@@ -35,11 +35,11 @@
         <div class="contato">
             <h1>Contato</h1>
             <address class="contatos">
-                Jão Victor Nicacio: <br>
+                João Victor Nicácio: <br>
                 (32)98823-2671 <br>
                 joaovictornicaciosilva@gmail.com <br>
                 <br>
-                José Simoes: <br>
+                José Simões: <br>
                 (32)98420-0244 <br>
                 josesimoesk10@gmail.com
 
